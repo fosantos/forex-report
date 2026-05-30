@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forex Report - Professional Trading Insights</title>
+    <meta name="description" content="Daily expert fundamental and technical analysis for major Forex pairs. Stay ahead of market movements.">
+    <!-- Google Fonts: Inter for sleek modern typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           1. MODERN DESIGN SYSTEM & CUSTOM PROPERTIES (CSS VARIABLES)
+           ========================================================================== */
+        :root {
+            /* Color Palette */
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --border-color: #e2e8f0;
+            --text-primary: #0f172a; /* Slate 900 */
+            --text-secondary: #475569; /* Slate 600 */
+            --text-muted: #64748b; /* Slate 500 */
+            
+            --color-primary: #2563eb; /* Royal Blue */
+            --color-primary-hover: #1d4ed8;
+            --color-primary-light: #eff6ff;
+            
+            --color-success: #10b981; /* Emerald Green */
+            --color-success-bg: #ecfdf5;
+            --color-success-border: #a7f3d0;
+            
+            --color-danger: #ef4444; /* Rose Red */
+            --color-danger-bg: #fef2f2;
+            --color-danger-border: #fecaca;
+            
+            --color-warning: #f59e0b; /* Amber */
+            --color-warning-bg: #fffbeb;
+            --color-warning-border: #fde68a;
+            
+            --color-neutral-dark: #334155;
+            --color-neutral-light: #f1f5f9;
+            
+            /* Typography & Shadows */
+            --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+            --shadow-premium: 0 20px 25px -5px rgba(0, 0, 0, 0.07), 0 8px 10px -6px rgba(0, 0, 0, 0.07);
+            
+            /* Transitions */
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ==========================================================================
+           2. BASE STYLES & RESET
+           ========================================================================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding-bottom: 2rem;
+        }
+
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        a:hover {
+            color: var(--color-primary-hover);
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-family: var(--font-family);
+            transition: var(--transition-smooth);
+        }
+
+        /* Responsive Layout Container */
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+
+        /* ==========================================================================
+           3. CADASTRAL HEADER (HEADER)
+           ========================================================================== */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+            transition: var(--transition-smooth);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Logo Brand Style */
+        .brand-logo {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            letter-spacing: -0.03em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .brand-logo span {
+            color: var(--text-primary);
+        }
+
+        /* Header Actions (Language selector + Donation Button) */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        /* Elegant Language Dropdown Custom Selector */
+        .lang-selector-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .lang-select {
+            padding: 0.4rem 1.75rem 0.4rem 0.75rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            background-color: var(--color-neutral-light);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            appearance: none;
+            -webkit-appearance: none;
+            outline: none;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .lang-select:hover {
+            color: var(--text-primary);
+            border-color: var(--text-muted);
+            background-color: #e2e8f0;
+        }
+
+        .lang-select-arrow {
+            position: absolute;
+            right: 0.65rem;
+            pointer-events: none;
+            fill: var(--text-secondary);
+            width: 10px;
+            height: 10px;
+        }
+
+        /* Premium Header Support Button */
+        .btn-header-support {
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 0.5rem 1rem;
+            background-color: var(--color-primary-light);
+            color: var(--color-primary);
+            border: 1px solid rgba(37, 99, 235, 0.15);
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .btn-header-support:hover {
+            background-color: var(--color-primary);
+            color: #ffffff;
+            box-shadow: var(--shadow-sm);
+            transform: translateY(-1px);
+        }
+
+        .btn-header-support:active {
+            transform: translateY(0);
+        }
+
+        /* ==========================================================================
+           4. ADVERTISEMENT PLACEHOLDERS (CRO / MONETIZATION)
+           ========================================================================== */
+        .adsense-placeholder {
+            margin: 1.5rem auto;
+            background-color: #f1f5f9;
+            border: 1px dashed var(--border-color);
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .adsense-placeholder::before {
+            content: attr(data-label);
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        /* Standard Ad Sizes: Responsive behavior */
+        .ad-top {
+            width: 100%;
+            min-height: 50px;
+            max-width: 320px; /* Mobile size default */
+        }
+
+        @media (min-width: 768px) {
+            .ad-top {
+                max-width: 728px;
+                min-height: 90px; /* Desktop Leaderboard */
+            }
+        }
+
+        /* Auto-hide helper if scripts inject real ads and elements aren't empty */
+        .adsense-placeholder:not(:empty) {
+            border: none;
+            background: transparent;
+            min-height: auto;
+        }
+        .adsense-placeholder:not(:empty)::before {
+            display: none;
+        }
+
+        /* ==========================================================================
+           5. HERO SECTION & TYPOGRAPHY
+           ========================================================================== */
+        .hero {
+            text-align: center;
+            margin: 1.5rem 0 2rem 0;
+        }
+
+        .hero h1 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.04em;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ==========================================================================
+           6. MAIN SELECTOR & VALUE PROPOSITION
+           ========================================================================== */
+        .selector-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 1.5rem;
+            transition: var(--transition-smooth);
+        }
+
+        .selector-card:hover {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .selector-label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .currency-select-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .currency-select {
+            width: 100%;
+            padding: 1rem 3rem 1rem 1.25rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            background-color: var(--color-neutral-light);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            appearance: none;
+            -webkit-appearance: none;
+            outline: none;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .currency-select:focus {
+            border-color: var(--color-primary);
+            background-color: #ffffff;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+        }
+
+        .currency-select-arrow {
+            position: absolute;
+            right: 1.25rem;
+            pointer-events: none;
+            fill: var(--text-primary);
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ==========================================================================
+           7. DYNAMIC FOREX REPORT LAYOUT (CRO CENTER)
+           ========================================================================== */
+        .report-container {
+            display: none; /* Controlled via JS load */
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            box-shadow: var(--shadow-premium);
+            overflow: hidden;
+            margin-bottom: 2rem;
+            animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Report Header */
+        .report-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            background: linear-gradient(to bottom, #ffffff, #fafafa);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        @media (min-width: 576px) {
+            .report-header {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        .pair-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .pair-icon-wrapper {
+            background-color: var(--color-primary-light);
+            border-radius: 10px;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-primary);
+        }
+
+        .pair-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .pair-quote {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-top: 0.1rem;
+        }
+
+        .pair-quote span {
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* Bias Badges */
+        .bias-badge {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.8rem;
+            font-weight: 800;
+            padding: 0.45rem 0.85rem;
+            border-radius: 30px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .bias-bullish {
+            background-color: var(--color-success-bg);
+            color: var(--color-success);
+            border: 1px solid var(--color-success-border);
+        }
+
+        .bias-bearish {
+            background-color: var(--color-danger-bg);
+            color: var(--color-danger);
+            border: 1px solid var(--color-danger-border);
+        }
+
+        .bias-neutral-bullish {
+            background-color: var(--color-warning-bg);
+            color: var(--color-warning);
+            border: 1px solid var(--color-warning-border);
+        }
+
+        .bias-neutral-bearish {
+            background-color: #f3e8ff;
+            color: #7c3aed;
+            border: 1px solid #ddd6fe;
+        }
+
+        /* Report Body Sections */
+        .report-body {
+            padding: 1.5rem;
+        }
+
+        .report-section {
+            margin-bottom: 1.75rem;
+        }
+
+        .report-section:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            border-left: 4px solid var(--color-primary);
+            padding-left: 0.75rem;
+            margin-bottom: 0.85rem;
+        }
+
+        .section-content {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            text-align: justify;
+        }
+
+        /* Technical Grid Specs */
+        .technical-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        @media (min-width: 576px) {
+            .technical-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .tech-box {
+            background-color: var(--color-neutral-light);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1rem;
+        }
+
+        .tech-box-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .tech-box-value {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* Strategic Setup Card (Visual Anchor) */
+        .verdict-card {
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-top: 1rem;
+            border-left: 5px solid var(--color-primary);
+        }
+
+        .verdict-card.verdict-wait {
+            background-color: var(--color-warning-bg);
+            border-left-color: var(--color-warning);
+        }
+
+        .verdict-card.verdict-sell {
+            background-color: var(--color-danger-bg);
+            border-left-color: var(--color-danger);
+        }
+
+        .verdict-card.verdict-buy {
+            background-color: var(--color-success-bg);
+            border-left-color: var(--color-success);
+        }
+
+        .verdict-badge {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            margin-bottom: 0.75rem;
+        }
+
+        .verdict-badge.wait { background: #fef3c7; color: #b45309; }
+        .verdict-badge.sell { background: #fee2e2; color: #b91c1c; }
+        .verdict-badge.buy { background: #d1fae5; color: #047857; }
+
+        .setup-metrics {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+            margin: 1rem 0;
+        }
+
+        @media (min-width: 576px) {
+            .setup-metrics {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .metric-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding-bottom: 0.4rem;
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .metric-value {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .ratio-bar-wrapper {
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .ratio-bar-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 0.25rem;
+        }
+
+        .ratio-bar-container {
+            width: 100%;
+            height: 8px;
+            background-color: rgba(0, 0, 0, 0.06);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .ratio-bar-fill {
+            height: 100%;
+            background-color: var(--color-primary);
+            border-radius: 10px;
+            transition: var(--transition-smooth);
+        }
+
+
+
+        /* ==========================================================================
+           9. DONATION & CONVERSION BLOCK (BUY ME A COFFEE CTA)
+           ========================================================================== */
+        .donation-section {
+            background: linear-gradient(135deg, var(--color-success-bg) 0%, #dcfce7 100%);
+            border: 1px solid rgba(16, 185, 129, 0.15);
+            border-radius: 16px;
+            padding: 1.75rem;
+            text-align: center;
+            margin: 2.5rem 0;
+            box-shadow: var(--shadow-md);
+        }
+
+        .donation-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .donation-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+            max-width: 580px;
+            margin: 0 auto 1.25rem auto;
+        }
+
+        /* Authentic Stylized Buy Me A Coffee Button */
+        .btn-bmc {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            padding: 0.8rem 1.5rem;
+            background-color: #FFDD00;
+            color: #000000;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(255, 221, 0, 0.35);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-bmc:hover {
+            background-color: #ffea5c;
+            box-shadow: 0 6px 18px rgba(255, 221, 0, 0.5);
+            transform: translateY(-2px);
+            color: #000000;
+        }
+
+        .btn-bmc:active {
+            transform: translateY(0);
+        }
+
+        .btn-bmc svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        /* ==========================================================================
+           10. INSTITUTIONAL FOOTER & COMPLIANCE
+           ========================================================================== */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 0 1.5rem 0;
+            text-align: center;
+        }
+
+        .footer-disclaimer {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .footer-link:hover {
+            color: var(--color-primary);
+            text-decoration: underline;
+        }
+
+        .footer-copyright {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* ==========================================================================
+           11. ACCESSIBLE MODALS FOR COMPLIANCE (ADSENSE REQUIRED)
+           ========================================================================== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-card {
+            background-color: var(--bg-card);
+            border-radius: 16px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80%;
+            overflow-y: auto;
+            padding: 2rem;
+            box-shadow: var(--shadow-premium);
+            border: 1px solid var(--border-color);
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.25s ease;
+        }
+
+        .modal.active .modal-card {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            color: var(--text-muted);
+            padding: 0.25rem;
+        }
+
+        .modal-close:hover {
+            color: var(--text-primary);
+        }
+
+        .modal-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 1.25rem;
+            border-bottom: 2px solid var(--color-primary-light);
+            padding-bottom: 0.5rem;
+        }
+
+        .modal-body {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .modal-body p {
+            margin-bottom: 1rem;
+        }
+
+        .modal-body h4 {
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 1.25rem 0 0.5rem 0;
+        }
+
+        .btn-modal-close {
+            display: block;
+            width: 100%;
+            margin-top: 1.5rem;
+            padding: 0.75rem;
+            background-color: var(--color-neutral-light);
+            color: var(--text-primary);
+            font-weight: 700;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .btn-modal-close:hover {
+            background-color: var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 3. HEADER -->
+    <header class="site-header">
+        <div class="container header-content">
+            <!-- Textual Brand Logo -->
+            <a href="#" class="brand-logo" id="headerLogo">
+                FOREX<span>REPORT</span>
+            </a>
+            
+            <div class="header-actions">
+                <!-- Dropdown Language Selector -->
+                <div class="lang-selector-wrapper">
+                    <select class="lang-select" id="langSelect" aria-label="Language Selector">
+                        <option value="en">EN</option>
+                        <option value="pt">PT</option>
+                    </select>
+                    <!-- Small SVG arrow for selector styling -->
+                    <svg class="lang-select-arrow" viewBox="0 0 20 20">
+                        <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                    </svg>
+                </div>
+                
+                <!-- Support Project Button -->
+                <button class="btn-header-support" id="supportHeaderBtn" onclick="scrollToDonation()"></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- 4. TOP ADVERTISEMENT BANNER -->
+        <div class="adsense-placeholder ad-top" id="topAd" data-label=""></div>
+
+        <!-- 5. HERO HEADER -->
+        <section class="hero">
+            <h1 id="heroTitle"></h1>
+            <p id="heroSubtitle"></p>
+            <p id="generationTime" style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.65rem; font-weight: 600; background-color: var(--color-primary-light); color: var(--color-primary); display: inline-block; padding: 0.3rem 0.85rem; border-radius: 20px; border: 1px solid rgba(37, 99, 235, 0.1);"></p>
+        </section>
+
+        <!-- 6. CURRENCY PAIR SELECTOR -->
+        <section class="selector-card">
+            <label class="selector-label" for="pairSelect" id="selectorLabelText"></label>
+            <div class="currency-select-wrapper">
+                <select class="currency-select" id="pairSelect">
+                    <option value="USD/JPY">USD/JPY</option>
+                    <option value="EUR/USD">EUR/USD</option>
+                    <option value="GBP/USD">GBP/USD</option>
+                </select>
+                <!-- Large SVG arrow for currency select styling -->
+                <svg class="currency-select-arrow" viewBox="0 0 20 20">
+                    <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                </svg>
+            </div>
+        </section>
+
+        <!-- 7. DYNAMIC FOREX REPORT -->
+        <article class="report-container" id="reportContainer">
+            <!-- Dynamic header loaded via JS -->
+            <div class="report-header" id="reportHeader"></div>
+            
+            <div class="report-body">
+                <!-- Section 1: Fundamental -->
+                <section class="report-section">
+                    <h3 class="section-title" id="secTitleFundamental"></h3>
+                    <div class="section-content" id="reportFundamental"></div>
+                </section>
+
+                <!-- Section 2: Technical -->
+                <section class="report-section">
+                    <h3 class="section-title" id="secTitleTechnical"></h3>
+                    
+                    <div class="technical-grid">
+                        <div class="tech-box">
+                            <div class="tech-box-label" id="labelTrend"></div>
+                            <div class="tech-box-value" id="reportTrend"></div>
+                        </div>
+                        <div class="tech-box">
+                            <div class="tech-box-label" id="labelLiquidity"></div>
+                            <div class="tech-box-value" style="display: flex; flex-direction: column; gap: 0.4rem;">
+                                <div style="font-size: 0.85rem;"><span id="subLabelSupport" style="font-weight: 500; color: var(--text-secondary);"></span> <strong id="reportSupport"></strong></div>
+                                <div style="font-size: 0.85rem;"><span id="subLabelResistance" style="font-weight: 500; color: var(--text-secondary);"></span> <strong id="reportResistance"></strong></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-box">
+                        <div class="tech-box-label" id="labelPriceAction"></div>
+                        <div class="section-content" id="reportPriceAction" style="font-size: 0.9rem;"></div>
+                    </div>
+                </section>
+
+                <!-- Section 3: Strategic Verdict & Setup -->
+                <section class="report-section">
+                    <h3 class="section-title" id="secTitleVerdict"></h3>
+                    
+                    <div class="verdict-card" id="verdictCardElement">
+                        <span class="verdict-badge" id="reportVerdictBadge"></span>
+                        
+                        <div class="setup-metrics">
+                            <div class="metric-item">
+                                <span class="metric-label" id="labelTrigger"></span>
+                                <span class="metric-value" id="reportTrigger"></span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label" id="labelStop"></span>
+                                <span class="metric-value" id="reportStop" style="color: var(--color-danger);"></span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label" id="labelTarget"></span>
+                                <span class="metric-value" id="reportTarget" style="color: var(--color-success);"></span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label" id="labelRR"></span>
+                                <span class="metric-value" id="reportRR"></span>
+                            </div>
+                        </div>
+
+                        <!-- Interactive R&R Visual Bar -->
+                        <div class="ratio-bar-wrapper">
+                            <div class="ratio-bar-label">
+                                <span id="labelRatioProgress">RISK / REWARD SYMMETRY</span>
+                                <span id="reportRRText"></span>
+                            </div>
+                            <div class="ratio-bar-container">
+                                <div class="ratio-bar-fill" id="reportRRBar"></div>
+                            </div>
+                        </div>
+
+                        <div class="tech-box-label" id="labelJustification" style="margin-top: 1.25rem; margin-bottom: 0.25rem;"></div>
+                        <div class="section-content" id="reportJustification" style="font-size: 0.9rem; font-style: italic;"></div>
+                    </div>
+                </section>
+
+
+            </div>
+        </article>
+
+        <!-- 9. DONATION CALL-TO-ACTION SECTION -->
+        <section class="donation-section" id="donationSection">
+            <h2 class="donation-title">
+                <span id="supportTitleText"></span>
+            </h2>
+            <p class="donation-desc" id="supportDescText"></p>
+            
+            <!-- Authentic Buy Me a Coffee Button -->
+            <a href="https://www.buymeacoffee.com/yourusername" target="_blank" rel="noopener" class="btn-bmc">
+                <svg fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.216 6.415a2.584 2.584 0 0 0-2.58-2.58H3.366A2.584 2.584 0 0 0 .786 6.415v6.52c0 2.113 1.554 3.882 3.61 4.221l.6 4.195a2.58 2.58 0 0 0 2.551 2.215h7.168a2.58 2.58 0 0 0 2.551-2.215l.6-4.195c2.056-.34 3.61-2.108 3.61-4.22v-6.52a2.58 2.58 0 0 0-.26-1.216zm-3.92 11.23H6.963a.86.86 0 0 1-.85-.739l-.666-4.662H18l-.666 4.662a.86.86 0 0 1-.85.739zM18.847 11.4H4.366V6.415h14.48zM22.07 9.9c0-1.38-.838-2.5-2.07-2.5h-1.157v5h1.157c1.232 0 2.07-1.12 2.07-2.5z"/>
+                </svg>
+                <span id="bmcBtnText"></span>
+            </a>
+        </section>
+    </main>
+
+    <!-- 10. COMPLIANCE & INSTITUTIONAL FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-disclaimer" id="footerDisclaimerText"></p>
+            
+            <div class="footer-links">
+                <a href="#" class="footer-link" onclick="openModal('disclaimerModal'); return false;" id="disclaimerLinkText"></a>
+                <a href="#" class="footer-link" onclick="openModal('privacyModal'); return false;" id="privacyLinkText"></a>
+            </div>
+            
+            <p class="footer-copyright">
+                &copy; 2026 Forex Report. <span id="copyrightRightsText"></span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- ==========================================================================
+       11. COMPLIANCE MODALS (GOOGLE ADSENSE ESSENTIALS)
+       ========================================================================== */ -->
+    
+    <!-- Disclaimer Modal -->
+    <div class="modal" id="disclaimerModal" onclick="closeModalOnOutsideClick(event, 'disclaimerModal')">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeModal('disclaimerModal')" aria-label="Close modal">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+            <h3 class="modal-title" id="modalDisclaimerTitle"></h3>
+            <div class="modal-body" id="modalDisclaimerBody"></div>
+            <button class="btn-modal-close" onclick="closeModal('disclaimerModal')" id="modalDisclaimerCloseBtn"></button>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div class="modal" id="privacyModal" onclick="closeModalOnOutsideClick(event, 'privacyModal')">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeModal('privacyModal')" aria-label="Close modal">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+            <h3 class="modal-title" id="modalPrivacyTitle"></h3>
+            <div class="modal-body" id="modalPrivacyBody"></div>
+            <button class="btn-modal-close" onclick="closeModal('privacyModal')" id="modalPrivacyCloseBtn"></button>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+       12. INTERACTION ENGINE & TRANSLATIONS (JAVASCRIPT)
+       ========================================================================== */ -->
+    <script>
+        /* ==========================================
+           A. Multi-Language Strings (i18n Dictionary)
+           ========================================== */
+        const i18n = {
+            en: {
+                title: "Forex Report",
+                subtitle: "Daily analysis of the best pairs to trade",
+                generatedAt: "Reports generated on: May 30, 2026 at 19:22 (GMT)",
+                supportBtn: "Support Project",
+                adPlaceholder: "Space reserved for Google AdSense / Banner",
+                selectPair: "Select Currency Pair to Analyze",
+                supportTitle: "Support Our Project ☕",
+                supportDesc: "Our reports are updated daily and are completely free. If our analysis helps you make better decisions, consider supporting us to keep the site active and free of premium subscriptions!",
+                bmcBtn: "Buy me a coffee",
+                footerDisclaimer: "Disclaimer: Forex trading involves significant risk. Leverage can work against you. Past results do not guarantee future performance. Content is purely educational and does not constitute financial advice.",
+                privacyLink: "Privacy Policy",
+                disclaimerLink: "Legal Disclaimer",
+                allRights: "All rights reserved.",
+                loading: "Loading report...",
+                
+                // Details Labels
+                biasLabel: "Market Bias",
+                fundamentalTab: "1. Fundamental & Macro Flow",
+                technicalTab: "2. Technical Architecture (Daily/Weekly Chart)",
+                verdictTab: "3. Strategic Verdict & Trade Setup",
+                
+                quoteLabel: "Current Quote",
+                trendLabel: "Main Trend",
+                liquidityLabel: "Critical Liquidity Zones",
+                supportLabel: "Nearest Macro Support:",
+                resistanceLabel: "Nearest Macro Resistance:",
+                priceActionLabel: "Price Action Behavior",
+                
+                recLabel: "Recommendation",
+                triggerLabel: "Entry Trigger",
+                stopLabel: "Stop Loss (Invalidation)",
+                targetLabel: "Take Profit (Target)",
+                rrLabel: "Risk/Reward Ratio",
+                justificationLabel: "Final Justification",
+                
+                // Recommendations translation helper
+                "AGUARDAR OUTRO GATILHO": "WAIT FOR ANOTHER TRIGGER",
+                "VENDA (SHORT) NA RETRAÇÃO": "SELL (SHORT) ON PULLBACK",
+                "COMPRA (LONG) NO ROMPIMENTO": "BUY (LONG) ON BREAKOUT",
+                
+                // Bias translation helper
+                "NEUTRO / ALTA": "NEUTRAL / BULLISH",
+                "NEUTRO / BAIXA": "NEUTRAL / BEARISH",
+                "ALTA": "BULLISH",
+                "BAIXA": "BEARISH",
+
+                // Modals
+                modalDisclaimerTitle: "Legal Disclaimer & Risk Disclosure",
+                modalDisclaimerClose: "I Understand & Accept",
+                modalDisclaimerContent: `
+                    <p><strong>Please read this risk disclosure carefully before using our website.</strong></p>
+                    <p>Trading foreign exchange (Forex) on margin carries a high level of risk and may not be suitable for all investors. The high degree of leverage can work against you as well as for you. Before deciding to trade foreign exchange, you should carefully consider your investment objectives, level of experience, and risk appetite.</p>
+                    <h4>1. Not Financial Advice</h4>
+                    <p>All content, analyses, strategic setups, trade ideas, and articles published on Forex Report are provided for educational and informational purposes only. Nothing contained herein constitutes, or should be construed as, investment advice, financial recommendations, or an offer or solicitation to buy or sell any currency pair.</p>
+                    <h4>2. Accuracy of Information</h4>
+                    <p>While we strive to provide highly accurate, timely, and logical market analyses, Forex Report does not guarantee the accuracy, completeness, or timeliness of the information. Markets move fast, and fundamentals change rapidly. Any reliance you place on such information is strictly at your own risk.</p>
+                    <h4>3. Potential Losses</h4>
+                    <p>Forex trading can result in substantial or complete loss of funds. You should never trade with capital that you cannot afford to lose. Past performance of any setup or strategy is not indicative of future trading results.</p>
+                `,
+                modalPrivacyTitle: "Privacy Policy",
+                modalPrivacyClose: "Close Policy",
+                modalPrivacyContent: `
+                    <p>Your privacy is extremely important to us. This Privacy Policy outlines how Forex Report collects, uses, and safeguards your information.</p>
+                    <h4>1. Information Collection</h4>
+                    <p>We do not require users to register or provide any personal information to read our daily reports. The website runs locally or statically to deliver instant trading value.</p>
+                    <h4>2. Google AdSense & Cookies</h4>
+                    <p>This site may be structured for Google AdSense monetization. Third-party vendors, including Google, use cookies to serve ads based on your prior visits to this website or other websites. Google's use of advertising cookies enables it and its partners to serve ads based on your visit to our site and/or other sites on the Internet.</p>
+                    <p>You may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank">Google Ads Settings</a>.</p>
+                    <h4>3. External Affiliate Links</h4>
+                    <p>We may display external promotional banners or affiliate links to recommended trading brokers. Clicking these links will direct you to third-party broker systems. We are not responsible for their terms of service, privacy practices, or trading platform executions.</p>
+                `
+            },
+            pt: {
+                title: "Relatório Forex",
+                subtitle: "Relatório dos melhores pares para operar",
+                generatedAt: "Relatórios gerados em: 30 de Maio de 2026 às 19:22 (GMT)",
+                supportBtn: "Apoie o Projeto",
+                adPlaceholder: "Espaço reservado para Anúncio Google AdSense / Banner",
+                selectPair: "Selecione o Par de Moedas para Analisar",
+                supportTitle: "Apoie o Nosso Projeto ☕",
+                supportDesc: "Os nossos relatórios são atualizados diariamente e são totalmente gratuitos. Se as nossas análises o ajudam a tomar melhores decisões, considere apoiar-nos para manter o site ativo e livre de assinaturas pagas!",
+                bmcBtn: "Apoie-nos com um Café",
+                footerDisclaimer: "Aviso: O mercado de câmbio (Forex) envolve riscos significativos. A alavancagem pode funcionar contra si. Resultados passados não garantem lucros futuros. O conteúdo é meramente educativo e não constitui aconselhamento financeiro.",
+                privacyLink: "Política de Privacidade",
+                disclaimerLink: "Aviso Legal",
+                allRights: "Todos os direitos reservados.",
+                loading: "A carregar relatório...",
+                
+                // Details Labels
+                biasLabel: "Viés de Mercado",
+                fundamentalTab: "1. Panorama Fundamentalista & Fluxo Macro",
+                technicalTab: "2. Arquitetura Técnica (Gráfico Diário/Semanal)",
+                verdictTab: "3. Veredito Estratégico & Sugestão de Operação",
+                
+                quoteLabel: "Cotação Atual",
+                trendLabel: "Tendência Principal",
+                liquidityLabel: "Zonas de Liquidez Críticas",
+                supportLabel: "Suporte Macro mais próximo:",
+                resistanceLabel: "Resistência Macro mais próxima:",
+                priceActionLabel: "Comportamento do Preço (Price Action)",
+                
+                recLabel: "Recomendação",
+                triggerLabel: "Gatilho de Entrada",
+                stopLabel: "Invalidação Técnica (Stop Loss)",
+                targetLabel: "Alvo de Saída (Take Profit)",
+                rrLabel: "Relação Risco/Retorno",
+                justificationLabel: "Justificativa Final",
+                
+                // Recommendations translation helper
+                "AGUARDAR OUTRO GATILHO": "AGUARDAR OUTRO GATILHO",
+                "VENDA (SHORT) NA RETRAÇÃO": "VENDA (SHORT) NA RETRAÇÃO",
+                "COMPRA (LONG) NO ROMPIMENTO": "COMPRA (LONG) NO ROMPIMENTO",
+                
+                // Bias translation helper
+                "NEUTRO / ALTA": "NEUTRO / ALTA",
+                "NEUTRO / BAIXA": "NEUTRO / BAIXA",
+                "ALTA": "ALTA",
+                "BAIXA": "BAIXA",
+
+                // Modals
+                modalDisclaimerTitle: "Aviso Legal & Divulgação de Risco",
+                modalDisclaimerClose: "Compreendo e Aceito",
+                modalDisclaimerContent: `
+                    <p><strong>Por favor, leia atentamente esta divulgação de risco antes de utilizar o nosso site.</strong></p>
+                    <p>A negociação de divisas estrangeiras (Forex) com margem carrega um alto nível de risco e pode não ser adequada para todos os investidores. O elevado grau de alavancagem pode funcionar contra si, bem como a seu favor. Antes de decidir negociar, deve considerar cuidadosamente os seus objetivos, nível de experiência e apetite pelo risco.</p>
+                    <h4>1. Sem Aconselhamento Financeiro</h4>
+                    <p>Todo o conteúdo, análises, estratégias e sugestões publicados no Relatório Forex são fornecidos exclusivamente para fins educativos e informativos. Nada do que está aqui contido constitui ou deve ser interpretado como aconselhamento de investimento, recomendação financeira ou uma oferta/solicitação de compra ou venda de moedas.</p>
+                    <h4>2. Exatidão das Informações</h4>
+                    <p>Embora façamos o máximo para fornecer análises altamente precisas e lógicas, o Forex Report não garante a exatidão, integridade ou atualidade das informações. Os mercados movem-se rápido e os fundamentos mudam repentinamente. Qualquer confiança depositada em tais informações é da sua inteira responsabilidade.</p>
+                    <h4>3. Perdas Potenciais</h4>
+                    <p>A negociação de Forex pode resultar na perda substancial ou total dos seus fundos. Nunca deve negociar com capital que não se possa dar ao luxo de perder. Desempenhos passados de qualquer estratégia não são indicativos de lucros futuros.</p>
+                `,
+                modalPrivacyTitle: "Política de Privacidade",
+                modalPrivacyClose: "Fechar Política",
+                modalPrivacyContent: `
+                    <p>A sua privacidade é extremamente importante para nós. Esta Política de Privacidade define como o Forex Report recolhe, utiliza e protege os seus dados.</p>
+                    <h4>1. Recolha de Informação</h4>
+                    <p>Não exigimos que os utilizadores se registem ou forneçam quaisquer dados pessoais para ler as nossas análises diárias gratuitas. O site funciona estaticamente para entrega de valor imediato.</p>
+                    <h4>2. Google AdSense & Cookies</h4>
+                    <p>Este site está estruturado para receber monetização via Google AdSense. Fornecedores terceiros, incluindo a Google, utilizam cookies para apresentar anúncios com base em visitas anteriores dos utilizadores ao seu website ou outros websites.</p>
+                    <p>Pode desativar a publicidade personalizada acedendo às <a href="https://www.google.com/settings/ads" target="_blank">Definições de Anúncios da Google</a>.</p>
+                    <h4>3. Links de Afiliados</h4>
+                    <p>Podemos exibir banners ou links de afiliados direcionando para corretoras recomendadas. Ao clicar nestes links, será redirecionado para sistemas de terceiros. Não somos responsáveis pelos termos de serviço, políticas de privacidade ou execução das plataformas dessas corretoras.</p>
+                `
+            }
+        };
+
+        /* ==========================================
+           B. Forex Market Database (Static JSON)
+           ========================================== */
+        const forexData = {
+            "USD/JPY": {
+                quote: "159.25",
+                bias: "NEUTRO / ALTA",
+                biasType: "neutral-bullish",
+                pt: {
+                    fundamental: "O par continua operando sob o efeito do diferencial de juros (carry trade) estrutural entre o Federal Reserve e o Banco do Japão (BoJ). Embora o dólar americano apresente certa volatilidade devido a dados econômicos internos mistos, o Iene japonês permanece estruturalmente fraco devido à lentidão do BoJ em normalizar de forma agressiva a sua política monetária. A pressão de alta é contínua, mas o par carrega um risco político severo: a proximidade do patamar de 160.00 historicamente aciona alertas de intervenção direta do Ministério das Finanças do Japão no mercado de câmbio para conter a desvalorização do Iene.",
+                    trend: "Forte tendência de alta, com máximas e mínimas ascendentes bem estruturadas acima da SMA 200 no gráfico D1 e W1.",
+                    support: "157.00 (Antiga resistência rompida e linha de tendência de alta).",
+                    resistance: "160.00 (Grande barreira psicológica e zona de teto institucional).",
+                    priceAction: "O preço consolidou em uma faixa estreita entre 158.80 e 159.50. O Índice de Força Relativa (RSI) permanece sustentado acima de 50, validando a persistência do momento comprador, mas o preço atual está excessivamente estendido e \"caro\" para novas compras de Swing Trade sem que ocorra uma correção prévia.",
+                    recommendation: "AGUARDAR OUTRO GATILHO",
+                    trigger: "Retração técnica até 157.20 (teste da LTA/Suporte) com padrão de reversão, OU rompimento confirmado e limpo acima de 160.20 pós-intervenção.",
+                    stop: "156.30 (Caso ative o gatilho de retração em 157.20).",
+                    target: "159.80 (Primeiro travamento antes do teto psicológico).",
+                    rr: "1:2.8",
+                    rrValue: 70, /* Porcentagem para preencher a barra de progresso R:R (ex: 2.8 / 4.0 * 100) */
+                    justification: "Reter o gatilho e não comprar no preço atual, dado o risco iminente de intervenção cambial próximo a 160.00, o que destruiria a assimetria matemática da operação."
+                },
+                en: {
+                    fundamental: "The pair continues to trade under the effect of the structural interest rate differential (carry trade) between the Federal Reserve and the Bank of Japan (BoJ). Although the US dollar shows some volatility due to mixed domestic economic data, the Japanese Yen remains structurally weak due to the BoJ's slowness in aggressively normalizing its monetary policy. Upward pressure is continuous, but the pair carries a severe political risk: the proximity of the 160.00 level historically triggers direct intervention warnings from the Ministry of Finance of Japan in the foreign exchange market to contain the Yen's depreciation.",
+                    trend: "Strong upward trend, with well-structured higher highs and higher lows above the SMA 200 on the D1 and W1 charts.",
+                    support: "157.00 (Former resistance broken and uptrend line).",
+                    resistance: "160.00 (Big psychological barrier and institutional ceiling zone).",
+                    priceAction: "The price consolidated in a narrow range between 158.80 and 159.50. The Relative Strength Index (RSI) remains sustained above 50, validating the persistence of buying momentum, but the current price is excessively extended and \"expensive\" for new Swing Trade buys without a prior correction.",
+                    recommendation: "WAIT FOR ANOTHER TRIGGER",
+                    trigger: "Technical pullback to 157.20 (test of the LTA/Support) with a reversal pattern, OR a confirmed and clean break above 160.20 post-intervention.",
+                    stop: "156.30 (If pullback trigger is activated at 157.20).",
+                    target: "159.80 (First resistance before the psychological ceiling).",
+                    rr: "1:2.8",
+                    rrValue: 70,
+                    justification: "Hold the trigger and do not buy at the current price, given the imminent risk of currency intervention near 160.00, which would destroy the mathematical asymmetry of the trade."
+                }
+            },
+            "EUR/USD": {
+                quote: "1.0845",
+                bias: "NEUTRO / BAIXA",
+                biasType: "neutral-bearish",
+                pt: {
+                    fundamental: "O Euro continua pressionado pela perspetiva de cortes de juros adicionais por parte do Banco Central Europeu (BCE), que iniciou o ciclo de flexibilização antes do Federal Reserve. O Fed mantém uma postura cautelosa, indicando que os juros permanecerão altos por mais tempo devido à inflação persistente nos EUA. Isto fortalece estruturalmente o Dólar frente ao Euro no médio prazo.",
+                    trend: "Baixa no gráfico diário, negociado abaixo das médias móveis de 50 e 200 dias (SMA).",
+                    support: "1.0720 (Mínima recente e forte zona de demanda comprador).",
+                    resistance: "1.0910 (Média móvel de 200 dias e resistência estrutural).",
+                    priceAction: "O preço testou a resistência de 1.0880 e rejeitou, formando uma vela de reversão de baixa (pinbar) no gráfico H4. O RSI caiu abaixo de 50, sinalizando fraqueza dos compradores.",
+                    recommendation: "VENDA (SHORT) NA RETRAÇÃO",
+                    trigger: "Venda na região de 1.0860 após leve correção de alta de curto prazo.",
+                    stop: "1.0920 (Acima da resistência macro).",
+                    target: "1.0740 (Próximo suporte chave).",
+                    rr: "1:2.0",
+                    rrValue: 50,
+                    justification: "A tendência principal de baixa e a divergência de políticas monetárias entre o Fed e o BCE oferecem uma boa assimetria para posições vendidas próximas à resistência de 1.0880-1.0900."
+                },
+                en: {
+                    fundamental: "The Euro remains under pressure due to the prospect of additional interest rate cuts by the European Central Bank (ECB), which initiated its easing cycle before the Federal Reserve. The Fed maintains a cautious stance, indicating that interest rates will remain high for longer due to sticky inflation in the US. This structurally strengthens the Dollar against the Euro in the medium term.",
+                    trend: "Bearish on the daily chart, trading below the 50 and 200-day simple moving averages (SMA).",
+                    support: "1.0720 (Recent low and strong buyer demand zone).",
+                    resistance: "1.0910 (200-day moving average and structural resistance).",
+                    priceAction: "Price tested the 1.0880 resistance and rejected it, forming a bearish reversal candle (pinbar) on the H4 chart. The RSI fell below 50, signaling buyer weakness.",
+                    recommendation: "SELL (SHORT) ON PULLBACK",
+                    trigger: "Sell in the 1.0860 region after a slight short-term upward pullback.",
+                    stop: "1.0920 (Above macro resistance).",
+                    target: "1.0740 (Near major support).",
+                    rr: "1:2.0",
+                    rrValue: 50,
+                    justification: "The main downtrend and policy divergence between the Fed and the ECB offer good asymmetry for short positions near the 1.0880-1.0900 resistance."
+                }
+            },
+            "GBP/USD": {
+                quote: "1.2710",
+                bias: "ALTA",
+                biasType: "bullish",
+                pt: {
+                    fundamental: "A Libra Esterlina demonstra resiliência devido à inflação de serviços persistente no Reino Unido, o que força o Banco da Inglaterra (BoE) a adiar cortes de juros. Com a economia britânica a recuperar-se moderadamente e o diferencial de juros favorável à Libra face a outras moedas europeias, o fluxo comprador mantém-se ativo, a menos que os dados de inflação dos EUA venham muito acima do esperado.",
+                    trend: "Alta de curto e médio prazo, sustentada acima da linha de tendência de alta (LTA) desde as mínimas de abril.",
+                    support: "1.2620 (LTA e antiga resistência de preço).",
+                    resistance: "1.2800 (Barreira psicológica e máxima anual).",
+                    priceAction: "Consolidação em triângulo ascendente no gráfico diário. O RSI está em 58, sugerindo momentum de alta saudável sem estar sobrecomprado.",
+                    recommendation: "COMPRA (LONG) NO ROMPIMENTO",
+                    trigger: "Compra no rompimento verificado de 1.2740, OU na retração até 1.2640.",
+                    stop: "1.2580 (Abaixo do suporte macro/LTA).",
+                    target: "1.2920 (Zona de expansão de Fibonacci).",
+                    rr: "1:3.0",
+                    rrValue: 75,
+                    justification: "O padrão gráfico de triângulo ascendente com suporte fundamentalista sólido fornece uma excelente relação de risco/retorno para operações de rompimento ou compra em suportes principais."
+                },
+                en: {
+                    fundamental: "The British Pound shows resilience due to sticky services inflation in the UK, forcing the Bank of England (BoE) to postpone interest rate cuts. With the UK economy recovering moderately and the interest rate differential favoring the Pound over other European currencies, buyer flow remains active unless US inflation data comes in much higher than expected.",
+                    trend: "Short and medium-term uptrend, sustained above the uptrend line (LTA) since the April lows.",
+                    support: "1.2620 (Uptrend line and former price resistance).",
+                    resistance: "1.2800 (Psychological barrier and annual high).",
+                    priceAction: "Consolidation in an ascending triangle on the daily chart. The RSI is at 58, suggesting healthy upward momentum without being overbought.",
+                    recommendation: "BUY (LONG) ON BREAKOUT",
+                    trigger: "Buy on a confirmed breakout of 1.2740, OR on a pullback to 1.2640.",
+                    stop: "1.2580 (Below macro support/LTA).",
+                    target: "1.2920 (Fibonacci expansion zone).",
+                    rr: "1:3.0",
+                    rrValue: 75,
+                    justification: "The ascending triangle chart pattern coupled with a solid fundamental background provides an excellent risk/reward ratio for breakout trades or buying at major supports."
+                }
+            }
+        };
+
+        /* ==========================================
+           C. Core Engine & State Management
+           ========================================== */
+        let currentLang = 'en'; // Default Language
+
+        // Interactive Wakeup Deteção (Mobile-First Headers / Navigator)
+        function initLanguageDetection() {
+            // "mude para português apenas se o header for pt-br ou pt-pt"
+            // Analisamos as preferências do utilizador enviadas pelo browser no cliente
+            const languages = navigator.languages || [navigator.language || ''];
+            let foundPT = false;
+            
+            for (const lang of languages) {
+                const cleanLang = lang.toLowerCase();
+                if (cleanLang === 'pt-br' || cleanLang === 'pt-pt') {
+                    currentLang = 'pt';
+                    foundPT = true;
+                    break;
+                }
+            }
+            
+            // Permitir override dinâmico via URL parameters para testes rápidos de CRO (?lang=pt ou ?lang=en)
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('lang')) {
+                const langParam = urlParams.get('lang').toLowerCase();
+                if (langParam === 'pt' || langParam === 'en') {
+                    currentLang = langParam;
+                }
+            }
+            
+            // Set initial select option in UI
+            document.getElementById('langSelect').value = currentLang;
+        }
+
+        // Translation Engine Renderer
+        function translateUI() {
+            const dictionary = i18n[currentLang];
+            
+            // Meta updates
+            document.title = currentLang === 'pt' ? 'Relatório Forex - Análises Avançadas Gratuitas' : 'Forex Report - Professional Trading Insights';
+            
+            // Top Ad Text Placement
+            document.getElementById('topAd').setAttribute('data-label', dictionary.adPlaceholder);
+            
+            // DOM static translation injection
+            document.getElementById('supportHeaderBtn').textContent = dictionary.supportBtn;
+            document.getElementById('heroTitle').textContent = dictionary.title;
+            document.getElementById('heroSubtitle').textContent = dictionary.subtitle;
+            document.getElementById('generationTime').textContent = dictionary.generatedAt;
+            document.getElementById('selectorLabelText').textContent = dictionary.selectPair;
+            
+            // Dynamic Table / Card Labels inside report
+            document.getElementById('secTitleFundamental').textContent = dictionary.fundamentalTab;
+            document.getElementById('secTitleTechnical').textContent = dictionary.technicalTab;
+            document.getElementById('secTitleVerdict').textContent = dictionary.verdictTab;
+            
+            document.getElementById('labelTrend').textContent = dictionary.trendLabel;
+            document.getElementById('labelLiquidity').textContent = dictionary.liquidityLabel;
+            document.getElementById('subLabelSupport').textContent = dictionary.supportLabel;
+            document.getElementById('subLabelResistance').textContent = dictionary.resistanceLabel;
+            document.getElementById('labelPriceAction').textContent = dictionary.priceActionLabel;
+            
+            document.getElementById('labelTrigger').textContent = dictionary.triggerLabel;
+            document.getElementById('labelStop').textContent = dictionary.stopLabel;
+            document.getElementById('labelTarget').textContent = dictionary.targetLabel;
+            document.getElementById('labelRR').textContent = dictionary.rrLabel;
+            document.getElementById('labelRatioProgress').textContent = currentLang === 'pt' ? 'SIMETRIA RISCO / RETORNO' : 'RISK / REWARD SYMMETRY';
+            document.getElementById('labelJustification').textContent = dictionary.justificationLabel;
+            
+            // Donation Area translations
+            document.getElementById('supportTitleText').textContent = dictionary.supportTitle;
+            document.getElementById('supportDescText').textContent = dictionary.supportDesc;
+            document.getElementById('bmcBtnText').textContent = dictionary.bmcBtn;
+            
+            // Footer compliance
+            document.getElementById('footerDisclaimerText').textContent = dictionary.footerDisclaimer;
+            document.getElementById('disclaimerLinkText').textContent = dictionary.disclaimerLink;
+            document.getElementById('privacyLinkText').textContent = dictionary.privacyLink;
+            document.getElementById('copyrightRightsText').textContent = dictionary.allRights;
+            
+            // Modals translation
+            document.getElementById('modalDisclaimerTitle').textContent = dictionary.modalDisclaimerTitle;
+            document.getElementById('modalDisclaimerBody').innerHTML = dictionary.modalDisclaimerContent;
+            document.getElementById('modalDisclaimerCloseBtn').textContent = dictionary.modalDisclaimerClose;
+            
+            document.getElementById('modalPrivacyTitle').textContent = dictionary.modalPrivacyTitle;
+            document.getElementById('modalPrivacyBody').innerHTML = dictionary.modalPrivacyContent;
+            document.getElementById('modalPrivacyCloseBtn').textContent = dictionary.modalPrivacyClose;
+        }
+
+        // Render chosen forex pair report
+        function renderForexReport() {
+            const pairSelect = document.getElementById('pairSelect');
+            const selectedPair = pairSelect.value;
+            const data = forexData[selectedPair];
+            const dict = i18n[currentLang];
+            
+            if (!data) return;
+            
+            // 1. Render report header (interactive values)
+            const biasTranslated = dict[data.bias] || data.bias;
+            
+            const headerHTML = `
+                <div class="pair-info">
+                    <div class="pair-icon-wrapper">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="pair-name">${selectedPair}</h2>
+                        <div class="pair-quote">${dict.quoteLabel}: <span id="currentQuoteVal">${data.quote}</span></div>
+                    </div>
+                </div>
+                <div class="bias-badge bias-${data.biasType}">
+                    ${biasTranslated}
+                </div>
+            `;
+            document.getElementById('reportHeader').innerHTML = headerHTML;
+            
+            // 2. Render localized detail contents
+            const details = data[currentLang];
+            
+            document.getElementById('reportFundamental').textContent = details.fundamental;
+            document.getElementById('reportTrend').textContent = details.trend;
+            document.getElementById('reportSupport').textContent = details.support;
+            document.getElementById('reportResistance').textContent = details.resistance;
+            document.getElementById('reportPriceAction').textContent = details.priceAction;
+            
+            // 3. Render strategic setup
+            const recTranslated = dict[details.recommendation] || details.recommendation;
+            
+            // Color theme class map for verdict card
+            const cardEl = document.getElementById('verdictCardElement');
+            const badgeEl = document.getElementById('reportVerdictBadge');
+            
+            cardEl.className = 'verdict-card';
+            badgeEl.className = 'verdict-badge';
+            
+            if (details.recommendation.includes("AGUARDAR") || details.recommendation.includes("WAIT")) {
+                cardEl.classList.add('verdict-wait');
+                badgeEl.classList.add('wait');
+            } else if (details.recommendation.includes("VENDA") || details.recommendation.includes("SELL")) {
+                cardEl.classList.add('verdict-sell');
+                badgeEl.classList.add('sell');
+            } else {
+                cardEl.classList.add('verdict-buy');
+                badgeEl.classList.add('buy');
+            }
+            
+            badgeEl.textContent = recTranslated;
+            
+            document.getElementById('reportTrigger').textContent = details.trigger;
+            document.getElementById('reportStop').textContent = details.stop;
+            document.getElementById('reportTarget').textContent = details.target;
+            document.getElementById('reportRR').textContent = details.rr;
+            
+            // R&R Progress Bar logic
+            document.getElementById('reportRRText').textContent = details.rr;
+            document.getElementById('reportRRBar').style.width = `${data.rrValue}%`;
+            
+            document.getElementById('reportJustification').textContent = details.justification;
+            
+            // Display container with smooth fade in
+            const reportContainer = document.getElementById('reportContainer');
+            reportContainer.style.display = 'block';
+        }
+
+        /* ==========================================
+           D. Interactive Event Listeners & Modals
+           ========================================== */
+        // Smooth scroll to donations for high CRO
+        function scrollToDonation() {
+            const section = document.getElementById('donationSection');
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                // Subtle attention trigger on the donation card
+                section.style.transition = 'transform 0.3s ease';
+                section.style.transform = 'scale(1.02)';
+                setTimeout(() => {
+                    section.style.transform = 'scale(1)';
+                }, 300);
+            }
+        }
+
+        // Elegant Light-weight Modals (Compliance Essentials)
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Lock background scroll
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = ''; // Unlock scroll
+            }
+        }
+
+        function closeModalOnOutsideClick(event, modalId) {
+            if (event.target.id === modalId) {
+                closeModal(modalId);
+            }
+        }
+
+        // Initialize Core System Actions
+        window.addEventListener('DOMContentLoaded', () => {
+            initLanguageDetection();
+            translateUI();
+            renderForexReport();
+            
+            // Pair Change event
+            document.getElementById('pairSelect').addEventListener('change', renderForexReport);
+            
+            // Language Select event
+            document.getElementById('langSelect').addEventListener('change', (e) => {
+                currentLang = e.target.value;
+                translateUI();
+                renderForexReport();
+            });
+        });
+    </script>
+</body>
+</html>
