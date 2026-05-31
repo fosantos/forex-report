@@ -206,56 +206,7 @@
             transform: translateY(0);
         }
 
-        /* ==========================================================================
-           4. ADVERTISEMENT PLACEHOLDERS (CRO / MONETIZATION)
-           ========================================================================== */
-        .adsense-placeholder {
-            margin: 1.5rem auto;
-            background-color: #f1f5f9;
-            border: 1px dashed var(--border-color);
-            border-radius: 8px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            transition: var(--transition-smooth);
-            position: relative;
-        }
-
-        .adsense-placeholder::before {
-            content: attr(data-label);
-            font-size: 0.7rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            text-align: center;
-            padding: 0.5rem;
-        }
-
-        /* Standard Ad Sizes: Responsive behavior */
-        .ad-top {
-            width: 100%;
-            min-height: 50px;
-            max-width: 320px; /* Mobile size default */
-        }
-
-        @media (min-width: 768px) {
-            .ad-top {
-                max-width: 728px;
-                min-height: 90px; /* Desktop Leaderboard */
-            }
-        }
-
-        /* Auto-hide helper if scripts inject real ads and elements aren't empty */
-        .adsense-placeholder:not(:empty) {
-            border: none;
-            background: transparent;
-            min-height: auto;
-        }
-        .adsense-placeholder:not(:empty)::before {
-            display: none;
-        }
+        /* Adsense auto-ads managed dynamically via head script */
 
         /* ==========================================================================
            5. HERO SECTION & TYPOGRAPHY
@@ -956,8 +907,7 @@
     </header>
 
     <main class="container">
-        <!-- 4. TOP ADVERTISEMENT BANNER -->
-        <div class="adsense-placeholder ad-top" id="topAd" data-label=""></div>
+
 
         <!-- 5. HERO HEADER -->
         <section class="hero">
@@ -1173,7 +1123,6 @@
                 subtitle: "Daily analysis of the best pairs to trade",
                 generatedAt: "Reports generated on: May 31, 2026 at 11:15 (GMT)",
                 supportBtn: "Support Project",
-                adPlaceholder: "Space reserved for Google AdSense / Banner",
                 selectPair: "Select Currency Pair to Analyze",
                 supportTitle: "Support Our Project ☕",
                 supportDesc: "Our reports are updated daily and are completely free. If our analysis helps you make better decisions, consider supporting us to keep the site active and free of premium subscriptions!",
@@ -1250,7 +1199,6 @@
                 subtitle: "Relatório dos melhores pares para operar",
                 generatedAt: "Relatórios gerados em: 31 de Maio de 2026 às 11:15 (GMT)",
                 supportBtn: "Apoie o Projeto",
-                adPlaceholder: "Espaço reservado para Anúncio Google AdSense / Banner",
                 selectPair: "Selecione o Par de Moedas para Analisar",
                 supportTitle: "Apoie o Nosso Projeto ☕",
                 supportDesc: "Os nossos relatórios são atualizados diariamente e são totalmente gratuitos. Se as nossas análises o ajudam a tomar melhores decisões, considere apoiar-nos para manter o site ativo e livre de assinaturas pagas!",
@@ -1569,8 +1517,7 @@
             // Meta updates
             document.title = currentLang === 'pt' ? 'Relatório Forex - Análises Avançadas Gratuitas' : 'Forex Report - Professional Trading Insights';
             
-            // Top Ad Text Placement
-            document.getElementById('topAd').setAttribute('data-label', dictionary.adPlaceholder);
+
             
             // DOM static translation injection
             document.getElementById('supportHeaderBtn').textContent = dictionary.supportBtn;
