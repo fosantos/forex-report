@@ -912,6 +912,9 @@
                     <option value="USD/JPY">USD/JPY</option>
                     <option value="EUR/USD">EUR/USD</option>
                     <option value="GBP/USD">GBP/USD</option>
+                    <option value="AUD/USD">AUD/USD</option>
+                    <option value="EUR/JPY">EUR/JPY</option>
+                    <option value="GBP/JPY">GBP/JPY</option>
                 </select>
                 <!-- Large SVG arrow for currency select styling -->
                 <svg class="currency-select-arrow" viewBox="0 0 20 20">
@@ -1083,7 +1086,7 @@
             en: {
                 title: "Forex Report",
                 subtitle: "Daily analysis of the best pairs to trade",
-                generatedAt: "Reports generated on: May 30, 2026 at 19:22 (GMT)",
+                generatedAt: "Reports generated on: May 31, 2026 at 11:15 (GMT)",
                 supportBtn: "Support Project",
                 adPlaceholder: "Space reserved for Google AdSense / Banner",
                 selectPair: "Select Currency Pair to Analyze",
@@ -1156,7 +1159,7 @@
             pt: {
                 title: "Relatório Forex",
                 subtitle: "Relatório dos melhores pares para operar",
-                generatedAt: "Relatórios gerados em: 30 de Maio de 2026 às 19:22 (GMT)",
+                generatedAt: "Relatórios gerados em: 31 de Maio de 2026 às 11:15 (GMT)",
                 supportBtn: "Apoie o Projeto",
                 adPlaceholder: "Espaço reservado para Anúncio Google AdSense / Banner",
                 selectPair: "Selecione o Par de Moedas para Analisar",
@@ -1247,7 +1250,7 @@
                     stop: "156.30 (Caso ative o gatilho de retração em 157.20).",
                     target: "159.80 (Primeiro travamento antes do teto psicológico).",
                     rr: "1:2.8",
-                    rrValue: 70, /* Porcentagem para preencher a barra de progresso R:R (ex: 2.8 / 4.0 * 100) */
+                    rrValue: 70,
                     justification: "Reter o gatilho e não comprar no preço atual, dado o risco iminente de intervenção cambial próximo a 160.00, o que destruiria a assimetria matemática da operação."
                 },
                 en: {
@@ -1266,69 +1269,168 @@
                 }
             },
             "EUR/USD": {
-                quote: "1.0845",
-                bias: "NEUTRO / BAIXA",
-                biasType: "neutral-bearish",
+                quote: "1.1654",
+                bias: "BAIXA",
+                biasType: "bearish",
                 pt: {
-                    fundamental: "O Euro continua pressionado pela perspetiva de cortes de juros adicionais por parte do Banco Central Europeu (BCE), que iniciou o ciclo de flexibilização antes do Federal Reserve. O Fed mantém uma postura cautelosa, indicando que os juros permanecerão altos por mais tempo devido à inflação persistente nos EUA. Isto fortalece estruturalmente o Dólar frente ao Euro no médio prazo.",
-                    trend: "Baixa no gráfico diário, negociado abaixo das médias móveis de 50 e 200 dias (SMA).",
-                    support: "1.0720 (Mínima recente e forte zona de demanda comprador).",
-                    resistance: "1.0910 (Média móvel de 200 dias e resistência estrutural).",
-                    priceAction: "O preço testou a resistência de 1.0880 e rejeitou, formando uma vela de reversão de baixa (pinbar) no gráfico H4. O RSI caiu abaixo de 50, sinalizando fraqueza dos compradores.",
+                    fundamental: "Apesar do Euro operar em patamares elevados devido a fluxos históricos, o final de Maio de 2026 marca uma forte inflexão macro. A divulgação do PCE de Abril nos EUA em 28 de Maio apontou aceleração da inflação anual para 3.8% (Core em 3.3%), motivada por custos de energia e tensões geopolíticas. Isto reavivou apostas de que o Fed manterá juros elevados ou até voltará a subi-los em 2026. Em contrapartida, o BCE enfrenta enfraquecimento da atividade na Zona Euro e mantém o ciclo de cortes de juros. A divergência acentuada de políticas monetárias e o DXY de fecho a 99.00 favorecem estruturalmente o Dólar.",
+                    trend: "Início de reversão corretiva de baixa após falhar em sustentar acima de 1.1800. O preço quebrou a SMA 50 e testa a SMA 200 diária.",
+                    support: "1.1520 (Forte suporte semanal de longo prazo e LTA macro).",
+                    resistance: "1.1760 (Antigo suporte rompido atuando como resistência diária institucional).",
+                    priceAction: "Formação de topo duplo claro no gráfico diário em 1.1800. A sexta-feira fechou com uma forte vela de engolfo de baixa, quebrando o suporte menor de 1.1690. O RSI diário caiu abaixo de 45, indicando aceleração do momentum de venda.",
                     recommendation: "VENDA (SHORT) NA RETRAÇÃO",
-                    trigger: "Venda na região de 1.0860 após leve correção de alta de curto prazo.",
-                    stop: "1.0920 (Acima da resistência macro).",
-                    target: "1.0740 (Próximo suporte chave).",
+                    trigger: "Ordem de venda na retração técnica corretiva na zona de 1.1690 (pullback na resistência anterior).",
+                    stop: "1.1775 (Acima da resistência macro de 1.1760 e do topo da vela de engolfo).",
+                    target: "1.1520 (Suporte semanal e zona de liquidez compradora).",
                     rr: "1:2.0",
                     rrValue: 50,
-                    justification: "A tendência principal de baixa e a divergência de políticas monetárias entre o Fed e o BCE oferecem uma boa assimetria para posições vendidas próximas à resistência de 1.0880-1.0900."
+                    justification: "Vender na retração diária após quebra do suporte do canal lateral, alinhado ao momentum macro hawkish do Fed pós-PCE quente."
                 },
                 en: {
-                    fundamental: "The Euro remains under pressure due to the prospect of additional interest rate cuts by the European Central Bank (ECB), which initiated its easing cycle before the Federal Reserve. The Fed maintains a cautious stance, indicating that interest rates will remain high for longer due to sticky inflation in the US. This structurally strengthens the Dollar against the Euro in the medium term.",
-                    trend: "Bearish on the daily chart, trading below the 50 and 200-day simple moving averages (SMA).",
-                    support: "1.0720 (Recent low and strong buyer demand zone).",
-                    resistance: "1.0910 (200-day moving average and structural resistance).",
-                    priceAction: "Price tested the 1.0880 resistance and rejected it, forming a bearish reversal candle (pinbar) on the H4 chart. The RSI fell below 50, signaling buyer weakness.",
+                    fundamental: "Although the Euro is trading at elevated levels, the end of May 2026 marks a major macroeconomic turning point. The US April PCE release on May 28 accelerated to 3.8% YoY (Core at 3.3%), driven by energy costs and geopolitical tension. This has revived expectations that the Fed will keep rates high or even hike them in 2026. Meanwhile, the ECB faces weakening growth in the Eurozone and signals gradual interest rate cuts. The sharp monetary policy divergence and a resilient DXY at 99.00 structurally favor the USD.",
+                    trend: "Start of a bearish corrective reversal after failing to sustain above 1.1800. Price broke below the 50 SMA and tests the 200 SMA on D1.",
+                    support: "1.1520 (Strong weekly support and major macro trendline).",
+                    resistance: "1.1760 (Former support broken now acting as an institutional daily resistance).",
+                    priceAction: "Double top formation on the daily chart near 1.1800. Friday closed with a massive bearish engulfing candle, breaking the minor support at 1.1690. The daily RSI fell below 45, indicating an accelerating sell momentum.",
                     recommendation: "SELL (SHORT) ON PULLBACK",
-                    trigger: "Sell in the 1.0860 region after a slight short-term upward pullback.",
-                    stop: "1.0920 (Above macro resistance).",
-                    target: "1.0740 (Near major support).",
+                    trigger: "Limit sell order on a corrective technical pullback to the 1.1690 area (retest of the broken support).",
+                    stop: "1.1775 (Above the structural resistance at 1.1760 and the high of the engulfing candle).",
+                    target: "1.1520 (Weekly support and major buyer liquidity zone).",
                     rr: "1:2.0",
                     rrValue: 50,
-                    justification: "The main downtrend and policy divergence between the Fed and the ECB offer good asymmetry for short positions near the 1.0880-1.0900 resistance."
+                    justification: "Sell the daily pullback after a clean breakout of the consolidation support, aligning with the hawkish Fed outlook post-PCE."
                 }
             },
             "GBP/USD": {
-                quote: "1.2710",
+                quote: "1.3455",
+                bias: "NEUTRO / ALTA",
+                biasType: "neutral-bullish",
+                pt: {
+                    fundamental: "A Libra Esterlina exibe considerável resiliência no final de Maio de 2026, amparada por dados de inflação de serviços persistentes no Reino Unido, que continuam a forçar o Banco da Inglaterra (BoE) a adiar cortes de juros. No entanto, o dólar americano ganhou forte momentum global com a inflação PCE quente de 3.8%. A batalha de yields entre BoE (hawkish) e Fed (hawkish) deixa o par GBP/USD numa acesa disputa sem direção macro definida de médio prazo.",
+                    trend: "Consolidação lateral em canal largo no gráfico diário (D1) entre 1.3320 e 1.3600. O preço está negociado próximo à média móvel de 50 dias.",
+                    support: "1.3320 (Piso do canal e suporte estrutural semanal).",
+                    resistance: "1.3600 (Teto do canal e forte barreira psicológica semanal).",
+                    priceAction: "O preço tocou a resistência de 1.3580 e recuou rapidamente no final da semana. A ação recente do preço mostra indecisão, com velas do tipo Doji e sombras longas em ambas as extremidades. O RSI diário está lateralizado em 50, confirmando a ausência de tendência ativa.",
+                    recommendation: "AGUARDAR OUTRO GATILHO",
+                    trigger: "Compra no rompimento verificado de 1.3620 OU venda no rompimento de 1.3300.",
+                    stop: "1.3510 (Para cenário de compra) / 1.3410 (Para cenário de venda).",
+                    target: "1.3850 (Alvo de compra) / 1.3050 (Alvo de venda).",
+                    rr: "1:2.1",
+                    rrValue: 52,
+                    justification: "Manter a paciência e aguardar a quebra de uma das extremidades da consolidação lateral para operar o fluxo de momentum institucional."
+                },
+                en: {
+                    fundamental: "The British Pound shows considerable resilience at the end of May 2026, supported by sticky services inflation in the UK, which forces the Bank of England (BoE) to postpone rate cuts. However, the USD gained strong global momentum from the hot 3.8% PCE inflation. The yield battle between the hawkish BoE and the hawkish Fed leaves the GBP/USD in a fierce tug-of-war with no clear medium-term macro direction.",
+                    trend: "Sideways consolidation in a wide channel on the daily chart (D1) between 1.3320 and 1.3600. Price is trading near its 50-day moving average.",
+                    support: "1.3320 (Channel floor and major weekly structural support).",
+                    resistance: "1.3600 (Channel ceiling and massive psychological weekly barrier).",
+                    priceAction: "Price touched the 1.3580 resistance and pulled back rapidly at the end of the week. Recent price action displays high indecision with Doji candles and long shadows. Daily RSI is flat at 50, confirming the absence of an active trend.",
+                    recommendation: "WAIT FOR ANOTHER TRIGGER",
+                    trigger: "Buy on a confirmed breakout above 1.3620 OR sell on a confirmed breakout below 1.3300.",
+                    stop: "1.3510 (For buy scenario) / 1.3410 (For sell scenario).",
+                    target: "1.3850 (Buy target) / 1.3050 (Sell target).",
+                    rr: "1:2.1",
+                    rrValue: 52,
+                    justification: "Exercise patience and wait for a clean breakout of the lateral range limits to trade the institutional momentum."
+                }
+            },
+            "AUD/USD": {
+                quote: "0.7185",
+                bias: "BAIXA",
+                biasType: "bearish",
+                pt: {
+                    fundamental: "O Dólar Australiano sofre pressão dupla na data atual. Por um lado, a aposta de juros 'mais altos por mais tempo' nos EUA (com o PCE em 3.8%) drena capital de ativos de risco como o AUD. Por outro lado, a desaceleração na economia da China (principal parceiro comercial da Austrália) reduz a procura de matérias-primas australianas. O RBA adota postura cautelosa, insuficiente para fazer frente ao yield atrativo dos Treasuries americanos.",
+                    trend: "Tendência de baixa estrutural. O preço quebrou uma LTA de curto prazo no gráfico D1 e fechou abaixo da SMA 200 diária.",
+                    support: "0.7050 (Mínima estrutural do gráfico semanal).",
+                    resistance: "0.7260 (Região da SMA 200 e antigo suporte diário).",
+                    priceAction: "Rejeição limpa com vela de estrela cadente (shooting star) no gráfico diário na resistência de 0.7260. A quebra subsequente do suporte diário em 0.7210 confirma o momentum de baixa. O RSI está em 38, indicando espaço para mais quedas.",
+                    recommendation: "VENDA (SHORT) NA RETRAÇÃO",
+                    trigger: "Ordem de venda na retração a 0.7210 (antigo suporte/nova resistência).",
+                    stop: "0.7275 (Acima da máxima da estrela cadente e da resistência de 0.7260).",
+                    target: "0.7070 (Próxima zona de liquidez e suporte semanal).",
+                    rr: "1:2.15",
+                    rrValue: 54,
+                    justification: "Vender na retração técnica após a quebra limpa da LTA e SMA 200, aproveitando a correlação de ativos de commodities com o DXY forte."
+                },
+                en: {
+                    fundamental: "The Australian Dollar faces double pressure at the current date. On one side, bets on 'higher-for-longer' interest rates in the US (with PCE inflation at 3.8%) drain capital from risk-sensitive assets like the AUD. On the other side, the economic slowdown in China (Australia's main trading partner) reduces demand for commodities. The RBA adopts a cautious stance, which is insufficient to match the attractive yields on US short-term Treasuries.",
+                    trend: "Structural downtrend. Price broke below a short-term trendline (LTA) on the D1 chart and closed under the daily 200 SMA.",
+                    support: "0.7050 (Structural low on the weekly chart).",
+                    resistance: "0.7260 (200 SMA region and former daily support).",
+                    priceAction: "Clean rejection with a shooting star candle on the daily chart at the 0.7260 resistance. Subsequent breakout of the daily support at 0.7210 confirms the bearish momentum. Daily RSI is at 38, leaving room for further declines.",
+                    recommendation: "SELL (SHORT) ON PULLBACK",
+                    trigger: "Limit sell order on a pullback to 0.7210 (broken support now acting as resistance).",
+                    stop: "0.7275 (Above the shooting star high and the 0.7260 resistance level).",
+                    target: "0.7070 (Next major weekly support and liquidity pocket).",
+                    rr: "1:2.15",
+                    rrValue: 54,
+                    justification: "Sell the technical pullback after a clean breach of the LTA and the 200 SMA, exploiting the weakness of commodity assets against a firm DXY."
+                }
+            },
+            "EUR/JPY": {
+                quote: "185.73",
                 bias: "ALTA",
                 biasType: "bullish",
                 pt: {
-                    fundamental: "A Libra Esterlina demonstra resiliência devido à inflação de serviços persistente no Reino Unido, o que força o Banco da Inglaterra (BoE) a adiar cortes de juros. Com a economia britânica a recuperar-se moderadamente e o diferencial de juros favorável à Libra face a outras moedas europeias, o fluxo comprador mantém-se ativo, a menos que os dados de inflação dos EUA venham muito acima do esperado.",
-                    trend: "Alta de curto e médio prazo, sustentada acima da linha de tendência de alta (LTA) desde as mínimas de abril.",
-                    support: "1.2620 (LTA e antiga resistência de preço).",
-                    resistance: "1.2800 (Barreira psicológica e máxima anual).",
-                    priceAction: "Consolidação em triângulo ascendente no gráfico diário. O RSI está em 58, sugerindo momentum de alta saudável sem estar sobrecomprado.",
-                    recommendation: "COMPRA (LONG) NO ROMPIMENTO",
-                    trigger: "Compra no rompimento verificado de 1.2740, OU na retração até 1.2640.",
-                    stop: "1.2580 (Abaixo do suporte macro/LTA).",
-                    target: "1.2920 (Zona de expansão de Fibonacci).",
-                    rr: "1:3.0",
-                    rrValue: 75,
-                    justification: "O padrão gráfico de triângulo ascendente com suporte fundamentalista sólido fornece uma excelente relação de risco/retorno para operações de rompimento ou compra em suportes principais."
+                    fundamental: "Este par reflete o diferencial de juros extremo entre a Europa e o Japão. Embora o Banco Central Europeu possa cortar juros gradualmente, a sua postura é infinitamente mais restritiva que o BoJ, que continua a manter as taxas reais em terreno extremamente negativo. Isto cria uma pressão contínua e massiva de carry trade que deprecia o Iene japonês frente ao Euro, empurrando o par para máximas históricas no final de Maio de 2026.",
+                    trend: "Forte tendência de alta secular. O preço opera confortavelmente acima da SMA 200 diária e semanal, estabelecendo novos recordes de preço.",
+                    support: "183.00 (Forte suporte diário e resistência histórica rompida).",
+                    resistance: "187.00 (Extensão de Fibonacci e teto psicológico de mercado).",
+                    priceAction: "Pullback técnico suave no gráfico diário seguido por uma forte vela de engulfing de alta (engolfo) na região de 184.20, confirmando a entrada de compradores institucionais. O RSI diário permanece sustentado na zona de 62, indicando força compradora sólida sem sobrecompra extrema.",
+                    recommendation: "COMPRA (LONG) NA RETRAÇÃO",
+                    trigger: "Compra no reteste do suporte diário em 184.50 com confirmação de Price Action.",
+                    stop: "183.90 (Abaixo do suporte macro de 184.00).",
+                    target: "187.90 (Nova zona de expansão de Fibonacci).",
+                    rr: "1:2.12",
+                    rrValue: 53,
+                    justification: "Seguir a forte tendência de carry trade secular e comprar na retração técnica do diário junto ao suporte institucional de 184.50."
                 },
                 en: {
-                    fundamental: "The British Pound shows resilience due to sticky services inflation in the UK, forcing the Bank of England (BoE) to postpone interest rate cuts. With the UK economy recovering moderately and the interest rate differential favoring the Pound over other European currencies, buyer flow remains active unless US inflation data comes in much higher than expected.",
-                    trend: "Short and medium-term uptrend, sustained above the uptrend line (LTA) since the April lows.",
-                    support: "1.2620 (Uptrend line and former price resistance).",
-                    resistance: "1.2800 (Psychological barrier and annual high).",
-                    priceAction: "Consolidation in an ascending triangle on the daily chart. The RSI is at 58, suggesting healthy upward momentum without being overbought.",
-                    recommendation: "BUY (LONG) ON BREAKOUT",
-                    trigger: "Buy on a confirmed breakout of 1.2740, OR on a pullback to 1.2640.",
-                    stop: "1.2580 (Below macro support/LTA).",
-                    target: "1.2920 (Fibonacci expansion zone).",
-                    rr: "1:3.0",
-                    rrValue: 75,
-                    justification: "The ascending triangle chart pattern coupled with a solid fundamental background provides an excellent risk/reward ratio for breakout trades or buying at major supports."
+                    fundamental: "This cross-pair reflects the extreme interest rate differential between Europe and Japan. Although the European Central Bank may cut rates gradually, its policy remains infinitely more restrictive than the BoJ, which continues to hold real rates in deeply negative territory. This drives constant, massive carry-trade flows that depreciate the JPY against the Euro, pushing the pair to historic highs in late May 2026.",
+                    trend: "Strong secular uptrend. The price trades comfortably above its daily and weekly 200 SMAs, establishing new all-time highs.",
+                    support: "183.00 (Strong daily support and broken historical resistance).",
+                    resistance: "187.00 (Fibonacci extension and psychological market ceiling).",
+                    priceAction: "Mild technical pullback on the daily chart followed by a strong bullish engulfing candle in the 184.20 region, validating institutional buying. Daily RSI remains sustained at 62, indicating solid buying momentum without extreme overbought conditions.",
+                    recommendation: "BUY (LONG) ON PULLBACK",
+                    trigger: "Buy limit order on a retest of the daily support at 184.50 with price action confirmation.",
+                    stop: "183.90 (Below the local support at 184.00).",
+                    target: "187.90 (Next Fibonacci expansion target).",
+                    rr: "1:2.12",
+                    rrValue: 53,
+                    justification: "Follow the powerful secular carry trade trend and buy on technical pullbacks near the institutional support level of 184.50."
+                }
+            },
+            "GBP/JPY": {
+                quote: "214.37",
+                bias: "ALTA",
+                biasType: "bullish",
+                pt: {
+                    fundamental: "O par GBP/JPY é a representação máxima de carry trade de alta convicção. A inflação persistente de serviços no Reino Unido força o BoE a manter juros elevados, enquanto a fraqueza estrutural do Iene por conta do BoJ ultra-dovish atrai massivos fluxos de especulação de compra. Este cenário gera uma assimetria fundamental perfeita a favor da Libra Esterlina no médio prazo.",
+                    trend: "Tendência de alta parabólica. O gráfico diário exibe topos e fundos ascendentes perfeitos, sem qualquer quebra de estrutura de alta.",
+                    support: "210.50 (Zona de congestão anterior e antiga máxima diária).",
+                    resistance: "216.50 (Resistência de canal de alta e barreira psicológica).",
+                    priceAction: "O preço rompeu a antiga máxima de 212.00 com forte volume e velas de corpo amplo. O RSI está em 68, demonstrando momentum de alta extremamente poderoso. Pullbacks rápidos no gráfico H4 estão sendo agressivamente comprados em suportes menores.",
+                    recommendation: "COMPRA (LONG) NA RETRAÇÃO",
+                    trigger: "Compra na retração técnica intradia até 212.20 (reteste da antiga máxima rompida).",
+                    stop: "210.20 (Abaixo do suporte macro de 210.50).",
+                    target: "216.20 (Resistência do canal diário).",
+                    rr: "1:2.0",
+                    rrValue: 50,
+                    justification: "Alinhamento perfeito entre carry trade fundamental agressivo e momentum de alta técnico inabalável, justificando compras nas retrações da estrutura de alta."
+                },
+                en: {
+                    fundamental: "The GBP/JPY pair is the ultimate expression of a high-conviction carry trade. Persistent services inflation in the UK forces the BoE to maintain high interest rates, while the structural weakness of the Yen due to an ultra-dovish BoJ attracts massive speculative buying flows. This generates a perfect fundamental asymmetry in favor of Sterling in the medium term.",
+                    trend: "Parabolic uptrend. The daily chart exhibits perfect higher highs and higher lows, with no breach of the bullish structure.",
+                    support: "210.50 (Previous congestion zone and former daily high).",
+                    resistance: "216.50 (Uptrend channel resistance and psychological barrier).",
+                    priceAction: "Price broke above the former high of 212.00 with heavy volume and broad-bodied candles. Daily RSI is at 68, demonstrating highly powerful buying momentum. Rapid pullbacks on the H4 chart are being aggressively bought at minor support levels.",
+                    recommendation: "BUY (LONG) ON PULLBACK",
+                    trigger: "Limit buy order on an intraday technical pullback to 212.20 (retest of the broken former high).",
+                    stop: "210.20 (Below the structural support level of 210.50).",
+                    target: "216.20 (Daily uptrend channel resistance).",
+                    rr: "1:2.0",
+                    rrValue: 50,
+                    justification: "Flawless alignment between highly supportive carry trade fundamentals and solid technical momentum, justifying buy orders at logical discount zones."
                 }
             }
         };
