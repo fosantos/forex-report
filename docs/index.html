@@ -661,18 +661,50 @@
         /* ==========================================================================
            9. DONATION & CONVERSION BLOCK (BUY ME A COFFEE CTA)
            ========================================================================== */
-        .donation-section {
-            background: linear-gradient(135deg, var(--color-success-bg) 0%, #dcfce7 100%);
-            border: 1px solid rgba(16, 185, 129, 0.15);
-            border-radius: 16px;
-            padding: 1.75rem;
-            text-align: center;
+        .action-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
             margin: 2.5rem 0;
-            box-shadow: var(--shadow-md);
         }
 
-        .donation-title {
-            font-size: 1.25rem;
+        @media (min-width: 768px) {
+            .action-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .action-card {
+            border-radius: 16px;
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-smooth);
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-card);
+        }
+
+        .action-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .action-card.donation-card {
+            background: linear-gradient(135deg, var(--color-success-bg) 0%, #dcfce7 100%);
+            border-color: rgba(16, 185, 129, 0.15);
+        }
+
+        .action-card.contact-card {
+            background: linear-gradient(135deg, var(--color-primary-light) 0%, #dbeafe 100%);
+            border-color: rgba(37, 99, 235, 0.15);
+        }
+
+        .action-card-title {
+            font-size: 1.2rem;
             font-weight: 800;
             color: var(--text-primary);
             letter-spacing: -0.02em;
@@ -683,12 +715,37 @@
             gap: 0.5rem;
         }
 
-        .donation-desc {
-            font-size: 0.9rem;
+        .action-card-desc {
+            font-size: 0.88rem;
             color: var(--text-secondary);
-            line-height: 1.55;
-            max-width: 580px;
-            margin: 0 auto 1.25rem auto;
+            line-height: 1.5;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+
+        .btn-action-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            background-color: var(--color-primary);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+            transition: var(--transition-smooth);
+        }
+
+        .btn-action-primary:hover {
+            background-color: var(--color-primary-hover);
+            box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+            transform: translateY(-1px);
+            color: #ffffff;
+        }
+
+        .btn-action-primary:active {
+            transform: translateY(0);
         }
 
         /* Authentic Stylized Buy Me A Coffee Button */
@@ -1010,21 +1067,39 @@
             </div>
         </article>
 
-        <!-- 9. DONATION CALL-TO-ACTION SECTION -->
-        <section class="donation-section" id="donationSection">
-            <h2 class="donation-title">
-                <span id="supportTitleText"></span>
-            </h2>
-            <p class="donation-desc" id="supportDescText"></p>
-            
-            <!-- Authentic Buy Me a Coffee Button -->
-            <a href="https://www.buymeacoffee.com/yourusername" target="_blank" rel="noopener" class="btn-bmc">
-                <svg fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20.216 6.415a2.584 2.584 0 0 0-2.58-2.58H3.366A2.584 2.584 0 0 0 .786 6.415v6.52c0 2.113 1.554 3.882 3.61 4.221l.6 4.195a2.58 2.58 0 0 0 2.551 2.215h7.168a2.58 2.58 0 0 0 2.551-2.215l.6-4.195c2.056-.34 3.61-2.108 3.61-4.22v-6.52a2.58 2.58 0 0 0-.26-1.216zm-3.92 11.23H6.963a.86.86 0 0 1-.85-.739l-.666-4.662H18l-.666 4.662a.86.86 0 0 1-.85.739zM18.847 11.4H4.366V6.415h14.48zM22.07 9.9c0-1.38-.838-2.5-2.07-2.5h-1.157v5h1.157c1.232 0 2.07-1.12 2.07-2.5z"/>
-                </svg>
-                <span id="bmcBtnText"></span>
-            </a>
-        </section>
+        <!-- 9. DUAL ACTION & CONTACT SECTION -->
+        <div class="action-grid" id="donationSection">
+            <!-- Card 1: Support Project -->
+            <section class="action-card donation-card">
+                <h3 class="action-card-title">
+                    <span id="supportTitleText"></span>
+                </h3>
+                <p class="action-card-desc" id="supportDescText"></p>
+                
+                <!-- Authentic Buy Me a Coffee Button -->
+                <a href="https://www.buymeacoffee.com/yourusername" target="_blank" rel="noopener" class="btn-bmc">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.216 6.415a2.584 2.584 0 0 0-2.58-2.58H3.366A2.584 2.584 0 0 0 .786 6.415v6.52c0 2.113 1.554 3.882 3.61 4.221l.6 4.195a2.58 2.58 0 0 0 2.551 2.215h7.168a2.58 2.58 0 0 0 2.551-2.215l.6-4.195c2.056-.34 3.61-2.108 3.61-4.22v-6.52a2.58 2.58 0 0 0-.26-1.216zm-3.92 11.23H6.963a.86.86 0 0 1-.85-.739l-.666-4.662H18l-.666 4.662a.86.86 0 0 1-.85.739zM18.847 11.4H4.366V6.415h14.48zM22.07 9.9c0-1.38-.838-2.5-2.07-2.5h-1.157v5h1.157c1.232 0 2.07-1.12 2.07-2.5z"/>
+                    </svg>
+                    <span id="bmcBtnText"></span>
+                </a>
+            </section>
+
+            <!-- Card 2: Contact Info -->
+            <section class="action-card contact-card">
+                <h3 class="action-card-title">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="color: var(--color-primary); margin-right: 0.25rem;">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                    </svg>
+                    <span id="contactTitleText"></span>
+                </h3>
+                <p class="action-card-desc" id="contactDescText"></p>
+                
+                <a href="mailto:hello@newsforextrading.com" class="btn-action-primary">
+                    <span id="contactBtnText"></span>
+                </a>
+            </section>
+        </div>
     </main>
 
     <!-- 10. COMPLIANCE & INSTITUTIONAL FOOTER -->
@@ -1098,6 +1173,9 @@
                 supportTitle: "Support Our Project ☕",
                 supportDesc: "Our reports are updated daily and are completely free. If our analysis helps you make better decisions, consider supporting us to keep the site active and free of premium subscriptions!",
                 contactUs: "Have questions? Contact us:",
+                contactTitle: "Got Questions or Suggestions? ✉️",
+                contactDesc: "Do you have any suggestions, feedback, or business inquiries? Feel free to contact our team directly at hello@newsforextrading.com.",
+                contactBtn: "Send an Email",
                 bmcBtn: "Buy me a coffee",
                 footerDisclaimer: "Disclaimer: Forex trading involves significant risk. Leverage can work against you. Past results do not guarantee future performance. Content is purely educational and does not constitute financial advice.",
                 privacyLink: "Privacy Policy",
@@ -1172,6 +1250,9 @@
                 supportTitle: "Apoie o Nosso Projeto ☕",
                 supportDesc: "Os nossos relatórios são atualizados diariamente e são totalmente gratuitos. Se as nossas análises o ajudam a tomar melhores decisões, considere apoiar-nos para manter o site ativo e livre de assinaturas pagas!",
                 contactUs: "Dúvidas ou sugestões? Contacte-nos:",
+                contactTitle: "Dúvidas ou Sugestões? ✉️",
+                contactDesc: "Tem alguma sugestão, feedback ou proposta de parceria? Entre em contacto direto com a nossa equipa através do e-mail hello@newsforextrading.com.",
+                contactBtn: "Enviar E-mail",
                 bmcBtn: "Apoie-nos com um Café",
                 footerDisclaimer: "Aviso: O mercado de câmbio (Forex) envolve riscos significativos. A alavancagem pode funcionar contra si. Resultados passados não garantem lucros futuros. O conteúdo é meramente educativo e não constitui aconselhamento financeiro.",
                 privacyLink: "Política de Privacidade",
@@ -1515,6 +1596,11 @@
             document.getElementById('supportTitleText').textContent = dictionary.supportTitle;
             document.getElementById('supportDescText').textContent = dictionary.supportDesc;
             document.getElementById('bmcBtnText').textContent = dictionary.bmcBtn;
+            
+            // Contact Area translations
+            document.getElementById('contactTitleText').textContent = dictionary.contactTitle;
+            document.getElementById('contactDescText').textContent = dictionary.contactDesc;
+            document.getElementById('contactBtnText').textContent = dictionary.contactBtn;
             
             // Footer compliance
             document.getElementById('footerContactText').textContent = dictionary.contactUs;
