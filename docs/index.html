@@ -911,14 +911,14 @@
 
         <!-- 5. HERO HEADER -->
         <section class="hero">
-            <h1 id="heroTitle"></h1>
-            <p id="heroSubtitle"></p>
-            <p id="generationTime" style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.65rem; font-weight: 600; background-color: var(--color-primary-light); color: var(--color-primary); display: inline-block; padding: 0.3rem 0.85rem; border-radius: 20px; border: 1px solid rgba(37, 99, 235, 0.1);"></p>
+            <h1 id="heroTitle">Forex Report</h1>
+            <p id="heroSubtitle">Daily analysis of the best pairs to trade</p>
+            <p id="generationTime" style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.65rem; font-weight: 600; background-color: var(--color-primary-light); color: var(--color-primary); display: inline-block; padding: 0.3rem 0.85rem; border-radius: 20px; border: 1px solid rgba(37, 99, 235, 0.1);">Reports generated on: June 1, 2026 at 20:30 (GMT)</p>
         </section>
 
         <!-- 6. CURRENCY PAIR SELECTOR -->
         <section class="selector-card">
-            <label class="selector-label" for="pairSelect" id="selectorLabelText"></label>
+            <label class="selector-label" for="pairSelect" id="selectorLabelText">Select Currency Pair to Analyze</label>
             <div class="currency-select-wrapper">
                 <select class="currency-select" id="pairSelect">
 					<option value="EUR/USD">EUR/USD</option>
@@ -936,69 +936,84 @@
         </section>
 
         <!-- 7. DYNAMIC FOREX REPORT -->
-        <article class="report-container" id="reportContainer">
-            <!-- Dynamic header loaded via JS -->
-            <div class="report-header" id="reportHeader"></div>
+        <article class="report-container" id="reportContainer" style="display: block;">
+            <!-- Dynamic header loaded via JS, pre-filled with EUR/USD default -->
+            <div class="report-header" id="reportHeader">
+                <div class="pair-info">
+                    <div class="pair-icon-wrapper">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="pair-name">EUR/USD</h2>
+                        <div class="pair-quote">Current Quote: <span id="currentQuoteVal">1.1645</span></div>
+                    </div>
+                </div>
+                <div class="bias-badge bias-bearish">
+                    BEARISH
+                </div>
+            </div>
             
             <div class="report-body">
                 <!-- Section 1: Fundamental -->
                 <section class="report-section">
-                    <h3 class="section-title" id="secTitleFundamental"></h3>
-                    <div class="section-content" id="reportFundamental"></div>
+                    <h3 class="section-title" id="secTitleFundamental">1. Fundamental & Macro Flow</h3>
+                    <div class="section-content" id="reportFundamental">The Euro faces significant bearish headwinds as of June 1, 2026. Escalating geopolitical tensions in the Middle East have dampened global risk appetite, driving safe-haven flows to the US Dollar, with the DXY index consolidating firmly above 99.15. Furthermore, monetary policy divergence remains in play: hot US PCE inflation at 3.8% cements expectations that the Federal Reserve will maintain restrictive rates longer (with potential additional hikes), while the European Central Bank (ECB) continues its rate-cut path due to weak Eurozone PMI data.</div>
                 </section>
 
                 <!-- Section 2: Technical -->
                 <section class="report-section">
-                    <h3 class="section-title" id="secTitleTechnical"></h3>
+                    <h3 class="section-title" id="secTitleTechnical">2. Technical Architecture (Daily/Weekly Chart)</h3>
                     
                     <div class="technical-grid">
                         <div class="tech-box">
-                            <div class="tech-box-label" id="labelTrend"></div>
-                            <div class="tech-box-value" id="reportTrend"></div>
+                            <div class="tech-box-label" id="labelTrend">Main Trend</div>
+                            <div class="tech-box-value" id="reportTrend">Start of a bearish corrective reversal following consecutive failures to break the major weekly resistance at 1.1800. Price has broken below the daily 50 EMA and is currently testing the 200 SMA support.</div>
                         </div>
                         <div class="tech-box">
-                            <div class="tech-box-label" id="labelLiquidity"></div>
+                            <div class="tech-box-label" id="labelLiquidity">Critical Liquidity Zones</div>
                             <div class="tech-box-value" style="display: flex; flex-direction: column; gap: 0.4rem;">
-                                <div style="font-size: 0.85rem;"><span id="subLabelSupport" style="font-weight: 500; color: var(--text-secondary);"></span> <strong id="reportSupport"></strong></div>
-                                <div style="font-size: 0.85rem;"><span id="subLabelResistance" style="font-weight: 500; color: var(--text-secondary);"></span> <strong id="reportResistance"></strong></div>
+                                <div style="font-size: 0.85rem;"><span id="subLabelSupport" style="font-weight: 500; color: var(--text-secondary);">Nearest Macro Support:</span> <strong id="reportSupport">1.1520 (Weekly long-term support and major macro ascending trendline).</strong></div>
+                                <div style="font-size: 0.85rem;"><span id="subLabelResistance" style="font-weight: 500; color: var(--text-secondary);">Nearest Macro Resistance:</span> <strong id="reportResistance">1.1760 (Former daily support broken now acting as an institutional resistance ceiling).</strong></div>
                             </div>
                         </div>
                     </div>
                     
                     <div class="tech-box">
-                        <div class="tech-box-label" id="labelPriceAction"></div>
-                        <div class="section-content" id="reportPriceAction" style="font-size: 0.9rem;"></div>
+                        <div class="tech-box-label" id="labelPriceAction">Price Action Behavior</div>
+                        <div class="section-content" id="reportPriceAction" style="font-size: 0.9rem;">Confirmed Double Top pattern on the daily chart. The price broke the intermediate horizontal support at 1.1690 with strong bearish engulfing candles. Daily RSI is sloped downward at 42, validating the accelerating seller momentum.</div>
                     </div>
                 </section>
 
                 <!-- Section 3: Strategic Verdict & Setup -->
                 <section class="report-section">
-                    <h3 class="section-title" id="secTitleVerdict"></h3>
+                    <h3 class="section-title" id="secTitleVerdict">3. Strategic Verdict & Trade Setup</h3>
                     
-                    <div class="verdict-card" id="verdictCardElement">
+                    <div class="verdict-card verdict-sell" id="verdictCardElement">
                         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 0.75rem;">
-                            <span class="verdict-badge" id="reportVerdictBadge" style="margin-bottom: 0;"></span>
+                            <span class="verdict-badge sell" id="reportVerdictBadge" style="margin-bottom: 0;">SELL (SHORT) ON PULLBACK</span>
                             <div style="display: flex; align-items: center; gap: 0.4rem;">
-                                <span id="labelRR" style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;"></span>
-                                <span id="reportRR" class="verdict-badge" style="background-color: var(--color-primary-light); color: var(--color-primary); margin-bottom: 0; padding: 0.25rem 0.6rem; border-radius: 6px;"></span>
+                                <span id="labelRR" style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Risk/Reward Ratio</span>
+                                <span id="reportRR" class="verdict-badge" style="background-color: var(--color-primary-light); color: var(--color-primary); margin-bottom: 0; padding: 0.25rem 0.6rem; border-radius: 6px;">1:2.0</span>
                             </div>
                         </div>
                         
                         <!-- 1. Gatilho de Entrada (Card de Bloco Superior) -->
                         <div class="setup-trigger-card">
-                            <div class="setup-card-label" id="labelTrigger">Gatilho de Entrada</div>
-                            <div class="setup-card-value" id="reportTrigger"></div>
+                            <div class="setup-card-label" id="labelTrigger">Entry Trigger</div>
+                            <div class="setup-card-value" id="reportTrigger">Limit sell order on a technical corrective pullback to the 1.1690 zone (retest of the broken support level).</div>
                         </div>
                         
                         <!-- 2. Grid de Gestão de Risco (Stop Loss e Take Profit) -->
                         <div class="setup-risk-grid">
                             <div class="risk-card stop-card">
-                                <div class="setup-card-label" id="labelStop">Invalidação Técnica (Stop Loss)</div>
-                                <div class="setup-card-value" id="reportStop"></div>
+                                <div class="setup-card-label" id="labelStop">Stop Loss (Invalidation)</div>
+                                <div class="setup-card-value" id="reportStop">1.1775 (Technically placed above the daily resistance at 1.1760 and short-term EMAs).</div>
                             </div>
                             <div class="risk-card target-card">
-                                <div class="setup-card-label" id="labelTarget">Alvo de Saída (Take Profit)</div>
-                                <div class="setup-card-value" id="reportTarget"></div>
+                                <div class="setup-card-label" id="labelTarget">Take Profit (Target)</div>
+                                <div class="setup-card-value" id="reportTarget">1.1520 (Major target on the weekly support floor and institutional buyer liquidity pocket).</div>
                             </div>
                         </div>
 
@@ -1006,15 +1021,15 @@
                         <div class="ratio-bar-wrapper" style="margin-top: 1.25rem;">
                             <div class="ratio-bar-label">
                                 <span id="labelRatioProgress">RISK / REWARD SYMMETRY</span>
-                                <span id="reportRRText"></span>
+                                <span id="reportRRText">1:2.0</span>
                             </div>
                             <div class="ratio-bar-container">
-                                <div class="ratio-bar-fill" id="reportRRBar"></div>
+                                <div class="ratio-bar-fill" id="reportRRBar" style="width: 50%;"></div>
                             </div>
                         </div>
 
-                        <div class="tech-box-label" id="labelJustification" style="margin-top: 1.25rem; margin-bottom: 0.25rem;"></div>
-                        <div class="section-content" id="reportJustification" style="font-size: 0.9rem; font-style: italic;"></div>
+                        <div class="tech-box-label" id="labelJustification" style="margin-top: 1.25rem; margin-bottom: 0.25rem;">Final Justification</div>
+                        <div class="section-content" id="reportJustification" style="font-size: 0.9rem; font-style: italic;">Trade in the direction of the daily structural support breach upon technical pullback, aligned with the Fed's hawkish macro advantage and DXY strength.</div>
                     </div>
                 </section>
 
@@ -1027,16 +1042,16 @@
             <!-- Card 1: Support Project -->
             <section class="action-card donation-card">
                 <h3 class="action-card-title">
-                    <span id="supportTitleText"></span>
+                    <span id="supportTitleText">Support Our Project ☕</span>
                 </h3>
-                <p class="action-card-desc" id="supportDescText"></p>
+                <p class="action-card-desc" id="supportDescText">Our reports are updated daily and are completely free. If our analysis helps you make better decisions, consider supporting us to keep the site active and free of premium subscriptions!</p>
                 
                 <!-- Authentic Buy Me a Coffee Button -->
                 <a href="https://buymeacoffee.com/f.sant" target="_blank" rel="noopener" class="btn-bmc">
                     <svg fill="currentColor" viewBox="0 0 24 24">
                         <path d="M20.216 6.415a2.584 2.584 0 0 0-2.58-2.58H3.366A2.584 2.584 0 0 0 .786 6.415v6.52c0 2.113 1.554 3.882 3.61 4.221l.6 4.195a2.58 2.58 0 0 0 2.551 2.215h7.168a2.58 2.58 0 0 0 2.551-2.215l.6-4.195c2.056-.34 3.61-2.108 3.61-4.22v-6.52a2.58 2.58 0 0 0-.26-1.216zm-3.92 11.23H6.963a.86.86 0 0 1-.85-.739l-.666-4.662H18l-.666 4.662a.86.86 0 0 1-.85.739zM18.847 11.4H4.366V6.415h14.48zM22.07 9.9c0-1.38-.838-2.5-2.07-2.5h-1.157v5h1.157c1.232 0 2.07-1.12 2.07-2.5z"/>
                     </svg>
-                    <span id="bmcBtnText"></span>
+                    <span id="bmcBtnText">Buy me a coffee</span>
                 </a>
             </section>
 
@@ -1046,12 +1061,12 @@
                     <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="color: var(--color-primary); margin-right: 0.25rem;">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
                     </svg>
-                    <span id="contactTitleText"></span>
+                    <span id="contactTitleText">Got Questions or Suggestions? ✉️</span>
                 </h3>
-                <p class="action-card-desc" id="contactDescText"></p>
+                <p class="action-card-desc" id="contactDescText">Do you have any suggestions, feedback, or business inquiries? Feel free to contact our team directly at hello@newsforextrading.com.</p>
                 
                 <a href="mailto:hello@newsforextrading.com" class="btn-action-primary">
-                    <span id="contactBtnText"></span>
+                    <span id="contactBtnText">Send an Email</span>
                 </a>
             </section>
         </div>
@@ -1060,20 +1075,20 @@
     <!-- 10. COMPLIANCE & INSTITUTIONAL FOOTER -->
     <footer class="site-footer">
         <div class="container">
-            <p class="footer-disclaimer" id="footerDisclaimerText"></p>
+            <p class="footer-disclaimer" id="footerDisclaimerText">Disclaimer: Forex trading involves significant risk. Leverage can work against you. Past results do not guarantee future performance. Content is purely educational and does not constitute financial advice.</p>
             
             <div class="footer-contact" style="margin-bottom: 1.25rem; font-size: 0.85rem;">
-                <span id="footerContactText" style="color: var(--text-muted); font-weight: 500;"></span>
+                <span id="footerContactText" style="color: var(--text-muted); font-weight: 500;">Have questions? Contact us:</span>
                 <a href="mailto:hello@newsforextrading.com" style="font-weight: 700; color: var(--color-primary); margin-left: 0.25rem; transition: var(--transition-smooth);" onmouseover="this.style.color='var(--color-primary-hover)'" onmouseout="this.style.color='var(--color-primary)'">hello@newsforextrading.com</a>
             </div>
             
             <div class="footer-links">
-                <a href="#" class="footer-link" onclick="openModal('disclaimerModal'); return false;" id="disclaimerLinkText"></a>
-                <a href="#" class="footer-link" onclick="openModal('privacyModal'); return false;" id="privacyLinkText"></a>
+                <a href="#" class="footer-link" onclick="openModal('disclaimerModal'); return false;" id="disclaimerLinkText">Legal Disclaimer</a>
+                <a href="#" class="footer-link" onclick="openModal('privacyModal'); return false;" id="privacyLinkText">Privacy Policy</a>
             </div>
             
             <p class="footer-copyright">
-                &copy; 2026 Forex Report. <span id="copyrightRightsText"></span>
+                &copy; 2026 Forex Report. <span id="copyrightRightsText">All rights reserved.</span>
             </p>
         </div>
     </footer>
