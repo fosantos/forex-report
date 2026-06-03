@@ -20,44 +20,42 @@
            1. MODERN DESIGN SYSTEM & CUSTOM PROPERTIES (CSS VARIABLES)
            ========================================================================== */
         :root {
-            /* Premium Obsidian Dark Theme Palette (Financial Terminal Style) */
-            --bg-body: #080c14; /* Deep Obsidian Blue */
-            --bg-card: #0f1726; /* Navy Blue Card */
-            --border-color: #1e293b; /* Slate 800 */
-            --text-primary: #f8fafc; /* Slate 50 */
-            --text-secondary: #94a3b8; /* Slate 400 */
+            /* Color Palette */
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --border-color: #e2e8f0;
+            --text-primary: #0f172a; /* Slate 900 */
+            --text-secondary: #475569; /* Slate 600 */
             --text-muted: #64748b; /* Slate 500 */
             
-            --color-primary: #38bdf8; /* Sky Blue Accent */
-            --color-primary-hover: #0ea5e9;
-            --color-primary-light: rgba(56, 189, 248, 0.08);
+            --color-primary: #2563eb; /* Royal Blue */
+            --color-primary-hover: #1d4ed8;
+            --color-primary-light: #eff6ff;
             
-            --color-success: #10b981; /* Emerald Green (Bullish) */
-            --color-success-bg: rgba(16, 185, 129, 0.06);
-            --color-success-border: rgba(16, 185, 129, 0.2);
+            --color-success: #10b981; /* Emerald Green */
+            --color-success-bg: #ecfdf5;
+            --color-success-border: #a7f3d0;
             
-            --color-danger: #f43f5e; /* Rose Red (Bearish) */
-            --color-danger-bg: rgba(244, 63, 94, 0.06);
-            --color-danger-border: rgba(244, 63, 94, 0.2);
+            --color-danger: #ef4444; /* Rose Red */
+            --color-danger-bg: #fef2f2;
+            --color-danger-border: #fecaca;
             
-            --color-warning: #f59e0b; /* Amber (Neutral/Warning) */
-            --color-warning-bg: rgba(245, 158, 11, 0.06);
-            --color-warning-border: rgba(245, 158, 11, 0.2);
+            --color-warning: #f59e0b; /* Amber */
+            --color-warning-bg: #fffbeb;
+            --color-warning-border: #fde68a;
             
-            --color-neutral-dark: #1e293b;
-            --color-neutral-light: #131d30;
-            
-            --color-chart-line: #38bdf8;
+            --color-neutral-dark: #334155;
+            --color-neutral-light: #f1f5f9;
             
             /* Typography & Shadows */
             --font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.5);
-            --shadow-premium: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 8px 10px -6px rgba(0, 0, 0, 0.6);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+            --shadow-premium: 0 20px 25px -5px rgba(0, 0, 0, 0.07), 0 8px 10px -6px rgba(0, 0, 0, 0.07);
             
             /* Transitions */
-            --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         /* ==========================================================================
@@ -112,7 +110,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(15, 23, 38, 0.85);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border-color);
@@ -652,12 +650,12 @@
         }
 
         .action-card.donation-card {
-            background: linear-gradient(135deg, var(--color-success-bg) 0%, rgba(16, 185, 129, 0.12) 100%);
+            background: linear-gradient(135deg, var(--color-success-bg) 0%, #dcfce7 100%);
             border-color: rgba(16, 185, 129, 0.15);
         }
 
         .action-card.contact-card {
-            background: linear-gradient(135deg, var(--color-primary-light) 0%, rgba(56, 189, 248, 0.12) 100%);
+            background: linear-gradient(135deg, var(--color-primary-light) 0%, #dbeafe 100%);
             border-color: rgba(37, 99, 235, 0.15);
         }
 
@@ -879,12 +877,10 @@
         }
 
         /* ==========================================================================
-           12. FINANCE TERMINAL CORE COMPONENTS (ADDITIONS)
+           12. FINANCE TERMINAL CORE COMPONENTS (TICKER TAPE)
            ========================================================================== */
-        
-        /* Scrolling Ticker Tape */
         .ticker-tape {
-            background-color: #0c1220;
+            background-color: #0f172a; /* Slate 900 */
             border-bottom: 1px solid var(--border-color);
             overflow: hidden;
             width: 100%;
@@ -919,17 +915,17 @@
             display: flex;
             align-items: center;
             gap: 0.4rem;
-            color: var(--text-secondary);
+            color: #94a3b8; /* Slate 400 */
             cursor: pointer;
             transition: var(--transition-smooth);
         }
 
         .ticker-item:hover {
-            color: var(--color-primary);
+            color: #38bdf8; /* Sky Blue */
         }
 
         .ticker-pair {
-            color: var(--text-primary);
+            color: #f8fafc; /* Slate 50 */
         }
 
         .ticker-quote {
@@ -945,139 +941,13 @@
         }
 
         .ticker-up {
-            color: var(--color-success);
-            background-color: var(--color-success-bg);
+            color: #10b981; /* Emerald Green */
+            background-color: rgba(16, 185, 129, 0.1);
         }
 
         .ticker-down {
-            color: var(--color-danger);
-            background-color: var(--color-danger-bg);
-        }
-
-        /* Institutional Sparkline & Overview layout */
-        .market-overview-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.25rem;
-            margin-bottom: 1.75rem;
-        }
-
-        @media (min-width: 768px) {
-            .market-overview-grid {
-                grid-template-columns: 1.6fr 1fr;
-            }
-        }
-
-        .chart-box {
-            background-color: var(--color-neutral-light);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.25rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .sparkline-wrapper {
-            width: 100%;
-            height: 120px;
-            margin-top: 0.5rem;
-            position: relative;
-        }
-
-        .sparkline-svg {
-            width: 100%;
-            height: 100%;
-            display: block;
-            overflow: visible;
-        }
-
-        .sparkline-path {
-            stroke-dasharray: 800;
-            stroke-dashoffset: 800;
-            animation: drawLine 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        }
-
-        @keyframes drawLine {
-            to { stroke-dashoffset: 0; }
-        }
-
-        /* Market Intelligence Metadata styling */
-        .market-meta-box {
-            background-color: var(--color-neutral-light);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.25rem;
-            box-shadow: var(--shadow-sm);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .meta-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            margin-top: 0.75rem;
-            flex-grow: 1;
-            justify-content: center;
-        }
-
-        .meta-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px dashed var(--border-color);
-            padding-bottom: 0.45rem;
-            font-size: 0.88rem;
-        }
-
-        .meta-item:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .meta-label {
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-
-        .meta-value {
-            color: var(--text-primary);
-            font-weight: 700;
-            font-variant-numeric: tabular-nums;
-        }
-
-        .meta-value.success {
-            color: var(--color-success);
-        }
-
-        .meta-value.warning {
-            color: var(--color-warning);
-        }
-
-        .meta-value.danger {
-            color: var(--color-danger);
-        }
-
-        /* Ticker tape pulse animation */
-        .ticker-pulse {
-            display: inline-block;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background-color: var(--color-success);
-            box-shadow: 0 0 8px var(--color-success);
-            animation: pulse-glow 1.5s infinite ease-in-out;
-            margin-right: 0.25rem;
-        }
-
-        @keyframes pulse-glow {
-            0% { transform: scale(0.9); opacity: 0.5; }
-            50% { transform: scale(1.2); opacity: 1; }
-            100% { transform: scale(0.9); opacity: 0.5; }
+            color: #ef4444; /* Rose Red */
+            background-color: rgba(239, 68, 68, 0.1);
         }
     </style>
 </head>
@@ -1167,48 +1037,6 @@
             </div>
             
             <div class="report-body">
-                <!-- Market Overview: Sparkline & Intelligence -->
-                <div class="market-overview-grid">
-                    <!-- Dynamic Trend Chart -->
-                    <div class="chart-box">
-                        <div class="tech-box-label" id="labelChart">Trend Waveform (D1)</div>
-                        <div class="sparkline-wrapper">
-                            <svg class="sparkline-svg" id="sparklineSvg" viewBox="0 0 300 100" preserveAspectRatio="none">
-                                <defs>
-                                    <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
-                                        <stop offset="0%" stop-color="var(--color-primary)" stop-opacity="0.25"/>
-                                        <stop offset="100%" stop-color="var(--color-primary)" stop-opacity="0"/>
-                                    </linearGradient>
-                                </defs>
-                                <path id="sparklineBgPath" fill="url(#chartGradient)" d=""></path>
-                                <path id="sparklinePath" stroke="var(--color-primary)" stroke-width="2.5" fill="none" d=""></path>
-                            </svg>
-                        </div>
-                    </div>
-                    <!-- Market Intelligence Metadata -->
-                    <div class="market-meta-box">
-                        <div class="tech-box-label" id="labelMarketMeta">Market Intelligence</div>
-                        <div class="meta-grid">
-                            <div class="meta-item">
-                                <span class="meta-label" id="lblMetaVol">Volatility:</span>
-                                <span class="meta-value" id="valMetaVol">-</span>
-                            </div>
-                            <div class="meta-item">
-                                <span class="meta-label" id="lblMetaLiq">Liquidity:</span>
-                                <span class="meta-value" id="valMetaLiq">-</span>
-                            </div>
-                            <div class="meta-item">
-                                <span class="meta-label" id="lblMetaSess">Active Focus:</span>
-                                <span class="meta-value" id="valMetaSess">-</span>
-                            </div>
-                            <div class="meta-item">
-                                <span class="meta-label" id="lblMetaEvent">Next Catalyst:</span>
-                                <span class="meta-value" id="valMetaEvent">-</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Section 1: Fundamental -->
                 <section class="report-section">
                     <h3 class="section-title" id="secTitleFundamental">1. Fundamental & Macro Flow</h3>
@@ -1411,13 +1239,6 @@
                 technicalTab: "2. Technical Architecture (Daily/Weekly Chart)",
                 verdictTab: "3. Strategic Verdict & Trade Setup",
                 
-                chartLabel: "Trend Waveform (D1)",
-                marketMetaLabel: "Market Intelligence",
-                metaVolLabel: "Volatility",
-                metaLiqLabel: "Liquidity",
-                metaSessLabel: "Active Focus",
-                metaEventLabel: "Next Catalyst",
-                
                 quoteLabel: "Current Quote",
                 trendLabel: "Main Trend",
                 liquidityLabel: "Critical Liquidity Zones",
@@ -1494,13 +1315,6 @@
                 technicalTab: "2. Arquitetura Técnica (Gráfico Diário/Semanal)",
                 verdictTab: "3. Veredito Estratégico & Sugestão de Operação",
                 
-                chartLabel: "Estrutura do Gráfico (D1)",
-                marketMetaLabel: "Inteligência de Mercado",
-                metaVolLabel: "Volatilidade",
-                metaLiqLabel: "Liquidez",
-                metaSessLabel: "Foco de Sessão",
-                metaEventLabel: "Próximo Catalisador",
-                
                 quoteLabel: "Cotação Atual",
                 trendLabel: "Tendência Principal",
                 liquidityLabel: "Zonas de Liquidez Críticas",
@@ -1557,10 +1371,8 @@
         const forexData = {
             "EUR/USD": {
                 quote: "1.1640",
-                change: "-0.15%",
                 bias: "BAIXA",
                 biasType: "bearish",
-                sparkline: "M 10,30 C 50,20 70,50 90,30 C 110,10 130,50 150,40 C 190,80 230,70 290,90",
                 pt: {
                     fundamental: "O Euro enfrenta ventos contrários significativos no dia 2 de Junho de 2026. A escalada de tensões geopolíticas no Médio Oriente reduziu o apetite global pelo risco, impulsionando os fluxos em direção à segurança do Dólar Americano, enquanto o Índice DXY consolida-se em patamares elevados nos 99.20. Além disso, a forte divergência de política monetária continua ativa: com a inflação PCE nos EUA em 3.8%, cresce o consenso de que o Fed manterá os juros restritivos por mais tempo, ao passo que o Banco Central Europeu (BCE) prepara-se para dar continuidade ao seu ciclo de cortes devido à fraqueza na atividade da Zona Euro.",
                     trend: "Início de reversão corretiva de baixa após a falha sistemática em romper a barreira semanal de 1.1800. O preço quebrou abaixo da EMA 50 e agora testa o suporte da SMA 200 diária.",
@@ -1573,13 +1385,7 @@
                     target: "1.1520 (Alvo principal na base do canal de longo prazo e zona de liquidez compradora semanal).",
                     rr: "1:2.0",
                     rrValue: 50,
-                    justification: "Operar a favor da quebra estrutural do suporte diário na retração técnica, alinhado ao viés macro hawkish do Fed sustentado pelo PCE quente.",
-                    meta: {
-                        volatility: "Média",
-                        liquidity: "Elevada (Sessão NY)",
-                        session: "Londres / Nova Iorque",
-                        catalyst: "Relatório de Emprego NFP"
-                    }
+                    justification: "Operar a favor da quebra estrutural do suporte diário na retração técnica, alinhado ao viés macro hawkish do Fed sustentado pelo PCE quente."
                 },
                 en: {
                     fundamental: "The Euro faces significant bearish headwinds as of June 2, 2026. Escalating geopolitical tensions in the Middle East have dampened global risk appetite, driving safe-haven flows to the US Dollar, with the DXY index consolidating firmly near 99.20. Furthermore, monetary policy divergence remains in play: hot US PCE inflation at 3.8% cements expectations that the Federal Reserve will maintain restrictive rates longer, while the European Bank (ECB) continues its rate-cut path due to weak Eurozone PMI data.",
@@ -1593,21 +1399,13 @@
                     target: "1.1520 (Major target on the weekly support floor and institutional buyer liquidity pocket).",
                     rr: "1:2.0",
                     rrValue: 50,
-                    justification: "Trade in the direction of the daily structural support breach upon technical pullback, aligned with the Fed's hawkish macro advantage and DXY strength.",
-                    meta: {
-                        volatility: "Medium",
-                        liquidity: "High (NY Session)",
-                        session: "London / New York",
-                        catalyst: "U.S. Non-Farm Payrolls"
-                    }
+                    justification: "Trade in the direction of the daily structural support breach upon technical pullback, aligned with the Fed's hawkish macro advantage and DXY strength."
                 }
             },
             "USD/JPY": {
                 quote: "159.85",
-                change: "+0.25%",
                 bias: "NEUTRO / ALTA",
                 biasType: "neutral-bullish",
-                sparkline: "M 10,80 C 50,70 80,30 110,40 C 140,55 170,45 200,50 C 230,48 260,52 290,50",
                 pt: {
                     fundamental: "O par opera sob forte carry trade entre Fed e BoJ no dia 2 de Junho de 2026. A probabilidade de subida de taxas do BoJ para 16 de Junho situa-se em 78% devido à fraqueza extrema da moeda. Embora o Ministério das Finanças tenha gastado ¥11,7 trilhões em intervenções recentes para sustentar o Iene, a cotação comprime-se agressivamente perto da barreira psicológica de 160.00, exigindo extrema cautela face ao risco político iminente.",
                     trend: "Tendência secular de alta nos gráficos D1 e W1. As EMAs de 50 e SMA de 200 períodos permanecem alinhadas e com inclinação ascendente.",
@@ -1620,13 +1418,7 @@
                     target: "159.90 (Alvo técnico conservador situado imediatamente abaixo da barreira dos 160.00).",
                     rr: "1:2.45",
                     rrValue: 61,
-                    justification: "Evitar compras na resistência limite de 160.00 devido à elevada probabilidade de intervenção direta por parte do Banco do Japão.",
-                    meta: {
-                        volatility: "Alta (Aviso de Intervenção)",
-                        liquidity: "Forte",
-                        session: "Tóquio / Nova Iorque",
-                        catalyst: "Decisão de Taxas do BoJ"
-                    }
+                    justification: "Evitar compras na resistência limite de 160.00 devido à elevada probabilidade de intervenção direta por parte do Banco do Japão."
                 },
                 en: {
                     fundamental: "The pair trades under a strong carry trade scenario between Fed and BoJ on June 2, 2026. The probability of a BoJ rate hike on June 16 is priced at 78% due to Yen weakness. Although the MoF spent ¥11.7T in recent interventions to support the Yen, the price is compressing aggressively near the 160.00 psychological mark, requiring heavy caution.",
@@ -1640,21 +1432,13 @@
                     target: "159.90 (Conservative technical target situated just below the 160.00 barrier).",
                     rr: "1:2.45",
                     rrValue: 61,
-                    justification: "Avoid buying at the 160.00 immediate ceiling due to the high probability of direct exchange rate intervention by the Bank of Japan.",
-                    meta: {
-                        volatility: "High (Intervention Warning)",
-                        liquidity: "Strong",
-                        session: "Tokyo / New York",
-                        catalyst: "BoJ Rate Announcement"
-                    }
+                    justification: "Avoid buying at the 160.00 immediate ceiling due to the high probability of direct exchange rate intervention by the Bank of Japan."
                 }
             },
             "AUD/USD": {
                 quote: "0.7170",
-                change: "-0.40%",
                 bias: "BAIXA",
                 biasType: "bearish",
-                sparkline: "M 10,50 C 50,40 100,45 130,30 C 160,20 180,75 210,80 C 240,85 270,88 290,95",
                 pt: {
                     fundamental: "O Dólar Australiano permanece sob forte pressão no dia 2 de Junho de 2026. A postura restritiva prolongada do Fed (inflação PCE a 3,8%) continua atraindo capital para os rendimentos americanos, enquanto dados fracos do PMI industrial da China reduzem drasticamente a demanda por commodities metálicas. O RBA mantém uma atitude cautelosa e neutra, incapaz de oferecer suporte à moeda.",
                     trend: "Estrutura técnica de baixa no gráfico diário. O preço confirmou o rompimento da LTA e agora opera abaixo da média móvel diária de 200 períodos.",
@@ -1667,13 +1451,7 @@
                     target: "0.7090 (Alvo técnico principal situado na zona de liquidez semanal em 0.7090).",
                     rr: "1:2.0",
                     rrValue: 50,
-                    justification: "Venda na retração corretiva após rompimento estrutural da LTA e SMA 200, aproveitando a queda no preço das commodities perante o DXY forte.",
-                    meta: {
-                        volatility: "Média-Alta",
-                        liquidity: "Moderada",
-                        session: "Sídnei / Tóquio",
-                        catalyst: "PMI Industrial da China"
-                    }
+                    justification: "Venda na retração corretiva após rompimento estrutural da LTA e SMA 200, aproveitando a queda no preço das commodities perante o DXY forte."
                 },
                 en: {
                     fundamental: "The Australian Dollar remains under heavy selling pressure on June 2, 2026. The Federal Reserve's restrictive stance (PCE inflation at 3.8%) keeps U.S. yields high, while soft manufacturing PMI data from China dampens commodity demand. The RBA retains a cautious and neutral stance, failing to provide enough yield support for the currency.",
@@ -1687,21 +1465,13 @@
                     target: "0.7090 (Major target at the weekly support area).",
                     rr: "1:2.0",
                     rrValue: 50,
-                    justification: "Sell the technical pullback after a confirmed breakdown of the daily LTA and 200 SMA, aligned with weak Chinese demand and DXY strength.",
-                    meta: {
-                        volatility: "Medium-High",
-                        liquidity: "Moderate",
-                        session: "Sydney / Tokyo",
-                        catalyst: "China Manufacturing PMI"
-                    }
+                    justification: "Sell the technical pullback after a confirmed breakdown of the daily LTA and 200 SMA, aligned with weak Chinese demand and DXY strength."
                 }
             },
             "GBP/USD": {
                 quote: "1.3470",
-                change: "+0.10%",
                 bias: "NEUTRO / ALTA",
                 biasType: "neutral-bullish",
-                sparkline: "M 10,50 C 40,30 70,70 100,60 C 130,40 160,65 190,50 C 220,35 250,55 290,50",
                 pt: {
                     fundamental: "A Libra Esterlina exibe resiliência no dia 2 de Junho de 2026, amparada pela inflação de serviços britânica persistente, forçando o Banco da Inglaterra (BoE) a postergar cortes de juros. Ao mesmo tempo, o Dólar Americano permanece robusto com o DXY nos 99.20 sob inflação PCE aquecida. Esse conflito de bancos centrais hawkish deixa o par GBP/USD em consolidação lateral no médio prazo.",
                     trend: "Consolidação lateral horizontal diária bem delineada entre 1.3320 e 1.3600. O preço oscila atualmente em torno da média móvel diária de 50 períodos.",
@@ -1714,13 +1484,7 @@
                     target: "1.3850 (Alvo técnico superior baseado no diário).",
                     rr: "1:2.09",
                     rrValue: 52,
-                    justification: "Aguardar a resolução da consolidação horizontal e operar apenas após rompimento confirmado dos limites da faixa de preço.",
-                    meta: {
-                        volatility: "Baixa (Consolidação)",
-                        liquidity: "Elevada",
-                        session: "Londres / Nova Iorque",
-                        catalyst: "Discurso de Membros do BoE"
-                    }
+                    justification: "Aguardar a resolução da consolidação horizontal e operar apenas após rompimento confirmado dos limites da faixa de preço."
                 },
                 en: {
                     fundamental: "The British Pound displays resilience on June 2, 2026, supported by sticky UK services inflation which forces the Bank of England (BoE) to keep interest rates restrictive. Meanwhile, the U.S. Dollar is globally strong (DXY at 99.20) due to hot inflation metrics. This clash of hawkish central banks leaves the GBP/USD pair consolidated in a tight sideways range without clear direction.",
@@ -1734,21 +1498,13 @@
                     target: "1.3850 (Upper technical target based on the daily chart).",
                     rr: "1:2.09",
                     rrValue: 52,
-                    justification: "Wait for a clean breakout of the horizontal consolidation boundaries to avoid low-probability trades inside the range.",
-                    meta: {
-                        volatility: "Low (Consolidation)",
-                        liquidity: "High",
-                        session: "London / New York",
-                        catalyst: "BoE Member Speeches"
-                    }
+                    justification: "Wait for a clean breakout of the horizontal consolidation boundaries to avoid low-probability trades inside the range."
                 }
             },
             "EUR/JPY": {
                 quote: "186.15",
-                change: "+0.32%",
                 bias: "ALTA",
                 biasType: "bullish",
-                sparkline: "M 10,90 C 50,85 90,50 130,45 C 170,40 210,20 250,25 C 270,20 280,15 290,10",
                 pt: {
                     fundamental: "O par EUR/JPY opera sob forte viés de alta em 2 de Junho de 2026, impulsionado pelo diferencial de taxa de juros (carry trade) entre a Zona Euro e o Japão. Embora o BoJ tenha tentado conter a depreciação do Iene via intervenção cambial e planeje aumentos graduais, a postura expansionista estrutural mantém o JPY fraco face ao Euro.",
                     trend: "Forte tendência de alta secular. O preço opera acima de todas as médias móveis importantes (50 EMA e 200 SMA) com alinhamento de alta nos tempos gráficos D1 e W1.",
@@ -1761,13 +1517,7 @@
                     target: "187.80 (Alvo técnico na zona de expansão de Fibonacci).",
                     rr: "1:3.0",
                     rrValue: 75,
-                    justification: "Aproveitar a assimetria do carry trade macro e entrar comprado na retração de suporte de alta probabilidade.",
-                    meta: {
-                        volatility: "Alta (Volatilidade JPY)",
-                        liquidity: "Moderada-Forte",
-                        session: "Londres / Tóquio",
-                        catalyst: "Dados de PIB da Zona Euro"
-                    }
+                    justification: "Aproveitar a assimetria do carry trade macro e entrar comprado na retração de suporte de alta probabilidade."
                 },
                 en: {
                     fundamental: "The EUR/JPY cross trades near all-time highs as of June 2, 2026. The fundamental thesis is driven by the extreme interest rate differential (carry trade) between the Eurozone and Japan. Even if the ECB signals gradual rate cuts in the future, its policy is highly restrictive compared to the deeply negative real rates maintained by the Bank of Japan (BoJ), stimulating constant JPY selling.",
@@ -1781,21 +1531,13 @@
                     target: "187.80 (Next major Fibonacci expansion target).",
                     rr: "1:3.0",
                     rrValue: 75,
-                    justification: "Carry trade flow remains extremely strong, making pullbacks to support high-probability buying zones.",
-                    meta: {
-                        volatility: "High (JPY Volatility)",
-                        liquidity: "Moderate-Strong",
-                        session: "London / Tokyo",
-                        catalyst: "Eurozone GDP Print"
-                    }
+                    justification: "Carry trade flow remains extremely strong, making pullbacks to support high-probability buying zones."
                 }
             },
             "GBP/JPY": {
                 quote: "215.30",
-                change: "+0.45%",
                 bias: "ALTA",
                 biasType: "bullish",
-                sparkline: "M 10,95 C 60,90 110,65 160,50 C 210,35 250,15 290,5",
                 pt: {
                     fundamental: "O par GBP/JPY continua sendo o principal veículo de carry trade de alta convicção no dia 2 de Junho de 2026. A inflação de serviços rígida no Reino Unido pressiona o BoE a prolongar os juros elevados, contrastando fortemente com a hesitação do BoJ em normalizar a sua política monetária. Isso atrai grandes volumes de fluxos especulativos a favor da Libra.",
                     trend: "Tendência de alta parabólica. O gráfico diário apresenta topos e fundos ascendentes consistentes, operando sem sinais de quebra da estrutura de alta.",
@@ -1808,13 +1550,7 @@
                     target: "216.00 (Resistência do canal diário ascendente).",
                     rr: "1:2.0",
                     rrValue: 50,
-                    justification: "Associação ideal de carry trade fundamental agressivo com estrutura técnica de alta consolidada, justificando compra nas zonas de desconto.",
-                    meta: {
-                        volatility: "Muito Alta",
-                        liquidity: "Forte",
-                        session: "Londres / Tóquio",
-                        catalyst: "IPC do Reino Unido"
-                    }
+                    justification: "Associação ideal de carry trade fundamental agressivo com estrutura técnica de alta consolidada, justificando compra nas zonas de desconto."
                 },
                 en: {
                     fundamental: "The GBP/JPY pair remains the ultimate expression of carry trade of high conviction on June 2, 2026. Persistent services inflation in the UK forces the BoE to maintain high interest rates, while the structural weakness of the Yen due to an ultra-dovish BoJ attracts massive speculative buying flows.",
@@ -1828,13 +1564,7 @@
                     target: "216.00 (Ascending channel ceiling).",
                     rr: "1:2.0",
                     rrValue: 50,
-                    justification: "Flawless alignment between the BoE's high yields and the BoJ's negative real rates, supporting buy orders on minor intraday pullbacks.",
-                    meta: {
-                        volatility: "Very High",
-                        liquidity: "Strong",
-                        session: "London / Tokyo",
-                        catalyst: "UK CPI Inflation Data"
-                    }
+                    justification: "Flawless alignment between the BoE's high yields and the BoJ's negative real rates, supporting buy orders on minor intraday pullbacks."
                 }
             }
         };
@@ -1888,12 +1618,23 @@
             const tickerContent = document.getElementById('tickerContent');
             if (!tickerContent) return;
             
+            // Assign change data dynamically to keep the main DB clean
+            const changes = {
+                "EUR/USD": "-0.15%",
+                "USD/JPY": "+0.25%",
+                "AUD/USD": "-0.40%",
+                "GBP/USD": "+0.10%",
+                "EUR/JPY": "+0.32%",
+                "GBP/JPY": "+0.45%"
+            };
+            
             let itemsHtml = '';
             const pairs = Object.keys(forexData);
             
             pairs.forEach(pair => {
                 const data = forexData[pair];
-                const isUp = data.change.startsWith('+');
+                const changeVal = changes[pair] || "+0.00%";
+                const isUp = changeVal.startsWith('+');
                 const changeClass = isUp ? 'ticker-up' : 'ticker-down';
                 const arrow = isUp ? '▲' : '▼';
                 
@@ -1901,7 +1642,7 @@
                     <div class="ticker-item" onclick="selectPairFromTicker('${pair}')">
                         <span class="ticker-pair">${pair}</span>
                         <span class="ticker-quote">${data.quote}</span>
-                        <span class="ticker-change ${changeClass}">${arrow} ${data.change}</span>
+                        <span class="ticker-change ${changeClass}">${arrow} ${changeVal}</span>
                     </div>
                 `;
             });
@@ -1916,6 +1657,8 @@
             
             // Meta updates
             document.title = currentLang === 'pt' ? 'Relatório Forex - Análises Avançadas Gratuitas' : 'Forex Report - Professional Trading Insights';
+            
+
             
             // DOM static translation injection
             document.getElementById('supportHeaderBtn').textContent = dictionary.supportBtn;
@@ -1942,14 +1685,6 @@
             document.getElementById('labelRatioProgress').textContent = currentLang === 'pt' ? 'SIMETRIA RISCO / RETORNO' : 'RISK / REWARD SYMMETRY';
             document.getElementById('labelJustification').textContent = dictionary.justificationLabel;
             
-            // Dynamic chart & intelligence widgets translations
-            document.getElementById('labelChart').textContent = dictionary.chartLabel;
-            document.getElementById('labelMarketMeta').textContent = dictionary.marketMetaLabel;
-            document.getElementById('lblMetaVol').textContent = dictionary.metaVolLabel + ":";
-            document.getElementById('lblMetaLiq').textContent = dictionary.metaLiqLabel + ":";
-            document.getElementById('lblMetaSess').textContent = dictionary.metaSessLabel + ":";
-            document.getElementById('lblMetaEvent').textContent = dictionary.metaEventLabel + ":";
-
             // Donation Area translations
             document.getElementById('supportTitleText').textContent = dictionary.supportTitle;
             document.getElementById('supportDescText').textContent = dictionary.supportDesc;
@@ -2049,49 +1784,6 @@
             document.getElementById('reportRRBar').style.width = `${data.rrValue}%`;
             
             document.getElementById('reportJustification').textContent = details.justification;
-
-            // 4. Render Sparkline Graph (D1 Trend Waveform)
-            const sparklinePath = document.getElementById('sparklinePath');
-            const sparklineBgPath = document.getElementById('sparklineBgPath');
-            if (sparklinePath && sparklineBgPath) {
-                sparklinePath.setAttribute('d', data.sparkline);
-                sparklineBgPath.setAttribute('d', `${data.sparkline} L 290,100 L 10,100 Z`);
-                
-                // Restart path drawing dash animation
-                sparklinePath.style.animation = 'none';
-                sparklinePath.offsetHeight; /* trigger reflow */
-                sparklinePath.style.animation = null;
-            }
-
-            // 5. Render Market Intelligence Metadata with dynamic color coding
-            const vol = details.meta.volatility.toLowerCase();
-            let volClass = '';
-            if (vol.includes('very high') || vol.includes('muito alta')) {
-                volClass = 'danger';
-            } else if (vol.includes('high') || vol.includes('alta') || vol.includes('medium-high') || vol.includes('média-alta')) {
-                volClass = 'warning';
-            } else if (vol.includes('low') || vol.includes('baixa')) {
-                volClass = 'success';
-            }
-            const volEl = document.getElementById('valMetaVol');
-            volEl.textContent = details.meta.volatility;
-            volEl.className = 'meta-value ' + volClass;
-
-            const liq = details.meta.liquidity.toLowerCase();
-            let liqClass = '';
-            if (liq.includes('high') || liq.includes('forte') || liq.includes('elevada') || liq.includes('strong')) {
-                liqClass = 'success';
-            } else if (liq.includes('moderate') || liq.includes('moderada') || liq.includes('normal')) {
-                liqClass = 'warning';
-            } else if (liq.includes('low') || liq.includes('fraca')) {
-                liqClass = 'danger';
-            }
-            const liqEl = document.getElementById('valMetaLiq');
-            liqEl.textContent = details.meta.liquidity;
-            liqEl.className = 'meta-value ' + liqClass;
-
-            document.getElementById('valMetaSess').textContent = details.meta.session;
-            document.getElementById('valMetaEvent').textContent = details.meta.catalyst;
             
             // Display container with smooth fade in
             const reportContainer = document.getElementById('reportContainer');
