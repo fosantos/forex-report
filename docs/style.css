@@ -365,13 +365,15 @@
             box-shadow: var(--shadow-sm);
         }
 
-        .bias-bullish {
+        .bias-bullish,
+        .bias-bull {
             background-color: var(--color-success-bg);
             color: var(--color-success);
             border: 1px solid var(--color-success-border);
         }
 
-        .bias-bearish {
+        .bias-bearish,
+        .bias-bear {
             background-color: var(--color-danger-bg);
             color: var(--color-danger);
             border: 1px solid var(--color-danger-border);
@@ -387,6 +389,12 @@
             background-color: #f3e8ff;
             color: #7c3aed;
             border: 1px solid #ddd6fe;
+        }
+
+        .bias-neutral {
+            background-color: var(--color-neutral-light);
+            color: var(--color-neutral-dark);
+            border: 1px solid #cbd5e1;
         }
 
         /* Report Body Sections */
