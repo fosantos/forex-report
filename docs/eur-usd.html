@@ -13,7 +13,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -43,12 +43,14 @@
         </div>
     </header>
 
-    <main class="container">
+    <main class="container-wide">
         <!-- 1. Breadcrumb navigation -->
         <div style="margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--text-muted);">
             <a href="index.html" style="color: var(--text-muted);">Home</a> &gt; <span>EUR/USD Analysis</span>
         </div>
 
+        <div class="report-layout">
+        <div class="report-rail">
         <!-- 2. Pair Navigation Links -->
         <section class="selector-card" style="padding: 1rem; margin-bottom: 1.5rem;">
             <div style="font-size:0.8rem; font-weight:700; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.5rem; text-align:center;">Select Pair Analysis</div>
@@ -62,8 +64,11 @@
             </div>
         </section>
 
+        </div>
+
+        <div class="report-main">
         <!-- 3. Report Container -->
-        <article class="report-container" style="display: block;">
+        <article class="report-container bias-bear" style="display: block;">
             <div class="report-header">
                 <div class="pair-info">
                     <div class="pair-icon-wrapper">
@@ -107,7 +112,7 @@
                     <div class="technical-grid">
                         <div class="tech-box">
                             <div class="tech-box-label">
-                                <span class="lang-en">Main Trend</span>
+                                <span class="lang-en">Main Trend</span><span class="trend-arrow" aria-hidden="true"></span>
                                 <span class="lang-pt" style="display:none;">Tendência Principal</span>
                             </div>
                             <div class="tech-box-value lang-en">Structural downtrend intact on D1/W1. Price remains below the daily 50 SMA (~1.1500) after breaking the 1.1400 support in June, and the current bounce is testing that broken level from below as potential resistance.</div>
@@ -136,6 +141,10 @@
                                     <strong class="lang-pt" style="display:none;">1.1460 (Antigo suporte convertido em resistência, retração de Fibonacci de 38,2% do movimento de queda de junho).</strong>
                                 </div>
                             </div>
+                                <div class="range-gauge" aria-hidden="true">
+                                    <div class="range-gauge-track"><div class="range-gauge-marker" style="left: 88.3%;"></div></div>
+                                    <div class="range-gauge-labels"><span>S</span><span>R</span></div>
+                                </div>
                         </div>
                     </div>
                     
@@ -167,7 +176,7 @@
                                     <span class="lang-en">Risk/Reward Ratio</span>
                                     <span class="lang-pt" style="display:none;">Relação Risco/Retorno</span>
                                 </span>
-                                <span class="verdict-badge" style="background-color: var(--color-primary-light); color: var(--color-primary); margin-bottom: 0; padding: 0.25rem 0.6rem; border-radius: 6px;">1:2.43</span>
+                                <span class="rr-seal">1:2.43</span>
                             </div>
                         </div>
                         
@@ -254,6 +263,8 @@
                 <span class="lang-en">Open Interactive Dashboard</span>
                 <span class="lang-pt" style="display:none;">Abrir Painel Interativo</span>
             </a>
+        </div>
+        </div>
         </div>
     </main>
 

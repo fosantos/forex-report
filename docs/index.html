@@ -18,7 +18,7 @@
     <!-- Google Fonts: Inter for sleek modern typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
 </head>
@@ -74,7 +74,7 @@
         </div>
     </div>
 
-    <main class="container">
+    <main class="container-wide">
 
 
         <!-- 5. HERO HEADER -->
@@ -84,6 +84,8 @@
             <p id="generationTime" style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.65rem; font-weight: 600; background-color: var(--color-primary-light); color: var(--color-primary); display: inline-block; padding: 0.3rem 0.85rem; border-radius: 20px; border: 1px solid rgba(37, 99, 235, 0.1);">Reports generated on: 25/06/2026 22:00 UTC</p>
         </section>
 
+        <div class="report-layout">
+        <div class="report-rail">
         <!-- 6. CURRENCY PAIR SELECTOR -->
         <section class="selector-card">
             <label class="selector-label" for="pairSelect" id="selectorLabelText">Select Currency Pair to Analyze</label>
@@ -102,9 +104,11 @@
                 </svg>
             </div>
         </section>
+        </div>
 
+        <div class="report-main">
         <!-- 7. DYNAMIC FOREX REPORT -->
-        <article class="report-container" id="reportContainer" style="display: block;">
+        <article class="report-container bias-bear" id="reportContainer" style="display: block;">
             <!-- Dynamic header loaded via JS, pre-filled with EUR/USD default -->
             <div class="report-header" id="reportHeader">
                 <div class="pair-info">
@@ -136,7 +140,7 @@
                     
                     <div class="technical-grid">
                         <div class="tech-box">
-                            <div class="tech-box-label" id="labelTrend">Main Trend</div>
+                            <div class="tech-box-label" id="labelTrend">Main Trend<span class="trend-arrow" aria-hidden="true"></span></div>
                             <div class="tech-box-value" id="reportTrend">A clean bearish breakdown below the key daily support floor at 1.1520, confirming the acceleration of the D1/W1 downtrend. Price is trading below its major 50 EMA and 200 SMA.</div>
                         </div>
                         <div class="tech-box">
@@ -144,6 +148,10 @@
                             <div class="tech-box-value" style="display: flex; flex-direction: column; gap: 0.4rem;">
                                 <div style="font-size: 0.85rem;"><span id="subLabelSupport" style="font-weight: 500; color: var(--text-secondary);">Nearest Macro Support:</span> <strong id="reportSupport">1.1350 (Weekly horizontal support and institutional buyer liquidity pocket).</strong></div>
                                 <div style="font-size: 0.85rem;"><span id="subLabelResistance" style="font-weight: 500; color: var(--text-secondary);">Nearest Macro Resistance:</span> <strong id="reportResistance">1.1610 (Former daily support floor now acting as major overhead resistance).</strong></div>
+                                <div class="range-gauge" aria-hidden="true">
+                                    <div class="range-gauge-track"><div class="range-gauge-marker" id="reportRangeMarker" style="left: 94%;"></div></div>
+                                    <div class="range-gauge-labels"><span>S</span><span>R</span></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -163,7 +171,7 @@
                             <span class="verdict-badge sell" id="reportVerdictBadge" style="margin-bottom: 0;">SELL (SHORT) ON PULLBACK</span>
                             <div style="display: flex; align-items: center; gap: 0.4rem;">
                                 <span id="labelRR" style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Risk/Reward Ratio</span>
-                                <span id="reportRR" class="verdict-badge" style="background-color: var(--color-primary-light); color: var(--color-primary); margin-bottom: 0; padding: 0.25rem 0.6rem; border-radius: 6px;">1:2.5</span>
+                                <span id="reportRR" class="rr-seal">1:2.5</span>
                             </div>
                         </div>
                         
@@ -204,6 +212,8 @@
 
             </div>
         </article>
+        </div>
+        </div>
 
         <!-- 9. DUAL ACTION & CONTACT SECTION -->
         <div class="action-grid" id="donationSection">
@@ -830,15 +840,32 @@
                 </div>
             `;
             document.getElementById('reportHeader').innerHTML = headerHTML;
-            
+
+            // Sync the report's bias class (drives the trend arrow direction/color)
+            document.getElementById('reportContainer').className = 'report-container bias-' + data.biasType;
+
             // 2. Render localized detail contents
             const details = data[currentLang];
-            
+
             document.getElementById('reportFundamental').textContent = details.fundamental;
             document.getElementById('reportTrend').textContent = details.trend;
             document.getElementById('reportSupport').textContent = details.support;
             document.getElementById('reportResistance').textContent = details.resistance;
             document.getElementById('reportPriceAction').textContent = details.priceAction;
+
+            // Range gauge: position the marker between the leading support/resistance numbers
+            const parseLevel = (str) => {
+                const match = String(str).replace(/,(\d)/g, '.$1').match(/-?\d+\.?\d*/);
+                return match ? parseFloat(match[0]) : null;
+            };
+            const quoteNum = parseLevel(data.quote);
+            const supportNum = parseLevel(details.support);
+            const resistanceNum = parseLevel(details.resistance);
+            const rangeMarker = document.getElementById('reportRangeMarker');
+            if (rangeMarker && quoteNum !== null && supportNum !== null && resistanceNum !== null && resistanceNum !== supportNum) {
+                const pct = ((quoteNum - supportNum) / (resistanceNum - supportNum)) * 100;
+                rangeMarker.style.left = `${Math.min(100, Math.max(0, pct))}%`;
+            }
             
             // 3. Render strategic setup
             const recTranslated = dict[details.recommendation] || details.recommendation;
