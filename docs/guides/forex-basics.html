@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="../favicon-96x96.png" sizes="96x96" />
+    <link rel="shortcut icon" href="../favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Forex Report" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forex Basics: A Beginner's Guide to Currency Trading - Forex Report</title>
+    <meta name="description" content="Learn the fundamentals of forex trading. Understand currency pairs, market structure, participants, and key factors that drive forex prices.">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4617266720439769"
+     crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .guide-container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+        .guide-section { margin-bottom: 3rem; }
+        .guide-section h2 { font-size: 1.8rem; margin-bottom: 1rem; color: var(--color-primary); border-bottom: 2px solid var(--color-primary); padding-bottom: 0.5rem; }
+        .guide-section h3 { font-size: 1.3rem; margin: 1.5rem 0 0.8rem 0; color: var(--text-primary); }
+        .guide-section p { line-height: 1.8; margin-bottom: 1rem; color: var(--text-secondary); }
+        .guide-section ul { margin-left: 2rem; margin-bottom: 1rem; }
+        .guide-section li { margin-bottom: 0.6rem; color: var(--text-secondary); line-height: 1.6; }
+        .example-box { background-color: var(--bg-light); border-left: 4px solid var(--color-primary); padding: 1.2rem; margin: 1.5rem 0; border-radius: 4px; }
+        .example-box strong { color: var(--color-primary); }
+        .toc { background-color: var(--bg-light); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; }
+        .toc h3 { margin-top: 0; color: var(--color-primary); }
+        .toc ul { list-style: none; padding: 0; margin: 0; }
+        .toc li { margin-bottom: 0.5rem; }
+        .toc a { color: var(--color-primary); text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .breadcrumb { margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--text-muted); }
+        .breadcrumb a { color: var(--color-primary); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .back-link { display: inline-block; margin-bottom: 2rem; padding: 0.5rem 1rem; background-color: var(--bg-light); border-radius: 4px; text-decoration: none; color: var(--color-primary); }
+        .back-link:hover { background-color: rgba(37, 99, 235, 0.1); }
+        .table-wrapper { overflow-x: auto; margin: 1.5rem 0; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid var(--border-color); padding: 0.8rem; text-align: left; }
+        th { background-color: var(--bg-light); color: var(--color-primary); font-weight: 600; }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="../index.html" class="brand-logo">FOREX<span>REPORT</span></a>
+            <nav class="header-nav">
+                <a href="../index.html" class="nav-link">Dashboard</a>
+                <a href="../about.html" class="nav-link">About Us</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <div class="lang-selector-wrapper">
+                    <select class="lang-select" id="langSelect" aria-label="Language Selector">
+                        <option value="en">EN</option>
+                        <option value="pt">PT</option>
+                    </select>
+                    <svg class="lang-select-arrow" viewBox="0 0 20 20">
+                        <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container-wide">
+        <div class="guide-container">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> &gt; <a href="index.html">Guides</a> &gt; <span>Forex Basics</span>
+            </div>
+
+            <h1 style="margin-bottom: 1rem;">Forex Basics: A Beginner's Guide to Currency Trading</h1>
+            <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2rem;">Learn the fundamentals of the foreign exchange market: what it is, how it works, who participates, and what drives currency prices.</p>
+
+            <div class="toc">
+                <h3>📑 Table of Contents</h3>
+                <ul>
+                    <li><a href="#definition">What is Forex?</a></li>
+                    <li><a href="#history">Brief History of Forex</a></li>
+                    <li><a href="#how-works">How Forex Works</a></li>
+                    <li><a href="#pairs">Currency Pairs Explained</a></li>
+                    <li><a href="#participants">Market Participants</a></li>
+                    <li><a href="#drivers">What Drives Forex Prices?</a></li>
+                    <li><a href="#why-trade">Why Trade Forex?</a></li>
+                    <li><a href="#risks">Risks of Forex Trading</a></li>
+                </ul>
+            </div>
+
+            <!-- DEFINITION -->
+            <section class="guide-section" id="definition">
+                <h2>What is Forex?</h2>
+                <p><strong>Forex (or FX) is the global marketplace for trading currencies.</strong> It's where the US Dollar (USD), Euro (EUR), British Pound (GBP), Japanese Yen (JPY), and other currencies are bought and sold.</p>
+
+                <p>Unlike stocks (where you own a piece of a company) or commodities (where you own physical goods), forex trading is always about the *exchange rate* between two currencies. You're speculating on whether one currency will strengthen or weaken relative to another.</p>
+
+                <h3>Key Facts about Forex</h3>
+                <ul>
+                    <li><strong>Largest Market in the World:</strong> ~$6.6 trillion traded daily (as of 2024)</li>
+                    <li><strong>Highly Liquid:</strong> Easy to enter and exit positions at any time</li>
+                    <li><strong>24/5 Market:</strong> Opens Sunday evening (Asia) and closes Friday evening (US Eastern time)</li>
+                    <li><strong>Over-the-Counter (OTC):</strong> No central exchange; trades occur between banks, brokers, and institutions electronically</li>
+                    <li><strong>Leverage Available:</strong> You can control large positions with small account capital (but this amplifies losses)</li>
+                </ul>
+
+                <div class="example-box">
+                    <strong>Simple Example:</strong> You believe the Euro will strengthen against the US Dollar. You "buy EUR/USD" at 1.10. If it rises to 1.12, you profit. If it falls to 1.08, you lose. The difference (0.02 in this case) is your gain or loss per unit of currency held.
+                </div>
+            </section>
+
+            <!-- HISTORY -->
+            <section class="guide-section" id="history">
+                <h2>Brief History of Forex</h2>
+
+                <h3>The Bretton Woods Era (1944–1971)</h3>
+                <p>After World War II, currencies were pegged to the US Dollar, which was pegged to gold. This fixed exchange rate system kept forex relatively static. Forex trading was minimal because rates didn't move much.</p>
+
+                <h3>The Floating Rate Era (1971–Present)</h3>
+                <p>In 1971, the US abandoned the gold standard. Currencies began to float freely based on supply and demand. This volatility created the opportunity for forex trading as we know it today.</p>
+
+                <h3>Modern Forex (1995–Present)</h3>
+                <p>Electronic trading platforms democratized forex. By the late 1990s and early 2000s, retail traders could access forex through brokers. Today, retail trading represents a significant portion of forex volume, though central banks, hedge funds, and large institutions still dominate.</p>
+            </section>
+
+            <!-- HOW WORKS -->
+            <section class="guide-section" id="how-works">
+                <h2>How Forex Works</h2>
+
+                <h3>The Mechanics of a Currency Trade</h3>
+                <p>When you trade forex, you're executing a simple exchange:</p>
+                <ul>
+                    <li>You sell one currency (the "base")</li>
+                    <li>You buy another currency (the "quote")</li>
+                    <li>You profit if the price moves in your favor</li>
+                </ul>
+
+                <h3>Bid-Ask Spread</h3>
+                <p>Every currency has a <strong>bid price</strong> (what you get if you sell) and an <strong>ask price</strong> (what you pay if you buy). The difference is the spread—the broker's profit and your cost to enter/exit.</p>
+
+                <div class="example-box">
+                    <strong>Bid/Ask Example:</strong><br>
+                    EUR/USD Bid: 1.1050 | Ask: 1.1052<br>
+                    Spread: 0.0002 (2 pips)<br>
+                    <br>
+                    If you BUY EUR/USD, you pay the ask (1.1052).<br>
+                    If you SELL EUR/USD, you get the bid (1.1050).
+                </div>
+
+                <h3>Pips: The Unit of Price Movement</h3>
+                <p>A <strong>pip</strong> (percentage in point) is the smallest standard price move for most currency pairs. For EUR/USD, one pip = 0.0001 (the fourth decimal place).</p>
+
+                <ul>
+                    <li>If EUR/USD moves from 1.1050 to 1.1052, that's a 2-pip move</li>
+                    <li>A 50-pip move = 0.0050 price movement</li>
+                    <li>Pip value in dollars depends on position size</li>
+                </ul>
+
+                <h3>Leverage</h3>
+                <p>Brokers offer leverage—the ability to control large positions with small account deposits. Common ratios: 50:1, 100:1, or even 500:1 (varies by regulation).</p>
+
+                <div class="example-box">
+                    <strong>Leverage Example:</strong> With 100:1 leverage and a $1,000 account, you can control ~$100,000 of currency. A 1% move in your favor = 100% profit. But a 1% move against you = 100% loss (account blown).
+                </div>
+
+                <p style="color: var(--color-alert); font-weight: 600;">⚠️ Leverage amplifies both gains AND losses. Most retail traders lose money precisely because of misused leverage.</p>
+            </section>
+
+            <!-- PAIRS -->
+            <section class="guide-section" id="pairs">
+                <h2>Currency Pairs Explained</h2>
+
+                <h3>Structure: Base/Quote</h3>
+                <p>Every forex pair is written as BASE/QUOTE. The left currency is what you're buying or selling; the right is the currency you're buying or selling it for.</p>
+
+                <div class="example-box">
+                    <strong>EUR/USD = 1.1050</strong><br>
+                    This means 1 Euro = 1.1050 US Dollars.
+                </div>
+
+                <h3>Major Pairs (Most Traded)</h3>
+                <p>These involve the US Dollar and are highly liquid:</p>
+                <ul>
+                    <li><strong>EUR/USD:</strong> Euro vs Dollar</li>
+                    <li><strong>USD/JPY:</strong> Dollar vs Japanese Yen</li>
+                    <li><strong>GBP/USD:</strong> British Pound vs Dollar</li>
+                    <li><strong>USD/CHF:</strong> Dollar vs Swiss Franc</li>
+                    <li><strong>AUD/USD:</strong> Australian Dollar vs Dollar</li>
+                </ul>
+
+                <h3>Cross Pairs (No USD)</h3>
+                <p>These pairs don't involve the USD. Less liquid but offer diversification:</p>
+                <ul>
+                    <li><strong>EUR/JPY:</strong> Euro vs Yen</li>
+                    <li><strong>GBP/JPY:</strong> Pound vs Yen</li>
+                    <li><strong>EUR/GBP:</strong> Euro vs Pound</li>
+                    <li><strong>AUD/JPY:</strong> Australian Dollar vs Yen</li>
+                </ul>
+
+                <h3>Exotic Pairs</h3>
+                <p>Pairs involving smaller or emerging market currencies (SGD, MXN, ZAR, etc.). Wide spreads and lower liquidity; not ideal for beginners.</p>
+            </section>
+
+            <!-- PARTICIPANTS -->
+            <section class="guide-section" id="participants">
+                <h2>Market Participants</h2>
+
+                <h3>Central Banks</h3>
+                <p>The largest players. Central banks buy/sell currencies to influence policy or stabilize their own currency. A single intervention can move rates 5-10% in minutes.</p>
+
+                <h3>Large Banks & Financial Institutions</h3>
+                <p>JPMorgan, Goldman Sachs, Deutsche Bank, and others handle trillions in forex daily for clients, proprietary trading, and hedging.</p>
+
+                <h3>Hedge Funds & Commodity Trading Advisors (CTAs)</h3>
+                <p>Sophisticated traders using macroeconomic theses, algorithmic strategies, and massive capital to profit from long-term and short-term forex moves.</p>
+
+                <h3>Corporations & Import/Export Businesses</h3>
+                <p>Companies that earn revenue in foreign currencies hedge their exposure by trading forex. Example: A US exporter earning EUR needs to convert to USD; they lock in rates via forex.</p>
+
+                <h3>Retail Traders (Us!)</h3>
+                <p>Individual traders using brokers to speculate on currency pairs. We're a small fraction of total volume but growing. Risk: Most retail traders lose money.</p>
+            </section>
+
+            <!-- DRIVERS -->
+            <section class="guide-section" id="drivers">
+                <h2>What Drives Forex Prices?</h2>
+
+                <h3>Interest Rate Differentials</h3>
+                <p>If the Fed raises rates to 3.5% and the ECB holds at 2.25%, investors seeking higher returns will buy USD-denominated assets. This increases demand for USD, strengthening it.</p>
+
+                <h3>Inflation Data</h3>
+                <p>High inflation typically prompts central banks to raise rates to combat it. Higher rates attract foreign capital → currency strengthens.</p>
+
+                <h3>Economic Growth (GDP, PMI, Employment)</h3>
+                <p>Strong economic growth signals investment opportunities and higher future returns → demand for that currency increases.</p>
+
+                <h3>Geopolitical Risk & Safe-Haven Flows</h3>
+                <p>War, political instability, or recessions trigger flows into safe-haven currencies: US Dollar, Japanese Yen, Swiss Franc. These currencies rally while riskier currencies sell off.</p>
+
+                <h3>Central Bank Policy Announcements & Communication</h3>
+                <p>When the Fed signals rate hikes or the ECB hints at pausing hikes, markets react immediately. Central bank "forward guidance" shapes expectations and moves forex pairs.</p>
+
+                <h3>Trade Balances & Capital Flows</h3>
+                <p>If a country runs a large trade deficit (imports > exports), it needs to buy foreign currency to pay for imports. This weakens the domestic currency. Conversely, a surplus strengthens it.</p>
+
+                <h3>Market Sentiment & Risk Appetite</h3>
+                <p>During periods of optimism, investors buy riskier assets (emerging market currencies, commodity-linked currencies like AUD). During fear, they sell risky assets and buy safe havens.</p>
+
+                <div class="example-box">
+                    <strong>Multi-Factor Example:</strong> The Fed raises rates to 4.0% (hawkish surprise). US inflation is high, but the economy grows 3% YoY. USD rallies 3% against EUR/USD within 24 hours because multiple drivers align: higher rates attract capital, growth expectations support, and central bank hawkishness reshapes expectations.
+                </div>
+            </section>
+
+            <!-- WHY TRADE -->
+            <section class="guide-section" id="why-trade">
+                <h2>Why Trade Forex?</h2>
+
+                <h3>Advantages</h3>
+                <ul>
+                    <li><strong>High Liquidity:</strong> Enter/exit large positions without slippage</li>
+                    <li><strong>24/5 Availability:</strong> Trade when it suits your schedule (Asian, European, US sessions)</li>
+                    <li><strong>Low Barriers to Entry:</strong> Start with small accounts; some brokers allow $100 minimums</li>
+                    <li><strong>Leverage:</strong> Control large positions with small capital (double-edged sword)</li>
+                    <li><strong>Transparent Pricing:</strong> Bid-ask spreads are minimal and visible</li>
+                    <li><strong>Hedging Opportunities:</strong> Businesses hedge currency risk; traders hedge portfolio risk</li>
+                </ul>
+
+                <h3>Why NOT to Trade Forex (Honest Answer)</h3>
+                <ul>
+                    <li><strong>High Failure Rate:</strong> 80-90% of retail forex traders lose money</li>
+                    <li><strong>Leverage Amplifies Losses:</strong> Easy to blow up an account fast</li>
+                    <li><strong>Complex Fundamentals:</strong> Central bank policy, geopolitics, and macro require deep knowledge</li>
+                    <li><strong>Emotional Challenge:</strong> Discipline, risk management, and psychology are harder than analysis</li>
+                </ul>
+            </section>
+
+            <!-- RISKS -->
+            <section class="guide-section" id="risks">
+                <h2>Risks of Forex Trading</h2>
+
+                <div style="background-color: rgba(220, 38, 38, 0.1); border-left: 4px solid var(--color-alert); padding: 1.2rem; margin: 1.5rem 0; border-radius: 4px;">
+                    <h3 style="margin-top: 0; color: var(--color-alert);">⚠️ Key Risks</h3>
+
+                    <p><strong>Leverage Risk:</strong> Leverage amplifies losses. A 10% adverse move with 100:1 leverage = account wipeout.</p>
+
+                    <p><strong>Gap Risk:</strong> Forex markets close Friday evening and reopen Sunday evening. Major news over the weekend can cause large gaps; your stop loss may not execute at the target price.</p>
+
+                    <p><strong>Intervention Risk:</strong> Central banks can intervene to stabilize or weaken their currency, causing flash moves that trigger cascading stops.</p>
+
+                    <p><strong>Geopolitical Shock:</strong> Unexpected wars, sanctions, or political upheaval can move pairs 5-10% in seconds.</p>
+
+                    <p><strong>Counterparty Risk:</strong> Your broker could go under. Regulated brokers have client fund protections, but always verify regulation.</p>
+
+                    <p><strong>Spread Widening:</strong> During volatile news events, spreads widen dramatically, increasing your transaction costs.</p>
+
+                    <p><strong>Psychological Risk:</strong> Overconfidence, fear, and emotion lead to poor decisions (over-leveraging, holding losing positions too long, revenge trading).</p>
+                </div>
+
+                <h3>Risk Management Best Practices</h3>
+                <ul>
+                    <li><strong>Never Risk More Than 1-2% Per Trade:</strong> If your account is $10,000, max loss per trade = $100-$200</li>
+                    <li><strong>Use Stop Losses:</strong> Always set them before entering. Never move a stop to "give it more room"</li>
+                    <li><strong>Avoid Over-Leverage:</strong> Even if your broker offers 500:1, use 10:1 or 20:1 for safety</li>
+                    <li><strong>Have a Plan:</strong> Entry, exit, stop loss, and profit target BEFORE you trade</li>
+                    <li><strong>Track Your Trades:</strong> Log every trade and analyze why winners won and losers lost</li>
+                    <li><strong>Educate Yourself:</strong> Understand fundamentals, technicals, and risk before risking real money</li>
+                </ul>
+            </section>
+
+            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+                <a href="../index.html" class="back-link">← Back to Dashboard</a>
+                <p style="margin-top: 1rem; color: var(--text-muted); font-size: 0.9rem;">Related: <a href="our-methodology.html" style="color: var(--color-primary);">Our Methodology</a> | <a href="technical-analysis.html" style="color: var(--color-primary);">Technical Analysis Deep Dive</a> | <a href="risk-management.html" style="color: var(--color-primary);">Risk Management Guide</a></p>
+            </div>
+        </div>
+
+        <!-- Ad Space -->
+        <ins class="adsbygoogle" style="display:block; text-align:center; margin: 2rem 0;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-4617266720439769" data-ad-slot="8549246934"></ins>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-disclaimer">Disclaimer: Forex trading involves significant risk of loss. Past performance does not guarantee future results. Content is for educational purposes only and does not constitute financial advice.</p>
+            <div class="footer-links">
+                <a href="../about.html" class="footer-link">About Us</a>
+                <a href="../contact.html" class="footer-link">Contact</a>
+                <a href="../disclaimer.html" class="footer-link">Legal Disclaimer</a>
+                <a href="../privacy.html" class="footer-link">Privacy Policy</a>
+            </div>
+            <p class="footer-copyright">&copy; 2026 Forex Report. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+</html>

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="../favicon-96x96.png" sizes="96x96" />
+    <link rel="shortcut icon" href="../favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Forex Report" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Analysis Deep Dive - Levels, Patterns & Signals - Forex Report</title>
+    <meta name="description" content="Master technical analysis for forex. Learn support/resistance, moving averages, Fibonacci retracements, price action patterns, and how to identify high-probability entries.">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4617266720439769"
+     crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .guide-container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+        .guide-section { margin-bottom: 3rem; }
+        .guide-section h2 { font-size: 1.8rem; margin-bottom: 1rem; color: var(--color-primary); border-bottom: 2px solid var(--color-primary); padding-bottom: 0.5rem; }
+        .guide-section h3 { font-size: 1.3rem; margin: 1.5rem 0 0.8rem 0; color: var(--text-primary); }
+        .guide-section p { line-height: 1.8; margin-bottom: 1rem; color: var(--text-secondary); }
+        .guide-section ul { margin-left: 2rem; margin-bottom: 1rem; }
+        .guide-section li { margin-bottom: 0.6rem; color: var(--text-secondary); line-height: 1.6; }
+        .example-box { background-color: var(--bg-light); border-left: 4px solid var(--color-primary); padding: 1.2rem; margin: 1.5rem 0; border-radius: 4px; }
+        .example-box strong { color: var(--color-primary); }
+        .toc { background-color: var(--bg-light); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; }
+        .toc h3 { margin-top: 0; color: var(--color-primary); }
+        .toc ul { list-style: none; padding: 0; margin: 0; }
+        .toc li { margin-bottom: 0.5rem; }
+        .toc a { color: var(--color-primary); text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .breadcrumb { margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--text-muted); }
+        .breadcrumb a { color: var(--color-primary); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .back-link { display: inline-block; margin-bottom: 2rem; padding: 0.5rem 1rem; background-color: var(--bg-light); border-radius: 4px; text-decoration: none; color: var(--color-primary); }
+        .back-link:hover { background-color: rgba(37, 99, 235, 0.1); }
+        .pattern-box { background-color: var(--bg-light); padding: 1rem; margin: 1rem 0; border-radius: 4px; border: 1px solid var(--border-color); }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="../index.html" class="brand-logo">FOREX<span>REPORT</span></a>
+            <nav class="header-nav">
+                <a href="../index.html" class="nav-link">Dashboard</a>
+                <a href="../about.html" class="nav-link">About Us</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <div class="lang-selector-wrapper">
+                    <select class="lang-select" id="langSelect" aria-label="Language Selector">
+                        <option value="en">EN</option>
+                        <option value="pt">PT</option>
+                    </select>
+                    <svg class="lang-select-arrow" viewBox="0 0 20 20">
+                        <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container-wide">
+        <div class="guide-container">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> &gt; <a href="index.html">Guides</a> &gt; <span>Technical Analysis</span>
+            </div>
+
+            <h1 style="margin-bottom: 1rem;">Technical Analysis Deep Dive: Levels, Patterns & Signals</h1>
+            <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2rem;">Master the technical tools we use daily: support/resistance zones, moving averages, Fibonacci retracements, candlestick patterns, and how to combine them for high-probability setups.</p>
+
+            <div class="toc">
+                <h3>📑 Table of Contents</h3>
+                <ul>
+                    <li><a href="#foundation">Technical Analysis Foundation</a></li>
+                    <li><a href="#sma">Moving Averages (SMA 50 & SMA 200)</a></li>
+                    <li><a href="#supp-resist">Support & Resistance Zones</a></li>
+                    <li><a href="#fibonacci">Fibonacci Retracements</a></li>
+                    <li><a href="#candlestick">Candlestick Patterns</a></li>
+                    <li><a href="#confluence">Confluence & Entry Signals</a></li>
+                    <li><a href="#timeframes">Timeframe Strategy</a></li>
+                </ul>
+            </div>
+
+            <!-- FOUNDATION -->
+            <section class="guide-section" id="foundation">
+                <h2>Technical Analysis Foundation</h2>
+                <p><strong>Technical analysis</strong> is the study of past price action to predict future price movement. The core belief: price action reflects all available information, and patterns repeat.</p>
+
+                <h3>Core Principles</h3>
+                <ul>
+                    <li><strong>Price Discounts Everything:</strong> If news is bullish, it's already priced in. We analyze price, not news.</li>
+                    <li><strong>Price Trends:</strong> Prices don't move randomly; they move in trends (up, down, sideways). Trends persist until they break.</li>
+                    <li><strong>Support & Resistance:</strong> These levels repeat because traders remember them and place orders there.</li>
+                    <li><strong>Patterns Repeat:</strong> Because human psychology repeats, price patterns recur (reversal patterns, continuation patterns, etc.)</li>
+                </ul>
+
+                <h3>Why Use Technical Analysis for Forex?</h3>
+                <p>Forex is 24/5 and highly liquid. Major institutions pay billions for technical expertise. We use technical analysis to:</p>
+                <ul>
+                    <li>Identify when macro trends are confirmed (or broken) by price action</li>
+                    <li>Find precise entry points with clear invalidation levels</li>
+                    <li>Manage risk by placing stops at technical levels (not arbitrary prices)</li>
+                    <li>Catch breakouts and reversals before mainstream news does</li>
+                </ul>
+            </section>
+
+            <!-- SMA -->
+            <section class="guide-section" id="sma">
+                <h2>Moving Averages: SMA 50 & SMA 200</h2>
+                <p>A <strong>Simple Moving Average (SMA)</strong> is the average closing price over a specific number of periods. We use SMA 50 and SMA 200 on daily (D1) and weekly (W1) charts.</p>
+
+                <h3>SMA 50 (Daily): Short-Term Trend</h3>
+                <p>Tracks the average price over the last 50 days. Reacts quickly to price changes. Used to identify momentum and short-term support/resistance.</p>
+                <ul>
+                    <li><strong>Price above SMA 50:</strong> Bullish short-term trend</li>
+                    <li><strong>Price below SMA 50:</strong> Bearish short-term trend</li>
+                    <li><strong>Price tests SMA 50:</strong> Often a bounce or reversal point</li>
+                </ul>
+
+                <h3>SMA 200 (Daily): Long-Term Trend</h3>
+                <p>Tracks the average price over the last 200 days (~1 year). Moves slowly and is respected by institutions.</p>
+                <ul>
+                    <li><strong>Price above SMA 200:</strong> Strong bullish structure</li>
+                    <li><strong>Price below SMA 200:</strong> Strong bearish structure</li>
+                    <li><strong>SMA 50 above SMA 200:</strong> "Golden Cross" – bullish alignment</li>
+                    <li><strong>SMA 50 below SMA 200:</strong> "Death Cross" – bearish alignment</li>
+                </ul>
+
+                <div class="example-box">
+                    <strong>Trade Setup Example:</strong> EUR/USD is in an uptrend with price trading above both SMA 50 (1.1400) and SMA 200 (1.1300). A pullback to SMA 50 (1.1400) on strong buying volume = BUY signal. Stop placed below SMA 200 (1.1300) with protected risk.
+                </div>
+
+                <h3>Golden Rule: Use Alignment, Not Divergence</h3>
+                <p>Avoid trading when price is between SMA 50 and SMA 200 with conflicting signals. Wait for clarity: either a break above both (bullish) or below both (bearish).</p>
+            </section>
+
+            <!-- SUPPORT & RESISTANCE -->
+            <section class="guide-section" id="supp-resist">
+                <h2>Support & Resistance Zones</h2>
+                <p><strong>Support</strong> is a price level where buying interest typically pushes price up (prevents further downside). <strong>Resistance</strong> is where selling interest typically pushes price down (prevents further upside).</p>
+
+                <h3>What Creates Support & Resistance?</h3>
+                <ul>
+                    <li><strong>Previous Swing Lows:</strong> Where price reversed up before. Buyers remember this level and buy again.</li>
+                    <li><strong>Previous Swing Highs:</strong> Where price reversed down before. Sellers remember this level and sell again.</li>
+                    <li><strong>Round Numbers:</strong> 1.1000, 1.2000, 1.3000, etc. Psychological barriers. Algo traders also program orders here.</li>
+                    <li><strong>Moving Averages:</strong> SMA 50 and SMA 200 often act as dynamic support/resistance.</li>
+                    <li><strong>Fibonacci Levels:</strong> See next section.</li>
+                </ul>
+
+                <h3>How to Trade Support & Resistance</h3>
+                <p><strong>Bounce Trades (Long S&R):</strong> Price bounces off support on its way up.</p>
+                <div class="example-box">
+                    Price approaches support at 1.1350. Buyers step in. Price bounces. Trade long from 1.1355 (just above support) with stop at 1.1340 (below support). Target = next resistance at 1.1450.
+                </div>
+
+                <p><strong>Breakout Trades (S&R Breaking):</strong> Price breaks through resistance or support decisively.</p>
+                <div class="example-box">
+                    Price approaches resistance at 1.1450. Volume surges. Price closes above 1.1450. Trade long from 1.1452 (confirmation). Stop at 1.1430 (below prior resistance). Target = next level at 1.1550.
+                </div>
+
+                <h3>Dynamic vs Static Levels</h3>
+                <ul>
+                    <li><strong>Static:</strong> Fixed (previous swing high/low, round number)</li>
+                    <li><strong>Dynamic:</strong> Moves with price (SMA 50, SMA 200, trendline)</li>
+                </ul>
+
+                <p>Use both. Dynamic levels adapt to current momentum; static levels represent historical reference points.</p>
+            </section>
+
+            <!-- FIBONACCI -->
+            <section class="guide-section" id="fibonacci">
+                <h2>Fibonacci Retracements</h2>
+                <p>Fibonacci retracements are mathematical ratios (derived from the Fibonacci sequence) that mark natural price retracement zones. They're eerily accurate because institutions worldwide use them—creating self-fulfilling prophecies.</p>
+
+                <h3>The Key Fibonacci Levels (for Forex)</h3>
+                <ul>
+                    <li><strong>23.6%:</strong> Shallow retracement; weak signal</li>
+                    <li><strong>38.2%:</strong> Common retracement; many buyers enter here</li>
+                    <li><strong>50.0%:</strong> Midpoint; psychological level</li>
+                    <li><strong>61.8%:</strong> Deep retracement; critical reversal level</li>
+                    <li><strong>78.6%:</strong> Very deep; signals trend may be reversing</li>
+                </ul>
+
+                <h3>How to Draw Fibonacci Levels</h3>
+                <ol>
+                    <li>Identify a significant recent swing: either a strong upMove or downMove</li>
+                    <li>On your charting platform, use the Fibonacci tool</li>
+                    <li>Click the swing low, then drag to swing high (or vice versa for downmove)</li>
+                    <li>The tool draws horizontal lines at retracement percentages</li>
+                </ol>
+
+                <div class="example-box">
+                    <strong>Example:</strong> EUR/USD swung from 1.1200 (low) to 1.1500 (high). The move is 300 pips. Fibonacci levels:<br>
+                    • 38.2% retracement: 1.1385<br>
+                    • 50% retracement: 1.1350<br>
+                    • 61.8% retracement: 1.1315<br>
+                    <br>
+                    If price corrects, we expect support near 1.1385. If it breaks that, 1.1350. If it breaks that, 1.1315 is critical.
+                </div>
+
+                <h3>Fibonacci + Moving Averages = Confluence</h3>
+                <p>When a Fibonacci level aligns with SMA 50 or a previous swing high/low, you have a high-conviction zone. This is where we place buy/sell orders and put stop losses.</p>
+            </section>
+
+            <!-- CANDLESTICK PATTERNS -->
+            <section class="guide-section" id="candlestick">
+                <h2>Candlestick Patterns & Price Action</h2>
+                <p>Individual candles and multi-candle patterns reveal market psychology: indecision, rejection, capitulation, and conviction.</p>
+
+                <h3>Reversal Patterns</h3>
+
+                <div class="pattern-box">
+                    <strong>Pin Bar (Hammer/Hanging Man)</strong><br>
+                    Long wick extending from the body, small body. Signals rejection of a level and often precedes reversal.
+                    <ul>
+                        <li><strong>Pin Bar at Support:</strong> Bullish reversal signal</li>
+                        <li><strong>Pin Bar at Resistance:</strong> Bearish reversal signal</li>
+                    </ul>
+                </div>
+
+                <div class="pattern-box">
+                    <strong>Bullish Engulfing</strong><br>
+                    Small bearish candle followed by larger bullish candle that engulfs it entirely. Signals shift from sellers to buyers.
+                </div>
+
+                <div class="pattern-box">
+                    <strong>Bearish Engulfing</strong><br>
+                    Small bullish candle followed by larger bearish candle that engulfs it. Signals shift from buyers to sellers.
+                </div>
+
+                <div class="pattern-box">
+                    <strong>Doji</strong><br>
+                    Open ≈ Close; essentially no body. Signals indecision. Often seen at turning points or resistance/support.
+                </div>
+
+                <h3>Continuation Patterns</h3>
+
+                <div class="pattern-box">
+                    <strong>Inside Bar</strong><br>
+                    Current candle's range (high-low) is completely inside the prior candle's range. Signals consolidation before a breakout. Often followed by a large move.
+                </div>
+
+                <div class="pattern-box">
+                    <strong>Three White Soldiers / Three Black Crows</strong><br>
+                    Three consecutive bullish (white) or bearish (black) candles with increasing momentum. Signals strong directional move.
+                </div>
+
+                <h3>How We Use Candlestick Patterns</h3>
+                <p>We don't trade patterns in isolation. Instead:</p>
+                <ul>
+                    <li>Identify macro bias (bullish or bearish)</li>
+                    <li>Identify technical structure (price vs SMA, support/resistance levels)</li>
+                    <li>Look for a confirmation candlestick pattern (Pin Bar, Engulfing, etc.) at a key level</li>
+                    <li>Enter after confirmation with protected risk</li>
+                </ul>
+
+                <div class="example-box">
+                    <strong>Setup Example:</strong> EUR/USD is bullish on macro (Fed hawkish). Price pulls back to test SMA 50 (1.1400) + Fibonacci 61.8% (1.1395). A bullish Pin Bar forms on the D1 close. This is a high-conviction BUY entry near 1.1398. Stop placed at 1.1380 (below the level). Target = 1.1480 (next resistance).
+                </div>
+            </section>
+
+            <!-- CONFLUENCE -->
+            <section class="guide-section" id="confluence">
+                <h2>Confluence & Entry Signals</h2>
+                <p><strong>Confluence</strong> means multiple technical factors align at the same price level. The more factors that align, the higher the probability of a reversal or continuation.</p>
+
+                <h3>High-Confluence Setup Checklist</h3>
+                <ul>
+                    <li>☑️ Macro bias is clear (bullish or bearish)</li>
+                    <li>☑️ Price is near an SMA (50 or 200)</li>
+                    <li>☑️ Price is at a previous swing high/low or round number</li>
+                    <li>☑️ Price is at a Fibonacci level (38.2%, 50%, or 61.8%)</li>
+                    <li>☑️ A confirming candlestick pattern forms (Pin Bar, Engulfing)</li>
+                    <li>☑️ Volume is elevated on the signal candle</li>
+                </ul>
+
+                <h3>3-Factor Minimum for Entries</h3>
+                <p>We require at least 3 of the above to align. More alignment = higher probability = tighter stops = lower risk.</p>
+
+                <div class="example-box">
+                    <strong>Maximum-Confluence Example:</strong><br>
+                    EUR/USD D1:<br>
+                    1. Macro: Fed hawkish (BULLISH) ✓<br>
+                    2. Price: Above SMA 200 (1.1300) ✓<br>
+                    3. Level: SMA 50 = 1.1400 ✓<br>
+                    4. Level: Fibonacci 61.8% = 1.1398 ✓<br>
+                    5. Level: Prior swing low = 1.1395 ✓<br>
+                    6. Pattern: Bullish Pin Bar formed ✓<br>
+                    7. Volume: High on the Pin Bar candle ✓<br>
+                    <br>
+                    Result: 7-factor confluence = Very high probability BUY at 1.1398.<br>
+                    Stop: 1.1380 (just below). Target: 1.1480.<br>
+                    Risk: 18 pips. Reward: 82 pips. R/R = 1:4.6 (Excellent)
+                </div>
+            </section>
+
+            <!-- TIMEFRAMES -->
+            <section class="guide-section" id="timeframes">
+                <h2>Timeframe Strategy: D1 & W1</h2>
+                <p>We focus on daily (D1) and weekly (W1) charts. Here's why and how:</p>
+
+                <h3>Weekly Chart (W1): The Big Picture</h3>
+                <ul>
+                    <li><strong>Purpose:</strong> Identify structural trend and major support/resistance</li>
+                    <li><strong>Signals:</strong> Golden Cross (bullish) and Death Cross (bearish) are major reversal signals</li>
+                    <li><strong>Breakouts:</strong> A break above/below weekly resistance = months-long move, not days</li>
+                </ul>
+
+                <h3>Daily Chart (D1): The Entry & Exit</h3>
+                <ul>
+                    <li><strong>Purpose:</strong> Find precise entry points aligned with weekly trend</li>
+                    <li><strong>Signals:</strong> Pin Bars, Engulfings, Inside Bars at SMA 50 or Fibonacci levels</li>
+                    <li><strong>Scalping:</strong> If weekly says buy, but daily is overextended, wait for daily pullback to enter</li>
+                </ul>
+
+                <h3>The Hierarchy: W1 Confirms, D1 Executes</h3>
+                <p><strong>Never fight the weekly trend.</strong> If W1 is bearish, don't chase daily bullish rallies. Instead, use daily pullbacks to sell into strength.</p>
+
+                <div class="example-box">
+                    <strong>Correct Approach:</strong><br>
+                    • W1: EUR/USD is below SMA 200 (bearish structure)<br>
+                    • D1: EUR/USD rallies to SMA 50 (1.1400)<br>
+                    • Action: Sell at 1.1400 (shorting into strength). Stop at 1.1420. Target = support at 1.1300.<br>
+                    <br>
+                    <strong>Incorrect Approach:</strong><br>
+                    • D1: EUR/USD rallies from 1.1350 to 1.1380<br>
+                    • Action: Go long without checking W1 = trading against the weekly trend (risky)
+                </div>
+
+                <h3>Intraday Charts (H4, H1): Use Only for Timing</h3>
+                <p>We don't provide intraday analysis (H4, H1, M15). They're too noisy for our methodology. However, if you want to fine-tune entry timing on a D1 signal, use H4 for the final confirmation—but always validate against D1/W1 first.</p>
+            </section>
+
+            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+                <a href="../index.html" class="back-link">← Back to Dashboard</a>
+                <p style="margin-top: 1rem; color: var(--text-muted); font-size: 0.9rem;">Related: <a href="our-methodology.html" style="color: var(--color-primary);">Our Methodology</a> | <a href="forex-basics.html" style="color: var(--color-primary);">Forex Basics</a> | <a href="risk-management.html" style="color: var(--color-primary);">Risk Management Guide</a></p>
+            </div>
+        </div>
+
+        <!-- Ad Space -->
+        <ins class="adsbygoogle" style="display:block; text-align:center; margin: 2rem 0;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-4617266720439769" data-ad-slot="8549246934"></ins>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-disclaimer">Disclaimer: Forex trading involves significant risk of loss. Past performance does not guarantee future results. Content is for educational purposes only and does not constitute financial advice.</p>
+            <div class="footer-links">
+                <a href="../about.html" class="footer-link">About Us</a>
+                <a href="../contact.html" class="footer-link">Contact</a>
+                <a href="../disclaimer.html" class="footer-link">Legal Disclaimer</a>
+                <a href="../privacy.html" class="footer-link">Privacy Policy</a>
+            </div>
+            <p class="footer-copyright">&copy; 2026 Forex Report. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+</html>
