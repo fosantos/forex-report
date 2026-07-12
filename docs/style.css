@@ -1291,6 +1291,58 @@
     transition: var(--transition-smooth);
 }
 
+/* ==========================================================================
+           GOOGLE ADSENSE INTEGRATION & OPTIMIZATION
+           ========================================================================== */
+
+/* Ad Container Styling — responsive, no layout shift */
+.ad-container {
+    margin: 1.5rem 0;
+    padding: 0.75rem;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px; /* Prevent layout shift for async-loaded ads */
+}
+
+.ad-container.horizontal {
+    min-height: 110px; /* 728x90 leaderboard + padding */
+}
+
+.ad-container.medium-rect {
+    min-height: 280px; /* 300x250 medium rectangle + padding */
+}
+
+/* Google AdSense ins tag styling */
+ins.adsbygoogle {
+    display: block !important;
+    width: 100%;
+}
+
+/* Mobile ad optimization */
+@media (max-width: 768px) {
+    .ad-container {
+        margin: 1.25rem 0;
+        padding: 0.5rem;
+    }
+
+    .ad-container.horizontal {
+        min-height: 70px; /* Mobile horizontal ads are smaller */
+    }
+
+    .ad-container.medium-rect {
+        min-height: 280px; /* Mobile medium rect is usually 300x250 still */
+    }
+}
+
+/* Empty ad slot fallback (when ads don't load) */
+ins.adsbygoogle:empty {
+    display: none !important;
+}
+
 .pair-nav-item:hover {
     background-color: var(--color-primary-light);
     color: var(--color-primary);
