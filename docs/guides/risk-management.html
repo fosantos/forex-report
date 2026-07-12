@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="../favicon-96x96.png" sizes="96x96" />
+    <link rel="shortcut icon" href="../favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Forex Report" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk Management in Forex Trading - Complete Guide - Forex Report</title>
+    <meta name="description" content="Master forex risk management. Learn position sizing, stop loss placement, risk/reward ratios, and how professional traders protect their capital.">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4617266720439769"
+     crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .guide-container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+        .guide-section { margin-bottom: 3rem; }
+        .guide-section h2 { font-size: 1.8rem; margin-bottom: 1rem; color: var(--color-primary); border-bottom: 2px solid var(--color-primary); padding-bottom: 0.5rem; }
+        .guide-section h3 { font-size: 1.3rem; margin: 1.5rem 0 0.8rem 0; color: var(--text-primary); }
+        .guide-section p { line-height: 1.8; margin-bottom: 1rem; color: var(--text-secondary); }
+        .guide-section ul { margin-left: 2rem; margin-bottom: 1rem; }
+        .guide-section li { margin-bottom: 0.6rem; color: var(--text-secondary); line-height: 1.6; }
+        .example-box { background-color: var(--bg-light); border-left: 4px solid var(--color-primary); padding: 1.2rem; margin: 1.5rem 0; border-radius: 4px; }
+        .example-box strong { color: var(--color-primary); }
+        .warning-box { background-color: rgba(220, 38, 38, 0.1); border-left: 4px solid var(--color-alert); padding: 1.2rem; margin: 1.5rem 0; border-radius: 4px; }
+        .toc { background-color: var(--bg-light); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; }
+        .toc h3 { margin-top: 0; color: var(--color-primary); }
+        .toc ul { list-style: none; padding: 0; margin: 0; }
+        .toc li { margin-bottom: 0.5rem; }
+        .toc a { color: var(--color-primary); text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .breadcrumb { margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--text-muted); }
+        .breadcrumb a { color: var(--color-primary); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .back-link { display: inline-block; margin-bottom: 2rem; padding: 0.5rem 1rem; background-color: var(--bg-light); border-radius: 4px; text-decoration: none; color: var(--color-primary); }
+        .back-link:hover { background-color: rgba(37, 99, 235, 0.1); }
+        .calc-box { background-color: var(--bg-light); padding: 1rem; margin: 1rem 0; border-radius: 4px; border: 1px solid var(--border-color); font-family: 'IBM Plex Mono'; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="../index.html" class="brand-logo">FOREX<span>REPORT</span></a>
+            <nav class="header-nav">
+                <a href="../index.html" class="nav-link">Dashboard</a>
+                <a href="../about.html" class="nav-link">About Us</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <div class="lang-selector-wrapper">
+                    <select class="lang-select" id="langSelect" aria-label="Language Selector">
+                        <option value="en">EN</option>
+                        <option value="pt">PT</option>
+                    </select>
+                    <svg class="lang-select-arrow" viewBox="0 0 20 20">
+                        <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container-wide">
+        <div class="guide-container">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> &gt; <a href="index.html">Guides</a> &gt; <span>Risk Management</span>
+            </div>
+
+            <h1 style="margin-bottom: 1rem;">Risk Management in Forex Trading: Protecting Your Capital</h1>
+            <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2rem;">The difference between professional traders and account blowups is risk management. Learn position sizing, stop loss placement, and the 1-2% rule that keeps accounts alive.</p>
+
+            <div class="toc">
+                <h3>📑 Table of Contents</h3>
+                <ul>
+                    <li><a href="#foundation">Risk Management Foundation</a></li>
+                    <li><a href="#position-sizing">Position Sizing & Account Leverage</a></li>
+                    <li><a href="#stop-loss">Stop Loss Placement & Management</a></li>
+                    <li><a href="#profit-target">Profit Targets & Exit Management</a></li>
+                    <li><a href="#rr-ratio">Risk/Reward Ratios</a></li>
+                    <li><a href="#bankroll">Bankroll Management Over Time</a></li>
+                    <li><a href="#psychology">Risk Management Psychology</a></li>
+                </ul>
+            </div>
+
+            <!-- FOUNDATION -->
+            <section class="guide-section" id="foundation">
+                <h2>Risk Management Foundation</h2>
+                <p><strong>Risk management is not optional—it's what separates professional traders from gamblers.</strong> No matter how good your analysis is, if you risk too much on a single trade, one loss can wipe out months of profits.</p>
+
+                <h3>The Golden Rule: Never Risk More Than You Can Afford to Lose</h3>
+                <p>This sounds obvious but is violated constantly. Here's the reality:</p>
+                <ul>
+                    <li>Even professional traders with 60%+ win rates lose money if they risk 10% per trade</li>
+                    <li>A trader with a 50% win rate survives if they risk 1-2% per trade</li>
+                    <li>A trader with an 80% win rate dies if they risk 5% per trade and hit a drawdown</li>
+                </ul>
+
+                <h3>Why? The Math of Drawdowns</h3>
+                <div class="calc-box">
+If you risk 5% per trade and take 3 consecutive losses:<br>
+$10,000 → $9,500 → $9,025 → $8,574<br>
+You lost 14.26% of your account on 3 losses.<br>
+<br>
+To recover to $10,000, you need:<br>
+$8,574 × 1.1665 = $10,000<br>
+A 16.65% gain is needed to recover a 14.26% loss!<br>
+<br>
+If you risk 1% per trade:<br>
+$10,000 → $9,900 → $9,801 → $9,703<br>
+You lost 2.97% on 3 losses.<br>
+Recovery needed: 3.06% gain (much easier)
+                </div>
+
+                <p><strong>This is why 1-2% risk per trade is the standard among professionals.</strong> Leverage amplifies this problem—use it wisely.</p>
+
+                <h3>The Three Pillars of Risk Management</h3>
+                <ul>
+                    <li><strong>Position Sizing:</strong> How many units/lots to trade based on account size</li>
+                    <li><strong>Stop Loss Placement:</strong> Where to put your exit if wrong</li>
+                    <li><strong>Profit Target Setting:</strong> Where to exit if right, respecting minimum 1:2 R/R</li>
+                </ul>
+            </section>
+
+            <!-- POSITION SIZING -->
+            <section class="guide-section" id="position-sizing">
+                <h2>Position Sizing & Account Leverage</h2>
+                <p><strong>Position size</strong> = How many units of currency you trade. It's calculated based on:</p>
+                <ul>
+                    <li>Your account size</li>
+                    <li>Your risk tolerance (1-2% per trade)</li>
+                    <li>The distance to your stop loss (in pips)</li>
+                </ul>
+
+                <h3>The Formula (For Forex)</h3>
+                <div class="calc-box">
+Position Size = (Account Size × Risk %) ÷ (Stop Loss Distance × Pip Value)<br>
+<br>
+Where:<br>
+• Account Size = Total trading account balance<br>
+• Risk % = Typically 1-2% (0.01 to 0.02)<br>
+• Stop Loss Distance = Pips from entry to stop<br>
+• Pip Value = Dollar value per pip (depends on pair & lot size)
+                </div>
+
+                <h3>Real-World Example</h3>
+                <div class="example-box">
+                    <strong>Setup:</strong><br>
+                    • Account: $10,000<br>
+                    • Risk per trade: 1% = $100<br>
+                    • Entry: EUR/USD at 1.1400<br>
+                    • Stop Loss: 1.1350 (50 pips away)<br>
+                    • Each pip of EUR/USD (standard lot): $10<br>
+                    <br>
+                    <strong>Calculation:</strong><br>
+                    Position Size = $100 ÷ (50 pips × $10/pip)<br>
+                    Position Size = $100 ÷ $500 = 0.2 lots = 20,000 units<br>
+                    <br>
+                    <strong>Result:</strong> Trade 20,000 units (0.2 standard lots). If stop is hit, you lose exactly $100 (1% of account).
+                </div>
+
+                <h3>Leverage Considerations</h3>
+                <p><strong>Leverage</strong> allows you to control large positions with small capital. But it's a double-edged sword:</p>
+                <ul>
+                    <li><strong>100:1 Leverage:</strong> With $10,000, you can control $1,000,000. A 1% move = 100% profit or loss</li>
+                    <li><strong>50:1 Leverage:</strong> With $10,000, you can control $500,000. A 1% move = 50% profit or loss</li>
+                    <li><strong>10:1 Leverage:</strong> With $10,000, you can control $100,000. A 1% move = 10% profit or loss (safer)</li>
+                </ul>
+
+                <p><strong>Best Practice:</strong> Use the lowest leverage needed. Many professionals use 10:1 or 20:1 even if their broker allows 100:1. It forces discipline.</p>
+
+                <h3>Account Size & Trade Frequency</h3>
+                <p>With 1-2% risk per trade, your account size determines how often you can trade:</p>
+                <ul>
+                    <li><strong>$1,000 account:</strong> $10-$20 per trade (high volatility, use micro lots)</li>
+                    <li><strong>$10,000 account:</strong> $100-$200 per trade (comfortable, standard lot sizes)</li>
+                    <li><strong>$100,000+ account:</strong> $1,000-$2,000+ per trade (professional level, multiple trades/day possible)</li>
+                </ul>
+            </section>
+
+            <!-- STOP LOSS -->
+            <section class="guide-section" id="stop-loss">
+                <h2>Stop Loss Placement & Management</h2>
+                <p>A <strong>stop loss</strong> is your exit point if the trade goes against you. It's not optional—it's insurance.</p>
+
+                <div class="warning-box">
+                    <strong>⚠️ CRITICAL RULE:</strong> Set your stop loss BEFORE entering the trade. Never enter a position without knowing where you'll exit if wrong.
+                </div>
+
+                <h3>Where to Place Your Stop Loss</h3>
+                <p>Stop loss must be placed at a <strong>technical level</strong>, not an arbitrary number. This protects your position if price temporarily moves against you but the trend remains intact.</p>
+
+                <ul>
+                    <li><strong>Below a support level (for longs):</strong> If you're buying at a support zone, stop just below that support</li>
+                    <li><strong>Above a resistance level (for shorts):</strong> If you're selling into resistance, stop just above that resistance</li>
+                    <li><strong>Below the SMA 200 (for longs):</strong> In an uptrend, close below SMA 200 = trend broken</li>
+                    <li><strong>Below a recent swing low (for longs):</strong> A break of structure signals reversal</li>
+                </ul>
+
+                <div class="example-box">
+                    <strong>Good Stop Placement:</strong><br>
+                    • You buy EUR/USD at 1.1400 (at prior swing low, SMA 50, Fibonacci 61.8%)<br>
+                    • Prior swing low (structure) is at 1.1380<br>
+                    • Place stop at 1.1375 (just below structure)<br>
+                    • If price closes below 1.1375, the structure is broken = trade thesis invalidated<br>
+                    <br>
+                    <strong>Bad Stop Placement:</strong><br>
+                    • You buy EUR/USD at 1.1400<br>
+                    • You place stop at 1.1395 (arbitrary, no technical reason)<br>
+                    • Price pulls to 1.1398, stops you out<br>
+                    • Price then rallies to 1.1500 (you would have been right, but stopped out too early)
+                </div>
+
+                <h3>Stop Loss Adjustments (Trailing Stops)</h3>
+                <p>As price moves in your favor, you can move the stop loss to "lock in" profit. This is called a <strong>trailing stop</strong>.</p>
+
+                <ul>
+                    <li><strong>Once price is +1:1 your risk:</strong> Move stop to breakeven (entry price)</li>
+                    <li><strong>Once price is +1.5:1 your risk:</strong> Move stop to +0.5:1 your risk (lock 50% of potential)</li>
+                    <li><strong>Once price is near target:</strong> Let it run to target, or exit half position and trail the other half</li>
+                </ul>
+
+                <p><strong>Key Rule:</strong> Never move a stop loss AGAINST you (wider). Only tighten it as price moves favorably.</p>
+
+                <h3>Psychology of Stop Losses</h3>
+                <p>Many traders struggle with stops because:</p>
+                <ul>
+                    <li>Hope the trade will recover (it won't always)</li>
+                    <li>Ego—admitting they were wrong</li>
+                    <li>Fear of "missing out" on a reversal</li>
+                </ul>
+
+                <p><strong>Mindset shift:</strong> Your stop loss is not a failure. It's proof you have a plan and discipline. Professional traders hit stops all the time—it's part of the business.</p>
+            </section>
+
+            <!-- PROFIT TARGET -->
+            <section class="guide-section" id="profit-target">
+                <h2>Profit Targets & Exit Management</h2>
+                <p>Your <strong>profit target</strong> is where you exit if the trade goes RIGHT. It must be defined BEFORE entering.</p>
+
+                <h3>Setting Profit Targets</h3>
+                <p>Profit targets are placed at technical resistance/support levels ahead:</p>
+                <ul>
+                    <li>Next swing high/low</li>
+                    <li>Fibonacci level extension</li>
+                    <li>Round number (1.1500, 1.2000)</li>
+                    <li>Prior resistance/support zone</li>
+                </ul>
+
+                <div class="example-box">
+                    <strong>Example:</strong><br>
+                    • Long EUR/USD at 1.1400 (support)<br>
+                    • Stop at 1.1375 (25 pips risk)<br>
+                    • Next resistance: 1.1500 (100 pips away)<br>
+                    • R/R = 100 ÷ 25 = 1:4 (excellent!)<br>
+                    • Set target at 1.1500
+                </div>
+
+                <h3>Partial Profit Taking</h3>
+                <p>Professional traders rarely hold to a single target. Instead, they scale out:</p>
+                <ul>
+                    <li><strong>Exit 50% at first target</strong> (lock profit)</li>
+                    <li><strong>Move stop to breakeven on remaining 50%</strong> (risk-free)</li>
+                    <li><strong>Exit remaining 50% at extended target</strong> (capture extra upside)</li>
+                </ul>
+
+                <div class="example-box">
+                    <strong>Scale-Out Example:</strong><br>
+                    • Trade 0.2 lots EUR/USD long at 1.1400<br>
+                    • Price reaches 1.1450 (first micro-target)<br>
+                    • Exit 0.1 lots (50%), lock $500 profit<br>
+                    • Move stop on remaining 0.1 lots to 1.1400 (breakeven)<br>
+                    • Let remaining position run to 1.1500 (additional $500)<br>
+                    <br>
+                    Result: $1,000 profit with zero risk on the second half.
+                </div>
+            </section>
+
+            <!-- RR RATIO -->
+            <section class="guide-section" id="rr-ratio">
+                <h2>Risk/Reward Ratios</h2>
+                <p>Your <strong>risk/reward ratio</strong> (R/R) is the most important metric in trading. It determines whether you're making money long-term, even with a 50% win rate.</p>
+
+                <h3>The Formula</h3>
+                <div class="calc-box">
+Risk/Reward Ratio = Potential Profit ÷ Maximum Loss<br>
+<br>
+Example:<br>
+• Entry: 1.1400<br>
+• Stop: 1.1350 (50 pips = max loss)<br>
+• Target: 1.1500 (100 pips = potential profit)<br>
+• R/R = 100 ÷ 50 = 1:2 ratio
+                </div>
+
+                <h3>Minimum R/R: 1:2</h3>
+                <p>We only trade setups with minimum 1:2 R/R because:</p>
+                <ul>
+                    <li><strong>With 1:2 R/R and 50% win rate:</strong> You break even</li>
+                    <li><strong>With 1:2 R/R and 55% win rate:</strong> You profit</li>
+                    <li><strong>With 1:2 R/R and 60% win rate:</strong> You profit significantly</li>
+                </ul>
+
+                <h3>Do the Math: Why 1:2 Matters</h3>
+                <div class="calc-box">
+Scenario: 10 trades, $100 risk each, 50% win rate<br>
+<br>
+WITHOUT 1:2 R/R (1:1 ratio):<br>
+• 5 wins × $100 = $500<br>
+• 5 losses × $100 = -$500<br>
+• Result: $0 (breakeven, account drained by fees)<br>
+<br>
+WITH 1:2 R/R:<br>
+• 5 wins × $200 = $1,000<br>
+• 5 losses × $100 = -$500<br>
+• Result: $500 profit (5% gain on $10k account)
+                </div>
+
+                <p><strong>Bottom line:</strong> Without 1:2 R/R, even a 50-50 trader loses money over time.</p>
+
+                <h3>Higher R/R Ratios</h3>
+                <p>If you can find setups with 1:3 or 1:4 R/R, that's even better. But don't force it—only if the technical setup naturally offers it.</p>
+            </section>
+
+            <!-- BANKROLL -->
+            <section class="guide-section" id="bankroll">
+                <h2>Bankroll Management Over Time</h2>
+                <p>Risk management isn't just about individual trades—it's about managing your account through winning and losing streaks.</p>
+
+                <h3>The Compounding Effect</h3>
+                <p>With consistent 1-2% risk and a positive R/R ratio, your account grows exponentially:</p>
+                <div class="calc-box">
+Starting: $10,000<br>
+Risk per trade: 1%<br>
+Win rate: 55% (realistic)<br>
+R/R: 1:2<br>
+<br>
+Expected return per month: 2-5% (conservative)<br>
+<br>
+After 12 months: $12,000 - $16,000<br>
+After 24 months: $14,400 - $25,600<br>
+After 36 months: $17,280 - $41,000+
+                </div>
+
+                <p>This isn't get-rich-quick, but it's sustainable wealth-building.</p>
+
+                <h3>Managing Losing Streaks</h3>
+                <p>Even good traders hit 3-5 consecutive losses. Here's how to handle them:</p>
+                <ul>
+                    <li><strong>Don't increase risk:</strong> "Revenge trading" is deadly</li>
+                    <li><strong>Review your analysis:</strong> Are your setups still valid? Did the market regime change?</li>
+                    <li><strong>Take a break:</strong> Step back for a day or two. Fresh perspective helps</li>
+                    <li><strong>Trust the process:</strong> If your R/R and win rate are sound, variance will even out</li>
+                </ul>
+
+                <h3>Know When to Stop</h3>
+                <p>Set a daily or weekly loss limit. If you hit it, stop trading that day:</p>
+                <ul>
+                    <li>Daily limit: -3% of account (e.g., -$300 on $10k)</li>
+                    <li>Weekly limit: -5% of account (e.g., -$500 on $10k)</li>
+                </ul>
+
+                <p>When emotional, you make bad decisions. A hard stop enforces discipline.</p>
+            </section>
+
+            <!-- PSYCHOLOGY -->
+            <section class="guide-section" id="psychology">
+                <h2>Risk Management Psychology</h2>
+                <p>The technical side of risk management is easy. The psychological side is hard.</p>
+
+                <h3>Common Mistakes</h3>
+                <ul>
+                    <li><strong>Over-confidence after wins:</strong> "I nailed that analysis, I'll risk 3% this time" → Drawdown</li>
+                    <li><strong>Revenge trading after losses:</strong> "I lost $100, I'll risk $500 to get it back" → Account wipeout</li>
+                    <li><strong>Moving stops:</strong> "I can't be wrong, let me widen the stop" → Bigger losses</li>
+                    <li><strong>Skipping high-R/R trades:</strong> "The setup is great but the stop is 100 pips away, I'll skip it" → Missed profits</li>
+                    <li><strong>Chasing losers:</strong> Entering extra trades to recover losses → Deeper hole</li>
+                </ul>
+
+                <h3>Mental Discipline Checklist</h3>
+                <p>Before every trade, answer these:</p>
+                <ul>
+                    <li>☑️ Do I know my entry price?</li>
+                    <li>☑️ Do I know my stop loss price?</li>
+                    <li>☑️ Do I know my profit target?</li>
+                    <li>☑️ Have I calculated my position size (1-2% risk)?</li>
+                    <li>☑️ Is my R/R at least 1:2?</li>
+                    <li>☑️ Am I emotional, or am I calm?</li>
+                </ul>
+
+                <p>If you answer "no" to any of these, don't trade.</p>
+
+                <h3>The Winning Trader Mindset</h3>
+                <ul>
+                    <li><strong>Losses are part of the business.</strong> Accept them. Learn from them. Move on.</li>
+                    <li><strong>Risk management is #1.</strong> Profits come naturally if risk is controlled.</li>
+                    <li><strong>Consistency beats perfection.</strong> A 55% win rate that you repeat for 20 years beats a 80% win rate you can't sustain.</li>
+                    <li><strong>The goal is to be in the game.</strong> Blow up your account once = you're done. Capital preservation is priority.</li>
+                </ul>
+            </section>
+
+            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+                <a href="../index.html" class="back-link">← Back to Dashboard</a>
+                <p style="margin-top: 1rem; color: var(--text-muted); font-size: 0.9rem;">Related: <a href="our-methodology.html" style="color: var(--color-primary);">Our Methodology</a> | <a href="technical-analysis.html" style="color: var(--color-primary);">Technical Analysis</a> | <a href="trading-glossary.html" style="color: var(--color-primary);">Trading Glossary</a></p>
+            </div>
+        </div>
+
+        <!-- Ad Space -->
+        <ins class="adsbygoogle" style="display:block; text-align:center; margin: 2rem 0;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-4617266720439769" data-ad-slot="8549246934"></ins>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-disclaimer">Disclaimer: Forex trading involves significant risk of loss. Past performance does not guarantee future results. Content is for educational purposes only and does not constitute financial advice.</p>
+            <div class="footer-links">
+                <a href="../about.html" class="footer-link">About Us</a>
+                <a href="../contact.html" class="footer-link">Contact</a>
+                <a href="../disclaimer.html" class="footer-link">Legal Disclaimer</a>
+                <a href="../privacy.html" class="footer-link">Privacy Policy</a>
+            </div>
+            <p class="footer-copyright">&copy; 2026 Forex Report. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+</html>
