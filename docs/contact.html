@@ -24,9 +24,9 @@
             </a>
             
             <nav class="header-nav">
-                <a href="index.html" class="nav-link">Dashboard</a>
-                <a href="about.html" class="nav-link ">About Us</a>
-                <a href="contact.html" class="nav-link active">Contact</a>
+                <a href="index.html" class="nav-link" id="navHome">Dashboard</a>
+                <a href="about.html" class="nav-link " id="navAbout">About Us</a>
+                <a href="contact.html" class="nav-link active" id="navContact">Contact</a>
             </nav>
             
             <div class="header-actions">
@@ -85,20 +85,20 @@ hello@newsforextrading.com</p>
 
     <footer class="site-footer">
         <div class="container">
-            <p class="footer-disclaimer">Disclaimer: Forex trading involves significant risk. Leverage can work against you. Past results do not guarantee future performance. Content is purely educational and does not constitute financial advice.</p>
+            <p class="footer-disclaimer" id="footerDisclaimerText">Disclaimer: Forex trading involves significant risk. Leverage can work against you. Past results do not guarantee future performance. Content is purely educational and does not constitute financial advice.</p>
             <div class="footer-contact" style="margin-bottom: 1.25rem; font-size: 0.85rem;">
-                <span style="color: var(--text-muted); font-weight: 500;">Have questions? Contact us:</span>
+                <span id="footerContactText" style="color: var(--text-muted); font-weight: 500;">Have questions? Contact us:</span>
                 <a href="mailto:hello@newsforextrading.com" style="font-weight: 700; color: var(--color-primary); margin-left: 0.25rem;">hello@newsforextrading.com</a>
             </div>
             <div class="footer-links">
-                <a href="about.html" class="footer-link">About Us</a>
-                <a href="contact.html" class="footer-link">Contact</a>
-                <a href="disclaimer.html" class="footer-link">Legal Disclaimer</a>
-                <a href="privacy.html" class="footer-link">Privacy Policy</a>
-                <a href="terms.html" class="footer-link">Terms of Service</a>
+                <a href="about.html" class="footer-link" id="footerLinkAbout">About Us</a>
+                <a href="contact.html" class="footer-link" id="footerLinkContact">Contact</a>
+                <a href="disclaimer.html" class="footer-link" id="footerLinkDisclaimer">Legal Disclaimer</a>
+                <a href="privacy.html" class="footer-link" id="footerLinkPrivacy">Privacy Policy</a>
+                <a href="terms.html" class="footer-link" id="footerLinkTerms">Terms of Service</a>
             </div>
             <p class="footer-copyright">
-                &copy; 2026 Forex Report. All rights reserved.
+                &copy; 2026 Forex Report. <span id="footerRightsText">All rights reserved.</span>
             </p>
         </div>
     </footer>
@@ -131,6 +131,25 @@ hello@newsforextrading.com</p>
             updateLangDisplay();
         }
         
+        const uiStrings = {
+            en: {
+                navHome: "Dashboard", navAbout: "About Us", navContact: "Contact",
+                footerDisclaimer: "Disclaimer: Forex trading involves significant risk. Leverage can work against you. Past results do not guarantee future performance. Content is purely educational and does not constitute financial advice.",
+                footerContact: "Have questions? Contact us:",
+                footerLinkAbout: "About Us", footerLinkContact: "Contact",
+                footerLinkDisclaimer: "Legal Disclaimer", footerLinkPrivacy: "Privacy Policy", footerLinkTerms: "Terms of Service",
+                footerRights: "All rights reserved."
+            },
+            pt: {
+                navHome: "Painel", navAbout: "Quem Somos", navContact: "Contato",
+                footerDisclaimer: "Aviso: O mercado de câmbio (Forex) envolve riscos significativos. A alavancagem pode funcionar contra si. Resultados passados não garantem lucros futuros. O conteúdo é meramente educativo e não constitui aconselhamento financeiro.",
+                footerContact: "Dúvidas ou sugestões? Contacte-nos:",
+                footerLinkAbout: "Quem Somos", footerLinkContact: "Contato",
+                footerLinkDisclaimer: "Aviso Legal", footerLinkPrivacy: "Política de Privacidade", footerLinkTerms: "Termos de Serviço",
+                footerRights: "Todos os direitos reservados."
+            }
+        };
+
         function updateLangDisplay() {
             if (currentLang === 'pt') {
                 document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
@@ -141,6 +160,19 @@ hello@newsforextrading.com</p>
                 document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'block');
                 document.title = "Contact Us - Forex Report";
             }
+
+            const t = uiStrings[currentLang];
+            document.getElementById('navHome').textContent = t.navHome;
+            document.getElementById('navAbout').textContent = t.navAbout;
+            document.getElementById('navContact').textContent = t.navContact;
+            document.getElementById('footerDisclaimerText').textContent = t.footerDisclaimer;
+            document.getElementById('footerContactText').textContent = t.footerContact;
+            document.getElementById('footerLinkAbout').textContent = t.footerLinkAbout;
+            document.getElementById('footerLinkContact').textContent = t.footerLinkContact;
+            document.getElementById('footerLinkDisclaimer').textContent = t.footerLinkDisclaimer;
+            document.getElementById('footerLinkPrivacy').textContent = t.footerLinkPrivacy;
+            document.getElementById('footerLinkTerms').textContent = t.footerLinkTerms;
+            document.getElementById('footerRightsText').textContent = t.footerRights;
             
             // Adjust back button links to propagate language selector value
             document.querySelectorAll('a').forEach(link => {
