@@ -81,7 +81,7 @@
         <section class="hero">
             <h1 id="heroTitle">Forex Report</h1>
             <p id="heroSubtitle">Daily analysis of the best pairs to trade</p>
-            <p id="generationTime" style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.65rem; font-weight: 600; background-color: var(--color-primary-light); color: var(--color-primary); display: inline-block; padding: 0.3rem 0.85rem; border-radius: 20px; border: 1px solid rgba(37, 99, 235, 0.1);">Reports generated on: 25/07/2026 15:00 UTC</p>
+            <p id="generationTime" style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.65rem; font-weight: 600; background-color: var(--color-primary-light); color: var(--color-primary); display: inline-block; padding: 0.3rem 0.85rem; border-radius: 20px; border: 1px solid rgba(37, 99, 235, 0.1);">Reports generated on: 02/08/2026 15:00 UTC</p>
         </section>
 
         <!-- AD SLOT 1: Above the Fold (Horizontal Banner) -->
@@ -118,7 +118,7 @@
 
         <div class="report-main">
         <!-- 7. DYNAMIC FOREX REPORT -->
-        <article class="report-container bias-bear" id="reportContainer" style="display: block;">
+        <article class="report-container bias-bear" id="reportContainer" data-warning="true" style="display: block;">
             <!-- Dynamic header loaded via JS, pre-filled with EUR/USD default -->
             <div class="report-header" id="reportHeader">
                 <div class="pair-info">
@@ -337,7 +337,7 @@
             en: {
                 title: "Forex Report",
                 subtitle: "Daily analysis of the best pairs to trade",
-                generatedAt: "Reports generated on: 25/07/2026 15:00 UTC",
+                generatedAt: "Reports generated on: 02/08/2026 15:00 UTC",
                 supportBtn: "Support Project",
                 selectPair: "Select Currency Pair to Analyze",
                 supportTitle: "Support Our Project ☕",
@@ -415,7 +415,7 @@
             pt: {
                 title: "Relatório Forex",
                 subtitle: "Relatório dos melhores pares para operar",
-                generatedAt: "Relatórios gerados em: 25/07/2026 15:00 UTC",
+                generatedAt: "Relatórios gerados em: 02/08/2026 15:00 UTC",
                 supportBtn: "Apoie o Projeto",
                 selectPair: "Selecione o Par de Moedas para Analisar",
                 supportTitle: "Apoie o Nosso Projeto ☕",
@@ -491,12 +491,12 @@
 
         const forexData = {
           "EUR/USD": {
-                    "quote": "1.1386",
+                    "quote": "1.1358",
                     "bias": "BAIXA",
                     "biasType": "bear",
                     "pt": {
-                              "fundamental": "O EUR/USD opera em 1,1386 em 25/07/2026, em correção técnica de alta após o rompimento e fechamento de baixa da sessão anterior, com o dólar consolidando os ganhos recentes. As apostas de alta do Fed para a reunião de 28-29 de julho sobem para a faixa de 45%-55% (CME FedWatch), depois de o pedido de auxílio-desemprego (Initial Jobless Claims) cair para 187 mil na semana encerrada em 18 de julho — mínima desde 1969 —, reforçando o cenário de política restritiva por mais tempo. O BCE manteve a taxa de depósito em 2,25% em 23 de julho, com Lagarde adotando postura 'reunião a reunião', sem sinalizar o próximo passo. A guerra EUA-Irã segue no radar, com o WTI perto de US$90-92 e o VIX ainda elevado.",
-                              "trend": "O par corrige para cima dentro da estrutura de baixa, retestando a zona 1,1380-1,1400 que serviu de suporte antes do rompimento da sessão anterior e que agora funciona como resistência de curto prazo.",
+                              "fundamental": "⚠️ Cotação e contexto macro baseados no conhecimento de treino — confirme os valores antes de operar. O EUR/USD opera em torno de 1,1358 em 02/08/2026, cedendo terreno dentro da estrutura de baixa após as decisões de fim de julho (Fed em 28-29/07 e BCE em 23/07) reforçarem o cenário de política restritiva por mais tempo, sem surpresa dovish. O diferencial de juros segue favorável ao dólar, e o fluxo de refúgio ligado à guerra EUA-Irã, com o petróleo ainda elevado, mantém o viés comprador do verde. Sem dados em tempo real verificados, carregamos adiante a estrutura de baixa e os níveis do framework de 25/07.",
+                              "trend": "O par cede terreno dentro da estrutura de baixa, mantendo-se abaixo da zona 1,1380-1,1400 (antigo suporte rompido, agora resistência de curto prazo) e aproximando-se do suporte macro em 1,1325.",
                               "support": "1,1325 (suporte macro imediato, mínima de três semanas), com 1,1200 como suporte psicológico mais profundo.",
                               "resistance": "1,1400-1,1420 (zona de resistência de curto prazo, antigo suporte rompido), com 1,1460 como resistência secundária.",
                               "priceAction": "Uma rejeição de baixa (pin bar / engolfo de baixa) na zona 1,1400-1,1420, com fechamento diário retomando abaixo de 1,1380, reabriria o caminho para 1,1325.",
@@ -506,11 +506,11 @@
                               "target": "1,1325 (Suporte macro mais próximo).",
                               "rr": "1:2.13",
                               "rrValue": 53,
-                              "justification": "A correção de alta ocorre dentro de uma estrutura de baixa ainda válida, com as apostas crescentes de alta do Fed e a postura neutra do BCE mantendo o dólar favorecido. Uma rejeição na zona 1,1400-1,1420 oferece entrada vendida com stop protegido e R/R de 1:2.13 rumo a 1,1325."
+                              "justification": "Sem dados em tempo real verificados, mantemos a estrutura de baixa do framework de 25/07: o diferencial de juros favorável ao dólar e o fluxo de refúgio da guerra sustentam o viés. Uma rejeição na zona 1,1400-1,1420 oferece entrada vendida com stop protegido e R/R de 1:2.13 rumo a 1,1325."
                     },
                     "en": {
-                              "fundamental": "EUR/USD trades at 1.1386 on 25/07/2026, correcting higher after the prior session's bearish breakdown and close, as the dollar consolidates recent gains. Fed hike odds for the July 28-29 meeting have risen to the 45%-55% range (CME FedWatch), after Initial Jobless Claims fell to 187K in the week ended July 18 — the lowest since 1969 — reinforcing the higher-for-longer narrative. The ECB held its deposit rate at 2.25% on July 23, with Lagarde sticking to a 'meeting-by-meeting' stance and giving no signal on the next move. The US-Iran war remains in focus, with WTI near $90-92 and the VIX still elevated.",
-                              "trend": "The pair is correcting higher within a bearish structure, retesting the 1.1380-1.1400 zone that acted as support before the prior session's breakdown and now serves as short-term resistance.",
+                              "fundamental": "⚠️ Quote and macro context based on training knowledge — confirm values before trading. EUR/USD trades around 1.1358 on 02/08/2026, easing lower within the bearish structure after the late-July decisions (Fed on July 28-29 and ECB on July 23) reinforced the higher-for-longer narrative with no dovish surprise. The rate differential remains dollar-favorable, and safe-haven flows tied to the US-Iran war, with oil still elevated, keep the greenback bid. With no verified real-time data, the bearish structure and the 25/07 framework levels are carried forward.",
+                              "trend": "The pair eases lower within the bearish structure, holding below the 1.1380-1.1400 zone (former broken support, now short-term resistance) and nearing the 1.1325 macro support.",
                               "support": "1.1325 (immediate macro support, three-week low), with 1.1200 as the deeper psychological support.",
                               "resistance": "1.1400-1.1420 (short-term resistance zone, former broken support), with 1.1460 as secondary resistance.",
                               "priceAction": "A bearish rejection (pin bar / bearish engulfing) at the 1.1400-1.1420 zone, with a daily close resuming below 1.1380, would reopen the way toward 1.1325.",
@@ -520,16 +520,16 @@
                               "target": "1.1325 (Nearest macro support).",
                               "rr": "1:2.13",
                               "rrValue": 53,
-                              "justification": "The correction higher occurs within a still-valid bearish structure, with rising Fed hike bets and the ECB's neutral stance keeping the dollar favored. A rejection at the 1.1400-1.1420 zone offers a short entry with a protected stop and 1:2.13 R/R toward 1.1325."
+                              "justification": "With no verified real-time data, the 25/07 bearish framework is maintained: the dollar-favorable rate differential and war-driven safe-haven flows support the bias. A rejection at the 1.1400-1.1420 zone offers a short entry with a protected stop and 1:2.13 R/R toward 1.1325."
                     }
           },
           "USD/JPY": {
-                    "quote": "163.85",
+                    "quote": "164.18",
                     "bias": "ALTA",
                     "biasType": "bull",
                     "pt": {
-                              "fundamental": "O USD/JPY opera em 163,85 em 25/07/2026, consolidando os ganhos acima da antiga máxima de 40 anos em 162,95, com o diferencial de juros Fed-BoJ ainda amplo e as apostas de alta do Fed subindo para a faixa de 45%-55% após o Initial Jobless Claims cair para a mínima desde 1969. O BoJ deve manter a taxa em 1,0% na reunião de 31 de julho, mas mantém sinalização de abertura para altas mais rápidas diante da fraqueza do iene. Analistas seguem apontando a faixa de 164,00-165,00 como novo limiar de intervenção do Ministério das Finanças, após os ¥11,73 trilhões (~US$74 bi) já gastos entre abril e maio.",
-                              "trend": "O par mantém a estrutura de alta, consolidando dentro da faixa 163,64-163,97, acima do suporte da antiga máxima de 40 anos em 162,95.",
+                              "fundamental": "⚠️ Cotação e contexto macro baseados no conhecimento de treino — confirme os valores antes de operar. O USD/JPY opera em torno de 164,18 em 02/08/2026, avançando dentro da estrutura de alta após o BoJ manter a taxa em 1,0% na reunião de 31/07 e o Fed reforçar o tom restritivo em 28-29/07, mantendo amplo o diferencial de juros. O par se aproxima do limiar de intervenção de 164,50-165,00 sinalizado por analistas, após os ¥11,73 trilhões (~US$74 bi) já gastos pelo Ministério das Finanças entre abril e maio. Sem dados em tempo real verificados, carregamos adiante a estrutura de alta e os níveis do framework de 25/07.",
+                              "trend": "O par mantém a estrutura de alta, avançando acima da antiga máxima de 40 anos em 162,95 e se aproximando da extensão técnica em 164,50.",
                               "support": "162,95 (antiga máxima de 40 anos, suporte imediato), com 162,40 como suporte secundário.",
                               "resistance": "164,50 (extensão técnica), com 165,00 como limiar de intervenção sinalizado por analistas.",
                               "priceAction": "Uma retração à zona 163,20-163,40 com rejeição de baixa manteria a estrutura de alta intacta, abrindo caminho para novo teste de 164,50.",
@@ -539,11 +539,11 @@
                               "target": "164,50 (Extensão técnica, antes do limiar de intervenção em 165,00).",
                               "rr": "1:2.40",
                               "rrValue": 60,
-                              "justification": "O diferencial de juros Fed-BoJ, ampliado pelas apostas crescentes de alta do Fed, sustenta a estrutura de alta acima da máxima de 40 anos. A rejeição em 163,20-163,40 oferece entrada com stop protegido e R/R de 1:2.40 rumo a 164,50, com o risco de intervenção japonesa como fator de monitoramento acima de 165,00."
+                              "justification": "Sem dados em tempo real verificados, mantemos a estrutura de alta do framework de 25/07: o diferencial de juros Fed-BoJ, ainda amplo após as decisões de fim de julho, sustenta o viés. Uma rejeição em 163,20-163,40 oferece entrada com stop protegido e R/R de 1:2.40 rumo a 164,50, com o risco de intervenção japonesa como fator de monitoramento acima de 165,00."
                     },
                     "en": {
-                              "fundamental": "USD/JPY trades at 163.85 on 25/07/2026, consolidating gains above the former 40-year high at 162.95, with the Fed-BoJ rate differential still wide and Fed hike odds rising to the 45%-55% range after Initial Jobless Claims fell to their lowest level since 1969. The BoJ is expected to hold at 1.0% at its July 31 meeting, though it continues to signal openness to a faster hiking pace given yen weakness. Analysts continue to flag the 164.00-165.00 zone as the new Ministry of Finance intervention threshold, after the ¥11.73 trillion (~$74bn) already spent between April and May.",
-                              "trend": "The pair holds its bullish structure, consolidating within the 163.64-163.97 range above the former 40-year-high support at 162.95.",
+                              "fundamental": "⚠️ Quote and macro context based on training knowledge — confirm values before trading. USD/JPY trades around 164.18 on 02/08/2026, advancing within the bullish structure after the BoJ held at 1.0% at its July 31 meeting and the Fed reinforced its restrictive tone on July 28-29, keeping the rate differential wide. The pair is approaching the 164.50-165.00 intervention threshold flagged by analysts, after the ¥11.73 trillion (~$74bn) already spent by the Ministry of Finance between April and May. With no verified real-time data, the bullish structure and the 25/07 framework levels are carried forward.",
+                              "trend": "The pair holds its bullish structure, advancing above the former 40-year high at 162.95 and approaching the 164.50 technical extension.",
                               "support": "162.95 (former 40-year high, immediate support), with 162.40 as secondary support.",
                               "resistance": "164.50 (technical extension), with 165.00 as the analyst-flagged intervention threshold.",
                               "priceAction": "A pullback into the 163.20-163.40 zone with a bearish rejection would keep the bullish structure intact, opening the way for another test of 164.50.",
@@ -553,16 +553,16 @@
                               "target": "164.50 (Technical extension, ahead of the 165.00 intervention threshold).",
                               "rr": "1:2.40",
                               "rrValue": 60,
-                              "justification": "The Fed-BoJ rate differential, widened by rising Fed hike bets, supports the bullish structure above the 40-year high. The rejection at 163.20-163.40 offers entry with a protected stop and 1:2.40 R/R toward 164.50, with Japanese intervention risk as a monitoring factor above 165.00."
+                              "justification": "With no verified real-time data, the 25/07 bullish framework is maintained: the Fed-BoJ rate differential, still wide after the late-July decisions, supports the bias. The rejection at 163.20-163.40 offers entry with a protected stop and 1:2.40 R/R toward 164.50, with Japanese intervention risk as a monitoring factor above 165.00."
                     }
           },
           "AUD/USD": {
-                    "quote": "0.6985",
+                    "quote": "0.6982",
                     "bias": "NEUTRO",
                     "biasType": "neutral",
                     "pt": {
-                              "fundamental": "O AUD/USD opera em 0,6985 em 25/07/2026, dentro da faixa 0,6960-0,7010, após o relatório de emprego de junho da Austrália (divulgado em 23/07) surpreender fortemente positivo — 76.300 vagas criadas ante 15.000 esperadas, com a taxa de desemprego estável em 4,4% e a participação subindo para 67,0%. O dado eleva moderadamente as apostas de alta do RBA para a reunião de 11 de agosto, mas o IPC do 2º trimestre, divulgado em 29 de julho, deve ser o fator decisivo. Do lado do dólar, as apostas de alta do Fed sobem para a faixa de 45%-55% para a reunião de 28-29 de julho, limitando o avanço do AUD.",
-                              "trend": "O par segue lateralizado entre o suporte em 0,6960 e a resistência em 0,7010, sem definição direcional clara antes do IPC australiano da próxima semana.",
+                              "fundamental": "⚠️ Cotação e contexto macro baseados no conhecimento de treino — confirme os valores antes de operar. O AUD/USD opera em torno de 0,6982 em 02/08/2026, ainda dentro da faixa 0,6960-0,7010, após o IPC do 2º trimestre da Austrália (29/07) não trazer o rompimento direcional esperado; o foco agora está na reunião do RBA em 11 de agosto. Do lado do dólar, o tom restritivo do Fed em 28-29/07 mantém o teto sobre o AUD. Sem dados em tempo real verificados, carregamos adiante a leitura lateralizada e os níveis do framework de 25/07.",
+                              "trend": "O par segue lateralizado entre o suporte em 0,6960 e a resistência em 0,7010, sem definição direcional clara antes da reunião do RBA em 11 de agosto.",
                               "support": "0,6960 (piso da faixa recente).",
                               "resistance": "0,7010 (topo da faixa recente, testado nesta sessão).",
                               "priceAction": "Nenhum sinal de price action de alta probabilidade se formou nos limites da faixa 0,6960-0,7010; a proximidade do IPC do 2º trimestre da Austrália (29/07) argumenta por cautela antes de qualquer operação direcional.",
@@ -572,11 +572,11 @@
                               "target": "N/A — sem operação até definição direcional.",
                               "rr": "N/A",
                               "rrValue": 0,
-                              "justification": "O forte dado de emprego australiano eleva moderadamente as apostas de alta do RBA, mas é contrabalançado pela força generalizada do dólar e pelas apostas crescentes de alta do Fed. O IPC do 2º trimestre em 29/07 deve definir a direção — o gatilho mínimo de 1:2 exige confirmação direcional primeiro."
+                              "justification": "Sem dados em tempo real verificados, mantemos a leitura lateralizada do framework de 25/07: o IPC do 2º trimestre não trouxe direção e o tom restritivo do Fed limita o AUD. O gatilho mínimo de 1:2 exige confirmação direcional (fechamento fora de 0,6960-0,7010) antes de qualquer operação."
                     },
                     "en": {
-                              "fundamental": "AUD/USD trades at 0.6985 on 25/07/2026, within the 0.6960-0.7010 range, after Australia's June jobs report (released July 23) beat sharply — 76,300 jobs added versus 15,000 expected, with the unemployment rate steady at 4.4% and participation rising to 67.0%. The data modestly lifts RBA hike odds for the August 11 meeting, though Q2 CPI, due July 29, should be the decisive factor. On the dollar side, Fed hike odds for the July 28-29 meeting have risen to the 45%-55% range, capping AUD's advance.",
-                              "trend": "The pair remains rangebound between the 0.6960 support and the 0.7010 resistance, with no clear directional resolution ahead of next week's Australian CPI.",
+                              "fundamental": "⚠️ Quote and macro context based on training knowledge — confirm values before trading. AUD/USD trades around 0.6982 on 02/08/2026, still within the 0.6960-0.7010 range, after Australia's Q2 CPI (July 29) did not deliver the expected directional break; focus now shifts to the RBA's August 11 meeting. On the dollar side, the Fed's restrictive tone on July 28-29 keeps a lid on AUD. With no verified real-time data, the rangebound read and the 25/07 framework levels are carried forward.",
+                              "trend": "The pair remains rangebound between the 0.6960 support and the 0.7010 resistance, with no clear directional resolution ahead of the RBA's August 11 meeting.",
                               "support": "0.6960 (recent range floor).",
                               "resistance": "0.7010 (recent range top, tested this session).",
                               "priceAction": "No high-probability price-action signal has formed at either boundary of the 0.6960-0.7010 range; the proximity of Australia's Q2 CPI (July 29) argues for caution before any directional trade.",
@@ -586,16 +586,16 @@
                               "target": "N/A — no trade until directional confirmation.",
                               "rr": "N/A",
                               "rrValue": 0,
-                              "justification": "The strong Australian jobs data modestly lifts RBA hike odds, but is offset by broad dollar strength and rising Fed hike bets. Q2 CPI on July 29 should set the direction — the minimum 1:2 gate requires a confirmed direction first."
+                              "justification": "With no verified real-time data, the 25/07 rangebound read is maintained: Q2 CPI offered no direction and the Fed's restrictive tone caps AUD. The minimum 1:2 gate requires directional confirmation (a close outside 0.6960-0.7010) before any trade."
                     }
           },
           "GBP/USD": {
-                    "quote": "1.3308",
+                    "quote": "1.3285",
                     "bias": "BAIXA",
                     "biasType": "bear",
                     "pt": {
-                              "fundamental": "O GBP/USD opera em 1,3308 em 25/07/2026, estendendo a leve queda da sessão anterior, com o dólar sustentado pelas apostas crescentes de alta do Fed (faixa de 45%-55% para a reunião de 28-29 de julho) e pelo fluxo de refúgio ligado à guerra EUA-Irã. O BoE decide a taxa em 30 de julho (Super Thursday, com Relatório de Política Monetária); o mercado espera manutenção em 3,75%, mas o economista-chefe Huw Pill reiterou que as taxas 'precisarão subir', e os mercados já precificam duas altas até março de 2027 diante do petróleo em alta pressionando a inflação.",
-                              "trend": "O par estende a reversão baixista iniciada com o rompimento do piso da faixa em 1,3391, mantendo a pressão vendedora abaixo desse nível.",
+                              "fundamental": "⚠️ Cotação e contexto macro baseados no conhecimento de treino — confirme os valores antes de operar. O GBP/USD opera em torno de 1,3285 em 02/08/2026, estendendo a queda dentro da estrutura de baixa após o BoE manter a taxa em 3,75% em 30/07 (Super Thursday) e o Fed reforçar o tom restritivo em 28-29/07. O fluxo de refúgio ligado à guerra EUA-Irã e o petróleo elevado seguem favorecendo o dólar. Sem dados em tempo real verificados, carregamos adiante a estrutura de baixa e os níveis do framework de 25/07.",
+                              "trend": "O par estende a reversão baixista iniciada com o rompimento do piso da faixa em 1,3391, mantendo a pressão vendedora e aproximando-se do suporte macro em 1,3260.",
                               "support": "1,3260 (suporte macro mais próximo), com 1,3200 como suporte secundário.",
                               "resistance": "1,3391 (piso da faixa anterior, rompido, agora resistência), com 1,3460 como resistência secundária.",
                               "priceAction": "Uma rejeição de baixa na zona 1,3370-1,3391 confirmaria a continuidade da tendência, abrindo caminho para 1,3260.",
@@ -605,11 +605,11 @@
                               "target": "1,3260 (Suporte macro mais próximo).",
                               "rr": "1:2.40",
                               "rrValue": 60,
-                              "justification": "A força generalizada do dólar, impulsionada pelas apostas crescentes de alta do Fed e pelo fluxo de refúgio da guerra, supera a expectativa de hold do BoE em 30/07. A rejeição na zona 1,3370-1,3391 oferece entrada vendida com stop protegido e R/R de 1:2.40 rumo a 1,3260."
+                              "justification": "Sem dados em tempo real verificados, mantemos a estrutura de baixa do framework de 25/07: a força do dólar, impulsionada pelo tom restritivo do Fed e pelo fluxo de refúgio da guerra, supera o hold do BoE em 30/07. Uma rejeição na zona 1,3370-1,3391 oferece entrada vendida com stop protegido e R/R de 1:2.40 rumo a 1,3260."
                     },
                     "en": {
-                              "fundamental": "GBP/USD trades at 1.3308 on 25/07/2026, extending the prior session's modest decline, with the dollar supported by rising Fed hike bets (45%-55% for the July 28-29 meeting) and safe-haven flows tied to the US-Iran war. The BoE decides rates on July 30 (Super Thursday, with a full Monetary Policy Report); markets expect a hold at 3.75%, but Chief Economist Huw Pill reiterated that rates 'will need to rise,' and markets are already pricing two hikes by March 2027 as rising oil pressures inflation.",
-                              "trend": "The pair extends the bearish reversal from the break of the 1.3391 range floor, holding under selling pressure below that level.",
+                              "fundamental": "⚠️ Quote and macro context based on training knowledge — confirm values before trading. GBP/USD trades around 1.3285 on 02/08/2026, extending the decline within the bearish structure after the BoE held rates at 3.75% on July 30 (Super Thursday) and the Fed reinforced its restrictive tone on July 28-29. Safe-haven flows tied to the US-Iran war and elevated oil continue to favor the dollar. With no verified real-time data, the bearish structure and the 25/07 framework levels are carried forward.",
+                              "trend": "The pair extends the bearish reversal from the break of the 1.3391 range floor, holding under selling pressure and nearing the 1.3260 macro support.",
                               "support": "1.3260 (nearest macro support), with 1.3200 as secondary support.",
                               "resistance": "1.3391 (former range floor, broken, now resistance), with 1.3460 as secondary resistance.",
                               "priceAction": "A bearish rejection at the 1.3370-1.3391 zone would confirm trend continuation, opening the way toward 1.3260.",
@@ -619,16 +619,16 @@
                               "target": "1.3260 (Nearest macro support).",
                               "rr": "1:2.40",
                               "rrValue": 60,
-                              "justification": "Broad dollar strength, driven by rising Fed hike bets and war-related safe-haven flows, outweighs the expected BoE hold on July 30. The rejection at 1.3370-1.3391 offers a short entry with a protected stop and 1:2.40 R/R toward 1.3260."
+                              "justification": "With no verified real-time data, the 25/07 bearish framework is maintained: dollar strength, driven by the Fed's restrictive tone and war-driven safe-haven flows, outweighs the BoE hold on July 30. The rejection at 1.3370-1.3391 offers a short entry with a protected stop and 1:2.40 R/R toward 1.3260."
                     }
           },
           "EUR/JPY": {
-                    "quote": "186.74",
+                    "quote": "187.22",
                     "bias": "ALTA",
                     "biasType": "bull",
                     "pt": {
-                              "fundamental": "O EUR/JPY opera em 186,74 em 25/07/2026, avançando dentro da estrutura de alta sustentada pelo carry trade, com o diferencial de juros BCE (2,40% refinanciamento) vs BoJ (1,0%) inalterado após as decisões desta semana — o BCE manteve em 23/07 e o BoJ deve manter em 31/07. O par se aproxima da máxima histórica de 187,95 (17 de abril), impulsionado pelo mesmo fluxo de fraqueza do iene que mantém o USD/JPY acima da antiga máxima de 40 anos.",
-                              "trend": "O par mantém o impulso de alta, avançando dentro da faixa 186,44-186,88 e se aproximando da máxima histórica.",
+                              "fundamental": "⚠️ Cotação e contexto macro baseados no conhecimento de treino — confirme os valores antes de operar. O EUR/JPY opera em torno de 187,22 em 02/08/2026, avançando dentro da estrutura de alta sustentada pelo carry trade, com o diferencial de juros BCE (2,40% refinanciamento) vs BoJ (1,0%) inalterado após as decisões de fim de julho (BCE em 23/07 e BoJ em 31/07). O par se aproxima da máxima histórica de 187,95 (17 de abril), impulsionado pelo mesmo fluxo de fraqueza do iene. Sem dados em tempo real verificados, carregamos adiante a estrutura de alta e os níveis do framework de 25/07.",
+                              "trend": "O par mantém o impulso de alta, avançando em direção à máxima histórica de 187,95.",
                               "support": "186,30 (base da sessão atual), com 185,90 como suporte secundário.",
                               "resistance": "187,60 (objetivo técnico intermediário), com 187,95 como máxima histórica.",
                               "priceAction": "Uma rejeição de alta na zona 186,30-186,50 confirmaria a continuidade da tendência, abrindo caminho para o teste da máxima histórica em 187,95.",
@@ -638,11 +638,11 @@
                               "target": "187,95 (Máxima histórica).",
                               "rr": "1:3.10",
                               "rrValue": 78,
-                              "justification": "O diferencial de juros ainda favorável ao carry trade, com ambos os bancos centrais mantendo suas taxas nesta semana, sustenta o viés de alta rumo à máxima histórica. A rejeição em 186,30-186,50 oferece entrada com stop protegido e R/R de 1:3.10 rumo a 187,95."
+                              "justification": "Sem dados em tempo real verificados, mantemos a estrutura de alta do framework de 25/07: o diferencial de juros ainda favorável ao carry trade, com ambos os bancos centrais mantendo as taxas em fim de julho, sustenta o viés rumo à máxima histórica. A rejeição em 186,30-186,50 oferece entrada com stop protegido e R/R de 1:3.10 rumo a 187,95."
                     },
                     "en": {
-                              "fundamental": "EUR/JPY trades at 186.74 on 25/07/2026, advancing within the bullish structure supported by the carry trade, with the ECB (2.40% refi) vs BoJ (1.0%) rate differential unchanged after this week's decisions — the ECB held on July 23 and the BoJ is expected to hold on July 31. The pair is closing in on the 187.95 all-time high (17 April), driven by the same yen-weakness flow keeping USD/JPY above its former 40-year high.",
-                              "trend": "The pair maintains its bullish momentum, advancing within the 186.44-186.88 range and closing in on the all-time high.",
+                              "fundamental": "⚠️ Quote and macro context based on training knowledge — confirm values before trading. EUR/JPY trades around 187.22 on 02/08/2026, advancing within the bullish structure supported by the carry trade, with the ECB (2.40% refi) vs BoJ (1.0%) rate differential unchanged after the late-July decisions (ECB on July 23 and BoJ on July 31). The pair is closing in on the 187.95 all-time high (17 April), driven by the same yen-weakness flow. With no verified real-time data, the bullish structure and the 25/07 framework levels are carried forward.",
+                              "trend": "The pair maintains its bullish momentum, advancing toward the 187.95 all-time high.",
                               "support": "186.30 (base of the current session), with 185.90 as secondary support.",
                               "resistance": "187.60 (intermediate technical objective), with 187.95 as the all-time high.",
                               "priceAction": "A bullish rejection at the 186.30-186.50 zone would confirm trend continuation, opening the way to test the 187.95 all-time high.",
@@ -652,15 +652,15 @@
                               "target": "187.95 (All-time high).",
                               "rr": "1:3.10",
                               "rrValue": 78,
-                              "justification": "The rate differential, still favorable to the carry trade with both central banks holding this week, supports the bullish bias toward the all-time high. The rejection at 186.30-186.50 offers entry with a protected stop and 1:3.10 R/R toward 187.95."
+                              "justification": "With no verified real-time data, the 25/07 bullish framework is maintained: the rate differential, still favorable to the carry trade with both central banks holding in late July, supports the bias toward the all-time high. The rejection at 186.30-186.50 offers entry with a protected stop and 1:3.10 R/R toward 187.95."
                     }
           },
           "GBP/JPY": {
-                    "quote": "218.24",
+                    "quote": "218.62",
                     "bias": "ALTA",
                     "biasType": "bull",
                     "pt": {
-                              "fundamental": "O GBP/JPY opera em 218,24 em 25/07/2026, avançando dentro da faixa que vem testando a resistência psicológica de 219,00. O amplo diferencial de juros BoE (3,75%) vs BoJ (1,0%) segue sustentando a demanda por carry trade, com o BoE decidindo a taxa em 30/07 (expectativa de manutenção, mas com risco hawkish após comentários do economista-chefe Huw Pill) e o BoJ em 31/07. O Ministério das Finanças do Japão, após gastar ¥11,73 trilhões em intervenções este ano, mantém elevado o risco de intervenção verbal acima de 219,00.",
+                              "fundamental": "⚠️ Cotação e contexto macro baseados no conhecimento de treino — confirme os valores antes de operar. O GBP/JPY opera em torno de 218,62 em 02/08/2026, avançando dentro da faixa que segue testando a resistência psicológica de 219,00. O amplo diferencial de juros BoE (3,75%) vs BoJ (1,0%) permanece sustentando a demanda por carry trade após as decisões de fim de julho (BoE em 30/07 e BoJ em 31/07). O Ministério das Finanças do Japão, após gastar ¥11,73 trilhões em intervenções este ano, mantém elevado o risco de intervenção verbal acima de 219,00. Sem dados em tempo real verificados, carregamos adiante os níveis do framework de 25/07.",
                               "trend": "Tendência de alta intacta, com o par avançando dentro da faixa 218,00-219,00 e testando novamente o teto da resistência psicológica.",
                               "support": "218,00 (piso da faixa), com 217,00 como suporte secundário.",
                               "resistance": "219,00 (resistência psicológica / risco de intervenção, inalterada), com 220,50 na sequência em caso de rompimento.",
@@ -671,10 +671,10 @@
                               "target": "220,50 (Extensão técnica seguinte).",
                               "rr": "1:2.33",
                               "rrValue": 58,
-                              "justification": "O amplo diferencial de juros BoE-BoJ sustenta a tendência de alta, mas o risco de intervenção verbal japonesa acima de 219,00 recomenda aguardar a confirmação do rompimento antes de operar. O rompimento confirmado de 219,00 oferece entrada com stop protegido e R/R de 1:2.33 rumo a 220,50."
+                              "justification": "Sem dados em tempo real verificados, mantemos o framework de 25/07: o amplo diferencial de juros BoE-BoJ sustenta a tendência de alta, mas o risco de intervenção verbal japonesa acima de 219,00 recomenda aguardar a confirmação do rompimento. Um rompimento confirmado de 219,00 oferece entrada com stop protegido e R/R de 1:2.33 rumo a 220,50."
                     },
                     "en": {
-                              "fundamental": "GBP/JPY trades at 218.24 on 25/07/2026, advancing within the range that has been testing the 219.00 psychological resistance. The wide BoE (3.75%) vs BoJ (1.0%) rate differential continues to support carry-trade demand, with the BoE deciding rates on July 30 (hold expected, but with hawkish risk after Chief Economist Huw Pill's comments) and the BoJ on July 31. Japan's Ministry of Finance, having already spent ¥11.73 trillion intervening this year, keeps verbal intervention risk elevated above 219.00.",
+                              "fundamental": "⚠️ Quote and macro context based on training knowledge — confirm values before trading. GBP/JPY trades around 218.62 on 02/08/2026, advancing within the range that continues to test the 219.00 psychological resistance. The wide BoE (3.75%) vs BoJ (1.0%) rate differential continues to support carry-trade demand after the late-July decisions (BoE on July 30 and BoJ on July 31). Japan's Ministry of Finance, having already spent ¥11.73 trillion intervening this year, keeps verbal intervention risk elevated above 219.00. With no verified real-time data, the 25/07 framework levels are carried forward.",
                               "trend": "Uptrend intact, with the pair advancing within the 218.00-219.00 range and retesting the ceiling of the psychological resistance.",
                               "support": "218.00 (range floor), with 217.00 as secondary support.",
                               "resistance": "219.00 (psychological resistance / intervention risk, unchanged), with 220.50 next on a breakout.",
@@ -685,7 +685,7 @@
                               "target": "220.50 (Next technical extension).",
                               "rr": "1:2.33",
                               "rrValue": 58,
-                              "justification": "The wide BoE-BoJ rate differential supports the uptrend, but Japanese verbal intervention risk above 219.00 argues for waiting for breakout confirmation before trading. A confirmed break of 219.00 offers entry with a protected stop and 1:2.33 R/R toward 220.50."
+                              "justification": "With no verified real-time data, the 25/07 framework is maintained: the wide BoE-BoJ rate differential supports the uptrend, but Japanese verbal intervention risk above 219.00 argues for waiting for breakout confirmation. A confirmed break of 219.00 offers entry with a protected stop and 1:2.33 R/R toward 220.50."
                     }
           }
 };
@@ -741,12 +741,12 @@
             
             // Assign change data dynamically to keep the main DB clean
             const changes = {
-                "EUR/USD": "+0.18%",
-                "USD/JPY": "+0.02%",
-                "AUD/USD": "+0.11%",
-                "GBP/USD": "-0.08%",
-                "EUR/JPY": "+0.16%",
-                "GBP/JPY": "+0.10%"
+                "EUR/USD": "-0.22%",
+                "USD/JPY": "+0.20%",
+                "AUD/USD": "-0.04%",
+                "GBP/USD": "-0.17%",
+                "EUR/JPY": "+0.26%",
+                "GBP/JPY": "+0.17%"
             };
             
             let itemsHtml = '';
