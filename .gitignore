@@ -1,0 +1,12 @@
+# Antigravity CLI and Gemini configurations
+.antigravitycli/
+.gemini/
+
+prompt.txt
+
+# Claude Code local config and runtime artifacts (machine-specific)
+.claude/settings.local.json
+.claude/scheduled_tasks.lock
+
+# Dependency lockfile — project is intentionally dependency-free
+package-lock.json
