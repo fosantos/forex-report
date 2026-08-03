@@ -66,7 +66,7 @@ Wherever pairs are iterated, listed, or updated (ticker tape, `forexData` keys, 
 
 ## Analysis Methodology (when generating/updating a forex analysis)
 
-This repo doubles as a quant-analyst prompt target — `.agents/skills/forex-report/SKILL.md` defines the analyst persona and process in detail (in Portuguese). (A `GEMINI.md` is referenced in some older docs/skills but no longer exists in the repo.) Key rules to preserve when writing or updating analysis content:
+This repo doubles as a quant-analyst prompt target — the **`forex-report` agent** (`.claude/agents/forex-report.md`) runs the full daily pipeline (fetch data → compute indicators → set biases → update all files) and embodies the analyst persona/process. The rules below are the premises it — and any manual edit — must preserve:
 
 1. **Data integrity**: If live market data/quotes aren't available, don't invent them. Prepend the analysis with an explicit warning (e.g. "Quote and macro context based on training knowledge — confirm values before trading.") and set `data-warning="true"` on that pair's HTML element. (Note: `data-warning` has no CSS/JS consumer — it is a semantic flag only; the visible warning must also be written as text in the analysis.)
 2. **Technical definitions**: Use SMA 50 and SMA 200 on the D1 chart; Fibonacci retracements at 38.2%/50%/61.8% on D1/W1 moves; price-action signals (Pin Bar, Bullish/Bearish Engulfing, Inside Bar, Doji) at liquidity zones. Trend structure on W1, entry triggers on D1. Where possible, **compute** SMA/Fibonacci from a fetched historical daily-close series (e.g. ECB/Frankfurter reference rates) rather than estimating the levels, and state the data basis in the analysis.
