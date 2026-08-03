@@ -32,6 +32,17 @@ Every pair's analysis exists in **two places that must be kept in sync**:
 - `translateUI()` pushes an `i18n` dictionary into DOM nodes by ID; `renderForexReport()` re-renders the selected pair's data from `forexData` into the report panel.
 - The static pair pages (`docs/[pair].html`) use a simpler mechanism: both languages are always in the DOM, and the inactive one is hidden via inline `style="display:none"` toggled by a language switch script.
 
+### Dashboard rendering mechanics (docs/index.html)
+
+`renderForexReport()` consumes `forexData[selectedPair]` and derives several visuals **automatically** — keep the JSON fields consistent with what renders:
+
+- **Range gauge is auto-computed** from the leading number parsed out of `quote`, `support`, and `resistance` (the parser tolerates PT comma decimals). Don't hand-set a gauge on the dashboard; it follows the data.
+- **Verdict card/badge class is chosen by keyword** in `recommendation`: contains `AGUARDAR`/`WAIT` → `verdict-wait`; `VENDA`/`SELL` → `verdict-sell`; otherwise `verdict-buy`. Recommendation strings must contain one of those keywords or the coloring breaks.
+- **`biasType`** (`bull`/`bear`/`neutral`) drives both the `report-container bias-*` class and the badge color.
+- **`rrValue` must equal `round(R × 25)`** where `R` is the reward multiple in `rr` (e.g. `1:2.40` → `60`, `1:2.13` → `53`, `1:3.10` → `78`). It sets the R/R progress-bar width, so changing `rr` without recomputing `rrValue` desyncs the bar. `N/A` (no-trade) pairs use `rrValue: 0`.
+
+On the **static pair pages** these same visuals are **hardcoded** (range-gauge `left:%`, `.ratio-bar-fill` `width:%`, the `bias-*`/`verdict-*` classes) — they are not derived from JSON, so when editing a static page you must keep all of them consistent with the analysis by hand.
+
 ### Required pair order
 
 Wherever pairs are iterated, listed, or updated (ticker tape, `forexData` keys, individual HTML pages), maintain this exact order: **EUR/USD → USD/JPY → AUD/USD → GBP/USD → EUR/JPY → GBP/JPY**.
@@ -51,14 +62,14 @@ Wherever pairs are iterated, listed, or updated (ticker tape, `forexData` keys, 
 
 ### Other static pages
 
-`docs/about.html`, `docs/contact.html`, `docs/privacy.html`, `docs/terms.html`, `docs/disclaimer.html` are institutional/compliance pages, independent of the pair-analysis data flow.
+`docs/about.html`, `docs/contact.html`, `docs/privacy.html`, `docs/terms.html`, `docs/disclaimer.html` are institutional/compliance pages, independent of the pair-analysis data flow. `docs/guides/` holds six evergreen educational pages (forex-basics, fundamental-analysis, our-methodology, risk-management, technical-analysis, trading-glossary), also independent of the data flow.
 
 ## Analysis Methodology (when generating/updating a forex analysis)
 
-This repo doubles as a quant-analyst prompt target — `GEMINI.md` and `.agents/skills/forex-report/SKILL.md` define the analyst persona and process in detail (in Portuguese). Key rules to preserve when writing or updating analysis content:
+This repo doubles as a quant-analyst prompt target — `.agents/skills/forex-report/SKILL.md` defines the analyst persona and process in detail (in Portuguese). (A `GEMINI.md` is referenced in some older docs/skills but no longer exists in the repo.) Key rules to preserve when writing or updating analysis content:
 
-1. **Data integrity**: If live market data/quotes aren't available, don't invent them. Prepend the analysis with an explicit warning (e.g. "Quote and macro context based on training knowledge — confirm values before trading.") and set `data-warning="true"` on that pair's HTML element.
-2. **Technical definitions**: Use SMA 50 and SMA 200 on the D1 chart; Fibonacci retracements at 38.2%/50%/61.8% on D1/W1 moves; price-action signals (Pin Bar, Bullish/Bearish Engulfing, Inside Bar, Doji) at liquidity zones. Trend structure on W1, entry triggers on D1.
+1. **Data integrity**: If live market data/quotes aren't available, don't invent them. Prepend the analysis with an explicit warning (e.g. "Quote and macro context based on training knowledge — confirm values before trading.") and set `data-warning="true"` on that pair's HTML element. (Note: `data-warning` has no CSS/JS consumer — it is a semantic flag only; the visible warning must also be written as text in the analysis.)
+2. **Technical definitions**: Use SMA 50 and SMA 200 on the D1 chart; Fibonacci retracements at 38.2%/50%/61.8% on D1/W1 moves; price-action signals (Pin Bar, Bullish/Bearish Engulfing, Inside Bar, Doji) at liquidity zones. Trend structure on W1, entry triggers on D1. Where possible, **compute** SMA/Fibonacci from a fetched historical daily-close series (e.g. ECB/Frankfurter reference rates) rather than estimating the levels, and state the data basis in the analysis.
 3. **Risk/Reward gate**: A trade recommendation requires (a) a structurally-protected stop loss, (b) minimum 1:2 risk/reward on the take-profit target, and (c) no significant intermediate support/resistance blocking the path to target. If any condition fails, the verdict must be **"AGUARDAR OUTRO GATILHO"** / **"WAIT FOR ANOTHER TRIGGER"** — never force a directional call.
-4. **Timestamp format**: `DD/MM/YYYY HH:MM UTC`.
+4. **Timestamp format**: `DD/MM/YYYY HH:MM UTC`. In `index.html` update all three spots — the `#generationTime` badge and the `generatedAt` string in both the EN and PT `i18n` blocks. The static pair pages have no separate timestamp element; the date lives inline in the fundamental paragraph (update both `lang-en` and `lang-pt`).
 5. Preserve the existing HTML/CSS structure — only the analysis data and quotes change per update, not layout or design.
