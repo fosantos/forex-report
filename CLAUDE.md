@@ -49,13 +49,14 @@ Wherever pairs are iterated, listed, or updated (ticker tape, `forexData` keys, 
 
 ### Bias color classes
 
-- Bullish → `bias-bull` (emerald green)
-- Bearish → `bias-bear` (rose red)
-- Neutral → `bias-neutral` (gray)
+- Bullish → `bias-bull` (moss green)
+- Bearish → `bias-bear` (rust red)
+- Neutral → `bias-neutral` (slate gray)
 
 ### Design system
 
-- Slate gray dark: `#0f172a`; off-white background: `#f8fafc`; action/accent blue: `#2563eb`.
+- **Identity: "Research Desk" (light theme).** Cool bond-paper field (`--bg-body #eceef1`), deep petrol-navy ink (`--text-primary #13242c`), a single petrol-teal brand signal (`--color-primary #0e5963`) stamped with a sparing ochre "seal" accent (`--color-accent #b07a1b`), and muted market polarity (moss `--color-success` / rust `--color-danger` / ochre `--color-warning`). Type: **Archivo** (display) / **Hanken Grotesk** (body) / **IBM Plex Mono** (data), loaded via the Google Fonts `<link>` in each page's `<head>`. The signature element is the **stamped trade-ticket** (`verdict-card` / `trade-ticket`) — a serialled order slip with a tilted rubber-stamp verdict, an ochre R:R seal, and a dashed perforation.
+- **Token NAMES are an immutable cross-page contract.** Every page (index, 6 pair pages, guides, compliance) references `var(--*)` inline, and the 6 guides carry their own embedded `<style>` blocks that are also fully token-driven. So re-themes happen by changing VALUES in `:root` of `docs/style.css` only — never rename a token, and never hardcode hex/rgba in page markup (the inline `rgba(14,89,99,…)` petrol borders in `contact.html` are the one deliberate exception).
 - Ad slots use `.ad-placeholder` / `ins.adsbygoogle` with CSS `:empty` selectors so they self-hide when no ad script loads (needed for AdSense approval without external requests).
 - Modals (Privacy Policy, Disclaimer) are lightweight and glassmorphic, with no external resource dependencies.
 - Shared stylesheet: `docs/style.css`.

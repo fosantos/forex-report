@@ -5,7 +5,7 @@
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="Forex Report" />
-    <link rel="manifest" href="site.webmanifest" />
+    <script>if(/^https?:$/.test(location.protocol)){var l=document.createElement('link');l.rel='manifest';l.href='site.webmanifest';document.head.appendChild(l);}</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forex Report - Professional Trading Insights</title>
@@ -18,7 +18,7 @@
     <!-- Google Fonts: Inter for sleek modern typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
 </head>
@@ -77,11 +77,22 @@
     <main class="container-wide">
 
 
-        <!-- 5. HERO HEADER -->
-        <section class="hero">
-            <h1 id="heroTitle">Forex Report</h1>
-            <p id="heroSubtitle">Daily analysis of the best pairs to trade</p>
-            <p id="generationTime" style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.65rem; font-weight: 600; background-color: var(--color-primary-light); color: var(--color-primary); display: inline-block; padding: 0.3rem 0.85rem; border-radius: 20px; border: 1px solid rgba(37, 99, 235, 0.1);">Reports generated on: 03/08/2026 13:30 UTC</p>
+        <!-- 5. COMMAND DECK — dateline + market pulse (the day's thesis) -->
+        <section class="command-deck">
+            <div class="cd-lead">
+                <span class="cd-kicker" id="cdKicker">Forex Report · Desk Note</span>
+                <h1 class="cd-title" id="heroTitle">Forex Report</h1>
+                <div class="cd-dateline">
+                    <p id="generationTime" class="cd-date">Reports generated on: 03/08/2026 13:30 UTC</p>
+                    <span class="cd-sep" aria-hidden="true">·</span>
+                    <span id="cdSubtitle">Daily analysis of the best pairs to trade</span>
+                    <span class="cd-sep" aria-hidden="true">·</span>
+                    <span class="cd-session" id="cdSession">LDN · NY</span>
+                </div>
+            </div>
+            <div class="cd-pulse" id="cdPulse">
+                <!-- computed via JS: actionable setups + on-hold count -->
+            </div>
         </section>
 
         <!-- AD SLOT 1: Above the Fold (Horizontal Banner) -->
@@ -94,26 +105,30 @@
                  data-full-width-responsive="true"></ins>
         </div>
 
-        <div class="report-layout">
-        <div class="report-rail">
-        <!-- 6. CURRENCY PAIR SELECTOR -->
-        <section class="selector-card">
-            <label class="selector-label" for="pairSelect" id="selectorLabelText">Select Currency Pair to Analyze</label>
+        <!-- MARKET MAP — 6-up comparative grid that doubles as pair navigation -->
+        <section class="market-map-section">
+            <div class="mm-eyebrow" id="mmEyebrow">Market map — select a pair</div>
+            <div class="market-map" id="marketMap" role="tablist" aria-label="Currency pairs">
+                <!-- Populated by renderMarketMap() -->
+            </div>
+        </section>
+
+        <!-- 6. COMPACT PAIR SWITCHER (the market blotter above is the primary selector) -->
+        <div class="pair-switcher">
+            <span class="ps-label" id="selectorLabelText">Select Currency Pair to Analyze</span>
             <div class="currency-select-wrapper">
                 <select class="currency-select" id="pairSelect">
-					<option value="EUR/USD">EUR/USD</option>
+                    <option value="EUR/USD">EUR/USD</option>
                     <option value="USD/JPY">USD/JPY</option>
-					<option value="AUD/USD">AUD/USD</option>
+                    <option value="AUD/USD">AUD/USD</option>
                     <option value="GBP/USD">GBP/USD</option>
                     <option value="EUR/JPY">EUR/JPY</option>
                     <option value="GBP/JPY">GBP/JPY</option>
                 </select>
-                <!-- Large SVG arrow for currency select styling -->
-                <svg class="currency-select-arrow" viewBox="0 0 20 20">
+                <svg class="currency-select-arrow" viewBox="0 0 20 20" aria-hidden="true">
                     <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
                 </svg>
             </div>
-        </section>
         </div>
 
         <div class="report-main">
@@ -138,6 +153,9 @@
             </div>
             
             <div class="report-body">
+                <!-- REPORT BRIEF — BLUF + conviction + macro drivers + data basis (JS-built) -->
+                <div class="report-brief" id="reportBrief"></div>
+
                 <!-- Section 1: Fundamental -->
                 <section class="report-section">
                     <h3 class="section-title" id="secTitleFundamental">1. Fundamental & Macro Flow</h3>
@@ -159,8 +177,12 @@
                                 <div style="font-size: 0.85rem;"><span id="subLabelSupport" style="font-weight: 500; color: var(--text-secondary);">Nearest Macro Support:</span> <strong id="reportSupport">1.1350 (Weekly horizontal support and institutional buyer liquidity pocket).</strong></div>
                                 <div style="font-size: 0.85rem;"><span id="subLabelResistance" style="font-weight: 500; color: var(--text-secondary);">Nearest Macro Resistance:</span> <strong id="reportResistance">1.1610 (Former daily support floor now acting as major overhead resistance).</strong></div>
                                 <div class="range-gauge" aria-hidden="true">
-                                    <div class="range-gauge-track"><div class="range-gauge-marker" id="reportRangeMarker" style="left: 94%;"></div></div>
-                                    <div class="range-gauge-labels"><span>S</span><span>R</span></div>
+                                    <div class="range-gauge-track">
+                                        <div class="range-gauge-mid"></div>
+                                        <div class="range-gauge-now" id="reportGaugeNow" style="left:94%;">—</div>
+                                        <div class="range-gauge-marker" id="reportRangeMarker" style="left: 94%;"></div>
+                                    </div>
+                                    <div class="range-gauge-values"><span class="rgv-l" id="reportGaugeSup">—</span><span class="rgv-r" id="reportGaugeRes">—</span></div>
                                 </div>
                             </div>
                         </div>
@@ -170,28 +192,33 @@
                         <div class="tech-box-label" id="labelPriceAction">Price Action Behavior</div>
                         <div class="section-content" id="reportPriceAction" style="font-size: 0.9rem;">The pair displays a minor intraday pullback. Daily RSI stands near 36, validating the strong seller momentum while allowing room for a short-term correction before the downtrend resumes.</div>
                     </div>
+
+                    <!-- TRADE LEVEL MAP — schematic of price vs entry/stop/target/S-R (JS-built SVG) -->
+                    <div class="level-map" id="reportLevelMap"></div>
                 </section>
 
                 <!-- Section 3: Strategic Verdict & Setup -->
                 <section class="report-section">
                     <h3 class="section-title" id="secTitleVerdict">3. Strategic Verdict & Trade Setup</h3>
                     
-                    <div class="verdict-card verdict-sell" id="verdictCardElement">
-                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 0.75rem;">
-                            <span class="verdict-badge sell" id="reportVerdictBadge" style="margin-bottom: 0;">SELL (SHORT) ON PULLBACK</span>
-                            <div style="display: flex; align-items: center; gap: 0.4rem;">
-                                <span id="labelRR" style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Risk/Reward Ratio</span>
-                                <span id="reportRR" class="rr-seal">1:2.5</span>
+                    <!-- TRADE TICKET — the stamped order slip (signature element) -->
+                    <div class="trade-ticket verdict-sell" id="verdictCardElement">
+                        <div class="ticket-head">
+                            <div class="ticket-id">
+                                <span class="ticket-serial" id="ticketSerial">TICKET · EUR/USD · 03·08·26</span>
+                                <span class="verdict-badge sell" id="reportVerdictBadge">SELL (SHORT) ON PULLBACK</span>
+                            </div>
+                            <div class="ticket-rr">
+                                <span class="rr-label" id="labelRR">R : R</span>
+                                <span class="rr-seal" id="reportRR">1:2.5</span>
                             </div>
                         </div>
-                        
-                        <!-- 1. Gatilho de Entrada (Card de Bloco Superior) -->
+
                         <div class="setup-trigger-card">
                             <div class="setup-card-label" id="labelTrigger">Entry Trigger</div>
                             <div class="setup-card-value" id="reportTrigger">Limit sell order on a technical pullback to 1.1590-1.1610 (retesting the broken support zone).</div>
                         </div>
-                        
-                        <!-- 2. Grid de Gestão de Risco (Stop Loss e Take Profit) -->
+
                         <div class="setup-risk-grid">
                             <div class="risk-card stop-card">
                                 <div class="setup-card-label" id="labelStop">Stop Loss (Invalidation)</div>
@@ -203,26 +230,16 @@
                             </div>
                         </div>
 
-                        <!-- Interactive R&R Visual Bar -->
-                        <div class="ratio-bar-wrapper" style="margin-top: 1.25rem;">
-                            <div class="ratio-bar-label">
-                                <span id="labelRatioProgress">RISK / REWARD SYMMETRY</span>
-                                <span id="reportRRText">1:2.5</span>
-                            </div>
-                            <div class="ratio-bar-container">
-                                <div class="ratio-bar-fill" id="reportRRBar" style="width: 63%;"></div>
-                            </div>
+                        <div style="margin-top: 1rem;">
+                            <div class="tech-box-label" id="labelJustification">Final Justification</div>
+                            <div class="section-content" id="reportJustification" style="font-size: 0.9rem; font-style: italic;">Trade in the direction of the major support breakdown, aligned with the post-NFP dollar strength and macroeconomic momentum.</div>
                         </div>
-
-                        <div class="tech-box-label" id="labelJustification" style="margin-top: 1.25rem; margin-bottom: 0.25rem;">Final Justification</div>
-                        <div class="section-content" id="reportJustification" style="font-size: 0.9rem; font-style: italic;">Trade in the direction of the major support breakdown, aligned with the post-NFP dollar strength and macroeconomic momentum.</div>
                     </div>
                 </section>
 
 
             </div>
         </article>
-        </div>
         </div>
 
         <!-- AD SLOT 2: Mid-Content (Medium Rectangle) -->
@@ -338,6 +355,9 @@
                 title: "Forex Report",
                 subtitle: "Daily analysis of the best pairs to trade",
                 generatedAt: "Reports generated on: 03/08/2026 13:30 UTC",
+                cdKicker: "Forex Report · Desk Note",
+                pulseSetups: "Actionable setups",
+                pulseWait: "On hold",
                 supportBtn: "Support Project",
                 selectPair: "Select Currency Pair to Analyze",
                 supportTitle: "Support Our Project ☕",
@@ -352,7 +372,28 @@
                 disclaimerLink: "Legal Disclaimer",
                 allRights: "All rights reserved.",
                 loading: "Loading report...",
-                
+
+                // Intelligence layer
+                mmEyebrow: "Market map — select a pair",
+                blufTag: "Bottom line",
+                blufLong: "LONG",
+                blufShort: "SHORT",
+                blufWait: "WAIT",
+                blufPullback: "on a pullback to",
+                blufOnBreak: "on a breakout to",
+                blufStop: "stop",
+                blufTarget: "target",
+                convLabel: "Setup conviction (R/R)",
+                convHigh: "High",
+                convGood: "Good",
+                convMod: "Moderate",
+                macroHead: "Macro drivers",
+                nextTag: "Next focus",
+                nextEvent: "US CPI & Fed speakers",
+                dataBasis: "Data basis: ECB/Frankfurter reference rates · SMA50/200 & Fibonacci computed · 511 daily sessions (01/08/2024–03/08/2026).",
+                levelMapHead: "Trade level map",
+                lmEntry: "Entry", lmStop: "Stop", lmTarget: "Target", lmSupport: "Support", lmResistance: "Resist", lmPrice: "Price",
+
                 // Details Labels
                 biasLabel: "Market Bias",
                 fundamentalTab: "1. Fundamental & Macro Flow",
@@ -416,6 +457,9 @@
                 title: "Relatório Forex",
                 subtitle: "Relatório dos melhores pares para operar",
                 generatedAt: "Relatórios gerados em: 03/08/2026 13:30 UTC",
+                cdKicker: "Relatório Forex · Nota da Mesa",
+                pulseSetups: "Operações acionáveis",
+                pulseWait: "Em espera",
                 supportBtn: "Apoie o Projeto",
                 selectPair: "Selecione o Par de Moedas para Analisar",
                 supportTitle: "Apoie o Nosso Projeto ☕",
@@ -430,7 +474,28 @@
                 disclaimerLink: "Aviso Legal",
                 allRights: "Todos os direitos reservados.",
                 loading: "A carregar relatório...",
-                
+
+                // Camada de inteligência
+                mmEyebrow: "Mapa de mercado — selecione um par",
+                blufTag: "Resumo da operação",
+                blufLong: "COMPRA",
+                blufShort: "VENDA",
+                blufWait: "AGUARDAR",
+                blufPullback: "na retração até",
+                blufOnBreak: "no rompimento de",
+                blufStop: "stop",
+                blufTarget: "alvo",
+                convLabel: "Convicção do setup (R/R)",
+                convHigh: "Alta",
+                convGood: "Boa",
+                convMod: "Moderada",
+                macroHead: "Drivers macro",
+                nextTag: "Próximo foco",
+                nextEvent: "CPI dos EUA & discursos do Fed",
+                dataBasis: "Base de dados: taxas de referência BCE/Frankfurter · SMA50/200 e Fibonacci calculados · 511 pregões (01/08/2024 a 03/08/2026).",
+                levelMapHead: "Mapa de níveis da operação",
+                lmEntry: "Entrada", lmStop: "Stop", lmTarget: "Alvo", lmSupport: "Suporte", lmResistance: "Resist.", lmPrice: "Preço",
+
                 // Details Labels
                 biasLabel: "Viés de Mercado",
                 fundamentalTab: "1. Panorama Fundamentalista & Fluxo Macro",
@@ -691,6 +756,47 @@
 };
 
         /* ==========================================
+           B. Market metadata — macro drivers + daily change.
+           Deliberately OUTSIDE the forexData block, so the daily stamp
+           (build_forexdata.py) never overwrites them. Author-maintained.
+           ========================================== */
+        const dailyChanges = {
+            "EUR/USD": "+0.44%",
+            "USD/JPY": "-2.22%",
+            "AUD/USD": "-0.16%",
+            "GBP/USD": "+0.36%",
+            "EUR/JPY": "-1.80%",
+            "GBP/JPY": "-1.87%"
+        };
+
+        const macroDrivers = {
+            "EUR/USD": {
+                en: ["Fed hold 3.50-3.75%", "USD softer", "ECB 2.25%"],
+                pt: ["Fed 3,50-3,75%", "USD mais fraco", "BCE 2,25%"]
+            },
+            "USD/JPY": {
+                en: ["BoJ hawkish 1.00%", "MoF intervention", "Fed–BoJ gap"],
+                pt: ["BoJ hawkish 1,0%", "Intervenção MoF", "Diferencial Fed–BoJ"]
+            },
+            "AUD/USD": {
+                en: ["RBA 4.35%", "Brent +16%", "Fed dovish"],
+                pt: ["RBA 4,35%", "Brent +16%", "Fed dovish"]
+            },
+            "GBP/USD": {
+                en: ["BoE 3.75% hawkish", "CPI 2.6%", "Fed dovish"],
+                pt: ["BoE 3,75% hawkish", "IPC 2,6%", "Fed dovish"]
+            },
+            "EUR/JPY": {
+                en: ["BoJ hawkish", "Yen intervention", "ECB–BoJ carry"],
+                pt: ["BoJ hawkish", "Intervenção iene", "Carry BCE–BoJ"]
+            },
+            "GBP/JPY": {
+                en: ["BoJ hawkish", "Yen intervention", "BoE–BoJ carry"],
+                pt: ["BoJ hawkish", "Intervenção iene", "Carry BoE–BoJ"]
+            }
+        };
+
+        /* ==========================================
            C. Core Engine & State Management
            ========================================== */
         let currentLang = 'en'; // Default Language
@@ -739,15 +845,8 @@
             const tickerContent = document.getElementById('tickerContent');
             if (!tickerContent) return;
             
-            // Assign change data dynamically to keep the main DB clean
-            const changes = {
-                "EUR/USD": "+0.44%",
-                "USD/JPY": "-2.22%",
-                "AUD/USD": "-0.16%",
-                "GBP/USD": "+0.36%",
-                "EUR/JPY": "-1.80%",
-                "GBP/JPY": "-1.87%"
-            };
+            // Daily change pulled from the shared metadata constant (single source of truth)
+            const changes = dailyChanges;
             
             let itemsHtml = '';
             const pairs = Object.keys(forexData);
@@ -768,8 +867,22 @@
                 `;
             });
             
-            // Repeat to enable infinite-scroll simulation
-            tickerContent.innerHTML = itemsHtml + itemsHtml + itemsHtml + itemsHtml;
+            // Duplicated once (not 4×) — a lighter composited layer; the -50% loop is seamless
+            tickerContent.innerHTML = itemsHtml + itemsHtml;
+        }
+
+        // Pause the ticker when the tab is hidden or the tape is scrolled off-screen,
+        // so it stops compositing when nobody is watching it.
+        function setupTickerPause() {
+            const tc = document.getElementById('tickerContent');
+            const tape = document.querySelector('.ticker-tape');
+            if (!tc) return;
+            const setRunning = (on) => { tc.style.animationPlayState = on ? 'running' : 'paused'; };
+            document.addEventListener('visibilitychange', () => setRunning(!document.hidden));
+            if (tape && 'IntersectionObserver' in window) {
+                new IntersectionObserver((entries) => setRunning(entries[0].isIntersecting && !document.hidden))
+                    .observe(tape);
+            }
         }
 
         // Translation Engine Renderer
@@ -784,9 +897,11 @@
             // DOM static translation injection
             document.getElementById('supportHeaderBtn').textContent = dictionary.supportBtn;
             document.getElementById('heroTitle').textContent = dictionary.title;
-            document.getElementById('heroSubtitle').textContent = dictionary.subtitle;
+            document.getElementById('cdKicker').textContent = dictionary.cdKicker;
+            document.getElementById('cdSubtitle').textContent = dictionary.subtitle;
             document.getElementById('generationTime').textContent = dictionary.generatedAt;
             document.getElementById('selectorLabelText').textContent = dictionary.selectPair;
+            document.getElementById('mmEyebrow').textContent = dictionary.mmEyebrow;
             
             // Dynamic Table / Card Labels inside report
             document.getElementById('secTitleFundamental').textContent = dictionary.fundamentalTab;
@@ -802,8 +917,7 @@
             document.getElementById('labelTrigger').textContent = dictionary.triggerLabel;
             document.getElementById('labelStop').textContent = dictionary.stopLabel;
             document.getElementById('labelTarget').textContent = dictionary.targetLabel;
-            document.getElementById('labelRR').textContent = dictionary.rrLabel;
-            document.getElementById('labelRatioProgress').textContent = currentLang === 'pt' ? 'SIMETRIA RISCO / RETORNO' : 'RISK / REWARD SYMMETRY';
+            document.getElementById('labelRR').textContent = 'R : R';
             document.getElementById('labelJustification').textContent = dictionary.justificationLabel;
             
             // Donation Area translations
@@ -831,6 +945,130 @@
             document.getElementById('modalPrivacyTitle').textContent = dictionary.modalPrivacyTitle;
             document.getElementById('modalPrivacyBody').innerHTML = dictionary.modalPrivacyContent;
             document.getElementById('modalPrivacyCloseBtn').textContent = dictionary.modalPrivacyClose;
+        }
+
+        /* ==========================================
+           B2. Intelligence helpers — parse levels, conviction, BLUF, level-map SVG
+           ========================================== */
+        // Extract the leading price from a localized string (tolerates PT comma decimals)
+        function parseLevel(str) {
+            const match = String(str).replace(/,(\d)/g, '.$1').match(/-?\d+\.?\d*/);
+            return match ? parseFloat(match[0]) : null;
+        }
+
+        // Conviction score derived purely from the stated R/R (transparent, not gut-feel).
+        // R = reward multiple; score = clamp(round(R*3), 3, 10); tier buckets the score.
+        function convictionFromRR(rr) {
+            if (!rr || rr === 'N/A') return { score: 0, tier: 'mod' };
+            const m = String(rr).match(/1:([0-9.]+)/);
+            const R = m ? parseFloat(m[1]) : 0;
+            const score = Math.round(Math.min(10, Math.max(3, R * 3)));
+            const tier = score >= 8 ? 'high' : (score === 7 ? 'good' : 'mod');
+            return { score, tier };
+        }
+
+        // Direction + entry mode from the recommendation keyword
+        function actionFromRec(rec) {
+            const r = String(rec).toUpperCase();
+            const isWait = r.includes('WAIT') || r.includes('AGUARDAR');
+            const isSell = r.includes('SELL') || r.includes('VENDA');
+            const isBuy  = r.includes('BUY')  || r.includes('COMPRA');
+            const mode = (r.includes('PULLBACK') || r.includes('RETRA')) ? 'pullback' : 'breakout';
+            const dir = isWait ? 'wait' : (isSell ? 'sell' : (isBuy ? 'buy' : 'wait'));
+            return { dir, mode };
+        }
+
+        function fmtPrice(v) {
+            if (v === null || v === undefined || !isFinite(v)) return '—';
+            return v >= 100 ? v.toFixed(1) : v.toFixed(4);
+        }
+
+        // Build the BLUF + conviction + macro chips + data-basis brief (HTML string)
+        function buildBrief(pair, data, dict) {
+            const det = data.en; // numbers are language-neutral; parsed from EN (dot decimals)
+            const entry  = parseLevel(det.trigger);
+            const stop   = parseLevel(det.stop);
+            const target = parseLevel(det.target);
+            const { score, tier } = convictionFromRR(det.rr);
+            const act = actionFromRec(det.recommendation);
+            const drivers = (macroDrivers[pair] && macroDrivers[pair][currentLang]) || [];
+
+            const actionWord = act.dir === 'sell' ? dict.blufShort
+                             : act.dir === 'buy'  ? dict.blufLong
+                             : dict.blufWait;
+            const modeWord = act.mode === 'pullback' ? dict.blufPullback : dict.blufOnBreak;
+            const setupTail = act.dir === 'wait' ? '' :
+                `${modeWord} <b>${fmtPrice(entry)}</b> &middot; ${dict.blufStop} <b>${fmtPrice(stop)}</b> &middot; ${dict.blufTarget} <b>${fmtPrice(target)}</b> &middot; R/R <b>${det.rr}</b>`;
+
+            let segs = '';
+            for (let i = 1; i <= 10; i++) segs += `<i class="${i <= score ? 'on' : ''}"></i>`;
+            const tierKey = tier === 'high' ? 'convHigh' : (tier === 'good' ? 'convGood' : 'convMod');
+            const tierCls = tier === 'high' ? 't-high' : (tier === 'mod' ? 't-mod' : '');
+
+            const chipsHtml = drivers.map(d => `<span class="macro-chip">${d}</span>`).join('');
+            const basisTag = currentLang === 'pt' ? 'Base' : 'Basis';
+
+            return `
+                <div class="bluf">
+                    <span class="bluf-tag">${dict.blufTag}</span>
+                    <span class="bluf-action ${act.dir}">${actionWord}</span> ${setupTail}
+                </div>
+                <div class="brief-grid">
+                    <div class="conviction">
+                        <div class="conv-head">
+                            <span class="conv-label">${dict.convLabel}</span>
+                            <span class="conv-tier ${tierCls}">${score}/10 &middot; ${dict[tierKey]}</span>
+                        </div>
+                        <div class="conv-bar">${segs}</div>
+                    </div>
+                    <div class="macro-block">
+                        <div class="macro-head">${dict.macroHead}</div>
+                        <div class="macro-chips">${chipsHtml}</div>
+                        <div class="next-event"><span class="ne-tag">${dict.nextTag}</span> ${dict.nextEvent}</div>
+                    </div>
+                </div>
+                <div class="data-basis"><span class="db-tag">${basisTag}:</span> ${dict.dataBasis}</div>`;
+        }
+
+        // Build the trade level-map SVG (HTML string) from parsed levels
+        function buildLevelMapSVG(data, dict) {
+            const price  = parseLevel(data.quote);
+            const entry  = parseLevel(data.en.trigger);
+            const stop   = parseLevel(data.en.stop);
+            const target = parseLevel(data.en.target);
+            const sup    = parseLevel(data.en.support);
+            const res    = parseLevel(data.en.resistance);
+            const ticks = [
+                { cls: 'lm-entry',  val: entry,  label: dict.lmEntry },
+                { cls: 'lm-stop',   val: stop,   label: dict.lmStop },
+                { cls: 'lm-target', val: target, label: dict.lmTarget },
+                { cls: 'lm-sup',    val: sup,    label: dict.lmSupport },
+                { cls: 'lm-res',    val: res,    label: dict.lmResistance }
+            ].filter(t => t.val !== null);
+            if (price === null || ticks.length < 2) return '';
+            const vals = ticks.map(t => t.val).concat([price]);
+            let lo = Math.min.apply(null, vals), hi = Math.max.apply(null, vals);
+            if (hi === lo) hi = lo + 1;
+            const pad = (hi - lo) * 0.06;
+            lo -= pad; hi += pad;
+            const W = 320, M = 16, AX = 50;
+            const xp = p => M + (p - lo) / (hi - lo) * (W - 2 * M);
+            const sorted = ticks.slice().sort((a, b) => a.val - b.val);
+            let svg = `<svg viewBox="0 0 ${W} 96" role="img" aria-label="${dict.levelMapHead}" text-rendering="geometricPrecision">`;
+            svg += `<line class="lm-axis" x1="${M}" y1="${AX}" x2="${W - M}" y2="${AX}"/>`;
+            sorted.forEach((t, i) => {
+                const x = Math.round(xp(t.val));
+                const s = (i % 2 === 0) ? -1 : 1; // alternate above/below to avoid label collisions
+                svg += `<line class="lm-tick ${t.cls}" x1="${x}" y1="${AX}" x2="${x}" y2="${AX + s * 26}"/>`;
+                svg += `<text class="lm-label ${t.cls}" x="${x}" y="${AX + s * 33}" text-anchor="middle">${t.label}</text>`;
+                svg += `<text class="lm-val" x="${x}" y="${AX + s * 41}" text-anchor="middle">${fmtPrice(t.val)}</text>`;
+            });
+            const px = Math.round(xp(price));
+            svg += `<line class="lm-now-line" x1="${px}" y1="10" x2="${px}" y2="86"/>`;
+            svg += `<polygon class="lm-now-mark" points="${px},15 ${(px - 3.5)},8 ${(px + 3.5)},8"/>`;
+            svg += `<text class="lm-label lm-now-mark" x="${px}" y="6" text-anchor="middle">${dict.lmPrice} ${fmtPrice(price)}</text>`;
+            svg += `</svg>`;
+            return svg;
         }
 
         // Render chosen forex pair report
@@ -875,30 +1113,52 @@
             document.getElementById('reportResistance').textContent = details.resistance;
             document.getElementById('reportPriceAction').textContent = details.priceAction;
 
-            // Range gauge: position the marker between the leading support/resistance numbers
-            const parseLevel = (str) => {
-                const match = String(str).replace(/,(\d)/g, '.$1').match(/-?\d+\.?\d*/);
-                return match ? parseFloat(match[0]) : null;
-            };
+            // Range gauge (#8): marker + current-price label + S/R value labels
             const quoteNum = parseLevel(data.quote);
             const supportNum = parseLevel(details.support);
             const resistanceNum = parseLevel(details.resistance);
             const rangeMarker = document.getElementById('reportRangeMarker');
-            if (rangeMarker && quoteNum !== null && supportNum !== null && resistanceNum !== null && resistanceNum !== supportNum) {
+            const gaugeNow = document.getElementById('reportGaugeNow');
+            const gaugeSup = document.getElementById('reportGaugeSup');
+            const gaugeRes = document.getElementById('reportGaugeRes');
+            if (quoteNum !== null && supportNum !== null && resistanceNum !== null && resistanceNum !== supportNum) {
                 const pct = ((quoteNum - supportNum) / (resistanceNum - supportNum)) * 100;
-                rangeMarker.style.left = `${Math.min(100, Math.max(0, pct))}%`;
+                const clamped = Math.min(100, Math.max(0, pct));
+                if (rangeMarker) rangeMarker.style.left = `${clamped}%`;
+                if (gaugeNow) { gaugeNow.style.left = `${clamped}%`; gaugeNow.textContent = data.quote; }
+            }
+            if (gaugeSup) gaugeSup.textContent = details.support.replace(/\s*\(.*$/, '').trim();
+            if (gaugeRes) gaugeRes.textContent = details.resistance.replace(/\s*\(.*$/, '').trim();
+
+            // Intelligence layer: BLUF + conviction + macro + data basis (#2,#4,#5,#6)
+            const briefEl = document.getElementById('reportBrief');
+            if (briefEl) briefEl.innerHTML = buildBrief(selectedPair, data, dict);
+
+            // Trade level map schematic (#3)
+            const lmEl = document.getElementById('reportLevelMap');
+            if (lmEl) {
+                const svg = buildLevelMapSVG(data, dict);
+                lmEl.innerHTML = svg
+                    ? `<div class="lm-head">${dict.levelMapHead}</div>${svg}
+                       <div class="lm-legend">
+                          <span><i class="lg-entry"></i>${dict.lmEntry}</span>
+                          <span><i class="lg-stop"></i>${dict.lmStop}</span>
+                          <span><i class="lg-target"></i>${dict.lmTarget}</span>
+                          <span><i class="lg-now"></i>${dict.lmPrice}</span>
+                       </div>`
+                    : '';
             }
             
-            // 3. Render strategic setup
+            // 3. Render strategic setup (trade ticket)
             const recTranslated = dict[details.recommendation] || details.recommendation;
-            
-            // Color theme class map for verdict card
+
+            // Color theme class map for the trade ticket
             const cardEl = document.getElementById('verdictCardElement');
             const badgeEl = document.getElementById('reportVerdictBadge');
-            
-            cardEl.className = 'verdict-card';
+
+            cardEl.className = 'trade-ticket';
             badgeEl.className = 'verdict-badge';
-            
+
             if (details.recommendation.includes("AGUARDAR") || details.recommendation.includes("WAIT")) {
                 cardEl.classList.add('verdict-wait');
                 badgeEl.classList.add('wait');
@@ -909,23 +1169,106 @@
                 cardEl.classList.add('verdict-buy');
                 badgeEl.classList.add('buy');
             }
-            
+
             badgeEl.textContent = recTranslated;
-            
+
+            // Ticket serial — pair + short date (grounded in the order-ticket vernacular)
+            const serialEl = document.getElementById('ticketSerial');
+            if (serialEl) {
+                const dm = dict.generatedAt.match(/(\d{2})\/(\d{2})\/(\d{4})/);
+                const shortDate = dm ? `${dm[1]}·${dm[2]}·${dm[3].slice(2)}` : '';
+                serialEl.innerHTML = `TICKET · <span class="ts-pair">${selectedPair}</span> · <span class="ts-date">${shortDate}</span>`;
+            }
+
             document.getElementById('reportTrigger').textContent = details.trigger;
             document.getElementById('reportStop').textContent = details.stop;
             document.getElementById('reportTarget').textContent = details.target;
             document.getElementById('reportRR').textContent = details.rr;
-            
-            // R&R Progress Bar logic
-            document.getElementById('reportRRText').textContent = details.rr;
-            document.getElementById('reportRRBar').style.width = `${data.rrValue}%`;
-            
+
             document.getElementById('reportJustification').textContent = details.justification;
             
             // Display container with smooth fade in
             const reportContainer = document.getElementById('reportContainer');
             reportContainer.style.display = 'block';
+        }
+
+        // Render the 6-up market map (comparative grid + pair navigation) — #1 / #7
+        function renderMarketMap() {
+            const map = document.getElementById('marketMap');
+            if (!map) return;
+            const dict = i18n[currentLang];
+            const pairs = Object.keys(forexData);
+            const active = document.getElementById('pairSelect').value;
+            let html = '';
+            pairs.forEach(pair => {
+                const d = forexData[pair];
+                const rec = d.en.recommendation.toUpperCase();
+                const dir = rec.includes('WAIT') || rec.includes('AGUARDAR') ? 'wait'
+                          : rec.includes('SELL') || rec.includes('VENDA')   ? 'sell' : 'buy';
+                const vLabel = dir === 'sell' ? (currentLang === 'pt' ? 'VENDA' : 'SELL')
+                             : dir === 'buy'  ? (currentLang === 'pt' ? 'COMPRA' : 'BUY')
+                             :                  (currentLang === 'pt' ? 'AGUARDAR' : 'WAIT');
+                const chg = dailyChanges[pair] || '+0.00%';
+                const up = chg.startsWith('+');
+                const { score } = convictionFromRR(d.en.rr);
+                const filled = Math.round(score / 2); // 5-pip compact meter
+                let pips = '';
+                for (let i = 1; i <= 5; i++) pips += `<i class="${i <= filled ? 'on' : ''}"></i>`;
+                html += `
+                    <button type="button" class="market-card bias-${d.biasType} ${pair === active ? 'active' : ''}" data-pair="${pair}" role="tab" aria-selected="${pair === active}">
+                        <div class="mc-top"><span class="mc-pair">${pair}</span><span class="mc-quote">${d.quote}</span></div>
+                        <div class="mc-verdict ${dir}">${vLabel} &middot; ${d.en.rr}</div>
+                        <div class="mc-foot"><span class="mc-change ${up ? 'up' : 'down'}">${up ? '&#9650;' : '&#9660;'} ${chg}</span><span class="mc-conv" aria-hidden="true">${pips}</span></div>
+                    </button>`;
+            });
+            map.innerHTML = html;
+            map.querySelectorAll('.market-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const p = card.getAttribute('data-pair');
+                    const sel = document.getElementById('pairSelect');
+                    if (sel) sel.value = p;
+                    renderForexReport();
+                    renderMarketMap(); // refresh active highlight
+                    const rc = document.getElementById('reportContainer');
+                    if (rc) rc.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+        }
+
+        /* ==========================================
+           C2. Command deck — market pulse (actionable setups + on-hold) + session tag
+           ========================================== */
+        function renderCommandDeck() {
+            const dict = i18n[currentLang];
+            const pairs = Object.keys(forexData);
+            let buys = 0, sells = 0, waits = 0;
+            pairs.forEach(p => {
+                const rec = forexData[p].en.recommendation.toUpperCase();
+                if (rec.includes('WAIT') || rec.includes('AGUARDAR')) waits++;
+                else if (rec.includes('SELL') || rec.includes('VENDA')) sells++;
+                else if (rec.includes('BUY') || rec.includes('COMPRA')) buys++;
+            });
+            const actionable = buys + sells;
+            const pulse = document.getElementById('cdPulse');
+            if (pulse) {
+                pulse.innerHTML = `
+                    <div class="cd-stat"><div class="cd-num">${actionable}</div><div class="cd-lbl">${dict.pulseSetups}</div></div>
+                    <div class="cd-stat"><div class="cd-num wait">${waits}</div><div class="cd-lbl">${dict.pulseWait}</div></div>`;
+            }
+            const sessEl = document.getElementById('cdSession');
+            if (sessEl) sessEl.textContent = sessionLabel(dict.generatedAt);
+        }
+
+        // Derive a trading-session tag from the UTC hour embedded in the dateline
+        function sessionLabel(generatedAt) {
+            const m = String(generatedAt).match(/(\d{1,2}):(\d{2})\s*UTC/i);
+            if (!m) return '—';
+            const h = parseInt(m[1], 10);
+            if (h >= 0 && h < 7) return 'ASIA';
+            if (h >= 7 && h < 12) return 'LONDON';
+            if (h >= 12 && h < 17) return 'LDN · NY';
+            if (h >= 17 && h < 21) return 'NEW YORK';
+            return 'ASIA';
         }
 
         /* ==========================================
@@ -1019,6 +1362,7 @@
             initCookieBanner();
             translateCookieBanner();
             populateTicker();
+            setupTickerPause();
             translateUI();
             
             // Pair selection via URL parameters
@@ -1032,16 +1376,23 @@
             }
             
             renderForexReport();
-            
-            // Pair Change event
-            document.getElementById('pairSelect').addEventListener('change', renderForexReport);
-            
+            renderMarketMap();
+            renderCommandDeck();
+
+            // Pair Change event — re-render report + refresh map highlight
+            document.getElementById('pairSelect').addEventListener('change', () => {
+                renderForexReport();
+                renderMarketMap();
+            });
+
             // Language Select event
             document.getElementById('langSelect').addEventListener('change', (e) => {
                 currentLang = e.target.value;
                 translateUI();
                 translateCookieBanner();
                 renderForexReport();
+                renderMarketMap();
+                renderCommandDeck();
             });
         });
     </script>

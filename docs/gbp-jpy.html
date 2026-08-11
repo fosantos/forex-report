@@ -5,7 +5,7 @@
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="Forex Report" />
-    <link rel="manifest" href="site.webmanifest" />
+    <script>if(/^https?:$/.test(location.protocol)){var l=document.createElement('link');l.rel='manifest';l.href='site.webmanifest';document.head.appendChild(l);}</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GBP/JPY Analysis & Forecast - Forex Report</title>
@@ -13,7 +13,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -68,7 +68,7 @@
 
         <div class="report-main">
         <!-- 3. Report Container -->
-                                                <article class="report-container bias-bear" style="display: block;">
+                                                                                                                        <article class="report-container bias-bear" style="display: block;">
             <div class="report-header">
                 <div class="pair-info">
                     <div class="pair-icon-wrapper">
@@ -92,6 +92,29 @@
             </div>
 
             <div class="report-body">
+                <!-- REPORT BRIEF — BLUF + conviction + macro drivers + data basis -->
+                <div class="report-brief">
+                    <div class="bluf">
+                        <span class="bluf-tag"><span class="lang-en">Bottom line</span><span class="lang-pt" style="display:none;">Resumo da operação</span></span>
+                        <span class="lang-en"><span class="bluf-action sell">SHORT</span> on a pullback to <b>211.5</b> &middot; stop <b>212.3</b> &middot; target <b>209.8</b> &middot; R/R <b>1:2.12</b></span><span class="lang-pt" style="display:none;"><span class="bluf-action sell">VENDA</span> na retração até <b>211.5</b> &middot; stop <b>212.3</b> &middot; alvo <b>209.8</b> &middot; R/R <b>1:2.12</b></span>
+                    </div>
+                    <div class="brief-grid">
+                        <div class="conviction">
+                            <div class="conv-head">
+                                <span class="conv-label"><span class="lang-en">Setup conviction (R/R)</span><span class="lang-pt" style="display:none;">Convicção do setup (R/R)</span></span>
+                                <span class="conv-tier t-mod">6/10 &middot; <span class="lang-en">Moderate</span><span class="lang-pt" style="display:none;">Moderada</span></span>
+                            </div>
+                            <div class="conv-bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+                        </div>
+                        <div class="macro-block">
+                            <div class="macro-head"><span class="lang-en">Macro drivers</span><span class="lang-pt" style="display:none;">Drivers macro</span></div>
+                            <div class="macro-chips"><span class="macro-chip lang-en">BoJ hawkish</span><span class="macro-chip lang-pt" style="display:none;">BoJ hawkish</span><span class="macro-chip lang-en">Yen intervention</span><span class="macro-chip lang-pt" style="display:none;">Intervenção iene</span><span class="macro-chip lang-en">BoE–BoJ carry</span><span class="macro-chip lang-pt" style="display:none;">Carry BoE–BoJ</span></div>
+                            <div class="next-event"><span class="ne-tag"><span class="lang-en">Next focus</span><span class="lang-pt" style="display:none;">Próximo foco</span></span> <span class="lang-en">US CPI &amp; Fed speakers</span><span class="lang-pt" style="display:none;">CPI dos EUA &amp; discursos do Fed</span></div>
+                        </div>
+                    </div>
+                    <div class="data-basis"><span class="db-tag"><span class="lang-en">Basis</span><span class="lang-pt" style="display:none;">Base</span>:</span> <span class="lang-en">ECB/Frankfurter reference rates · SMA50/200 &amp; Fibonacci computed · 511 daily sessions (01/08/2024–03/08/2026).</span><span class="lang-pt" style="display:none;">taxas de referência BCE/Frankfurter · SMA50/200 e Fibonacci calculados · 511 pregões (01/08/2024 a 03/08/2026).</span></div>
+                </div>
+
                 <!-- Section 1: Fundamental -->
                 <section class="report-section">
                     <h3 class="section-title">
@@ -142,8 +165,12 @@
                                 </div>
                             </div>
                                 <div class="range-gauge" aria-hidden="true">
-                                    <div class="range-gauge-track"><div class="range-gauge-marker" style="left: 55%;"></div></div>
-                                    <div class="range-gauge-labels"><span>S</span><span>R</span></div>
+                                    <div class="range-gauge-track">
+                                        <div class="range-gauge-mid"></div>
+                                        <div class="range-gauge-now" style="left: 55%;">211.05</div>
+                                        <div class="range-gauge-marker" style="left: 55%;"></div>
+                                    </div>
+                                    <div class="range-gauge-values"><span class="rgv-l">209.8</span><span class="rgv-r">212.0</span></div>
                                 </div>
                         </div>
                     </div>
@@ -156,6 +183,19 @@
                         <div class="section-content lang-en" style="font-size: 0.9rem;">A lower-high rejection (bearish engulfing) at the 211.40-212.03 zone (broken 200-day SMA / 38.2% Fib), with a daily close back below 210.50, would target 209.84.</div>
                         <div class="section-content lang-pt" style="display:none; font-size: 0.9rem;">Uma rejeição de máxima descendente (engolfo de baixa) na zona 211,40-212,03 (SMA200 rompida / Fib 38,2%), com fechamento diário novamente abaixo de 210,50, miraria 209,84.</div>
                     </div>
+
+                    <!-- TRADE LEVEL MAP — schematic of price vs entry/stop/target/S-R -->
+                    <div class="level-map">
+                        <div class="lm-head"><span class="lang-en">Trade level map</span><span class="lang-pt" style="display:none;">Mapa de níveis da operação</span></div>
+                        <div class="lang-en"><svg viewBox="0 0 320 96" role="img" aria-label="Trade level map" text-rendering="geometricPrecision"><line class="lm-axis" x1="16" y1="50" x2="304" y2="50"/><line class="lm-tick lm-target" x1="31" y1="50" x2="31" y2="24"/><text class="lm-label lm-target" x="31" y="17" text-anchor="middle">Target</text><text class="lm-val" x="31" y="9" text-anchor="middle">209.8</text><line class="lm-tick lm-sup" x1="36" y1="50" x2="36" y2="76"/><text class="lm-label lm-sup" x="36" y="83" text-anchor="middle">Support</text><text class="lm-val" x="36" y="91" text-anchor="middle">209.8</text><line class="lm-tick lm-entry" x1="206" y1="50" x2="206" y2="24"/><text class="lm-label lm-entry" x="206" y="17" text-anchor="middle">Entry</text><text class="lm-val" x="206" y="9" text-anchor="middle">211.5</text><line class="lm-tick lm-res" x1="261" y1="50" x2="261" y2="76"/><text class="lm-label lm-res" x="261" y="83" text-anchor="middle">Resist</text><text class="lm-val" x="261" y="91" text-anchor="middle">212.0</text><line class="lm-tick lm-stop" x1="289" y1="50" x2="289" y2="24"/><text class="lm-label lm-stop" x="289" y="17" text-anchor="middle">Stop</text><text class="lm-val" x="289" y="9" text-anchor="middle">212.3</text><line class="lm-now-line" x1="160" y1="10" x2="160" y2="86"/><polygon class="lm-now-mark" points="160,15 156.5,8 163.5,8"/><text class="lm-label lm-now-mark" x="160" y="6" text-anchor="middle">Price 211.1</text></svg></div>
+                        <div class="lang-pt" style="display:none;"><svg viewBox="0 0 320 96" role="img" aria-label="Mapa de níveis da operação" text-rendering="geometricPrecision"><line class="lm-axis" x1="16" y1="50" x2="304" y2="50"/><line class="lm-tick lm-target" x1="31" y1="50" x2="31" y2="24"/><text class="lm-label lm-target" x="31" y="17" text-anchor="middle">Alvo</text><text class="lm-val" x="31" y="9" text-anchor="middle">209.8</text><line class="lm-tick lm-sup" x1="36" y1="50" x2="36" y2="76"/><text class="lm-label lm-sup" x="36" y="83" text-anchor="middle">Suporte</text><text class="lm-val" x="36" y="91" text-anchor="middle">209.8</text><line class="lm-tick lm-entry" x1="206" y1="50" x2="206" y2="24"/><text class="lm-label lm-entry" x="206" y="17" text-anchor="middle">Entrada</text><text class="lm-val" x="206" y="9" text-anchor="middle">211.5</text><line class="lm-tick lm-res" x1="261" y1="50" x2="261" y2="76"/><text class="lm-label lm-res" x="261" y="83" text-anchor="middle">Resist.</text><text class="lm-val" x="261" y="91" text-anchor="middle">212.0</text><line class="lm-tick lm-stop" x1="289" y1="50" x2="289" y2="24"/><text class="lm-label lm-stop" x="289" y="17" text-anchor="middle">Stop</text><text class="lm-val" x="289" y="9" text-anchor="middle">212.3</text><line class="lm-now-line" x1="160" y1="10" x2="160" y2="86"/><polygon class="lm-now-mark" points="160,15 156.5,8 163.5,8"/><text class="lm-label lm-now-mark" x="160" y="6" text-anchor="middle">Preço 211.1</text></svg></div>
+                        <div class="lm-legend">
+                            <span><i class="lg-entry"></i><span class="lang-en">Entry</span><span class="lang-pt" style="display:none;">Entrada</span></span>
+                            <span><i class="lg-stop"></i><span class="lang-en">Stop</span><span class="lang-pt" style="display:none;">Stop</span></span>
+                            <span><i class="lg-target"></i><span class="lang-en">Target</span><span class="lang-pt" style="display:none;">Alvo</span></span>
+                            <span><i class="lg-now"></i><span class="lang-en">Price</span><span class="lang-pt" style="display:none;">Preço</span></span>
+                        </div>
+                    </div>
                 </section>
 
                 <!-- Section 3: Strategic Verdict & Setup -->
@@ -165,17 +205,18 @@
                         <span class="lang-pt" style="display:none;">3. Veredito Estratégico & Sugestão de Operação</span>
                     </h3>
 
-                    <div class="verdict-card verdict-sell">
-                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 0.75rem;">
-                            <span class="verdict-badge sell" style="margin-bottom: 0;">
-                                <span class="lang-en">SELL (SHORT) ON PULLBACK</span>
-                                <span class="lang-pt" style="display:none;">VENDA (SHORT) NA RETRAÇÃO</span>
-                            </span>
-                            <div style="display: flex; align-items: center; gap: 0.4rem;">
-                                <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
-                                    <span class="lang-en">Risk/Reward Ratio</span>
-                                    <span class="lang-pt" style="display:none;">Relação Risco/Retorno</span>
+                    <!-- TRADE TICKET — the stamped order slip (signature element) -->
+                    <div class="trade-ticket verdict-sell">
+                        <div class="ticket-head">
+                            <div class="ticket-id">
+                                <span class="ticket-serial">TICKET &middot; <span class="ts-pair">GBP/JPY</span> &middot; <span class="ts-date">03·08·26</span></span>
+                                <span class="verdict-badge sell">
+                                    <span class="lang-en">SELL (SHORT) ON PULLBACK</span>
+                                    <span class="lang-pt" style="display:none;">VENDA (SHORT) NA RETRAÇÃO</span>
                                 </span>
+                            </div>
+                            <div class="ticket-rr">
+                                <span class="rr-label">R : R</span>
                                 <span class="rr-seal">1:2.12</span>
                             </div>
                         </div>
@@ -208,26 +249,14 @@
                             </div>
                         </div>
 
-                        <!-- Interactive R&R Visual Bar -->
-                        <div class="ratio-bar-wrapper" style="margin-top: 1.25rem;">
-                            <div class="ratio-bar-label">
-                                <span style="font-weight:700;">
-                                    <span class="lang-en">RISK / REWARD SYMMETRY</span>
-                                    <span class="lang-pt" style="display:none;">SIMETRIA RISCO / RETORNO</span>
-                                </span>
-                                <span>1:2.12</span>
+                        <div style="margin-top: 1rem;">
+                            <div class="tech-box-label">
+                                <span class="lang-en">Final Justification</span>
+                                <span class="lang-pt" style="display:none;">Justificativa Final</span>
                             </div>
-                            <div class="ratio-bar-container">
-                                <div class="ratio-bar-fill" style="width: 53%;"></div>
-                            </div>
+                            <div class="section-content lang-en" style="font-size: 0.9rem; font-style: italic;">The breakdown below the 200-day SMA, driven by the BoJ's hawkish hold and suspected intervention, overrides the wide BoE-BoJ carry gap; structure is bearish. A bounce to the broken 200-day / 38.2% Fib offers a short with a protected stop above the 38.2% Fib and 1:2.12 R/R toward the 50% Fib (209.80) — the cleanest path with no intermediate S/R blocking. Intervention-shock volatility — size accordingly.</div>
+                            <div class="section-content lang-pt" style="display:none; font-size: 0.9rem; font-style: italic;">O rompimento abaixo da SMA200, impulsionado pela manutenção hawkish do BoJ e pela suspeita de intervenção, supera o amplo diferencial de carry BoE-BoJ; a estrutura é de baixa. Uma retração até a SMA200 rompida / Fib 38,2% oferece entrada vendida com stop protegido acima da Fib 38,2% e R/R de 1:2.12 rumo à Fib 50% (209,80) — o caminho mais limpo, sem S/R intermediária bloqueando. Volatilidade de choque de intervenção — dimensione adequadamente.</div>
                         </div>
-
-                        <div class="tech-box-label" style="margin-top: 1.25rem; margin-bottom: 0.25rem;">
-                            <span class="lang-en">Final Justification</span>
-                            <span class="lang-pt" style="display:none;">Justificativa Final</span>
-                        </div>
-                        <div class="section-content lang-en" style="font-size: 0.9rem; font-style: italic;">The breakdown below the 200-day SMA, driven by the BoJ's hawkish hold and suspected intervention, overrides the wide BoE-BoJ carry gap; structure is bearish. A bounce to the broken 200-day / 38.2% Fib offers a short with a protected stop above the 38.2% Fib and 1:2.12 R/R toward the 50% Fib (209.80) — the cleanest path with no intermediate S/R blocking. Intervention-shock volatility — size accordingly.</div>
-                        <div class="section-content lang-pt" style="display:none; font-size: 0.9rem; font-style: italic;">O rompimento abaixo da SMA200, impulsionado pela manutenção hawkish do BoJ e pela suspeita de intervenção, supera o amplo diferencial de carry BoE-BoJ; a estrutura é de baixa. Uma retração até a SMA200 rompida / Fib 38,2% oferece entrada vendida com stop protegido acima da Fib 38,2% e R/R de 1:2.12 rumo à Fib 50% (209,80) — o caminho mais limpo, sem S/R intermediária bloqueando. Volatilidade de choque de intervenção — dimensione adequadamente.</div>
                     </div>
                 </section>
             </div>

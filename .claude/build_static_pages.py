@@ -33,6 +33,101 @@ def verdict_class(rec_en):
     if "SELL" in rec_en: return "sell"
     return "buy"
 
+# ---- Macro driver chips (author-maintained, mirrors docs/index.html macroDrivers) ----
+DRIVERS = {
+    "EUR/USD": (["Fed hold 3.50-3.75%", "USD softer", "ECB 2.25%"], ["Fed 3,50-3,75%", "USD mais fraco", "BCE 2,25%"]),
+    "USD/JPY": (["BoJ hawkish 1.00%", "MoF intervention", "Fed–BoJ gap"], ["BoJ hawkish 1,0%", "Intervenção MoF", "Diferencial Fed–BoJ"]),
+    "AUD/USD": (["RBA 4.35%", "Brent +16%", "Fed dovish"], ["RBA 4,35%", "Brent +16%", "Fed dovish"]),
+    "GBP/USD": (["BoE 3.75% hawkish", "CPI 2.6%", "Fed dovish"], ["BoE 3,75% hawkish", "IPC 2,6%", "Fed dovish"]),
+    "EUR/JPY": (["BoJ hawkish", "Yen intervention", "ECB–BoJ carry"], ["BoJ hawkish", "Intervenção iene", "Carry BCE–BoJ"]),
+    "GBP/JPY": (["BoJ hawkish", "Yen intervention", "BoE–BoJ carry"], ["BoJ hawkish", "Intervenção iene", "Carry BoE–BoJ"]),
+}
+
+# ---- Intelligence helpers (conviction, BLUF, level-map SVG) ----
+def fmt(v):
+    if v is None:
+        return "—"
+    return ("%.1f" % v) if v >= 100 else ("%.4f" % v)
+
+def conviction(rr):
+    if not rr or rr == "N/A":
+        return 0, "mod"
+    m = re.match(r"1:([0-9.]+)", rr)
+    R = float(m.group(1)) if m else 0.0
+    score = round(min(10, max(3, R * 3)))
+    tier = "high" if score >= 8 else ("good" if score == 7 else "mod")
+    return score, tier
+
+def conv_segs_html(score):
+    return "".join('<i class="on"></i>' if i <= score else '<i></i>' for i in range(1, 11))
+
+def chips_html(pair):
+    en, pt = DRIVERS.get(pair, ([], []))
+    out = []
+    for e, p in zip(en, pt):
+        out.append('<span class="macro-chip lang-en">%s</span><span class="macro-chip lang-pt" style="display:none;">%s</span>' % (e, p))
+    return "".join(out)
+
+def bluf_sentence(d, lang):
+    det = d["en"]; rec = det["recommendation"].upper()
+    entry = parse_level(det["trigger"]); stop = parse_level(det["stop"]); target = parse_level(det["target"])
+    is_wait = "WAIT" in rec or "AGUARDAR" in rec
+    is_sell = "SELL" in rec or "VENDA" in rec
+    cls = "wait" if is_wait else ("sell" if is_sell else "buy")
+    if lang == "pt":
+        action = "AGUARDAR" if is_wait else ("VENDA" if is_sell else "COMPRA")
+    else:
+        action = "WAIT" if is_wait else ("SHORT" if is_sell else "LONG")
+    if is_wait:
+        tail = ""
+    else:
+        pull = "PULLBACK" in rec or "RETRA" in rec
+        if lang == "pt":
+            mode = "na retração até" if pull else "no rompimento de"
+            tail = '%s <b>%s</b> &middot; stop <b>%s</b> &middot; alvo <b>%s</b> &middot; R/R <b>%s</b>' % (mode, fmt(entry), fmt(stop), fmt(target), det["rr"])
+        else:
+            mode = "on a pullback to" if pull else "on a breakout to"
+            tail = '%s <b>%s</b> &middot; stop <b>%s</b> &middot; target <b>%s</b> &middot; R/R <b>%s</b>' % (mode, fmt(entry), fmt(stop), fmt(target), det["rr"])
+    return '<span class="bluf-action %s">%s</span> %s' % (cls, action, tail)
+
+LM_LABELS = {
+    "en": {"entry": "Entry", "stop": "Stop", "target": "Target", "support": "Support", "resistance": "Resist", "price": "Price", "head": "Trade level map"},
+    "pt": {"entry": "Entrada", "stop": "Stop", "target": "Alvo", "support": "Suporte", "resistance": "Resist.", "price": "Preço", "head": "Mapa de níveis da operação"},
+}
+
+def level_map_svg(d, lab):
+    det = d["en"]
+    price = parse_level(d["quote"]); entry = parse_level(det["trigger"]); stop = parse_level(det["stop"])
+    target = parse_level(det["target"]); sup = parse_level(det["support"]); res = parse_level(det["resistance"])
+    ticks = [("lm-entry", entry, lab["entry"]), ("lm-stop", stop, lab["stop"]),
+             ("lm-target", target, lab["target"]), ("lm-sup", sup, lab["support"]),
+             ("lm-res", res, lab["resistance"])]
+    ticks = [t for t in ticks if t[1] is not None]
+    if price is None or len(ticks) < 2:
+        return ""
+    vals = [t[1] for t in ticks] + [price]
+    lo = min(vals); hi = max(vals)
+    if hi == lo:
+        hi = lo + 1
+    pad = (hi - lo) * 0.06; lo -= pad; hi += pad
+    W = 320; M = 16; AX = 50
+    xp = lambda p: M + (p - lo) / (hi - lo) * (W - 2 * M)
+    sorted_ticks = sorted(ticks, key=lambda t: t[1])
+    svg = ['<svg viewBox="0 0 %d 96" role="img" aria-label="%s" text-rendering="geometricPrecision">' % (W, lab["head"])]
+    svg.append('<line class="lm-axis" x1="%d" y1="%d" x2="%d" y2="%d"/>' % (M, AX, W - M, AX))
+    for i, (cls, val, label) in enumerate(sorted_ticks):
+        x = str(round(xp(val)))
+        s = -1 if i % 2 == 0 else 1
+        svg.append('<line class="lm-tick %s" x1="%s" y1="%d" x2="%s" y2="%d"/>' % (cls, x, AX, x, AX + s * 26))
+        svg.append('<text class="lm-label %s" x="%s" y="%d" text-anchor="middle">%s</text>' % (cls, x, AX + s * 33, label))
+        svg.append('<text class="lm-val" x="%s" y="%d" text-anchor="middle">%s</text>' % (x, AX + s * 41, fmt(val)))
+    px = str(round(xp(price)))
+    svg.append('<line class="lm-now-line" x1="%s" y1="10" x2="%s" y2="86"/>' % (px, px))
+    svg.append('<polygon class="lm-now-mark" points="%s,15 %.1f,8 %.1f,8"/>' % (px, float(px) - 3.5, float(px) + 3.5))
+    svg.append('<text class="lm-label lm-now-mark" x="%s" y="6" text-anchor="middle">%s %s</text>' % (px, lab["price"], fmt(price)))
+    svg.append('</svg>')
+    return "".join(svg)
+
 ARTICLE_TPL = '''                        <article class="report-container bias-{{BIAS_CLASS}}" style="display: block;">
             <div class="report-header">
                 <div class="pair-info">
@@ -57,6 +152,29 @@ ARTICLE_TPL = '''                        <article class="report-container bias-{
             </div>
 
             <div class="report-body">
+                <!-- REPORT BRIEF — BLUF + conviction + macro drivers + data basis -->
+                <div class="report-brief">
+                    <div class="bluf">
+                        <span class="bluf-tag"><span class="lang-en">Bottom line</span><span class="lang-pt" style="display:none;">Resumo da operação</span></span>
+                        <span class="lang-en">{{BLUF_EN}}</span><span class="lang-pt" style="display:none;">{{BLUF_PT}}</span>
+                    </div>
+                    <div class="brief-grid">
+                        <div class="conviction">
+                            <div class="conv-head">
+                                <span class="conv-label"><span class="lang-en">Setup conviction (R/R)</span><span class="lang-pt" style="display:none;">Convicção do setup (R/R)</span></span>
+                                <span class="conv-tier {{CONV_TIERCLS}}">{{CONV_SCORE}}/10 &middot; <span class="lang-en">{{CONV_TIER_EN}}</span><span class="lang-pt" style="display:none;">{{CONV_TIER_PT}}</span></span>
+                            </div>
+                            <div class="conv-bar">{{CONV_SEGS}}</div>
+                        </div>
+                        <div class="macro-block">
+                            <div class="macro-head"><span class="lang-en">Macro drivers</span><span class="lang-pt" style="display:none;">Drivers macro</span></div>
+                            <div class="macro-chips">{{CHIPS}}</div>
+                            <div class="next-event"><span class="ne-tag"><span class="lang-en">Next focus</span><span class="lang-pt" style="display:none;">Próximo foco</span></span> <span class="lang-en">US CPI &amp; Fed speakers</span><span class="lang-pt" style="display:none;">CPI dos EUA &amp; discursos do Fed</span></div>
+                        </div>
+                    </div>
+                    <div class="data-basis"><span class="db-tag"><span class="lang-en">Basis</span><span class="lang-pt" style="display:none;">Base</span>:</span> <span class="lang-en">ECB/Frankfurter reference rates · SMA50/200 &amp; Fibonacci computed · 511 daily sessions (01/08/2024–03/08/2026).</span><span class="lang-pt" style="display:none;">taxas de referência BCE/Frankfurter · SMA50/200 e Fibonacci calculados · 511 pregões (01/08/2024 a 03/08/2026).</span></div>
+                </div>
+
                 <!-- Section 1: Fundamental -->
                 <section class="report-section">
                     <h3 class="section-title">
@@ -107,8 +225,12 @@ ARTICLE_TPL = '''                        <article class="report-container bias-{
                                 </div>
                             </div>
                                 <div class="range-gauge" aria-hidden="true">
-                                    <div class="range-gauge-track"><div class="range-gauge-marker" style="left: {{GAUGE}}%;"></div></div>
-                                    <div class="range-gauge-labels"><span>S</span><span>R</span></div>
+                                    <div class="range-gauge-track">
+                                        <div class="range-gauge-mid"></div>
+                                        <div class="range-gauge-now" style="left: {{GAUGE}}%;">{{GAUGE_NOW}}</div>
+                                        <div class="range-gauge-marker" style="left: {{GAUGE}}%;"></div>
+                                    </div>
+                                    <div class="range-gauge-values"><span class="rgv-l">{{GAUGE_SUP}}</span><span class="rgv-r">{{GAUGE_RES}}</span></div>
                                 </div>
                         </div>
                     </div>
@@ -121,6 +243,19 @@ ARTICLE_TPL = '''                        <article class="report-container bias-{
                         <div class="section-content lang-en" style="font-size: 0.9rem;">{{PA_EN}}</div>
                         <div class="section-content lang-pt" style="display:none; font-size: 0.9rem;">{{PA_PT}}</div>
                     </div>
+
+                    <!-- TRADE LEVEL MAP — schematic of price vs entry/stop/target/S-R -->
+                    <div class="level-map">
+                        <div class="lm-head"><span class="lang-en">Trade level map</span><span class="lang-pt" style="display:none;">Mapa de níveis da operação</span></div>
+                        <div class="lang-en">{{LM_SVG_EN}}</div>
+                        <div class="lang-pt" style="display:none;">{{LM_SVG_PT}}</div>
+                        <div class="lm-legend">
+                            <span><i class="lg-entry"></i><span class="lang-en">Entry</span><span class="lang-pt" style="display:none;">Entrada</span></span>
+                            <span><i class="lg-stop"></i><span class="lang-en">Stop</span><span class="lang-pt" style="display:none;">Stop</span></span>
+                            <span><i class="lg-target"></i><span class="lang-en">Target</span><span class="lang-pt" style="display:none;">Alvo</span></span>
+                            <span><i class="lg-now"></i><span class="lang-en">Price</span><span class="lang-pt" style="display:none;">Preço</span></span>
+                        </div>
+                    </div>
                 </section>
 
                 <!-- Section 3: Strategic Verdict & Setup -->
@@ -130,17 +265,18 @@ ARTICLE_TPL = '''                        <article class="report-container bias-{
                         <span class="lang-pt" style="display:none;">3. Veredito Estratégico & Sugestão de Operação</span>
                     </h3>
 
-                    <div class="verdict-card verdict-{{VERDICT}}">
-                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 0.75rem;">
-                            <span class="verdict-badge {{VERDICT}}" style="margin-bottom: 0;">
-                                <span class="lang-en">{{REC_EN}}</span>
-                                <span class="lang-pt" style="display:none;">{{REC_PT}}</span>
-                            </span>
-                            <div style="display: flex; align-items: center; gap: 0.4rem;">
-                                <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
-                                    <span class="lang-en">Risk/Reward Ratio</span>
-                                    <span class="lang-pt" style="display:none;">Relação Risco/Retorno</span>
+                    <!-- TRADE TICKET — the stamped order slip (signature element) -->
+                    <div class="trade-ticket verdict-{{VERDICT}}">
+                        <div class="ticket-head">
+                            <div class="ticket-id">
+                                <span class="ticket-serial">TICKET &middot; <span class="ts-pair">{{PAIR}}</span> &middot; <span class="ts-date">{{SERIAL_DATE}}</span></span>
+                                <span class="verdict-badge {{VERDICT}}">
+                                    <span class="lang-en">{{REC_EN}}</span>
+                                    <span class="lang-pt" style="display:none;">{{REC_PT}}</span>
                                 </span>
+                            </div>
+                            <div class="ticket-rr">
+                                <span class="rr-label">R : R</span>
                                 <span class="rr-seal">{{RR}}</span>
                             </div>
                         </div>
@@ -173,26 +309,14 @@ ARTICLE_TPL = '''                        <article class="report-container bias-{
                             </div>
                         </div>
 
-                        <!-- Interactive R&R Visual Bar -->
-                        <div class="ratio-bar-wrapper" style="margin-top: 1.25rem;">
-                            <div class="ratio-bar-label">
-                                <span style="font-weight:700;">
-                                    <span class="lang-en">RISK / REWARD SYMMETRY</span>
-                                    <span class="lang-pt" style="display:none;">SIMETRIA RISCO / RETORNO</span>
-                                </span>
-                                <span>{{RR}}</span>
+                        <div style="margin-top: 1rem;">
+                            <div class="tech-box-label">
+                                <span class="lang-en">Final Justification</span>
+                                <span class="lang-pt" style="display:none;">Justificativa Final</span>
                             </div>
-                            <div class="ratio-bar-container">
-                                <div class="ratio-bar-fill" style="width: {{RRVAL}}%;"></div>
-                            </div>
+                            <div class="section-content lang-en" style="font-size: 0.9rem; font-style: italic;">{{JUST_EN}}</div>
+                            <div class="section-content lang-pt" style="display:none; font-size: 0.9rem; font-style: italic;">{{JUST_PT}}</div>
                         </div>
-
-                        <div class="tech-box-label" style="margin-top: 1.25rem; margin-bottom: 0.25rem;">
-                            <span class="lang-en">Final Justification</span>
-                            <span class="lang-pt" style="display:none;">Justificativa Final</span>
-                        </div>
-                        <div class="section-content lang-en" style="font-size: 0.9rem; font-style: italic;">{{JUST_EN}}</div>
-                        <div class="section-content lang-pt" style="display:none; font-size: 0.9rem; font-style: italic;">{{JUST_PT}}</div>
                     </div>
                 </section>
             </div>
@@ -214,8 +338,17 @@ for pair, fname in PAGE.items():
     gauge = str(round(pct))
     verdict = verdict_class(d["en"]["recommendation"])
 
+    score, tier = conviction(d["en"]["rr"])
+    tier_en = {"high": "High", "good": "Good", "mod": "Moderate"}[tier]
+    tier_pt = {"high": "Alta", "good": "Boa", "mod": "Moderada"}[tier]
+    tiercls = "t-high" if tier == "high" else ("t-mod" if tier == "mod" else "")
+
+    _dm = re.search(r"(\d{2})/(\d{2})/(\d{4})", d["en"]["fundamental"])
+    serial_date = ("%s·%s·%s" % (_dm.group(1), _dm.group(2), _dm.group(3)[2:])) if _dm else ""
+
     mapping = {
         "PAIR": pair,
+        "SERIAL_DATE": serial_date,
         "QUOTE": d["quote"],
         "BIAS_CLASS": bias_class,
         "BIAS_EN": bias_en,
@@ -224,6 +357,19 @@ for pair, fname in PAGE.items():
         "VERDICT": verdict,
         "RR": d["en"]["rr"],
         "RRVAL": str(d["en"]["rrValue"]),
+        "BLUF_EN": bluf_sentence(d, "en"),
+        "BLUF_PT": bluf_sentence(d, "pt"),
+        "CONV_SCORE": str(score),
+        "CONV_TIER_EN": tier_en,
+        "CONV_TIER_PT": tier_pt,
+        "CONV_TIERCLS": tiercls,
+        "CONV_SEGS": conv_segs_html(score),
+        "CHIPS": chips_html(pair),
+        "LM_SVG_EN": level_map_svg(d, LM_LABELS["en"]),
+        "LM_SVG_PT": level_map_svg(d, LM_LABELS["pt"]),
+        "GAUGE_SUP": fmt(sup),
+        "GAUGE_RES": fmt(res),
+        "GAUGE_NOW": d["quote"],
         "FUND_EN": d["en"]["fundamental"],
         "FUND_PT": d["pt"]["fundamental"],
         "TREND_EN": d["en"]["trend"],
