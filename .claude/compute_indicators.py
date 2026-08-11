@@ -1,8 +1,9 @@
 import urllib.request, json, sys
 from datetime import datetime
 
+# Fetch daily series from 2024-08-01 through today
 req = urllib.request.Request(
-    'https://api.frankfurter.app/2024-08-01..2026-08-03?from=USD&to=EUR,JPY,GBP,AUD',
+    'https://api.frankfurter.app/2024-08-01..2026-08-11?from=USD&to=EUR,JPY,GBP,AUD',
     headers={'User-Agent': 'Mozilla/5.0 (forex-report)'}
 )
 resp = urllib.request.urlopen(req, timeout=60)
@@ -46,6 +47,7 @@ def fib_levels(swing_high, swing_low):
     }
 
 print('\n' + '='*70)
+results = {}
 for pair, closes in series.items():
     last = closes[-1]
     prev = closes[-2]
@@ -53,20 +55,16 @@ for pair, closes in series.items():
     sma50 = sma(closes, 50)
     sma200 = sma(closes, 200)
 
-    # 9-month swing: ~ last 195 trading days. Find swing high and low over that window.
+    # 9-month swing: ~ last 195 trading days.
     window = closes[-195:]
-    # For proper swing high/low identification, look at the full window range
     swing_high_idx = window.index(max(window))
     swing_low_idx = window.index(min(window))
     swing_high = max(window)
     swing_low = min(window)
-
-    # Determine chronological order of swing high and low
-    high_first = swing_high_idx < swing_low_idx  # if true, high came before low (downtrend leg)
+    high_first = swing_high_idx < swing_low_idx
 
     fibs = fib_levels(swing_high, swing_low)
 
-    # Bias by 200-SMA
     if last > sma200:
         bias = 'BULLISH (above 200-SMA)'
     else:
@@ -86,12 +84,21 @@ for pair, closes in series.items():
     print(f'  High-first (downtrend leg): {high_first}')
     print(f'  Fibonacci (from {swing_low:.5f} to {swing_high:.5f}):')
     for k, v in fibs.items():
-        print(f'    {k}: {v:.5f}  {"<-- last close near" if abs(v-last)<0.0020*(swing_high-swing_low+0.0001) else ""}')
+        print(f'    {k}: {v:.5f}')
+    results[pair] = dict(last=last, prev=prev, daily_pct=daily_pct, sma50=sma50, sma200=sma200,
+                         swing_high=swing_high, swing_low=swing_low, fibs=fibs, bias=bias,
+                         swing_high_idx=swing_high_idx, swing_low_idx=swing_low_idx)
 
-# Also print last 10 closes for each pair for context
+# Print last 10 closes per pair
 print('\n' + '='*70)
 print('LAST 10 DAILY CLOSES PER PAIR:')
 for pair, closes in series.items():
     print(f'\n{pair}:')
     for d, c in zip(dates[-10:], closes[-10:]):
         print(f'  {d}: {c:.5f}')
+
+# Emit machine-readable JSON for downstream
+print('\n' + '='*70)
+print('RESULTS_JSON_START')
+print(json.dumps({'dates': dates, 'n_sessions': len(dates), 'results': {k: {kk: (vv if not isinstance(vv, dict) else {kkk: vvv for kkk, vvv in vv.items()}) for kk, vv in v.items() if kk != 'fibs'} | {'fibs': {kk: vv for kk, vv in v['fibs'].items()}} for k, v in results.items()}}, default=str))
+print('RESULTS_JSON_END')

@@ -8,6 +8,11 @@ PAGE = {
     "EUR/USD": "eur-usd.html", "USD/JPY": "usd-jpy.html", "AUD/USD": "aud-usd.html",
     "GBP/USD": "gbp-usd.html", "EUR/JPY": "eur-jpy.html", "GBP/JPY": "gbp-jpy.html",
 }
+TODAY_TS = "11/08/2026 13:30 UTC"
+TODAY_DATE = "11/08/2026"
+STALE_DATES = ["03/08/2026", "02/08/2026", "31/07/2026"]
+TICKER = [("EUR/USD","-0.13%"),("USD/JPY","+0.35%"),("AUD/USD","+0.01%"),
+          ("GBP/USD","-0.03%"),("EUR/JPY","+0.22%"),("GBP/JPY","+0.32%")]
 errors = []
 
 with open(INDEX, encoding="utf-8") as f:
@@ -22,33 +27,48 @@ def parse_level(str_):
     return float(m.group(0)) if m else None
 
 def verdict_class(rec):
-    if "WAIT" in rec: return "wait"
-    if "SELL" in rec: return "sell"
+    if "WAIT" in rec or "AGUARDAR" in rec: return "wait"
+    if "SELL" in rec or "VENDA" in rec: return "sell"
     return "buy"
 
 # ---- 1. index.html checks ----
-# timestamps
-if idx.count("03/08/2026 13:30 UTC") != 3:
-    errors.append(f"index.html: expected 3 timestamps, found {idx.count('03/08/2026 13:30 UTC')}")
-if "02/08/2026" in idx:
-    errors.append("index.html: stale 02/08/2026 present")
-# ticker changes present
-for pair, pct in [("EUR/USD","+0.44%"),("USD/JPY","-2.22%"),("AUD/USD","-0.16%"),
-                  ("GBP/USD","+0.36%"),("EUR/JPY","-1.80%"),("GBP/JPY","-1.87%")]:
+if idx.count(TODAY_TS) != 3:
+    errors.append(f"index.html: expected 3 timestamps '{TODAY_TS}', found {idx.count(TODAY_TS)}")
+for stale in STALE_DATES:
+    # stale dates may legitimately appear inside macro narrative (e.g. "July 29") only as DD/MM;
+    # only flag a stale date if it appears with the year-suffix that marks a report session date
+    if stale in idx:
+        errors.append(f"index.html: stale session date {stale} present")
+for pair, pct in TICKER:
     if f'"{pair}": "{pct}"' not in idx:
         errors.append(f"index.html ticker: {pair} {pct} missing")
-# pair order
 order = list(data.keys())
 if order != list(PAGE.keys()):
     errors.append(f"index.html: pair order {order}")
-# rrValue = round(R*25)
 for pair, d in data.items():
     rr = d["en"]["rr"]; rv = d["en"]["rrValue"]
-    R = float(re.match(r"1:([0-9.]+)", rr).group(1))
+    if rr == "N/A":
+        if rv != 0:
+            errors.append(f"{pair}: N/A but rrValue={rv}")
+        if "WAIT" not in d["en"]["recommendation"]:
+            errors.append(f"{pair}: N/A but recommendation not WAIT")
+        continue
+    mobj = re.match(r"1:([0-9.]+)", rr)
+    if not mobj:
+        errors.append(f"{pair}: bad rr {rr}")
+        continue
+    R = float(mobj.group(1))
     if round(R*25) != rv:
         errors.append(f"{pair}: rrValue {rv} != round({R}*25)={round(R*25)}")
     if R < 2:
         errors.append(f"{pair}: R/R {rr} below 1:2 gate")
+    # PT/EN rr + rrValue must match
+    if d["pt"]["rr"] != rr or d["pt"]["rrValue"] != rv:
+        errors.append(f"{pair}: PT/EN rr mismatch")
+    # bias consistency
+    expected_bias = {"bull":"ALTA","bear":"BAIXA","neutral":"NEUTRO"}[d["biasType"]]
+    if d["bias"] != expected_bias:
+        errors.append(f"{pair}: bias {d['bias']} != {expected_bias} for biasType {d['biasType']}")
 
 print("== index.html checks done ==")
 
@@ -58,7 +78,6 @@ for pair, fname in PAGE.items():
     path = DOCS + "\\" + fname
     with open(path, encoding="utf-8") as f:
         html = f.read()
-    # structural integrity
     if html.count("<article ") != 1:
         errors.append(f"{fname}: {html.count('<article ')} articles")
     if "</article>" not in html:
@@ -67,52 +86,52 @@ for pair, fname in PAGE.items():
         errors.append(f"{fname}: footer/body missing")
     if "compliance-container" not in html:
         errors.append(f"{fname}: educational section missing")
-    if "03/08/2026" not in html:
-        errors.append(f"{fname}: today date missing")
-    if "02/08/2026" in html:
-        errors.append(f"{fname}: stale 02/08/2026")
-    # quote
+    if TODAY_DATE not in html:
+        errors.append(f"{fname}: today date {TODAY_DATE} missing")
+    for stale in ["03/08/2026", "02/08/2026"]:
+        if stale in html:
+            errors.append(f"{fname}: stale session date {stale}")
     if f"<strong>{d['quote']}</strong>" not in html:
         errors.append(f"{fname}: quote {d['quote']} not found in <strong>")
-    # bias class on article
     if f'class="report-container bias-{d["biasType"]}"' not in html:
         errors.append(f"{fname}: report-container bias-{d['biasType']} missing")
-    # verdict class
     vc = verdict_class(d["en"]["recommendation"])
-    if f"verdict-card verdict-{vc}" not in html:
-        errors.append(f"{fname}: verdict-card verdict-{vc} missing")
+    if f"trade-ticket verdict-{vc}" not in html:
+        errors.append(f"{fname}: trade-ticket verdict-{vc} missing")
     if f'verdict-badge {vc}"' not in html:
         errors.append(f"{fname}: verdict-badge {vc} missing")
-    # rr-seal and ratio bar
     if d["en"]["rr"] not in html:
         errors.append(f"{fname}: rr {d['en']['rr']} missing")
-    # rr-seal appears at least once; ratio-bar-fill width
-    if f"width: {d['en']['rrValue']}%;" not in html:
-        errors.append(f"{fname}: ratio-bar-fill width {d['en']['rrValue']}% missing")
-    # gauge
+    # Research-Desk design renders R/R via conviction score (score/10), derived from rr; not a width bar
+    if d["en"]["rr"] == "N/A":
+        if "0/10" not in html:
+            errors.append(f"{fname}: N/A conviction score 0/10 missing")
+    else:
+        R = float(re.match(r"1:([0-9.]+)", d["en"]["rr"]).group(1))
+        score = round(min(10, max(3, R * 3)))
+        if f"{score}/10" not in html:
+            errors.append(f"{fname}: conviction score {score}/10 missing (R={R})")
     q = parse_level(d["quote"]); sup = parse_level(d["en"]["support"]); res = parse_level(d["en"]["resistance"])
-    pct = max(0, min(100, (q - sup) / (res - sup) * 100))
-    g = round(pct)
-    if f"left: {g}%;" not in html:
-        errors.append(f"{fname}: gauge left:{g}% missing (computed {pct:.2f})")
-    # lang presence: each dynamic value should appear (en is visible, pt hidden)
+    if sup is not None and res is not None and res != sup:
+        pct = max(0, min(100, (q - sup) / (res - sup) * 100))
+        g = round(pct)
+        if f"left: {g}%;" not in html:
+            errors.append(f"{fname}: gauge left:{g}% missing (computed {pct:.2f})")
     for lang in ["en", "pt"]:
         for fld in ["fundamental","trend","support","resistance","priceAction","trigger","stop","target","justification"]:
             val = d[lang][fld]
             if val not in html:
                 errors.append(f"{fname}: {lang}.{fld} value not found in page")
-    # recommendation strings (both langs)
     if d["en"]["recommendation"] not in html:
         errors.append(f"{fname}: EN recommendation missing")
     if d["pt"]["recommendation"] not in html:
         errors.append(f"{fname}: PT recommendation missing")
-    # bias badge text
-    bias_txt = {"bear":("BEARISH","BAIXA"),"bull":("BULLISH","ALTA")}[d["biasType"]]
+    bias_txt = {"bear":("BEARISH","BAIXA"),"bull":("BULLISH","ALTA"),"neutral":("NEUTRAL","NEUTRO")}[d["biasType"]]
     if f"{pair} - {bias_txt[0]}" not in html:
         errors.append(f"{fname}: EN bias badge text missing")
     if f"{pair} - {bias_txt[1]}" not in html:
         errors.append(f"{fname}: PT bias badge text missing")
-    print(f"  {fname}: OK (bias={d['biasType']} verdict={vc} gauge={g}% rrBar={d['en']['rrValue']}%)")
+    print(f"  {fname}: OK (bias={d['biasType']} verdict={vc} gauge={g if (sup and res and res!=sup) else 'N/A'}% rrBar={d['en']['rrValue']}%)")
 
 print("\n== static page checks done ==")
 if errors:

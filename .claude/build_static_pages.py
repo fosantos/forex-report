@@ -35,12 +35,12 @@ def verdict_class(rec_en):
 
 # ---- Macro driver chips (author-maintained, mirrors docs/index.html macroDrivers) ----
 DRIVERS = {
-    "EUR/USD": (["Fed hold 3.50-3.75%", "USD softer", "ECB 2.25%"], ["Fed 3,50-3,75%", "USD mais fraco", "BCE 2,25%"]),
-    "USD/JPY": (["BoJ hawkish 1.00%", "MoF intervention", "Fed–BoJ gap"], ["BoJ hawkish 1,0%", "Intervenção MoF", "Diferencial Fed–BoJ"]),
-    "AUD/USD": (["RBA 4.35%", "Brent +16%", "Fed dovish"], ["RBA 4,35%", "Brent +16%", "Fed dovish"]),
-    "GBP/USD": (["BoE 3.75% hawkish", "CPI 2.6%", "Fed dovish"], ["BoE 3,75% hawkish", "IPC 2,6%", "Fed dovish"]),
-    "EUR/JPY": (["BoJ hawkish", "Yen intervention", "ECB–BoJ carry"], ["BoJ hawkish", "Intervenção iene", "Carry BCE–BoJ"]),
-    "GBP/JPY": (["BoJ hawkish", "Yen intervention", "BoE–BoJ carry"], ["BoJ hawkish", "Intervenção iene", "Carry BoE–BoJ"]),
+    "EUR/USD": (["Fed hold 3.50-3.75%", "USD soft", "ECB 2.25%"], ["Fed 3,50-3,75%", "USD macio", "BCE 2,25%"]),
+    "USD/JPY": (["BoJ hold 1.00%", "Carry resumed", "Fed–BoJ gap"], ["BoJ 1,0%", "Carry retomado", "Diferencial Fed–BoJ"]),
+    "AUD/USD": (["RBA 4.35%", "Brent $83", "Fed dovish"], ["RBA 4,35%", "Brent $83", "Fed dovish"]),
+    "GBP/USD": (["BoE 3.75% 6-3", "CPI 2.6%", "Fed dovish"], ["BoE 3,75% 6-3", "IPC 2,6%", "Fed dovish"]),
+    "EUR/JPY": (["BoJ hold 1.00%", "Carry resumed", "ECB–BoJ gap"], ["BoJ 1,0%", "Carry retomado", "Diferencial BCE–BoJ"]),
+    "GBP/JPY": (["BoJ hold 1.00%", "Carry resumed", "BoE–BoJ gap"], ["BoJ 1,0%", "Carry retomado", "Diferencial BoE–BoJ"]),
 }
 
 # ---- Intelligence helpers (conviction, BLUF, level-map SVG) ----
@@ -172,7 +172,7 @@ ARTICLE_TPL = '''                        <article class="report-container bias-{
                             <div class="next-event"><span class="ne-tag"><span class="lang-en">Next focus</span><span class="lang-pt" style="display:none;">Próximo foco</span></span> <span class="lang-en">US CPI &amp; Fed speakers</span><span class="lang-pt" style="display:none;">CPI dos EUA &amp; discursos do Fed</span></div>
                         </div>
                     </div>
-                    <div class="data-basis"><span class="db-tag"><span class="lang-en">Basis</span><span class="lang-pt" style="display:none;">Base</span>:</span> <span class="lang-en">ECB/Frankfurter reference rates · SMA50/200 &amp; Fibonacci computed · 511 daily sessions (01/08/2024–03/08/2026).</span><span class="lang-pt" style="display:none;">taxas de referência BCE/Frankfurter · SMA50/200 e Fibonacci calculados · 511 pregões (01/08/2024 a 03/08/2026).</span></div>
+                    <div class="data-basis"><span class="db-tag"><span class="lang-en">Basis</span><span class="lang-pt" style="display:none;">Base</span>:</span> <span class="lang-en">ECB/Frankfurter reference rates · SMA50/200 &amp; Fibonacci computed · 517 daily sessions (01/08/2024–11/08/2026).</span><span class="lang-pt" style="display:none;">taxas de referência BCE/Frankfurter · SMA50/200 e Fibonacci calculados · 517 pregões (01/08/2024 a 11/08/2026).</span></div>
                 </div>
 
                 <!-- Section 1: Fundamental -->
@@ -414,9 +414,10 @@ for pair, fname in PAGE.items():
     # ensure the evergreen educational block is still present (untouched)
     assert "compliance-container" in html_new, f"{fname}: educational section lost"
     # ensure no stale REPORT date remains (old timestamp / old closing phrase); today's date must be present
+    assert "03/08/2026" not in new_article, f"{fname}: old timestamp 03/08/2026 in new article"
     assert "02/08/2026" not in new_article, f"{fname}: old timestamp 02/08/2026 in new article"
     assert "fechamento diário de 31/07" not in new_article and "31/07 daily close" not in new_article, f"{fname}: stale closing-date phrase"
-    assert "03/08/2026" in new_article, f"{fname}: today's date 03/08/2026 missing from new article"
+    assert "11/08/2026" in new_article, f"{fname}: today's date 11/08/2026 missing from new article"
 
     with open(path, "w", encoding="utf-8") as f:
         f.write(html_new)
