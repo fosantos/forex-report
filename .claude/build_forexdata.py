@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """Replace the forexData block + timestamps + ticker + macroDrivers + dataBasis strings
-in docs/index.html with verified computed data (report compiled 14/08/2026 19:50 UTC, last ECB close 14/08/2026).
+in docs/index.html with verified computed data (report compiled 14/08/2026 20:19 UTC, last ECB close 14/08/2026).
 Data basis: Frankfurter/ECB daily series, 520 sessions 01/08/2024-14/08/2026; SMA50/200 and Fibonacci
 computed from that series (see compute_indicators.py run of 14/08/2026).
 Aborts on any structural mismatch. Validates forexData parses as JSON + key order + rrValue consistency."""
 import re, json, sys
 
 PATH = r"C:/Projetos/forex-report/docs/index.html"
-TS = "14/08/2026 19:50 UTC"
+TS = "14/08/2026 20:19 UTC"
 OLD_TS = "14/08/2026 13:30 UTC"
 
 with open(PATH, encoding="utf-8") as f:

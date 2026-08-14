@@ -8,7 +8,7 @@ PAGE = {
     "EUR/USD": "eur-usd.html", "USD/JPY": "usd-jpy.html", "AUD/USD": "aud-usd.html",
     "GBP/USD": "gbp-usd.html", "EUR/JPY": "eur-jpy.html", "GBP/JPY": "gbp-jpy.html",
 }
-TODAY_TS = "14/08/2026 19:50 UTC"
+TODAY_TS = "14/08/2026 20:19 UTC"
 TODAY_DATE = "14/08/2026"
 STALE_DATES = ["13/08/2026", "11/08/2026", "03/08/2026", "02/08/2026", "31/07/2026"]
 TICKER = [("EUR/USD","+0.29%"),("USD/JPY","-0.20%"),("AUD/USD","+0.43%"),
