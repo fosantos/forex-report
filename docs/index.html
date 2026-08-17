@@ -83,7 +83,7 @@
                 <span class="cd-kicker" id="cdKicker">Forex Report · Desk Note</span>
                 <h1 class="cd-title" id="heroTitle">Forex Report</h1>
                 <div class="cd-dateline">
-                    <p id="generationTime" class="cd-date">Reports generated on: 14/08/2026 20:19 UTC</p>
+                    <p id="generationTime" class="cd-date">Reports generated on: 17/08/2026 21:10 UTC</p>
                     <span class="cd-sep" aria-hidden="true">·</span>
                     <span id="cdSubtitle">Daily analysis of the best pairs to trade</span>
                     <span class="cd-sep" aria-hidden="true">·</span>
@@ -354,7 +354,7 @@
             en: {
                 title: "Forex Report",
                 subtitle: "Daily analysis of the best pairs to trade",
-                generatedAt: "Reports generated on: 14/08/2026 20:19 UTC",
+                generatedAt: "Reports generated on: 17/08/2026 21:10 UTC",
                 cdKicker: "Forex Report · Desk Note",
                 pulseSetups: "Actionable setups",
                 pulseWait: "On hold",
@@ -390,7 +390,7 @@
                 macroHead: "Macro drivers",
                 nextTag: "Next focus",
                 nextEvent: "US CPI & Fed speakers",
-                dataBasis: "Data basis: ECB/Frankfurter reference rates · SMA50/200 & Fibonacci computed · 520 daily sessions (01/08/2024–14/08/2026).",
+                dataBasis: "Data basis: ECB/Frankfurter reference rates · SMA50/200, sigma20 & Donchian computed · 521 daily sessions (01/08/2024–17/08/2026).",
                 levelMapHead: "Trade level map",
                 lmEntry: "Entry", lmStop: "Stop", lmTarget: "Target", lmSupport: "Support", lmResistance: "Resist", lmPrice: "Price",
 
@@ -417,6 +417,7 @@
                 // Recommendations translation helper
                 "AGUARDAR OUTRO GATILHO": "WAIT FOR ANOTHER TRIGGER",
                 "VENDA (SHORT) NA RETRAÇÃO": "SELL (SHORT) ON PULLBACK",
+                "VENDA (SHORT) NO ROMPIMENTO": "SELL (SHORT) ON BREAKOUT",
                 "COMPRA (LONG) NO ROMPIMENTO": "BUY (LONG) ON BREAKOUT",
                 "COMPRA (LONG) NA RETRAÇÃO": "BUY (LONG) ON PULLBACK",
                 
@@ -456,7 +457,7 @@
             pt: {
                 title: "Relatório Forex",
                 subtitle: "Relatório dos melhores pares para operar",
-                generatedAt: "Relatórios gerados em: 14/08/2026 20:19 UTC",
+                generatedAt: "Relatórios gerados em: 17/08/2026 21:10 UTC",
                 cdKicker: "Relatório Forex · Nota da Mesa",
                 pulseSetups: "Operações acionáveis",
                 pulseWait: "Em espera",
@@ -492,7 +493,7 @@
                 macroHead: "Drivers macro",
                 nextTag: "Próximo foco",
                 nextEvent: "CPI dos EUA & discursos do Fed",
-                dataBasis: "Base de dados: taxas de referência BCE/Frankfurter · SMA50/200 e Fibonacci calculados · 520 pregões (01/08/2024 a 14/08/2026).",
+                dataBasis: "Base de dados: taxas de referência BCE/Frankfurter · SMA50/200, sigma20 e Donchian calculados · 521 pregões (01/08/2024 a 17/08/2026).",
                 levelMapHead: "Mapa de níveis da operação",
                 lmEntry: "Entrada", lmStop: "Stop", lmTarget: "Alvo", lmSupport: "Suporte", lmResistance: "Resist.", lmPrice: "Preço",
 
@@ -519,6 +520,7 @@
                 // Recommendations translation helper
                 "AGUARDAR OUTRO GATILHO": "AGUARDAR OUTRO GATILHO",
                 "VENDA (SHORT) NA RETRAÇÃO": "VENDA (SHORT) NA RETRAÇÃO",
+                "VENDA (SHORT) NO ROMPIMENTO": "VENDA (SHORT) NO ROMPIMENTO",
                 "COMPRA (LONG) NO ROMPIMENTO": "COMPRA (LONG) NO ROMPIMENTO",
                 "COMPRA (LONG) NA RETRAÇÃO": "COMPRA (LONG) NA RETRAÇÃO",
                 
@@ -556,201 +558,201 @@
 
         const forexData = {
           "EUR/USD": {
-                    "quote": "1.1567",
+                    "quote": "1.1593",
                     "bias": "BAIXA",
                     "biasType": "bear",
                     "pt": {
-                              "fundamental": "O EUR/USD opera em 1,1567 no fechamento diário de 14/08/2026 (referência BCE, ~14:15 CET), avançando +0,29% e pressionando a Fib 61,8% (1,1582) por baixo — mas a estrutura técnica ainda prevalece sobre um cenário macro de dólar pressionado. A manutenção dividida do Fed em 9-3 a 3,50-3,75% em 29/07 e o CPI dos EUA de julho em +3,4% a.a. (divulgado em 12/08, abaixo dos 3,5% anteriores, núcleo 2,5%) — que reduziu as chances de alta em setembro, com o DXY recuando a ~99,8 — mantêm o dólar na defensiva, porém o par segue abaixo da SMA200 (1,1625) dentro do downtrend de 9 meses (1,1974 a 1,1340). O BCE a 2,25% (com aperto adicional para 2,50% precificado) limita o downside do euro. Os indicadores (SMA 50/200 e Fibonacci) são calculados a partir da série diária BCE/Frankfurter (520 pregões, 01/08/2024 a 14/08/2026). A recuperação estaca na confluência Fib 50% (1,1657) / SMA200 (1,1625) — zona de retomada de baixa.",
-                              "trend": "Abaixo da SMA200 (1,1625) e acima da SMA50 (1,1465); o downtrend de médio prazo (1,1974 a 1,1340) segue intacto — o avanço atual é uma correção de baixa pressionando a Fib 61,8% (1,1582), rumo à confluência Fib 50% / SMA200.",
-                              "support": "1,1476 (Fib 78,6%), com a mínima de 1,1340 abaixo.",
-                              "resistance": "1,1582 (Fib 61,8%) na região atual; a confluência Fib 50% (1,1657) / SMA200 (1,1625) — a zona de venda — acima, e 1,1732 (Fib 38,2%) no topo.",
-                              "priceAction": "Uma rejeição de baixa (pin bar / engolfo de baixa) na confluência 1,1625-1,1657 (SMA200 / Fib 50%), com fechamento diário retomando abaixo de 1,1582 (Fib 61,8%), retomaria a queda rumo a 1,1476-1,1450.",
+                              "fundamental": "O EUR/USD opera em 1,1593 no fechamento diário de 17/08/2026 (referência BCE, ~14:15 CET), avançando +0,22% e rompendo por fechamento a Fib 61,8% (1,1582) — o rally de correção agora pressiona diretamente a zona decisiva 1,1625-1,1657 (SMA200 / Fib 50%). O quadro macro segue o de 14/08: manutenção dividida do Fed em 9-3 a 3,50-3,75% (29/07), CPI de julho a +3,4% a.a. (divulgado 12/08, núcleo 2,5%) e DXY ~99,8 pressionam o dólar; o BCE a 2,25% limita o downside do euro. Mas os técnicos prevalecem: preço sob a SMA200 (1,1625) com SMA50 (1,1466) ainda abaixo dela — alinhamento de baixa — dentro do downtrend de 9 meses (1,1974 a 1,1340). Indicadores (SMA 50/200, σ20, Donchian e Fibonacci) calculados da série diária BCE/Frankfurter (521 pregões, 01/08/2024 a 17/08/2026).",
+                              "trend": "Abaixo da SMA200 (1,1625) e acima da SMA50 (1,1466), com SMA50 < SMA200 — alinhamento de baixa intacto; o rally de correção pressionou a Fib 61,8% (1,1582) e mira a confluência Fib 50% (1,1657) / SMA200 (1,1625).",
+                              "support": "1,1476 (Fib 78,6%), com a mínima de 9 meses em 1,1340 abaixo.",
+                              "resistance": "1,1657 (Fib 50%) em confluência com a SMA200 (1,1625) — a zona de venda; 1,1732 (Fib 38,2%) no topo.",
+                              "priceAction": "Uma rejeição na zona 1,1625-1,1657 — primeiro fechamento diário abaixo do fechamento anterior dentro da zona — retomaria a queda rumo a 1,1476-1,1450; fechamento diário acima de 1,1732 invalida o viés de baixa.",
                               "recommendation": "VENDA (SHORT) NA RETRAÇÃO",
-                              "trigger": "Rejeição de baixa (pin bar / engolfo de baixa) em 1,1657 (confluência Fib 50% / SMA200), com fechamento diário sustentando abaixo de 1,1582.",
-                              "stop": "1,1740 (Acima da Fib 38,2% em 1,1732).",
+                              "trigger": "Primeiro fechamento diário abaixo do fechamento anterior dentro da zona 1,1625-1,1657 (referência de entrada 1,1641, o meio da zona).",
+                              "stop": "1,1710 (Acima do número redondo 1,1700 e do piso de 1,5σ20 de 45 pips; invalida a SMA200) · risco sugerido ≤ 1% por operação.",
                               "target": "1,1450 (Logo abaixo da Fib 78,6% em 1,1476).",
-                              "rr": "1:2.49",
-                              "rrValue": 62,
-                              "justification": "A estrutura técnica — abaixo da SMA200 e com a recuperação contida pela confluência Fib 50% / SMA200 — supera o macro de dólar pressionado, mantendo o viés de baixa ainda que o par tenha subido +0,29% hoje. Uma rejeição na confluência 1,1657/1,1625 oferece entrada vendida com stop protegido acima da Fib 38,2% e R/R de 1:2.49 rumo a 1,1450."
+                              "rr": "1:2.77",
+                              "rrValue": 69,
+                              "justification": "O alinhamento de baixa (SMA50 < SMA200 e preço sob a linha de 200 dias) prevalece sobre o macro de dólar pressionado, e o rally estaca exatamente na confluência Fib 50% / SMA200. Entrada vendida em 1,1641 com stop estrutural de 69 pips (≥ piso de 1,5σ20) e alvo a 191 pips entrega R/R de 1:2.77 rumo a 1,1450 — caminho limpo, sem S/R intermediária relevante."
                     },
                     "en": {
-                              "fundamental": "EUR/USD trades at 1.1567 on the 14/08/2026 daily close (ECB reference, ~14:15 CET), up +0.29% and pressing the 61.8% Fib (1.1582) from below — but the technical structure still overrides a pressured-dollar macro backdrop. The Fed's divided 9-3 hold at 3.50-3.75% on July 29 and July US CPI of +3.4% YoY (released Aug 12, down from 3.5%, core 2.5%) — which trimmed September hike odds, with DXY easing to ~99.8 — keep the dollar on the back foot, yet the pair remains below its 200-day SMA (1.1625) inside the 9-month 1.1974 to 1.1340 downtrend. The ECB at 2.25% (further tightening to 2.50% priced) caps the euro's downside. Indicators (SMA 50/200, Fibonacci) are computed from the ECB/Frankfurter daily series (520 sessions, 01/08/2024 to 14/08/2026). The bounce stalls at the 50% Fib (1.1657) / 200-day SMA (1.1625) confluence — the bear-resumption zone.",
-                              "trend": "Below the 200-day SMA (1.1625) and above the 50-day SMA (1.1465); the medium-term downtrend (1.1974 to 1.1340) stays intact — the current push is a bear-market rally pressing the 61.8% Fib (1.1582), headed toward the 50% Fib / 200-day confluence.",
-                              "support": "1.1476 (78.6% Fib), with the 1.1340 swing low beneath.",
-                              "resistance": "1.1582 (61.8% Fib) at the current region; the 50% Fib (1.1657) / 200-day SMA (1.1625) confluence — the selling zone — above, and 1.1732 (38.2% Fib) on top.",
-                              "priceAction": "A bearish rejection (pin bar / bearish engulfing) at the 1.1625-1.1657 confluence (200-day SMA / 50% Fib), with a daily close back below 1.1582 (61.8% Fib), would resume the drop toward 1.1476-1.1450.",
+                              "fundamental": "EUR/USD trades at 1.1593 on the 17/08/2026 daily close (ECB reference, ~14:15 CET), up +0.22% and closing beyond the 61.8% Fib (1.1582) — the corrective rally now presses the decisive 1.1625-1.1657 zone (200-day SMA / 50% Fib). The macro backdrop carries over from Aug 14: the Fed's divided 9-3 hold at 3.50-3.75% (Jul 29), July CPI at +3.4% YoY (released Aug 12, core 2.5%) and DXY ~99.8 keep the dollar on the back foot; the ECB at 2.25% caps the euro's downside. But technicals prevail: price below the 200-day SMA (1.1625) with the 50-day (1.1466) still beneath it — bear alignment — inside the 9-month 1.1974 to 1.1340 downtrend. Indicators (SMA 50/200, sigma20, Donchian, Fibonacci) computed from the ECB/Frankfurter daily series (521 sessions, 01/08/2024 to 17/08/2026).",
+                              "trend": "Below the 200-day SMA (1.1625) and above the 50-day (1.1466), with SMA50 < SMA200 — bear alignment intact; the corrective rally has pressed the 61.8% Fib (1.1582) and targets the 50% Fib (1.1657) / 200-day SMA (1.1625) confluence.",
+                              "support": "1.1476 (78.6% Fib), with the 9-month low of 1.1340 beneath.",
+                              "resistance": "1.1657 (50% Fib) in confluence with the 200-day SMA (1.1625) — the selling zone; 1.1732 (38.2% Fib) on top.",
+                              "priceAction": "A rejection in the 1.1625-1.1657 zone — the first daily close below the previous close inside the zone — would resume the drop toward 1.1476-1.1450; a daily close above 1.1732 invalidates the bear bias.",
                               "recommendation": "SELL (SHORT) ON PULLBACK",
-                              "trigger": "Bearish rejection (pin bar / bearish engulfing) at 1.1657 (50% Fib / 200-day SMA confluence), on a daily close holding below 1.1582.",
-                              "stop": "1.1740 (Above the 38.2% Fib at 1.1732).",
+                              "trigger": "First daily close below the previous close inside the 1.1625-1.1657 zone (entry reference 1.1641, the zone midpoint).",
+                              "stop": "1.1710 (Above the 1.1700 round number and the 1.5-sigma20 floor of 45 pips; invalidates the 200-day SMA) · suggested risk ≤ 1% per trade.",
                               "target": "1.1450 (Just below the 78.6% Fib at 1.1476).",
-                              "rr": "1:2.49",
-                              "rrValue": 62,
-                              "justification": "The technical structure — below the 200-day SMA with the bounce capped by the 50% Fib / 200-day confluence — outweighs the pressured-USD macro, keeping the bias bearish even after today's +0.29% pop. A rejection at the 1.1657/1.1625 confluence offers a short with a structurally-protected stop above the 38.2% Fib and 1:2.49 R/R toward 1.1450."
+                              "rr": "1:2.77",
+                              "rrValue": 69,
+                              "justification": "The bear alignment (SMA50 < SMA200, price under the 200-day line) outweighs the pressured-USD macro, and the rally stalls exactly at the 50% Fib / 200-day confluence. A short from 1.1641 with a 69-pip structural stop (>= the 1.5-sigma20 floor) and a 191-pip target delivers 1:2.77 R/R toward 1.1450 — a clean path with no relevant intermediate S/R."
                     }
           },
           "USD/JPY": {
-                    "quote": "159.01",
+                    "quote": "159.23",
                     "bias": "ALTA",
                     "biasType": "bull",
                     "pt": {
-                              "fundamental": "O USD/JPY opera em 159,01 no fechamento diário de 14/08/2026 (referência BCE), recuando -0,20% enquanto o mercado digere a intervenção conjunta EUA-Japão de início de agosto (estimada em ~US$ 75 bi do lado japonês) — que levou o par da máxima de 163,91 (28/07) à região de 156,3-156,7 — e o iene já devolveu cerca de metade dos ganhos. Após a manutenção hawkish do BoJ a 1,0% em 31/07 (divisão 8-1, Takata a favor de 1,25%; alta em setembro sinalizada), o par reconquistou a SMA200 (158,09) e repousa sob a Fib 38,2% (159,60) do avanço de 152,63 a 163,91, com a SMA50 (161,16) acima. O CPI dos EUA em 3,4% (mais brando) pressiona o dólar, mas o amplo diferencial Fed (3,50-3,75%)-BoJ (1,0%) e a retomada do carry dominam; a estrutura segue de alta acima dos 200 dias. Indicadores calculados a partir da série diária BCE/Frankfurter (520 pregões, 01/08/2024 a 14/08/2026).",
-                              "trend": "Acima da SMA200 (158,09) e abaixo da SMA50 (161,16) — o avanço de 152,63 a 163,91 foi restaurado após o mergulho de intervenção a ~156,3-156,7; a retração mira a confluência Fib 50% (158,27) / SMA200 (158,09).",
-                              "support": "158,27 (Fib 50%) em confluência com a SMA200 de 158,09; 156,94 (Fib 61,8%) abaixo.",
-                              "resistance": "159,60 (Fib 38,2%) na região atual, com a confluência SMA50 (161,16) / Fib 23,6% (161,25) acima; 163,91 (máxima) no topo.",
-                              "priceAction": "Uma rejeição de alta (pin bar / engolfo bullish) na confluência 158,09-158,27 (SMA200 / Fib 50%), com fechamento diário sustentando acima de 159,00, retomaria a alta rumo a 161,16-162,50.",
-                              "recommendation": "COMPRA (LONG) NA RETRAÇÃO",
-                              "trigger": "Rejeição de alta (pin bar / engolfo bullish) em 158,10 (confluência Fib 50% / SMA200 reconquistada), com fechamento diário sustentando acima de 159,00.",
-                              "stop": "156,80 (Abaixo da Fib 61,8% em 156,94).",
-                              "target": "161,16 (Confluência SMA50 / Fib 23,6%).",
-                              "rr": "1:2.35",
-                              "rrValue": 59,
-                              "justification": "A reconquista da SMA200, com o choque de intervenção a desfazer-se e o carry retomando, sustenta o viés de alta — os técnicos ganham do macro. Uma retração até a confluência Fib 50% / SMA200 reconquistada oferece entrada comprada com stop protegido abaixo da Fib 61,8% e R/R de 1:2.35 rumo à SMA50. Volatilidade residual de intervenção — dimensione adequadamente."
-                    },
-                    "en": {
-                              "fundamental": "USD/JPY trades at 159.01 on the 14/08/2026 daily close (ECB reference), easing -0.20% as the market digests the early-August US-Japan joint intervention (estimated ~$75bn on the Japanese side) — which took the pair from the 163.91 high (Jul 28) to the 156.3-156.7 area — and the yen has already given back about half of its gains. After the BoJ's hawkish hold at 1.00% on July 31 (8-1 split, Takata seeking 1.25%; a September hike signaled), the pair has reclaimed its 200-day SMA (158.09) and sits below the 38.2% Fib (159.60) of the 152.63 to 163.91 advance, with the 50-day SMA (161.16) above. US CPI at 3.4% (softer) pressures the dollar, but the wide Fed (3.50-3.75%)-BoJ (1.00%) differential and the carry resumption dominate; structure stays bullish above the 200-day. Indicators computed from the ECB/Frankfurter daily series (520 sessions, 01/08/2024 to 14/08/2026).",
-                              "trend": "Above the 200-day SMA (158.09) and below the 50-day SMA (161.16) — the 152.63 to 163.91 advance has been restored after the intervention dive to ~156.3-156.7; the pullback targets the 50% Fib (158.27) / 200-day SMA (158.09) confluence.",
-                              "support": "158.27 (50% Fib) in confluence with the 158.09 200-day SMA; 156.94 (61.8% Fib) beneath.",
-                              "resistance": "159.60 (38.2% Fib) at the current region, with the 50-day SMA (161.16) / 23.6% Fib (161.25) confluence above; 163.91 (swing high) on top.",
-                              "priceAction": "A bullish rejection (pin bar / bullish engulfing) at the 158.09-158.27 confluence (200-day SMA / 50% Fib), with a daily close back above 159.00, would resume the up-move toward 161.16-162.50.",
-                              "recommendation": "BUY (LONG) ON PULLBACK",
-                              "trigger": "Bullish rejection (pin bar / bullish engulfing) at 158.10 (50% Fib / reclaimed 200-day SMA confluence), on a daily close back above 159.00.",
-                              "stop": "156.80 (Below the 61.8% Fib at 156.94).",
-                              "target": "161.16 (50-day SMA / 23.6% Fib confluence).",
-                              "rr": "1:2.35",
-                              "rrValue": 59,
-                              "justification": "The reclaim of the 200-day SMA, with the intervention shock unwinding and carry resuming, sustains the bullish bias — technicals win over macro. A pullback to the 50% Fib / reclaimed 200-day SMA confluence offers a long with a protected stop below the 61.8% Fib and 1:2.35 R/R toward the 50-day SMA. Residual intervention volatility — size accordingly."
-                    }
-          },
-          "AUD/USD": {
-                    "quote": "0.7082",
-                    "bias": "ALTA",
-                    "biasType": "bull",
-                    "pt": {
-                              "fundamental": "O AUD/USD opera em 0,7082 no fechamento diário de 14/08/2026 (referência BCE), avançando +0,43%, rompendo a Fib 23,6% (0,7065) e marcando nova máxima de 30 dias — sustentando a tendência de alta acima da SMA200 (0,6925). O RBA manteve a taxa em 4,35% em 11/08 (padrão de espera, com cortes improváveis antes de 2027) e o petróleo firme (WTI ~US$ 82/bbl, +33% a/a) sustentam o australiano, enquanto o CPI dos EUA em 3,4% (mais brando), a manutenção dividida do Fed e o DXY ~99,8 limitam o dólar. O par opera acima das SMA50 (0,6990) e SMA200 (0,6925) dentro da tendência mais ampla de 0,6445 a 0,7257. Indicadores calculados a partir da série diária BCE/Frankfurter (520 pregões, 01/08/2024 a 14/08/2026). A estrutura segue de alta enquanto a SMA200 segurar.",
-                              "trend": "Acima das SMA50 (0,6990) e SMA200 (0,6925) — rompeu a Fib 23,6% (0,7065) e mira a máxima de 0,7257 dentro da tendência ampla iniciada em 0,6445; retrações encontram a Fib 38,2% (0,6947).",
-                              "support": "0,6947 (Fib 38,2%), com a Fib 23,6% (0,7065) recém-rompida atuando como suporte de curto prazo e a SMA200 (0,6925) abaixo.",
-                              "resistance": "0,7257 (máxima de 9 meses do avanço de 0,6445), sem obstáculos fib intermediários acima da região atual.",
-                              "priceAction": "Uma rejeição de alta (pin bar / engolfo bullish) na zona 0,6947-0,6960 (Fib 38,2%), com fechamento diário novamente acima de 0,7010, retomaria a alta rumo a 0,7150.",
-                              "recommendation": "COMPRA (LONG) NA RETRAÇÃO",
-                              "trigger": "Rejeição de alta (pin bar / engolfo bullish) em 0,6960 (zona Fib 38,2%), com fechamento diário sustentando acima de 0,7010.",
-                              "stop": "0,6890 (Abaixo da SMA200 de 0,6925).",
-                              "target": "0,7150 (Acima da Fib 23,6% em 0,7065).",
-                              "rr": "1:2.71",
-                              "rrValue": 68,
-                              "justification": "A estrutura acima de ambas as SMAs com a Fib 23,6% recém-rompida, respaldada por um RBA a 4,35% em modo de espera e commodities firmes (WTI ~US$ 82) contra um Fed dividido e CPI brando, mantém o viés de alta. Uma retração até a Fib 38,2% oferece entrada comprada com stop protegido abaixo da SMA200 e R/R de 1:2.71 rumo a 0,7150."
-                    },
-                    "en": {
-                              "fundamental": "AUD/USD trades at 0.7082 on the 14/08/2026 daily close (ECB reference), up +0.43%, breaking the 23.6% Fib (0.7065) and printing a fresh 30-day high — holding its uptrend above the 200-day SMA (0.6925). The RBA held at 4.35% on Aug 11 (holding pattern, cuts unlikely before 2027) and firm oil (WTI ~$82/bbl, +33% YoY) underpin the aussie, while US CPI at 3.4% (softer), the Fed's divided hold and DXY ~99.8 cap the dollar. The pair trades above the 50-day (0.6990) and 200-day (0.6925) SMAs within the broader 0.6445 to 0.7257 uptrend. Indicators computed from the ECB/Frankfurter daily series (520 sessions, 01/08/2024 to 14/08/2026). Structure stays bullish while the 200-day holds.",
-                              "trend": "Above both the 50-day (0.6990) and 200-day (0.6925) SMAs — it has broken the 23.6% Fib (0.7065) and eyes the 0.7257 high within the broad uptrend from 0.6445; pullbacks meet the 38.2% Fib (0.6947).",
-                              "support": "0.6947 (38.2% Fib), with the freshly-broken 23.6% Fib (0.7065) acting as near-term support and the 200-day SMA (0.6925) beneath.",
-                              "resistance": "0.7257 (9-month high of the 0.6445 advance), with no intermediate Fib obstacles above the current region.",
-                              "priceAction": "A bullish rejection (pin bar / bullish engulfing) at the 0.6947-0.6960 zone (38.2% Fib), with a daily close back above 0.7010, would resume the uptrend toward 0.7150.",
-                              "recommendation": "BUY (LONG) ON PULLBACK",
-                              "trigger": "Bullish rejection (pin bar / bullish engulfing) at 0.6960 (38.2% Fib zone), on a daily close back above 0.7010.",
-                              "stop": "0.6890 (Below the 0.6925 200-day SMA).",
-                              "target": "0.7150 (Above the 23.6% Fib at 0.7065).",
-                              "rr": "1:2.71",
-                              "rrValue": 68,
-                              "justification": "The structure above both SMAs with the 23.6% Fib freshly broken, backed by an RBA on hold at 4.35% and firm commodities (WTI ~$82) against a divided Fed and soft CPI, keeps the bias bullish. A pullback to the 38.2% Fib offers a long with a protected stop below the 200-day SMA and 1:2.71 R/R toward 0.7150."
-                    }
-          },
-          "GBP/USD": {
-                    "quote": "1.3537",
-                    "bias": "ALTA",
-                    "biasType": "bull",
-                    "pt": {
-                              "fundamental": "O GBP/USD opera em 1,3537 no fechamento diário de 14/08/2026 (referência BCE), avançando +0,33% e rompendo por margem estreita a Fib 38,2% (1,3528), sustentando acima de ambas as SMAs. A manutenção do BoE a 3,75% em 30/07 (divisão 6-3, três dissidentes a favor de 4,00%; inflação a 2,6%) sustenta a libra, enquanto o CPI dos EUA em 3,4% (mais brando) e a manutenção dividida do Fed (DXY ~99,8) pressionam o dólar. Dentro do uptrend de 1,3062 a 1,3817, o próximo obstáculo é a Fib 23,6% (1,3639), acima das SMA50 (1,3369) e SMA200 (1,3404). Indicadores calculados a partir da série diária BCE/Frankfurter (520 pregões, 01/08/2024 a 14/08/2026). A estrutura segue de alta enquanto a SMA200 segurar.",
-                              "trend": "Acima das SMA50 (1,3369) e SMA200 (1,3404); rompeu por margem estreita a Fib 38,2% (1,3528) dentro do uptrend de 1,3062 a 1,3817, próximo obstáculo a Fib 23,6% (1,3639).",
-                              "support": "1,3439 (Fib 50%), com a Fib 38,2% (1,3528) recém-rompida atuando como suporte de curto prazo e a SMA200 (1,3404) abaixo.",
-                              "resistance": "1,3639 (Fib 23,6%), com a máxima de 1,3817 acima.",
-                              "priceAction": "Uma rejeição de alta (pin bar / engolfo bullish) na zona 1,3439-1,3404 (Fib 50% / SMA200), com fechamento diário novamente acima de 1,3470, retomaria a alta rumo a 1,3528-1,3625.",
-                              "recommendation": "COMPRA (LONG) NA RETRAÇÃO",
-                              "trigger": "Rejeição de alta (pin bar / engolfo bullish) em 1,3420 (confluência Fib 50% / SMA200), com fechamento diário sustentando acima de 1,3470.",
-                              "stop": "1,3340 (Abaixo da Fib 61,8% em 1,3350).",
-                              "target": "1,3625 (Logo abaixo da Fib 23,6% em 1,3639).",
-                              "rr": "1:2.56",
-                              "rrValue": 64,
-                              "justification": "A estrutura acima de ambas as SMAs com a Fib 38,2% recém-rompida, reforçada por um BoE hawkish a 3,75% (divisão 6-3) contra um Fed dividido e CPI brando, mantém o viés de alta. Uma retração até a confluência Fib 50% / SMA200 oferece entrada comprada com stop protegido abaixo da Fib 61,8% e R/R de 1:2.56 rumo a 1,3625."
-                    },
-                    "en": {
-                              "fundamental": "GBP/USD trades at 1.3537 on the 14/08/2026 daily close (ECB reference), up +0.33% and narrowly breaking the 38.2% Fib (1.3528), holding above both SMAs. The BoE's hold at 3.75% on July 30 (6-3 split, three dissents for 4.00%; inflation at 2.6%) supports sterling, while US CPI at 3.4% (softer) and the Fed's divided hold (DXY ~99.8) pressure the dollar. Within the 1.3062 to 1.3817 uptrend, the next hurdle is the 23.6% Fib (1.3639), above the 50-day (1.3369) and 200-day (1.3404) SMAs. Indicators computed from the ECB/Frankfurter daily series (520 sessions, 01/08/2024 to 14/08/2026). Structure stays bullish while the 200-day holds.",
-                              "trend": "Above both the 50-day (1.3369) and 200-day (1.3404) SMAs; it has narrowly broken the 38.2% Fib (1.3528) within the 1.3062 to 1.3817 uptrend, next hurdle the 23.6% Fib (1.3639).",
-                              "support": "1.3439 (50% Fib), with the freshly-broken 38.2% Fib (1.3528) acting as near-term support and the 200-day SMA (1.3404) beneath.",
-                              "resistance": "1.3639 (23.6% Fib), with the 1.3817 swing high above.",
-                              "priceAction": "A bullish rejection (pin bar / bullish engulfing) at the 1.3439-1.3404 zone (50% Fib / 200-day SMA), with a daily close back above 1.3470, would resume the uptrend toward 1.3528-1.3625.",
-                              "recommendation": "BUY (LONG) ON PULLBACK",
-                              "trigger": "Bullish rejection (pin bar / bullish engulfing) at 1.3420 (50% Fib / 200-day SMA confluence), on a daily close back above 1.3470.",
-                              "stop": "1.3340 (Below the 61.8% Fib at 1.3350).",
-                              "target": "1.3625 (Just below the 23.6% Fib at 1.3639).",
-                              "rr": "1:2.56",
-                              "rrValue": 64,
-                              "justification": "The structure above both SMAs with the 38.2% Fib freshly broken, reinforced by a hawkish BoE at 3.75% (6-3 split) against a divided Fed and soft CPI, keeps the bias bullish. A pullback to the 50% Fib / 200-day SMA confluence offers a long with a protected stop below the 61.8% Fib and 1:2.56 R/R toward 1.3625."
-                    }
-          },
-          "EUR/JPY": {
-                    "quote": "183.93",
-                    "bias": "ALTA",
-                    "biasType": "bull",
-                    "pt": {
-                              "fundamental": "O EUR/JPY opera em 183,93 no fechamento diário de 14/08/2026 (referência BCE), subindo +0,08% enquanto o choque de intervenção no iene do início de agosto se desfaz e o carry trade retoma. Após o mergulho pós-intervenção até a região da Fib 61,8% (181,09), o par reconquistou a SMA200 (183,74) — agora por ~19 pips — e repousa entre a Fib 38,2% (183,62) e a SMA50 (184,75), dentro do avanço de 176,99 a 187,73. O diferencial de carry BCE (2,25%)-BoJ (1,0%) segue amplo, mas a reconquista estreita da SMA200 não oferece gatilho limpo. Indicadores calculados a partir da série diária BCE/Frankfurter (520 pregões, 01/08/2024 a 14/08/2026).",
-                              "trend": "Acima da SMA200 (183,74) por margem estreita e abaixo da SMA50 (184,75) — o avanço de 176,99 a 187,73 foi restaurado em estrutura, mas o gatilho direcional não é limpo.",
-                              "support": "182,36 (Fib 50%), com a SMA200 de 183,74 logo acima.",
-                              "resistance": "184,75 (SMA50) em confluência com a Fib 23,6% (185,19); 187,73 (máxima) acima.",
-                              "priceAction": "Sem gatilho de price-action acionável: a reconquista da SMA200 por margem estreita não oferece entrada de risco-retorno limpa. Aguardar fechamento diário decisivo acima de 185,19 (rompimento) ou rejeição em 182,36 (retração).",
+                              "fundamental": "O USD/JPY opera em 159,23 no fechamento diário de 17/08/2026 (referência BCE), subindo +0,14% enquanto o choque da intervenção conjunta EUA-Japão do início de agosto (estimada em ~US$ 75 bi) segue se desfazendo — o iene já devolveu cerca de metade dos ganhos e a janela de 30 dias de risco de intervenção permanece ativa. O BoJ manteve a taxa em 1,0% de forma hawkish em 31/07 (8-1, alta sinalizada para setembro) e o diferencial Fed (3,50-3,75%)-BoJ (1,0%) domina; a estrutura segue de alta com a SMA50 (161,14) acima da SMA200 (158,11) e o preço sobre esta última. Indicadores calculados da série diária BCE/Frankfurter (521 pregões, 01/08/2024 a 17/08/2026). O piso de stop de intervenção (2,5σ20 ≈ 267 pips) redefine o que é operável até a janela expirar.",
+                              "trend": "Acima da SMA200 (158,11) e abaixo da SMA50 (161,14) — alinhamento de alta (SMA50 > SMA200); o avanço de 152,63 a 163,91 segue restaurado, com a retração mirando a confluência Fib 50% (158,27) / SMA200 (158,11).",
+                              "support": "158,27 (Fib 50%) em confluência com a SMA200 (158,11); 156,94 (Fib 61,8%) abaixo.",
+                              "resistance": "159,60 (Fib 38,2%) na região atual, com a confluência SMA50 (161,14) / Fib 23,6% (161,25) acima; 163,91 (máxima de 9 meses) no topo.",
+                              "priceAction": "Sem gatilho acionável: com o piso de intervenção de 2,5σ20 (≈267 pips), qualquer stop estrutural a partir da zona 158,11-158,27 fica em ~300+ pips de risco e nenhum alvo atinge 1:2 — a SMA50 (161,14) entrega ~1:0,9 e a máxima de 163,91 ~1:1,8. Aguardar a janela de intervenção expirar (~03/09) ou retração mais profunda com σ20 comprimida.",
                               "recommendation": "AGUARDAR OUTRO GATILHO",
-                              "trigger": "Nenhum gatilho acionável — reconquista da SMA200 (183,74) por margem estreita. Aguardar rompimento decisivo de 185,19 (SMA50 / Fib 23,6%) com follow-through, ou retração até 182,36 (Fib 50%).",
+                              "trigger": "Nenhum gatilho operável — o piso de volatilidade de intervenção (2,5σ20 ≈ 267 pips) degrada todo R/R para abaixo de 1:2. Reavaliar quando a janela de 30 dias da intervenção expirar (~03/09), ou após retração à zona 158,11-158,27 com compressão da σ20.",
                               "stop": "N/A (sem operação).",
                               "target": "N/A (sem operação).",
                               "rr": "N/A",
                               "rrValue": 0,
-                              "justification": "A reconquista da SMA200 (183,74) por apenas ~19 pips após o choque de intervenção não oferece setup direcional limpo: um longo em retração até a Fib 50% (182,36) estaca em R/R ~1:1,6 rumo à SMA50, e um longo no rompimento de 185,19 estaca em R/R ~1:1,4 rumo à máxima de 187,73, com alvos estendidos bloqueados por essa mesma máxima. Técnicos ganham — aguardar rompimento decisivo ou retração mais profunda para destravar R/R ≥ 1:2."
+                              "justification": "O viés estrutural de alta está intacto (alinhamento SMA50 > SMA200, preço sobre os 200 dias), mas a regra de intervenção exige stop ≥ 2,5σ20 (≈267 pips) e o alvo mais distante disponível — a máxima de 163,91 — entrega apenas ~1:1,8. Técnicos e disciplina de risco vencem o carry: sem operação até a janela envelhecer."
                     },
                     "en": {
-                              "fundamental": "EUR/JPY trades at 183.93 on the 14/08/2026 daily close (ECB reference), rising +0.08% as the early-August yen intervention shock unwinds and carry trade resumes. After the post-intervention dive to the 61.8% Fib region (181.09), the pair has reclaimed its 200-day SMA (183.74) — now by ~19 pips — and sits between the 38.2% Fib (183.62) and the 50-day SMA (184.75), within the 176.99 to 187.73 advance. The ECB (2.25%)-BoJ (1.00%) carry gap remains wide, but the narrow 200-day reclaim offers no clean trigger. Indicators computed from the ECB/Frankfurter daily series (520 sessions, 01/08/2024 to 14/08/2026).",
-                              "trend": "Above the 200-day SMA (183.74) by a narrow margin and below the 50-day SMA (184.75) — the 176.99 to 187.73 advance has been restored in structure, but the directional trigger is not clean.",
-                              "support": "182.36 (50% Fib), with the 183.74 200-day SMA just above.",
-                              "resistance": "184.75 (50-day SMA) in confluence with the 23.6% Fib (185.19); 187.73 (swing high) above.",
-                              "priceAction": "No actionable price-action trigger: the narrow 200-day reclaim offers no clean risk-reward entry. Wait for a decisive daily close above 185.19 (breakout) or a rejection at 182.36 (pullback).",
+                              "fundamental": "USD/JPY trades at 159.23 on the 17/08/2026 daily close (ECB reference), up +0.14% as the early-August joint US-Japan intervention shock (estimated ~$75bn) keeps unwinding — the yen has given back about half of its gains and the 30-day intervention-risk window is still active. The BoJ held hawkishly at 1.00% on Jul 31 (8-1, a September hike signaled) and the Fed (3.50-3.75%)-BoJ (1.00%) differential dominates; structure stays bullish with the 50-day SMA (161.14) above the 200-day (158.11) and price on top of the latter. Indicators computed from the ECB/Frankfurter daily series (521 sessions, 01/08/2024 to 17/08/2026). The intervention stop floor (2.5-sigma20 ~= 267 pips) redefines what is tradeable until the window expires.",
+                              "trend": "Above the 200-day SMA (158.11) and below the 50-day (161.14) — bull alignment (SMA50 > SMA200); the 152.63 to 163.91 advance remains restored, with the pullback targeting the 50% Fib (158.27) / 200-day SMA (158.11) confluence.",
+                              "support": "158.27 (50% Fib) in confluence with the 200-day SMA (158.11); 156.94 (61.8% Fib) beneath.",
+                              "resistance": "159.60 (38.2% Fib) at the current region, with the 50-day SMA (161.14) / 23.6% Fib (161.25) confluence above; 163.91 (9-month high) on top.",
+                              "priceAction": "No actionable trigger: with the 2.5-sigma20 intervention floor (~=267 pips), any structural stop from the 158.11-158.27 zone sits ~300+ pips away and no target reaches 1:2 — the 50-day SMA (161.14) yields ~1:0.9 and the 163.91 high ~1:1.8. Wait for the intervention window to expire (~Sep 3) or a deeper pullback with compressed sigma20.",
                               "recommendation": "WAIT FOR ANOTHER TRIGGER",
-                              "trigger": "No actionable trigger — narrow reclaim of the 200-day SMA (183.74). Wait for a decisive breakout of 185.19 (50-day SMA / 23.6% Fib) with follow-through, or a pullback to 182.36 (50% Fib).",
+                              "trigger": "No tradeable trigger — the intervention volatility floor (2.5-sigma20 ~= 267 pips) degrades every R/R below 1:2. Reassess when the 30-day intervention window expires (~Sep 3), or after a pullback to the 158.11-158.27 zone with sigma20 compression.",
                               "stop": "N/A (no trade).",
                               "target": "N/A (no trade).",
                               "rr": "N/A",
                               "rrValue": 0,
-                              "justification": "The 200-day SMA (183.74) reclaim by only ~19 pips after the intervention shock offers no clean directional setup: a pullback long to the 50% Fib (182.36) caps at ~1:1.6 R/R to the 50-day SMA, and a breakout long above 185.19 caps at ~1:1.4 R/R to the 187.73 swing high, with extension targets blocked by that same high. Technicals win — wait for a decisive breakout or a deeper pullback to unlock R/R of at least 1:2."
+                              "justification": "The structural bull bias is intact (SMA50 > SMA200, price above the 200-day), but the intervention rule demands a stop >= 2.5-sigma20 (~=267 pips) and the farthest available target — the 163.91 high — delivers only ~1:1.8. Technicals and risk discipline beat carry: no trade until the window ages out."
                     }
           },
-          "GBP/JPY": {
-                    "quote": "215.24",
+          "AUD/USD": {
+                    "quote": "0.7125",
                     "bias": "ALTA",
                     "biasType": "bull",
                     "pt": {
-                              "fundamental": "O GBP/JPY opera em 215,24 no fechamento diário de 14/08/2026 (referência BCE), subindo +0,13% com o choque de intervenção no iene a desfazer-se e o carry a retomar. O par reconquistou decisivamente a SMA200 (211,89) e repousa colado sob a SMA50 (215,45), sobre a Fib 23,6% (214,83) do avanço de 200,87 a 219,14. O amplo diferencial de carry BoE (3,75%)-BoJ (1,0%) e a retomada do carry dominam; a estrutura segue de alta acima dos 200 dias. Indicadores calculados a partir da série diária BCE/Frankfurter (520 pregões, 01/08/2024 a 14/08/2026).",
-                              "trend": "Acima da SMA200 (211,89) e colado sob a SMA50 (215,45) — o avanço de 200,87 a 219,14 foi restaurado; rompimento da SMA50 miraria a máxima de 219,14.",
-                              "support": "212,16 (Fib 38,2%), com a SMA200 de 211,89 abaixo.",
-                              "resistance": "215,45 (SMA50) em confluência com a Fib 23,6% (214,83); 219,14 (máxima) acima.",
-                              "priceAction": "Um fechamento diário decisivo acima de 215,50 (SMA50 / Fib 23,6%), com follow-through, retomaria a alta rumo à máxima de 219,14.",
-                              "recommendation": "COMPRA (LONG) NO ROMPIMENTO",
-                              "trigger": "Fechamento diário acima de 215,50 (acima da SMA50 em 215,45 e da Fib 23,6% em 214,83), com follow-through.",
-                              "stop": "213,90 (Abaixo da Fib 23,6% em 214,83).",
-                              "target": "219,00 (Logo abaixo da máxima de 219,14).",
-                              "rr": "1:2.19",
-                              "rrValue": 55,
-                              "justification": "A reconquista decisiva da SMA200, com o choque de intervenção a desfazer-se e o carry retomando, inverte o viés para alta — os técnicos ganham do macro. Um rompimento da confluência SMA50 / Fib 23,6% oferece entrada comprada com stop protegido abaixo da Fib 23,6% e R/R de 1:2.19 rumo à máxima de 219,14 — caminho limpo, sem S/R intermediária bloqueando. Volatilidade residual de intervenção — dimensione adequadamente."
+                              "fundamental": "O AUD/USD opera em 0,7125 no fechamento diário de 17/08/2026 (referência BCE), avançando +0,61% e fechando além da máxima de 10 pregões (0,7082) — rompimento Donchian-10 confirmado por fechamento, o maior fechamento em um mês, com a Fib 23,6% (0,7065) consolidada como suporte. O RBA manteve a taxa em 4,35% em 11/08 (padrão de espera), o petróleo firme (WTI ~US$ 82/bbl) sustenta o australiano e o CPI dos EUA a 3,4% com o Fed dividido mantém o dólar na defensiva. Alinhamento de alta: preço acima das SMA50 (0,6990) e SMA200 (0,6928) dentro do avanço de 0,6445 a 0,7257. Indicadores calculados da série diária BCE/Frankfurter (521 pregões, 01/08/2024 a 17/08/2026). O rompimento é direcionalmente válido — mas a máxima de 9 meses trava o risco-retorno.",
+                              "trend": "Acima das SMA50 (0,6990) e SMA200 (0,6928) — alinhamento de alta; o rompimento D10 de hoje (0,7125 > 0,7082) mira a máxima de 9 meses (0,7257), com a Fib 23,6% (0,7065) recém-rompida como primeiro suporte.",
+                              "support": "0,7065 (Fib 23,6% reconquistada), com a SMA50 (0,6990) abaixo.",
+                              "resistance": "0,7257 (máxima de 9 meses do avanço de 0,6445), com o número redondo 0,7200 no caminho.",
+                              "priceAction": "Sem entrada no rompimento de hoje: a máxima de 9 meses (0,7257) está a apenas ~130 pips — com stop estrutural abaixo de 0,7065 (~60-70 pips) o R/R máximo é ~1:1,8, e abaixo do redondo 0,7050 cai a ~1:1,4; o gate de 1:2 falha. Gatilhos futuros: retração à zona 0,6990-0,7065 (R/R ≥ 3 rumo a 0,7150) ou fechamento decisivo acima de 0,7257, abrindo ar limpo.",
+                              "recommendation": "AGUARDAR OUTRO GATILHO",
+                              "trigger": "Nenhum no rompimento de hoje — a máxima de 9 meses 0,7257 trava o R/R em ~1:1,8 com stop estrutural. Aguardar retração à zona 0,6990-0,7065 (SMA50 / Fib 23,6%) ou fechamento decisivo acima de 0,7257.",
+                              "stop": "N/A (sem operação).",
+                              "target": "N/A (sem operação).",
+                              "rr": "N/A",
+                              "rrValue": 0,
+                              "justification": "O rompimento Donchian-10 confirmado por fechamento valida a direção, mas a regra de R/R ≥ 1:2 com stop estrutural não fecha: nenhum alvo além de 0,7257 existe no horizonte de 9 meses e o nível está a ~1,8% — R/R máx ~1:1,8. Disciplina vence: aguardar retração à zona 0,6990-0,7065 ou novo ground."
                     },
                     "en": {
-                              "fundamental": "GBP/JPY trades at 215.24 on the 14/08/2026 daily close (ECB reference), up +0.13% with the yen intervention shock unwinding and carry resuming. The pair has decisively reclaimed its 200-day SMA (211.89) and sits glued just below the 50-day SMA (215.45), on the 23.6% Fib (214.83) of the 200.87 to 219.14 advance. The wide BoE (3.75%)-BoJ (1.00%) carry gap and the carry resumption dominate; structure stays bullish above the 200-day. Indicators computed from the ECB/Frankfurter daily series (520 sessions, 01/08/2024 to 14/08/2026).",
-                              "trend": "Above the 200-day SMA (211.89) and glued just below the 50-day SMA (215.45) — the 200.87 to 219.14 advance has been restored; a 50-day SMA breakout would target the 219.14 swing high.",
-                              "support": "212.16 (38.2% Fib), with the 211.89 200-day SMA beneath.",
-                              "resistance": "215.45 (50-day SMA) in confluence with the 23.6% Fib (214.83); 219.14 (swing high) above.",
-                              "priceAction": "A decisive daily close above 215.50 (50-day SMA / 23.6% Fib), with follow-through, would resume the up-move toward the 219.14 swing high.",
+                              "fundamental": "AUD/USD trades at 0.7125 on the 17/08/2026 daily close (ECB reference), up +0.61% and closing beyond the 10-day high (0.7082) — a close-confirmed Donchian-10 breakout, the highest close in a month, with the 23.6% Fib (0.7065) consolidated as support. The RBA held at 4.35% on Aug 11 (waiting pattern), firm oil (WTI ~$82/bbl) underpins the aussie and US CPI at 3.4% with a divided Fed keeps the dollar defensive. Bull alignment: price above the 50-day (0.6990) and 200-day (0.6928) SMAs within the 0.6445 to 0.7257 advance. Indicators computed from the ECB/Frankfurter daily series (521 sessions, 01/08/2024 to 17/08/2026). The breakout is directionally valid — but the 9-month high caps the risk-reward.",
+                              "trend": "Above the 50-day (0.6990) and 200-day (0.6928) SMAs — bull alignment; today's D10 breakout (0.7125 > 0.7082) targets the 9-month high (0.7257), with the freshly-broken 23.6% Fib (0.7065) as first support.",
+                              "support": "0.7065 (reclaimed 23.6% Fib), with the 50-day SMA (0.6990) beneath.",
+                              "resistance": "0.7257 (9-month high of the 0.6445 advance), with the 0.7200 round number in the path.",
+                              "priceAction": "No entry on today's breakout: the 9-month high (0.7257) sits only ~130 pips away — with a structural stop below 0.7065 (~60-70 pips) the maximum R/R is ~1:1.8, and below the 0.7050 round it drops to ~1:1.4; the 1:2 gate fails. Future triggers: a pullback to the 0.6990-0.7065 zone (R/R >= 3 toward 0.7150) or a decisive close above 0.7257 opening clean air.",
+                              "recommendation": "WAIT FOR ANOTHER TRIGGER",
+                              "trigger": "None on today's breakout — the 9-month high at 0.7257 caps R/R at ~1:1.8 with a structural stop. Wait for a pullback to the 0.6990-0.7065 zone (50-day SMA / 23.6% Fib) or a decisive close above 0.7257.",
+                              "stop": "N/A (no trade).",
+                              "target": "N/A (no trade).",
+                              "rr": "N/A",
+                              "rrValue": 0,
+                              "justification": "The close-confirmed Donchian-10 breakout validates direction, but the R/R >= 1:2 rule with a structural stop doesn't close: no target beyond 0.7257 exists in the 9-month horizon and the level is only ~1.8% away — max R/R ~1:1.8. Discipline wins: wait for a pullback to 0.6990-0.7065 or fresh ground."
+                    }
+          },
+          "GBP/USD": {
+                    "quote": "1.3559",
+                    "bias": "ALTA",
+                    "biasType": "bull",
+                    "pt": {
+                              "fundamental": "O GBP/USD opera em 1,3559 no fechamento diário de 17/08/2026 (referência BCE), subindo +0,17% e fechando além da máxima de 10 pregões (1,3537) — rompimento Donchian-10 confirmado por fechamento, que resolve o estado misto do regime (preço acima das duas médias, mas com a SMA50 de 1,3373 ainda sob a SMA200 de 1,3406) na direção da alta. O BoE manteve a taxa em 3,75% em 30/07 (divisão 6-3, inflação a 2,6%) sustenta a libra, enquanto o CPI dos EUA a 3,4% e o Fed dividido (DXY ~99,8) pressionam o dólar. O par segue dentro do avanço de 1,3062 a 1,3817. Indicadores calculados da série diária BCE/Frankfurter (521 pregões, 01/08/2024 a 17/08/2026).",
+                              "trend": "Preço acima das SMA50 (1,3373) e SMA200 (1,3406) com SMA50 ainda abaixo da SMA200 — regime misto resolvido para a alta pelo rompimento D10 de hoje (1,3559 > 1,3537); o próximo obstáculo estrutural é a máxima de 9 meses (1,3817).",
+                              "support": "1,3537 (máxima de 10 dias rompida), com a Fib 38,2% (1,3528) e o número redondo 1,3500 abaixo.",
+                              "resistance": "1,3817 (máxima de 9 meses), com a zona 1,3600-1,3639 (número redondo / Fib 23,6%) no caminho.",
+                              "priceAction": "O rompimento confirmado por fechamento hoje (1,3559 > 1,3537) retoma o avanço rumo à máxima de 9 meses (1,3817); a perda de 1,3490 devolve o rompimento e invalida a entrada.",
+                              "recommendation": "COMPRA (LONG) NO ROMPIMENTO",
+                              "trigger": "Rompimento Donchian-10 confirmado no fechamento de hoje (1,3559 > máxima de 10 dias 1,3537) — entrada na região de 1,3559.",
+                              "stop": "1,3490 (Abaixo do número redondo 1,3500 e do piso de 1,5σ20 de 59 pips; devolve o rompimento) · risco sugerido ≤ 1% por operação.",
+                              "target": "1,3800 (No número redondo, logo abaixo da máxima de 9 meses em 1,3817).",
+                              "rr": "1:3.49",
+                              "rrValue": 87,
+                              "justification": "O fechamento além da máxima de 10 dias resolve o regime misto para a alta — a estrutura de rompimento se sobrepõe ao alinhamento incompleto das médias. Entrada em 1,3559 com stop estrutural de 69 pips (≥ piso de 1,5σ20 de 59) abaixo do redondo 1,3500 e alvo a 241 pips na máxima de 9 meses entrega R/R de 1:3.49; a zona 1,3600-1,3639 no caminho é confluência de continuação, não bloqueio estrutural."
+                    },
+                    "en": {
+                              "fundamental": "GBP/USD trades at 1.3559 on the 17/08/2026 daily close (ECB reference), up +0.17% and closing beyond the 10-day high (1.3537) — a close-confirmed Donchian-10 breakout, which resolves the regime's mixed state (price above both SMAs but the 50-day at 1.3373 still below the 200-day at 1.3406) in the bullish direction. The BoE's hold at 3.75% on Jul 30 (6-3 split, inflation 2.6%) supports sterling, while US CPI at 3.4% and a divided Fed (DXY ~99.8) pressure the dollar. The pair remains inside the 1.3062 to 1.3817 advance. Indicators computed from the ECB/Frankfurter daily series (521 sessions, 01/08/2024 to 17/08/2026).",
+                              "trend": "Price above the 50-day (1.3373) and 200-day (1.3406) SMAs with the 50-day still below the 200-day — mixed regime resolved bullish by today's D10 breakout (1.3559 > 1.3537); the next structural obstacle is the 9-month high (1.3817).",
+                              "support": "1.3537 (broken 10-day high), with the 38.2% Fib (1.3528) and the 1.3500 round number beneath.",
+                              "resistance": "1.3817 (9-month high), with the 1.3600-1.3639 zone (round number / 23.6% Fib) en route.",
+                              "priceAction": "Today's close-confirmed breakout (1.3559 > 1.3537) resumes the advance toward the 9-month high (1.3817); losing 1.3490 hands back the breakout and invalidates the entry.",
                               "recommendation": "BUY (LONG) ON BREAKOUT",
-                              "trigger": "Daily close above 215.50 (above the 50-day SMA at 215.45 and the 23.6% Fib at 214.83), with follow-through.",
-                              "stop": "213.90 (Below the 23.6% Fib at 214.83).",
-                              "target": "219.00 (Just below the 219.14 swing high).",
-                              "rr": "1:2.19",
-                              "rrValue": 55,
-                              "justification": "The decisive reclaim of the 200-day SMA, with the intervention shock unwinding and carry resuming, flips the bias to bullish — technicals win over macro. A breakout of the 50-day SMA / 23.6% Fib confluence offers a long with a protected stop below the 23.6% Fib and 1:2.19 R/R toward the 219.14 swing high — clean path with no intermediate S/R blocking. Residual intervention volatility — size accordingly."
+                              "trigger": "Close-confirmed Donchian-10 breakout today (1.3559 > the 1.3537 10-day high) — entry in the 1.3559 area.",
+                              "stop": "1.3490 (Below the 1.3500 round number and the 1.5-sigma20 floor of 59 pips; hands back the breakout) · suggested risk ≤ 1% per trade.",
+                              "target": "1.3800 (On the round number, just below the 9-month high at 1.3817).",
+                              "rr": "1:3.49",
+                              "rrValue": 87,
+                              "justification": "The close beyond the 10-day high resolves the mixed regime bullish — breakout structure overrides the incomplete SMA alignment. An entry at 1.3559 with a 69-pip structural stop (>= the 59-pip 1.5-sigma20 floor) below the 1.3500 round and a 241-pip target at the 9-month high delivers 1:3.49 R/R; the 1.3600-1.3639 zone en route is continuation confluence, not a structural block."
+                    }
+          },
+          "EUR/JPY": {
+                    "quote": "184.60",
+                    "bias": "ALTA",
+                    "biasType": "bull",
+                    "pt": {
+                              "fundamental": "O EUR/JPY opera em 184,60 no fechamento diário de 17/08/2026 (referência BCE), subindo +0,36% com o choque de intervenção do início de agosto a desfazer-se e o carry BCE (2,25%)-BoJ (1,0%) retomando. O par fechou além da máxima de 10 pregões (183,93) — rompimento Donchian-10 — e reconquistou a SMA200 (183,78), mas segue sob a SMA50 (184,75). A janela de 30 dias de risco de intervenção segue ativa, mantendo o piso de stop em 2,5σ20 (≈272 pips). Indicadores calculados da série diária BCE/Frankfurter (521 pregões, 01/08/2024 a 17/08/2026). O rompimento é válido em direção — o risco-retorno não fecha.",
+                              "trend": "Acima da SMA200 (183,78) e sob a SMA50 (184,75) — alinhamento de alta (SMA50 > SMA200); o rompimento D10 de hoje (184,60 > 183,93) mira a máxima de 20 dias (186,99) e a de 9 meses (187,73).",
+                              "support": "183,78 (SMA200) / 183,02 (Fib 50%), com a Fib 61,8% (181,91) abaixo.",
+                              "resistance": "187,73 (máxima de 9 meses), com a máxima de 20 dias (186,99) e a SMA50 (184,75) no caminho.",
+                              "priceAction": "Sem entrada: com o piso de intervenção de 2,5σ20 (≈272 pips), o stop estrutural cai abaixo de 182,00 e o alvo mais distante (187,73) entrega apenas ~1:1 — o gate de 1:2 falha. Aguardar a janela expirar (~03/09) ou retração à zona 182,36-183,02 para comprimir o risco.",
+                              "recommendation": "AGUARDAR OUTRO GATILHO",
+                              "trigger": "Nenhum — o piso de intervenção (2,5σ20 ≈ 272 pips) versus o teto da máxima de 9 meses (187,73) degrada o R/R a ~1:1. Reavaliar após ~03/09 ou em retração à zona 182,36-183,02 (Fib 50% / 61,8%).",
+                              "stop": "N/A (sem operação).",
+                              "target": "N/A (sem operação).",
+                              "rr": "N/A",
+                              "rrValue": 0,
+                              "justification": "O rompimento D10 com reconquista da SMA200 valida a direção de alta, mas a regra de intervenção (stop ≥ 2,5σ20 ≈ 272 pips) empurra o stop para baixo de 182,00 enquanto a máxima de 9 meses (187,73) limita o ganho a ~310 pips — R/R ~1:1. Sem operação até a janela envelhecer ou o preço recuar para comprimir o risco."
+                    },
+                    "en": {
+                              "fundamental": "EUR/JPY trades at 184.60 on the 17/08/2026 daily close (ECB reference), up +0.36% as the early-August intervention shock unwinds and the ECB (2.25%)-BoJ (1.00%) carry resumes. The pair closed beyond the 10-day high (183.93) — a Donchian-10 breakout — and reclaimed the 200-day SMA (183.78), but remains below the 50-day (184.75). The 30-day intervention-risk window is still active, keeping the stop floor at 2.5-sigma20 (~=272 pips). Indicators computed from the ECB/Frankfurter daily series (521 sessions, 01/08/2024 to 17/08/2026). The breakout is valid in direction — the risk-reward doesn't close.",
+                              "trend": "Above the 200-day SMA (183.78) and below the 50-day (184.75) — bull alignment (SMA50 > SMA200); today's D10 breakout (184.60 > 183.93) targets the 20-day high (186.99) and the 9-month high (187.73).",
+                              "support": "183.78 (200-day SMA) / 183.02 (50% Fib), with the 61.8% Fib (181.91) beneath.",
+                              "resistance": "187.73 (9-month high), with the 20-day high (186.99) and the 50-day SMA (184.75) in the path.",
+                              "priceAction": "No entry: with the 2.5-sigma20 intervention floor (~=272 pips), the structural stop drops below 182.00 and the farthest target (187.73) delivers only ~1:1 — the 1:2 gate fails. Wait for the window to expire (~Sep 3) or a pullback to the 182.36-183.02 zone to compress risk.",
+                              "recommendation": "WAIT FOR ANOTHER TRIGGER",
+                              "trigger": "None — the intervention floor (2.5-sigma20 ~= 272 pips) versus the 9-month high cap (187.73) degrades R/R to ~1:1. Reassess after ~Sep 3 or on a pullback to the 182.36-183.02 zone (50% / 61.8% Fibs).",
+                              "stop": "N/A (no trade).",
+                              "target": "N/A (no trade).",
+                              "rr": "N/A",
+                              "rrValue": 0,
+                              "justification": "The D10 breakout with the 200-day reclaim validates the bull direction, but the intervention rule (stop >= 2.5-sigma20 ~= 272 pips) pushes the stop below 182.00 while the 9-month high (187.73) caps the gain at ~310 pips — R/R ~1:1. No trade until the window ages out or price pulls back to compress risk."
+                    }
+          },
+          "GBP/JPY": {
+                    "quote": "215.90",
+                    "bias": "ALTA",
+                    "biasType": "bull",
+                    "pt": {
+                              "fundamental": "O GBP/JPY opera em 215,90 no fechamento diário de 17/08/2026 (referência BCE), subindo +0,31% — o rompimento antecipado pelo relatório de 14/08 foi acionado: fechamento diário acima da SMA50 (215,49) e da máxima de 10 pregões (215,24), o maior fechamento desde a máxima de 9 meses. O diferencial de carry BoE (3,75%)-BoJ (1,0%) segue amplo e o choque de intervenção se desfaz — mas a janela de 30 dias mantém o piso de stop em 2,5σ20 (≈315 pips), e a máxima de 9 meses (219,14) está a apenas ~1,5%. Indicadores calculados da série diária BCE/Frankfurter (521 pregões, 01/08/2024 a 17/08/2026).",
+                              "trend": "Acima das SMA50 (215,49) e SMA200 (211,96) — alinhamento de alta; o rompimento D10 de hoje (215,90 > 215,24) confirma o momentum, com a máxima de 20 dias (218,27) e a de 9 meses (219,14) acima.",
+                              "support": "215,24 (Fib 23,6%), com o número redondo 213,00 e a Fib 38,2% (212,82) abaixo.",
+                              "resistance": "219,14 (máxima de 9 meses), com a máxima de 20 dias (218,27) no caminho.",
+                              "priceAction": "Sem entrada nova: o rompimento de hoje esgota o ar até a máxima de 9 meses — com stop estrutural abaixo de 212,82 (Fib 38,2%) o R/R é ~1:0,9, e mesmo com stop de 1,5σ20 (213,90) cai a ~1:1,5; o piso de intervenção 2,5σ20 torna qualquer configuração pior. Gatilhos futuros: fechamento decisivo acima de 219,14 (ar limpo) ou retração à zona 213,00-214,00 com σ20 comprimida.",
+                              "recommendation": "AGUARDAR OUTRO GATILHO",
+                              "trigger": "Nenhum — o rompimento de hoje (215,90) já consumiu o alvo estrutural: a máxima de 9 meses (219,14) trava o R/R em ~0,9-1,5 com qualquer stop válido. Aguardar fechamento decisivo acima de 219,14 ou retração à zona 213,00-214,00.",
+                              "stop": "N/A (sem operação).",
+                              "target": "N/A (sem operação).",
+                              "rr": "N/A",
+                              "rrValue": 0,
+                              "justification": "O rompimento confirmado (215,90 > 215,50) valida o cenário de alta do relatório anterior — quem seguiu o ticket de 14/08 está posicionado — mas uma entrada nova não passa no gate: o teto de 219,14 e o piso de intervenção de 2,5σ20 (≈315 pips) degradam qualquer R/R a ~1:1. Sem nova operação até novo ground ou retração compressiva."
+                    },
+                    "en": {
+                              "fundamental": "GBP/JPY trades at 215.90 on the 17/08/2026 daily close (ECB reference), up +0.31% — the breakout anticipated by the Aug 14 report fired: a daily close above the 50-day SMA (215.49) and the 10-day high (215.24), the highest close since the 9-month high. The BoE (3.75%)-BoJ (1.00%) carry gap remains wide and the intervention shock keeps unwinding — but the 30-day window holds the stop floor at 2.5-sigma20 (~=315 pips), and the 9-month high (219.14) is only ~1.5% away. Indicators computed from the ECB/Frankfurter daily series (521 sessions, 01/08/2024 to 17/08/2026).",
+                              "trend": "Above the 50-day (215.49) and 200-day (211.96) SMAs — bull alignment; today's D10 breakout (215.90 > 215.24) confirms momentum, with the 20-day high (218.27) and the 9-month high (219.14) above.",
+                              "support": "215.24 (23.6% Fib), with the 213.00 round number and the 38.2% Fib (212.82) beneath.",
+                              "resistance": "219.14 (9-month high), with the 20-day high (218.27) in the path.",
+                              "priceAction": "No new entry: today's breakout exhausts the air to the 9-month high — with a structural stop below 212.82 (38.2% Fib) R/R is ~1:0.9, and even a 1.5-sigma20 stop (213.90) drops it to ~1:1.5; the 2.5-sigma20 intervention floor makes any configuration worse. Future triggers: a decisive close above 219.14 (clean air) or a pullback to the 213.00-214.00 zone with compressed sigma20.",
+                              "recommendation": "WAIT FOR ANOTHER TRIGGER",
+                              "trigger": "None — today's breakout (215.90) already consumed the structural target: the 9-month high (219.14) caps R/R at ~0.9-1.5 with any valid stop. Wait for a decisive close above 219.14 or a pullback to the 213.00-214.00 zone.",
+                              "stop": "N/A (no trade).",
+                              "target": "N/A (no trade).",
+                              "rr": "N/A",
+                              "rrValue": 0,
+                              "justification": "The confirmed breakout (215.90 > 215.50) validates the prior report's bull case — anyone on the Aug 14 ticket is positioned — but a fresh entry fails the gate: the 219.14 cap and the 2.5-sigma20 intervention floor (~=315 pips) degrade every R/R to ~1:1. No new trade until fresh ground or a compressive pullback."
                     }
           }
 };
@@ -761,12 +763,12 @@
            (build_forexdata.py) never overwrites them. Author-maintained.
            ========================================== */
         const dailyChanges = {
-            "EUR/USD": "+0.29%",
-            "USD/JPY": "-0.20%",
-            "AUD/USD": "+0.43%",
-            "GBP/USD": "+0.33%",
-            "EUR/JPY": "+0.08%",
-            "GBP/JPY": "+0.13%"
+            "EUR/USD": "+0.22%",
+            "USD/JPY": "+0.14%",
+            "AUD/USD": "+0.61%",
+            "GBP/USD": "+0.17%",
+            "EUR/JPY": "+0.36%",
+            "GBP/JPY": "+0.31%"
         };
 
         const macroDrivers = {

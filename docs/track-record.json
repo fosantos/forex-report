@@ -1,0 +1,61 @@
+{
+  "meta": {
+    "version": 1,
+    "created": "17/08/2026",
+    "lastUpdated": "17/08/2026",
+    "pairs": ["EUR/USD", "USD/JPY", "AUD/USD", "GBP/USD", "EUR/JPY", "GBP/JPY"],
+    "conventions": {
+      "data": "ECB/Frankfurter daily closes (close-only, no OHLC). All triggers and resolutions are CLOSE-based.",
+      "watching": "A directional setup published in a report whose trigger has not yet fired. Watches only closes strictly after the report session.",
+      "open": "Trigger fired: entry = the first qualifying daily close, entryDate = that session. Open tickets are never modified by later reports.",
+      "resolution": {
+        "target": "A daily close at/beyond the target level closes the ticket with outcome 'target'.",
+        "stop": "A daily close at/beyond the stop level closes the ticket with outcome 'stop' (realized R = -1).",
+        "expired": "10 sessions after entry with neither level close-crossed closes the ticket with outcome 'expired'; realized R is computed from the 10th-session close."
+      },
+      "realizedR": "long: (exit - entry) / (entry - stop); short: (entry - exit) / (stop - entry). Exit = the closing session's close.",
+      "oneTicketPerPair": "A new report replaces the pair's existing 'watching' ticket (never an 'open' one).",
+      "legacyNote": "Tickets seeded from the 14/08/2026 report predate the mechanical-trigger rule (17/08/2026); their triggerRule fields record the close-based proxy used for them."
+    }
+  },
+  "watching": [
+    {
+      "pair": "EUR/USD",
+      "reportDate": "17/08/2026",
+      "direction": "short",
+      "setup": "pullback",
+      "entryZone": "1.1625-1.1657",
+      "stop": 1.1710,
+      "target": 1.1450,
+      "plannedR": 2.77,
+      "triggerRule": "arm: daily close >= 1.1625 (200-day SMA zone); entry: subsequent daily close < previous close within the zone"
+    }
+  ],
+  "open": [
+    {
+      "pair": "GBP/JPY",
+      "reportDate": "14/08/2026",
+      "direction": "long",
+      "setup": "breakout",
+      "entry": 215.90,
+      "entryDate": "17/08/2026",
+      "stop": 213.90,
+      "target": 219.00,
+      "plannedR": 2.19,
+      "note": "legacy 14/08 ticket: trigger (close > 215.50) fired on the 17/08 close"
+    },
+    {
+      "pair": "GBP/USD",
+      "reportDate": "17/08/2026",
+      "direction": "long",
+      "setup": "breakout",
+      "entry": 1.3559,
+      "entryDate": "17/08/2026",
+      "stop": 1.3490,
+      "target": 1.3800,
+      "plannedR": 3.49,
+      "note": "D10 breakout fired on the report session itself (close 1.3559 > 1.3537)"
+    }
+  ],
+  "closed": []
+}
