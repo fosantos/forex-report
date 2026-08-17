@@ -8,11 +8,11 @@ PAGE = {
     "EUR/USD": "eur-usd.html", "USD/JPY": "usd-jpy.html", "AUD/USD": "aud-usd.html",
     "GBP/USD": "gbp-usd.html", "EUR/JPY": "eur-jpy.html", "GBP/JPY": "gbp-jpy.html",
 }
-TODAY_TS = "14/08/2026 20:19 UTC"
-TODAY_DATE = "14/08/2026"
-STALE_DATES = ["13/08/2026", "11/08/2026", "03/08/2026", "02/08/2026", "31/07/2026"]
-TICKER = [("EUR/USD","+0.29%"),("USD/JPY","-0.20%"),("AUD/USD","+0.43%"),
-          ("GBP/USD","+0.33%"),("EUR/JPY","+0.08%"),("GBP/JPY","+0.13%")]
+TODAY_TS = "17/08/2026 21:10 UTC"
+TODAY_DATE = "17/08/2026"
+STALE_DATES = ["14/08/2026", "13/08/2026", "11/08/2026", "03/08/2026", "02/08/2026", "31/07/2026"]
+TICKER = [("EUR/USD","+0.22%"),("USD/JPY","+0.14%"),("AUD/USD","+0.61%"),
+          ("GBP/USD","+0.17%"),("EUR/JPY","+0.36%"),("GBP/JPY","+0.31%")]
 errors = []
 
 with open(INDEX, encoding="utf-8") as f:
@@ -69,6 +69,18 @@ for pair, d in data.items():
     expected_bias = {"bull":"ALTA","bear":"BAIXA","neutral":"NEUTRO"}[d["biasType"]]
     if d["bias"] != expected_bias:
         errors.append(f"{pair}: bias {d['bias']} != {expected_bias} for biasType {d['biasType']}")
+    # risk-suffix rule: every directional stop carries the fixed sizing note
+    if "WAIT" not in d["en"]["recommendation"]:
+        if not d["en"]["stop"].endswith("· suggested risk ≤ 1% per trade."):
+            errors.append(f"{pair}: EN stop missing '· suggested risk ≤ 1% per trade.' suffix")
+        if not d["pt"]["stop"].endswith("· risco sugerido ≤ 1% por operação."):
+            errors.append(f"{pair}: PT stop missing '· risco sugerido ≤ 1% por operação.' suffix")
+
+# recommendation i18n helper keys must include the short-breakout pair
+if '"VENDA (SHORT) NO ROMPIMENTO": "SELL (SHORT) ON BREAKOUT"' not in idx:
+    errors.append("index.html: EN i18n dict missing VENDA (SHORT) NO ROMPIMENTO key")
+if '"VENDA (SHORT) NO ROMPIMENTO": "VENDA (SHORT) NO ROMPIMENTO"' not in idx:
+    errors.append("index.html: PT i18n dict missing VENDA (SHORT) NO ROMPIMENTO key")
 
 print("== index.html checks done ==")
 
@@ -88,7 +100,7 @@ for pair, fname in PAGE.items():
         errors.append(f"{fname}: educational section missing")
     if TODAY_DATE not in html:
         errors.append(f"{fname}: today date {TODAY_DATE} missing")
-    for stale in ["13/08/2026", "11/08/2026", "03/08/2026", "02/08/2026"]:
+    for stale in ["14/08/2026", "13/08/2026", "11/08/2026", "03/08/2026", "02/08/2026"]:
         if stale in html:
             errors.append(f"{fname}: stale session date {stale}")
     if f"<strong>{d['quote']}</strong>" not in html:
@@ -134,6 +146,39 @@ for pair, fname in PAGE.items():
     print(f"  {fname}: OK (bias={d['biasType']} verdict={vc} gauge={g if (sup and res and res!=sup) else 'N/A'}% rrBar={d['en']['rrValue']}%)")
 
 print("\n== static page checks done ==")
+
+# ---- 3. track-record ledger checks ----
+LEDGER = DOCS + "\\track-record.json"
+try:
+    with open(LEDGER, encoding="utf-8") as f:
+        ledger = json.load(f)
+    for key in ("meta", "watching", "open", "closed"):
+        if key not in ledger:
+            errors.append(f"track-record.json: missing '{key}' section")
+    seen_pairs = []
+    for t in ledger.get("watching", []):
+        for fld in ("pair", "reportDate", "direction", "stop", "target", "plannedR", "triggerRule"):
+            if fld not in t:
+                errors.append(f"track-record.json watching: missing '{fld}' in {t.get('pair', '?')}")
+        if t.get("pair") not in PAGE:
+            errors.append(f"track-record.json: unknown pair {t.get('pair')}")
+        elif t["pair"] in seen_pairs:
+            errors.append(f"track-record.json: more than one watching ticket for {t['pair']}")
+        seen_pairs.append(t.get("pair"))
+    for t in ledger.get("open", []):
+        for fld in ("pair", "reportDate", "direction", "entry", "entryDate", "stop", "target", "plannedR"):
+            if fld not in t:
+                errors.append(f"track-record.json open: missing '{fld}' in {t.get('pair', '?')}")
+    for t in ledger.get("closed", []):
+        for fld in ("pair", "direction", "entry", "entryDate", "exit", "exitDate", "outcome", "realizedR"):
+            if fld not in t:
+                errors.append(f"track-record.json closed: missing '{fld}' in {t.get('pair', '?')}")
+    print("== track-record ledger checks done ==")
+except FileNotFoundError:
+    errors.append("track-record.json not found")
+except json.JSONDecodeError as ex:
+    errors.append(f"track-record.json: invalid JSON: {ex}")
+
 if errors:
     print(f"\nFAILED with {len(errors)} error(s):")
     for er in errors:

@@ -1,9 +1,11 @@
-import urllib.request, json, sys
-from datetime import datetime
+import urllib.request, json, sys, statistics
+from datetime import date
 
-# Fetch daily series from 2024-08-01 through today
+# Fetch daily series from 2024-08-01 through today (dynamic end date)
+START = '2024-08-01'
+END = date.today().isoformat()
 req = urllib.request.Request(
-    'https://api.frankfurter.app/2024-08-01..2026-08-11?from=USD&to=EUR,JPY,GBP,AUD',
+    f'https://api.frankfurter.app/{START}..{END}?from=USD&to=EUR,JPY,GBP,AUD',
     headers={'User-Agent': 'Mozilla/5.0 (forex-report)'}
 )
 resp = urllib.request.urlopen(req, timeout=60)
@@ -34,6 +36,14 @@ def sma(closes, n):
         return None
     return sum(closes[-n:]) / n
 
+def sigma20(closes):
+    """Std-dev of the last 20 daily % changes -> (pct, price distance)."""
+    if len(closes) < 21:
+        return None, None
+    rets = [(closes[i] / closes[i-1] - 1.0) * 100 for i in range(len(closes)-20, len(closes))]
+    sd_pct = statistics.stdev(rets)
+    return sd_pct, sd_pct / 100.0 * closes[-1]
+
 def fib_levels(swing_high, swing_low):
     diff = swing_high - swing_low
     return {
@@ -55,6 +65,15 @@ for pair, closes in series.items():
     sma50 = sma(closes, 50)
     sma200 = sma(closes, 200)
 
+    # Volatility: sigma20 (close-to-close), also in pips
+    sd_pct, sd_dist = sigma20(closes)
+    pip = 0.01 if '/JPY' in pair else 0.0001
+    sd_pips = sd_dist / pip
+
+    # Donchian channels on closes (forward trigger reference: includes the last close)
+    don10_hi, don10_lo = max(closes[-10:]), min(closes[-10:])
+    don20_hi, don20_lo = max(closes[-20:]), min(closes[-20:])
+
     # 9-month swing: ~ last 195 trading days.
     window = closes[-195:]
     swing_high_idx = window.index(max(window))
@@ -65,10 +84,13 @@ for pair, closes in series.items():
 
     fibs = fib_levels(swing_high, swing_low)
 
-    if last > sma200:
-        bias = 'BULLISH (above 200-SMA)'
+    # Bias by SMA alignment (rule 2 of the forex-report agent)
+    if last > sma200 and sma50 > sma200:
+        alignment = 'BULL-ALIGNED'
+    elif last < sma200 and sma50 < sma200:
+        alignment = 'BEAR-ALIGNED'
     else:
-        bias = 'BEARISH (below 200-SMA)'
+        alignment = 'MIXED (default WAIT unless a confirmed breakout resolves it)'
 
     print(f'\n--- {pair} ---')
     print(f'  Last close ({dates[-1]}): {last:.5f}')
@@ -78,16 +100,21 @@ for pair, closes in series.items():
     print(f'  SMA200: {sma200:.5f}')
     print(f'  Price vs SMA50: {"above" if last>sma50 else "below"}')
     print(f'  Price vs SMA200: {"above" if last>sma200 else "below"}')
-    print(f'  Bias: {bias}')
+    print(f'  Bias (alignment): {alignment}')
+    print(f'  sigma20: {sd_pct:.3f}% = {sd_dist:.5f} = {sd_pips:.0f} pips  -> stop floor 1.5s = {1.5*sd_pips:.0f} pips, 2.5s = {2.5*sd_pips:.0f} pips')
+    print(f'  Donchian 10d hi/lo (breakout trigger): {don10_hi:.5f} / {don10_lo:.5f}')
+    print(f'  Donchian 20d hi/lo (anchor): {don20_hi:.5f} / {don20_lo:.5f}')
     print(f'  9-mo window swing high: {swing_high:.5f} (idx {swing_high_idx} of {len(window)})')
     print(f'  9-mo window swing low:  {swing_low:.5f} (idx {swing_low_idx} of {len(window)})')
     print(f'  High-first (downtrend leg): {high_first}')
-    print(f'  Fibonacci (from {swing_low:.5f} to {swing_high:.5f}):')
+    print(f'  Fibonacci (from {swing_low:.5f} to {swing_high:.5f}) — confluence only:')
     for k, v in fibs.items():
         print(f'    {k}: {v:.5f}')
     results[pair] = dict(last=last, prev=prev, daily_pct=daily_pct, sma50=sma50, sma200=sma200,
-                         swing_high=swing_high, swing_low=swing_low, fibs=fibs, bias=bias,
-                         swing_high_idx=swing_high_idx, swing_low_idx=swing_low_idx)
+                         sigma20_pct=sd_pct, sigma20_dist=sd_dist, sigma20_pips=sd_pips,
+                         don10_hi=don10_hi, don10_lo=don10_lo, don20_hi=don20_hi, don20_lo=don20_lo,
+                         swing_high=swing_high, swing_low=swing_low, fibs=fibs,
+                         alignment=alignment, swing_high_idx=swing_high_idx, swing_low_idx=swing_low_idx)
 
 # Print last 10 closes per pair
 print('\n' + '='*70)
@@ -100,5 +127,5 @@ for pair, closes in series.items():
 # Emit machine-readable JSON for downstream
 print('\n' + '='*70)
 print('RESULTS_JSON_START')
-print(json.dumps({'dates': dates, 'n_sessions': len(dates), 'results': {k: {kk: (vv if not isinstance(vv, dict) else {kkk: vvv for kkk, vvv in vv.items()}) for kk, vv in v.items() if kk != 'fibs'} | {'fibs': {kk: vv for kk, vv in v['fibs'].items()}} for k, v in results.items()}}, default=str))
+print(json.dumps({'dates': dates, 'n_sessions': len(dates), 'results': results}, default=str))
 print('RESULTS_JSON_END')
