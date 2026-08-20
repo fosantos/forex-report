@@ -193,11 +193,7 @@
                         <div class="section-content" id="reportPriceAction" style="font-size: 0.9rem;">The pair displays a minor intraday pullback. Daily RSI stands near 36, validating the strong seller momentum while allowing room for a short-term correction before the downtrend resumes.</div>
                     </div>
 
-                    <!-- TRADE LEVEL MAP — schematic of price vs entry/stop/target/S-R (JS-built SVG) -->
-                    <div class="level-map" id="reportLevelMap"></div>
-                </section>
-
-                <!-- Section 3: Strategic Verdict & Setup -->
+                    <!-- Section 3: Strategic Verdict & Setup -->
                 <section class="report-section">
                     <h3 class="section-title" id="secTitleVerdict">3. Strategic Verdict & Trade Setup</h3>
                     
@@ -391,8 +387,6 @@
                 nextTag: "Next focus",
                 nextEvent: "US CPI & Fed speakers",
                 dataBasis: "Data basis: ECB/Frankfurter reference rates · SMA50/200, sigma20 & Donchian computed · 524 daily sessions (01/08/2024–20/08/2026).",
-                levelMapHead: "Trade level map",
-                lmEntry: "Entry", lmStop: "Stop", lmTarget: "Target", lmSupport: "Support", lmResistance: "Resist", lmPrice: "Price",
 
                 // Details Labels
                 biasLabel: "Market Bias",
@@ -494,8 +488,6 @@
                 nextTag: "Próximo foco",
                 nextEvent: "CPI dos EUA & discursos do Fed",
                 dataBasis: "Base de dados: taxas de referência BCE/Frankfurter · SMA50/200, sigma20 e Donchian calculados · 524 pregões (01/08/2024 a 20/08/2026).",
-                levelMapHead: "Mapa de níveis da operação",
-                lmEntry: "Entrada", lmStop: "Stop", lmTarget: "Alvo", lmSupport: "Suporte", lmResistance: "Resist.", lmPrice: "Preço",
 
                 // Details Labels
                 biasLabel: "Viés de Mercado",
@@ -950,7 +942,7 @@
         }
 
         /* ==========================================
-           B2. Intelligence helpers — parse levels, conviction, BLUF, level-map SVG
+           B2. Intelligence helpers — parse levels, conviction, BLUF
            ========================================== */
         // Extract the leading price from a localized string (tolerates PT comma decimals)
         function parseLevel(str) {
@@ -1032,47 +1024,6 @@
                 <div class="data-basis"><span class="db-tag">${basisTag}:</span> ${dict.dataBasis}</div>`;
         }
 
-        // Build the trade level-map SVG (HTML string) from parsed levels
-        function buildLevelMapSVG(data, dict) {
-            const price  = parseLevel(data.quote);
-            const entry  = parseLevel(data.en.trigger);
-            const stop   = parseLevel(data.en.stop);
-            const target = parseLevel(data.en.target);
-            const sup    = parseLevel(data.en.support);
-            const res    = parseLevel(data.en.resistance);
-            const ticks = [
-                { cls: 'lm-entry',  val: entry,  label: dict.lmEntry },
-                { cls: 'lm-stop',   val: stop,   label: dict.lmStop },
-                { cls: 'lm-target', val: target, label: dict.lmTarget },
-                { cls: 'lm-sup',    val: sup,    label: dict.lmSupport },
-                { cls: 'lm-res',    val: res,    label: dict.lmResistance }
-            ].filter(t => t.val !== null);
-            if (price === null || ticks.length < 2) return '';
-            const vals = ticks.map(t => t.val).concat([price]);
-            let lo = Math.min.apply(null, vals), hi = Math.max.apply(null, vals);
-            if (hi === lo) hi = lo + 1;
-            const pad = (hi - lo) * 0.06;
-            lo -= pad; hi += pad;
-            const W = 320, M = 16, AX = 50;
-            const xp = p => M + (p - lo) / (hi - lo) * (W - 2 * M);
-            const sorted = ticks.slice().sort((a, b) => a.val - b.val);
-            let svg = `<svg viewBox="0 0 ${W} 96" role="img" aria-label="${dict.levelMapHead}" text-rendering="geometricPrecision">`;
-            svg += `<line class="lm-axis" x1="${M}" y1="${AX}" x2="${W - M}" y2="${AX}"/>`;
-            sorted.forEach((t, i) => {
-                const x = Math.round(xp(t.val));
-                const s = (i % 2 === 0) ? -1 : 1; // alternate above/below to avoid label collisions
-                svg += `<line class="lm-tick ${t.cls}" x1="${x}" y1="${AX}" x2="${x}" y2="${AX + s * 26}"/>`;
-                svg += `<text class="lm-label ${t.cls}" x="${x}" y="${AX + s * 33}" text-anchor="middle">${t.label}</text>`;
-                svg += `<text class="lm-val" x="${x}" y="${AX + s * 41}" text-anchor="middle">${fmtPrice(t.val)}</text>`;
-            });
-            const px = Math.round(xp(price));
-            svg += `<line class="lm-now-line" x1="${px}" y1="10" x2="${px}" y2="86"/>`;
-            svg += `<polygon class="lm-now-mark" points="${px},15 ${(px - 3.5)},8 ${(px + 3.5)},8"/>`;
-            svg += `<text class="lm-label lm-now-mark" x="${px}" y="6" text-anchor="middle">${dict.lmPrice} ${fmtPrice(price)}</text>`;
-            svg += `</svg>`;
-            return svg;
-        }
-
         // Render chosen forex pair report
         function renderForexReport() {
             const pairSelect = document.getElementById('pairSelect');
@@ -1136,21 +1087,6 @@
             const briefEl = document.getElementById('reportBrief');
             if (briefEl) briefEl.innerHTML = buildBrief(selectedPair, data, dict);
 
-            // Trade level map schematic (#3)
-            const lmEl = document.getElementById('reportLevelMap');
-            if (lmEl) {
-                const svg = buildLevelMapSVG(data, dict);
-                lmEl.innerHTML = svg
-                    ? `<div class="lm-head">${dict.levelMapHead}</div>${svg}
-                       <div class="lm-legend">
-                          <span><i class="lg-entry"></i>${dict.lmEntry}</span>
-                          <span><i class="lg-stop"></i>${dict.lmStop}</span>
-                          <span><i class="lg-target"></i>${dict.lmTarget}</span>
-                          <span><i class="lg-now"></i>${dict.lmPrice}</span>
-                       </div>`
-                    : '';
-            }
-            
             // 3. Render strategic setup (trade ticket)
             const recTranslated = dict[details.recommendation] || details.recommendation;
 
