@@ -2,7 +2,7 @@
   "meta": {
     "version": 1,
     "created": "17/08/2026",
-    "lastUpdated": "24/08/2026",
+    "lastUpdated": "28/08/2026",
     "pairs": [
       "EUR/USD",
       "USD/JPY",
@@ -37,7 +37,7 @@
       "stop": 213.9,
       "target": 219.0,
       "plannedR": 2.19,
-      "note": "legacy 14/08 ticket: 24/08 close 216.95 (+105 pips), fresh D10 close; target 219.00 ~0.95% away"
+      "note": "legacy 14/08 ticket: 28/08 close 216.89 (+99 pips); 9/10 sessions elapsed — expiry check on 31/08 unless a level close-crosses"
     },
     {
       "pair": "GBP/USD",
@@ -49,7 +49,7 @@
       "stop": 1.349,
       "target": 1.38,
       "plannedR": 3.49,
-      "note": "24/08 close 1.3634 (+75 pips); consolidating on the 23.6% Fib; target 1.3800 ~1.2% away",
+      "note": "28/08 close 1.3583 (+24 pips); pullback deepened under the 23.6% Fib; 9/10 sessions — expiry check on 31/08",
       "executed": {
         "venue": "eToro virtual (demo)",
         "fill": 1.35258,
