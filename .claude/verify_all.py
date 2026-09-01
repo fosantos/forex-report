@@ -8,11 +8,11 @@ PAGE = {
     "EUR/USD": "eur-usd.html", "USD/JPY": "usd-jpy.html", "AUD/USD": "aud-usd.html",
     "GBP/USD": "gbp-usd.html", "EUR/JPY": "eur-jpy.html", "GBP/JPY": "gbp-jpy.html",
 }
-TODAY_TS = "01/09/2026 18:04 UTC"
-TODAY_DATE = "01/09/2026"
+TODAY_TS = "02/09/2026 00:20 UTC"
+TODAY_DATE = "01/09/2026"  # basis session date (report edition: 02/09/2026)
 STALE_DATES = ["28/08/2026", "24/08/2026", "20/08/2026", "19/08/2026", "18/08/2026", "17/08/2026", "14/08/2026", "13/08/2026", "11/08/2026", "03/08/2026", "02/08/2026"]
-TICKER = [("EUR/USD","-0.05%"),("USD/JPY","+0.27%"),("AUD/USD","-0.29%"),
-          ("GBP/USD","-0.06%"),("EUR/JPY","+0.22%"),("GBP/JPY","+0.21%")]
+TICKER = [("EUR/USD","-0.21%"),("USD/JPY","+0.28%"),("AUD/USD","-0.30%"),
+          ("GBP/USD","-0.25%"),("EUR/JPY","+0.06%"),("GBP/JPY","+0.03%")]
 errors = []
 
 with open(INDEX, encoding="utf-8") as f:
@@ -170,7 +170,10 @@ try:
             if fld not in t:
                 errors.append(f"track-record.json open: missing '{fld}' in {t.get('pair', '?')}")
     for t in ledger.get("closed", []):
-        for fld in ("pair", "direction", "entry", "entryDate", "exit", "exitDate", "outcome", "realizedR"):
+        flds = ("pair", "direction", "entry", "exitDate", "outcome")
+        if t.get("outcome") != "revoked":
+            flds = flds + ("entryDate", "exit", "realizedR")
+        for fld in flds:
             if fld not in t:
                 errors.append(f"track-record.json closed: missing '{fld}' in {t.get('pair', '?')}")
     print("== track-record ledger checks done ==")

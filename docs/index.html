@@ -83,7 +83,7 @@
                 <span class="cd-kicker" id="cdKicker">Forex Report · Desk Note</span>
                 <h1 class="cd-title" id="heroTitle">Forex Report</h1>
                 <div class="cd-dateline">
-                    <p id="generationTime" class="cd-date">Reports generated on: 01/09/2026 18:04 UTC</p>
+                    <p id="generationTime" class="cd-date">Reports generated on: 02/09/2026 00:20 UTC</p>
                     <span class="cd-sep" aria-hidden="true">·</span>
                     <span id="cdSubtitle">Daily analysis of the best pairs to trade</span>
                     <span class="cd-sep" aria-hidden="true">·</span>
@@ -350,7 +350,7 @@
             en: {
                 title: "Forex Report",
                 subtitle: "Daily analysis of the best pairs to trade",
-                generatedAt: "Reports generated on: 01/09/2026 18:04 UTC",
+                generatedAt: "Reports generated on: 02/09/2026 00:20 UTC",
                 cdKicker: "Forex Report · Desk Note",
                 pulseSetups: "Actionable setups",
                 pulseWait: "On hold",
@@ -385,8 +385,8 @@
                 convMod: "Moderate",
                 macroHead: "Macro drivers",
                 nextTag: "Next focus",
-                nextEvent: "US CPI & Fed speakers",
-                dataBasis: "Data basis: ECB/Frankfurter reference rates · SMA50/200, sigma20 & Donchian computed · 511 daily sessions (01/09/2024–01/09/2026).",
+                nextEvent: "US NFP — Friday, Sep 4",
+                dataBasis: "Data basis: Data basis: MetaTrader 5 D1 closes · SMA50/200, sigma20 & Donchian computed · 541 daily sessions (01/08/2024–01/09/2026).",
 
                 // Details Labels
                 biasLabel: "Market Bias",
@@ -451,7 +451,7 @@
             pt: {
                 title: "Relatório Forex",
                 subtitle: "Relatório dos melhores pares para operar",
-                generatedAt: "Relatórios gerados em: 01/09/2026 18:04 UTC",
+                generatedAt: "Relatórios gerados em: 02/09/2026 00:20 UTC",
                 cdKicker: "Relatório Forex · Nota da Mesa",
                 pulseSetups: "Operações acionáveis",
                 pulseWait: "Em espera",
@@ -486,8 +486,8 @@
                 convMod: "Moderada",
                 macroHead: "Drivers macro",
                 nextTag: "Próximo foco",
-                nextEvent: "CPI dos EUA & discursos do Fed",
-                dataBasis: "Base de dados: taxas de referência BCE/Frankfurter · SMA50/200, sigma20 e Donchian calculados · 511 pregões (01/09/2024 a 01/09/2026).",
+                nextEvent: "NFP dos EUA — sexta, 04/09",
+                dataBasis: "Base de dados: Base de dados: fechamentos diários D1 do MetaTrader 5 · SMA50/200, σ20 e Donchian calculados · 541 pregões (01/08/2024 a 01/09/2026).",
 
                 // Details Labels
                 biasLabel: "Viés de Mercado",
@@ -549,204 +549,204 @@
         };
 
         const forexData = {
-          "EUR/USD": {
-                    "quote": "1.1590",
-                    "bias": "BAIXA",
-                    "biasType": "bear",
-                    "pt": {
-                              "fundamental": "O EUR/USD opera em 1,1590 no fechamento diário de 01/09/2026 (referência BCE), estável (-0,05%) — mas o regime virou: na segunda (31/08) o par perdeu por fechamento o piso 1.1625 e a SMA200 (1.1629), fechando 1.1596, e hoje consolidou sob os dois níveis. O alinhamento agora é de BAIXA (fechamento < SMA200 1.1629 e SMA50 1.1491 < SMA200) — a primeira leitura bearish desde o rompimento de 20/08, invalidada aquela resolução de alta. A reprecificação pós-Jackson Hole segue: ~57% de probabilidade de ALTA do Fed em setembro, DXY ~99,5; NFP sexta (04/09) é o árbitro do diferencial. A σ20 segue comprimida (28 pips). Indicadores (SMA 50/200, σ20, Donchian e Fibonacci) calculados da série diária BCE/Frankfurter (511 pregões, 01/09/2024 a 01/09/2026).",
-                              "trend": "Fechamento sob a SMA200 (1.1629) com SMA50 (1.1491) também abaixo — alinhamento de baixa; o antigo piso do rompimento (1.1625) vira resistência com a Fib 50% (1.1657) acima, e a mínima de 20 pregões (1.1515) abaixo.",
-                              "support": "1.1576 (mínima de 10 pregões) / 1.1582 (Fib 61,8%), com a mínima de 20 pregões (1.1515) e o redondo 1.1500 abaixo.",
-                              "resistance": "1.1625 (piso do rompimento devolvido) / 1.1629 (SMA200), com a Fib 50% (1.1657) acima.",
-                              "priceAction": "Setup de venda na retração: o preço precisa primeiro recuperar a zona 1.1625-1.1632 (piso devolvido + SMA200); o gatilho é fechamento diário abaixo do fechamento anterior sob o midpoint da zona (1.1629). Alvo 1.1515 (mínima de 20 pregões); a mínima de 10 dias (1.1576) é o degrau intermediário menor. Nota de evento: NFP sexta (04/09) — se o gatilho só disparar na quinta, reavaliar após o evento.",
-                              "recommendation": "VENDA (SHORT) NA RETRAÇÃO",
-                              "trigger": "Retração à zona 1.1625-1.1632 seguida de fechamento diário abaixo do fechamento anterior, sob o midpoint 1.1629 — entrada de referência 1.1620. Se o gatilho disparar dentro da janela de 24h do NFP (quinta), reavaliar após o evento.",
-                              "stop": "1.1665 (acima da Fib 50% 1.1657 e do redondo 1.1650; 45 pips ≥ 1,5σ20 de 42 pips) · risco sugerido ≤ 1% por operação.",
-                              "target": "1.1515 (mínima de 20 pregões, junto ao redondo 1.1500).",
-                              "rr": "1:2.33",
-                              "rrValue": 58,
-                              "justification": "A perda de 1.1625/1.1629 por fechamento não é ruído — devolveu o par ao alinhamento de baixa com a SMA50 já sob a SMA200 e o dólar reprecificando alta de juros. Vender na retração à zona devolvida (e não no rompimento) paga 1:2.33 com stop estruturalmente protegido pelos níveis que invalidam a tese; perseguir o preço sob 1.1590 pagaria menos e com stop pior."
-                    },
-                    "en": {
-                              "fundamental": "EUR/USD trades at 1.1590 on the 01/09/2026 daily close (ECB reference), flat (-0.05%) — but the regime flipped: on Monday (Aug 31) the pair lost by close the 1.1625 floor and the 200-day SMA (1.1629), closing 1.1596, and today consolidated under both. The alignment is now BEARISH (close < SMA200 1.1629 and SMA50 1.1491 < SMA200) — the first bearish read since the Aug 20 breakout, whose bullish resolution is invalidated. The post-Jackson-Hole repricing continues: ~57% probability of a Fed September hike, DXY ~99.5; Friday's NFP (Sep 4) arbitrates the differential. Sigma20 stays compressed (28 pips). Indicators (SMA 50/200, sigma20, Donchian, Fibonacci) computed from the ECB/Frankfurter daily series (511 sessions, 01/09/2024 to 01/09/2026).",
-                              "trend": "Close under the 200-day SMA (1.1629) with the 50-day (1.1491) also below — bearish alignment; the former breakout floor (1.1625) turns resistance with the 50% Fib (1.1657) above, and the 20-day low (1.1515) beneath.",
-                              "support": "1.1576 (10-day low) / 1.1582 (61.8% Fib), with the 20-day low (1.1515) and the 1.1500 round beneath.",
-                              "resistance": "1.1625 (breakout floor handed back) / 1.1629 (200-day SMA), with the 50% Fib (1.1657) above.",
-                              "priceAction": "Sell-the-pullback setup: price must first recover the 1.1625-1.1632 zone (handed-back floor + 200-day SMA); the trigger is a daily close below the previous close under the zone midpoint (1.1629). Target 1.1515 (20-day low); the 10-day low (1.1576) is the minor intermediate step. Event note: NFP Friday (Sep 4) — if the trigger only fires Thursday, reassess after the event.",
-                              "recommendation": "SELL (SHORT) ON PULLBACK",
-                              "trigger": "Pullback into the 1.1625-1.1632 zone followed by a daily close below the previous close, under the 1.1629 midpoint — entry reference 1.1620. If the trigger fires inside the NFP 24h window (Thursday), reassess after the event.",
-                              "stop": "1.1665 (above the 50% Fib 1.1657 and the 1.1650 round; 45 pips >= the 42-pip 1.5-sigma20 floor) · suggested risk ≤ 1% per trade.",
-                              "target": "1.1515 (20-day low, by the 1.1500 round).",
-                              "rr": "1:2.33",
-                              "rrValue": 58,
-                              "justification": "Losing 1.1625/1.1629 by close is not noise — it returned the pair to the bearish alignment with the 50-day already under the 200-day and the dollar repricing rate hikes. Selling the pullback into the handed-back zone (rather than the breakdown) pays 1:2.33 with a stop structurally protected by the very levels that invalidate the thesis; chasing under 1.1590 would pay less with a worse stop."
-                    }
-          },
-          "USD/JPY": {
-                    "quote": "160.16",
-                    "bias": "ALTA",
-                    "biasType": "bull",
-                    "pt": {
-                              "fundamental": "O USD/JPY opera em 160,16 no fechamento diário de 01/09/2026 (referência BCE), subindo +0,27% e imprimindo o rompimento D10: o fechamento superou a máxima de 10 pregões (159,73) com os yields dos JGBs de 30 anos em máximas e o dólar forte (~57% de chance de alta do Fed em setembro, DXY ~99,5). O alinhamento segue de alta (SMA50 160,84 > SMA200 158,40) e a Fib 38,2% (159,60) foi reconquistada e respeitada. Mas a aritmética segue travada: com stop estrutural sob a SMA200 (158,25), o teto da máxima de 9 meses (163,91) entrega ~1:1,9 — o gate falha; e a janela de intervenção (piso 2,5σ20 ≈ 80 pips, σ20 comprimida a 32) segue ativa até ~03/09, com NFP na sexta (04/09) como evento seguinte. Indicadores calculados da série diária BCE/Frankfurter (511 pregões, 01/09/2024 a 01/09/2026).",
-                              "trend": "Acima da SMA200 (158,40) e sob a SMA50 (160,84) — alinhamento de alta; rompimento D10 confirmado (160,16 > 159,73), com a confluência SMA50 / Fib 23,6% (160,84-161,25) como teto imediato e a máxima de 9 meses (163,91) acima.",
-                              "support": "159,60 (Fib 38,2% reconquistada), com a máxima de 10 pregões (159,73) devolvida a degrau e a SMA200 (158,40) abaixo.",
-                              "resistance": "160,84 (SMA50) / 161,25 (Fib 23,6%), com a máxima de 9 meses (163,91) acima.",
-                              "priceAction": "Sem entrada — o rompimento imprimiu, mas o R/R não fecha: stop sob a SMA200 (158,25, ~191 pips do fecho) contra o teto 163,91 entrega ~1:1,9; stop mais curto falha o piso de intervenção de 2,5σ20. Reavaliar após ~03/09 (expiração da janela) ou em fechamento dentro da zona 158,25-158,70 com σ20 comprimida; NFP sexta pode redefinir o diferencial.",
-                              "recommendation": "AGUARDAR OUTRO GATILHO",
-                              "trigger": "Nenhum — rompimento D10 impresso mas R/R ~1:1,9 com stop estrutural. Reavaliar após ~03/09 (fim da janela de intervenção) ou em fechamento dentro da zona 158,25-158,70 com compressão de σ20.",
-                              "stop": "N/A (sem operação).",
-                              "target": "N/A (sem operação).",
-                              "rr": "N/A",
-                              "rrValue": 0,
-                              "justification": "O desenho de alta avançou — rompimento D10, Fib 38,2% reconquistada, σ20 na menor leitura da fase — mas o gate continua: mesmo mirando a máxima de 9 meses, o stop estrutural sob a SMA200 trava o R/R em ~1:1,9, e a janela de intervenção ainda impõe o piso de 2,5σ20 até ~03/09. Disciplina: deixar o rompimento correr sem nós e reavaliar na quinta."
-                    },
-                    "en": {
-                              "fundamental": "USD/JPY trades at 160.16 on the 01/09/2026 daily close (ECB reference), up +0.27% and printing the D10 breakout: the close took out the 10-day high (159.73) with 30-year JGB yields at highs and the dollar firm (~57% Fed September-hike odds, DXY ~99.5). The alignment stays bullish (50-day 160.84 > 200-day 158.40) and the 38.2% Fib (159.60) was reclaimed and respected. But the arithmetic stays locked: with a structural stop under the SMA200 (158.25), the 9-month-high cap (163.91) yields ~1:1.9 — the gate fails; and the intervention window (2.5-sigma20 floor ~= 80 pips, sigma20 compressed to 32) stays active until ~Sep 3, with NFP on Friday (Sep 4) the next event. Indicators computed from the ECB/Frankfurter daily series (511 sessions, 01/09/2024 to 01/09/2026).",
-                              "trend": "Above the 200-day SMA (158.40) and under the 50-day (160.84) — bull alignment; D10 breakout confirmed (160.16 > 159.73), with the 50-day / 23.6% Fib confluence (160.84-161.25) as the immediate cap and the 9-month high (163.91) above.",
-                              "support": "159.60 (reclaimed 38.2% Fib), with the 10-day high (159.73) handed back as a step and the 200-day SMA (158.40) beneath.",
-                              "resistance": "160.84 (50-day SMA) / 161.25 (23.6% Fib), with the 9-month high (163.91) above.",
-                              "priceAction": "No entry — the breakout printed, but the R/R doesn't close: a stop under the SMA200 (158.25, ~191 pips from the close) against the 163.91 cap yields ~1:1.9; a shorter stop fails the 2.5-sigma20 intervention floor. Reassess after ~Sep 3 (window expiry) or on a close inside the 158.25-158.70 zone with compressed sigma20; Friday's NFP can redefine the differential.",
-                              "recommendation": "WAIT FOR ANOTHER TRIGGER",
-                              "trigger": "None — D10 breakout printed but R/R ~1:1.9 with a structural stop. Reassess after ~Sep 3 (intervention window ends) or on a close inside the 158.25-158.70 zone with sigma20 compression.",
-                              "stop": "N/A (no trade).",
-                              "target": "N/A (no trade).",
-                              "rr": "N/A",
-                              "rrValue": 0,
-                              "justification": "The bull blueprint advanced — D10 breakout, 38.2% Fib reclaimed, sigma20 at the phase's tightest — but the gate holds: even targeting the 9-month high, the structural stop under the SMA200 locks R/R at ~1:1.9, and the intervention window still imposes the 2.5-sigma20 floor until ~Sep 3. Discipline: let the breakout run without us and reassess Thursday."
-                    }
-          },
-          "AUD/USD": {
-                    "quote": "0.7141",
-                    "bias": "ALTA",
-                    "biasType": "bull",
-                    "pt": {
-                              "fundamental": "O AUD/USD opera em 0,7141 no fechamento diário de 01/09/2026 (referência BCE), caindo -0,29% — a retração do topo 0,7195 finalmente engatilhou: dois fechamentos em queda devolveram o redondo 0,7200 e miram a zona de compra 0.7000-0.7019 (redondo / SMA50), ainda intocada. O alinhamento segue de alta (SMA50 0,7019 > SMA200 0,6962) e o par assenta 122 pips acima da zona. A RBA segue a 4,35%; WTI ~US$ 83 e o dólar forte pós-Jackson Hole (~57% de chance de alta do Fed) pesam no curto prazo — a retração é o preço de entrada, não a invalidação. NFP sexta (04/09): gatilho disparado antes da quinta opera normal; dentro da janela, reavaliar após o evento. Indicadores calculados da série diária BCE/Frankfurter (511 pregões, 01/09/2024 a 01/09/2026).",
-                              "trend": "Acima das SMA50 (0,7019) e SMA200 (0,6962) — alinhamento de alta; a retração devolveu o redondo 0,7200 e a máxima de 20 pregões (0,7195) à condição de resistência, com a máxima de 9 meses (0,7257) acima.",
-                              "support": "0.7076 (mínima de 10 pregões), com a zona de compra 0.7000-0.7019 (redondo / SMA50) abaixo.",
-                              "resistance": "0.7195 (máxima de 20 pregões), com o redondo 0,7200 no caminho e a máxima de 9 meses (0,7257) acima.",
-                              "priceAction": "Setup de compra na retração: aguardar fechamento diário dentro da zona 0.7000-0.7019 seguido de fechamento de alta acima do midpoint (0.7010) — entrada de referência 0.7010, stop sob a SMA200/redondo (0.6950), alvo 0.7195 (máxima de 20 pregões), com 0.7257 como extensão. A mínima de 10 dias (0.7076) é o degrau intermediário, já devolvido ao campo de alta.",
-                              "recommendation": "COMPRA (LONG) NA RETRAÇÃO",
-                              "trigger": "Fechamento diário dentro da zona 0.7000-0.7019 (redondo / SMA50) seguido de fechamento acima do fechamento anterior e do midpoint 0.7010 — entrada de referência 0.7010. Dentro da janela de 24h do NFP, reavaliar após o evento.",
-                              "stop": "0.6950 (sob a SMA200 0.6962 e o redondo 0.6950; 60 pips ≥ 1,5σ20 de 39 pips) · risco sugerido ≤ 1% por operação.",
-                              "target": "0.7195 (máxima de 20 pregões; extensão 0.7257, máxima de 9 meses).",
-                              "rr": "1:3.08",
-                              "rrValue": 77,
-                              "justification": "A zona intocada é o gatilho que o relatório espera desde 21/08 — a retração de dois dias finalmente encaminha o preço para ela com o alinhamento de alta intacto. Comprar o redondo/SMA50 paga 1:3.08 até a máxima de 20 pregões com stop estrutural sob a SMA200; perseguir o topo pagava 1:1,4. A θ agora é do lado de quem espera."
-                    },
-                    "en": {
-                              "fundamental": "AUD/USD trades at 0.7141 on the 01/09/2026 daily close (ECB reference), down -0.29% — the pullback from the 0.7195 top finally engaged: two lower closes handed back the 0.7200 round and aim at the 0.7000-0.7019 buying zone (round / 50-day SMA), still untouched. The alignment stays bullish (50-day 0.7019 > 200-day 0.6962) and the pair sits 122 pips above the zone. RBA stays at 4.35%; WTI ~$83 and the strong post-Jackson-Hole dollar (~57% Fed hike odds) weigh short-term — the pullback is the entry price, not the invalidation. NFP Friday (Sep 4): a trigger fired before Thursday trades normally; inside the window, reassess after the event. Indicators computed from the ECB/Frankfurter daily series (511 sessions, 01/09/2024 to 01/09/2026).",
-                              "trend": "Above the 50-day (0.7019) and 200-day (0.6962) SMAs — bull alignment; the pullback returned the 0.7200 round and the 20-day high (0.7195) to resistance, with the 9-month high (0.7257) above.",
-                              "support": "0.7076 (10-day low), with the 0.7000-0.7019 buying zone (round / 50-day SMA) beneath.",
-                              "resistance": "0.7195 (20-day high), with the 0.7200 round in the path and the 9-month high (0.7257) above.",
-                              "priceAction": "Buy-the-pullback setup: wait for a daily close inside the 0.7000-0.7019 zone followed by a higher close above the midpoint (0.7010) — entry reference 0.7010, stop under the SMA200/round (0.6950), target 0.7195 (20-day high), with 0.7257 as extension. The 10-day low (0.7076) is the intermediate step, already handed back to the bull field.",
-                              "recommendation": "BUY (LONG) ON PULLBACK",
-                              "trigger": "Daily close inside the 0.7000-0.7019 zone (round / 50-day SMA) followed by a close above the previous close and the 0.7010 midpoint — entry reference 0.7010. Inside the NFP 24h window, reassess after the event.",
-                              "stop": "0.6950 (under the 200-day SMA 0.6962 and the 0.6950 round; 60 pips >= the 39-pip 1.5-sigma20 floor) · suggested risk ≤ 1% per trade.",
-                              "target": "0.7195 (20-day high; extension 0.7257, the 9-month high).",
-                              "rr": "1:3.08",
-                              "rrValue": 77,
-                              "justification": "The untouched zone is the trigger this report has awaited since Aug 21 — the two-day pullback finally steers price toward it with the bull alignment intact. Buying the round/50-day pays 1:3.08 to the 20-day high with a structural stop under the 200-day SMA; chasing the top paid 1:1.4. The edge now sits with whoever waits."
-                    }
-          },
-          "GBP/USD": {
-                    "quote": "1.3531",
-                    "bias": "NEUTRO",
-                    "biasType": "neutral",
-                    "pt": {
-                              "fundamental": "O GBP/USD opera em 1,3531 no fechamento diário de 01/09/2026 (referência BCE), estável (-0,06%) e consolidando sob a Fib devolvida: a SMA50 (1.3429) escorregou sob a SMA200 (1.3432) e o alinhamento voltou a NEUTRO — o regime misto que o rompimento de 20/08 havia resolvido para a alta. Ledger: o ticket de 17/08 (executado no eToro virtual a 1.35258) expirou por tempo na segunda (31/08, 10ª sessão) com fechamento 1.3539 — R realizado -0.29. Warsh hawkish via dólar segue contra o GBP; BoE a 3,75% (6-3, próxima reunião 17/09); NFP sexta (04/09). Indicadores calculados da série diária BCE/Frankfurter (511 pregões, 01/09/2024 a 01/09/2026).",
-                              "trend": "Preço acima das SMA50 (1.3429) e SMA200 (1.3432), mas com SMA50 sob a SMA200 — alinhamento neutro; fechamentos sob a Fib 23,6% (1.3644) devolvida, com a máxima de 20 pregões (1.3656) acima e a mínima de 20 pregões (1.3446) abaixo.",
-                              "support": "1.3446 (mínima de 20 pregões), com a confluência SMA50/SMA200 (1.3429-1.3432) e o redondo 1.3400 abaixo.",
-                              "resistance": "1.3644 (Fib 23,6% devolvida), com a máxima de 20 pregões (1.3656) e a de 9 meses (1.3817) acima.",
-                              "priceAction": "Sem gatilho — alinhamento neutro exige critério de rompimento: (a) fechamento sob a confluência 1.3429-1.3432 abre 1.3346-1.3260 (Fib 61,8% / mínima de 9 meses) e reorienta o viés para baixa; (b) reconquista por fechamento acima de 1.3656 devolve a leitura de alta. Até lá, sem entrada.",
-                              "recommendation": "AGUARDAR OUTRO GATILHO",
-                              "trigger": "Nenhum — alinhamento neutro. Assistir a perda da confluência 1.3429-1.3432 ou a reconquista de 1.3656 para definir o próximo setup.",
-                              "stop": "N/A (sem operação).",
-                              "target": "N/A (sem operação).",
-                              "rr": "N/A",
-                              "rrValue": 0,
-                              "justification": "O cruzamento de médias virou (SMA50 sob a SMA200) e a resolução de alta de 20/08 está formalmente desfeita — sem alinhamento, qualquer entrada seria aposta, não setup. O ticket legado expirou perto do flat (-0.29R) e o campo agora é decidido entre a confluência 1.3429-1.3432 e a reconquista de 1.3656."
-                    },
-                    "en": {
-                              "fundamental": "GBP/USD trades at 1.3531 on the 01/09/2026 daily close (ECB reference), flat (-0.06%) and consolidating under the handed-back Fib: the 50-day SMA (1.3429) slipped under the 200-day (1.3432) and the alignment returned to NEUTRAL — the mixed regime the Aug 20 breakout had resolved bullish. Ledger: the Aug 17 ticket (executed on eToro virtual at 1.35258) expired on time Monday (Aug 31, 10th session) with a 1.3539 close — realized R -0.29. Hawkish-Warsh dollar pressure stays against GBP; BoE at 3.75% (6-3, next meeting Sep 17); NFP Friday (Sep 4). Indicators computed from the ECB/Frankfurter daily series (511 sessions, 01/09/2024 to 01/09/2026).",
-                              "trend": "Price above the 50-day (1.3429) and 200-day (1.3432) SMAs, but with the 50-day under the 200-day — neutral alignment; closes under the handed-back 23.6% Fib (1.3644), with the 20-day high (1.3656) above and the 20-day low (1.3446) beneath.",
-                              "support": "1.3446 (20-day low), with the 50/200-day SMA confluence (1.3429-1.3432) and the 1.3400 round beneath.",
-                              "resistance": "1.3644 (23.6% Fib handed back), with the 20-day high (1.3656) and the 9-month high (1.3817) above.",
-                              "priceAction": "No trigger — neutral alignment demands a breakout criterion: (a) a close under the 1.3429-1.3432 confluence opens 1.3346-1.3260 (61.8% Fib / 9-month low) and reorients the bias bearish; (b) a reclaim close above 1.3656 restores the bullish read. Until then, no entry.",
-                              "recommendation": "WAIT FOR ANOTHER TRIGGER",
-                              "trigger": "None — neutral alignment. Watch the loss of the 1.3429-1.3432 confluence or the reclaim of 1.3656 to define the next setup.",
-                              "stop": "N/A (no trade).",
-                              "target": "N/A (no trade).",
-                              "rr": "N/A",
-                              "rrValue": 0,
-                              "justification": "The moving-average cross flipped (50-day under the 200-day) and the Aug 20 bullish resolution is formally undone — without alignment, any entry would be a bet, not a setup. The legacy ticket expired near flat (-0.29R) and the field is now decided between the 1.3429-1.3432 confluence and the 1.3656 reclaim."
-                    }
-          },
-          "EUR/JPY": {
-                    "quote": "185.63",
-                    "bias": "ALTA",
-                    "biasType": "bull",
-                    "pt": {
-                              "fundamental": "O EUR/JPY opera em 185,63 no fechamento diário de 01/09/2026 (referência BCE), subindo +0,22% e dançando sob a máxima de 10 pregões (185,91): o alinhamento segue pleno de alta (SMA50 184,80 > SMA200 184,18) e a σ20 comprimiu a 38 pips — mas a janela de intervenção (ativa até ~03/09) mantém o piso 2,5σ20 (≈95 pips): uma retração à zona 184,62-184,80 (mínima D10 / SMA50) exige stop sob a SMA200 (184,18, ~52-60 pips da entrada) — falha o piso; e o rompimento acima de 185,91 contra o teto da máxima de 9 meses (187,73) entrega ~1:1,5 com stop aprovado. O keynote hawkish de Warsh sustenta o diferencial BCE-BoJ (e o risco de jawboning do MoF). Indicadores calculados da série diária BCE/Frankfurter (511 pregões, 01/09/2024 a 01/09/2026).",
-                              "trend": "Acima das SMA50 (184,80) e SMA200 (184,18) — alinhamento de alta pleno; fechamento colado sob a máxima de 10/20 pregões (185,91), com a Fib 23,6% (185,97) e a máxima de 9 meses (187,73) acima.",
-                              "support": "184.80 (SMA50) / 184.62 (mínima de 10 pregões), com a SMA200 (184.18) e a Fib 50% (184,14) abaixo.",
-                              "resistance": "185.91 (máximas de 10/20 pregões) / 185.97 (Fib 23,6%), com a máxima de 9 meses (187,73) acima.",
-                              "priceAction": "Sem entrada — o piso de intervenção (2,5σ20 ≈ 95 pips) reprova o stop da retração (~52-60 pips) e o rompimento entrega ~1:1,5. Reavaliar após ~03/09 (expiração da janela): com a σ20 a 38 pips, a aritmética do gate pode virar na quinta.",
-                              "recommendation": "AGUARDAR OUTRO GATILHO",
-                              "trigger": "Nenhum — piso de intervenção ativo até ~03/09 reprova o setup de retração e o rompimento entrega ~1:1,5. Reavaliar após a expiração da janela ou em retração profunda à zona 183,13-184,14 (Fib 61,8-50%).",
-                              "stop": "N/A (sem operação).",
-                              "target": "N/A (sem operação).",
-                              "rr": "N/A",
-                              "rrValue": 0,
-                              "justification": "A compressão de volatilidade (87 → 38 pips desde 28/08) aproximou o gate, mas a janela de intervenção ainda impõe 95 pips de piso contra um stop estrutural de ~52-60 — e o teto de 187,73 não paga o rompimento. A estrutura segue de alta e a quinta (~03/09) pode destravar a aritmética; até lá, sem operação."
-                    },
-                    "en": {
-                              "fundamental": "EUR/JPY trades at 185.63 on the 01/09/2026 daily close (ECB reference), up +0.22% and dancing under the 10-day high (185.91): the alignment stays fully bullish (50-day 184.80 > 200-day 184.18) and sigma20 compressed to 38 pips — but the intervention window (active until ~Sep 3) holds the 2.5-sigma20 floor (~=95 pips): a pullback to the 184.62-184.80 zone (D10 low / 50-day SMA) requires a stop under the 200-day (184.18, ~52-60 pips from entry) — it fails the floor; and the breakout above 185.91 against the 9-month-high cap (187.73) yields ~1:1.5 with an approved stop. Warsh's hawkish keynote sustains the ECB-BoJ differential (and the MoF's jawboning risk). Indicators computed from the ECB/Frankfurter daily series (511 sessions, 01/09/2024 to 01/09/2026).",
-                              "trend": "Above the 50-day (184.80) and 200-day (184.18) SMAs — full bull alignment; close glued under the 10/20-day high (185.91), with the 23.6% Fib (185.97) and the 9-month high (187.73) above.",
-                              "support": "184.80 (50-day SMA) / 184.62 (10-day low), with the 200-day SMA (184.18) and the 50% Fib (184.14) beneath.",
-                              "resistance": "185.91 (10/20-day highs) / 185.97 (23.6% Fib), with the 9-month high (187.73) above.",
-                              "priceAction": "No entry — the intervention floor (2.5-sigma20 ~= 95 pips) rejects the pullback stop (~52-60 pips) and the breakout yields ~1:1.5. Reassess after ~Sep 3 (window expiry): with sigma20 at 38 pips, the gate's arithmetic may flip on Thursday.",
-                              "recommendation": "WAIT FOR ANOTHER TRIGGER",
-                              "trigger": "None — intervention floor active until ~Sep 3 rejects the pullback setup and the breakout yields ~1:1.5. Reassess after the window expires or on a deep pullback to the 183.13-184.14 zone (61.8-50% Fib).",
-                              "stop": "N/A (no trade).",
-                              "target": "N/A (no trade).",
-                              "rr": "N/A",
-                              "rrValue": 0,
-                              "justification": "The volatility compression (87 → 38 pips since Aug 28) brought the gate closer, but the intervention window still imposes a 95-pip floor against a ~52-60-pip structural stop — and the 187.73 cap doesn't pay for the breakout. The structure stays bullish and Thursday (~Sep 3) may unlock the arithmetic; until then, no trade."
-                    }
-          },
-          "GBP/JPY": {
-                    "quote": "216.71",
-                    "bias": "ALTA",
-                    "biasType": "bull",
-                    "pt": {
-                              "fundamental": "O GBP/JPY opera em 216,71 no fechamento diário de 01/09/2026 (referência BCE), subindo +0,21%. Ledger: o ticket de 14/08 (entrada 215,90, stop 213,90, alvo 219,00) expirou por tempo na segunda (31/08, 10ª sessão) com fechamento 216,24 — R realizado +0.17, a colheita ficando a ~1,2% do alvo. A estrutura segue de alta plena (SMA50 215,98 > SMA200 212,75) e o piso de intervenção 2,5σ20 agora é ≈115 pips (σ20 comprimida a 46) — a aritmética que travava adições afrouxou: uma retração à zona 215.66-215.98 (mínima D10 / SMA50) com stop sob a Fib 61,8% (214,14) passa no gate e paga 1:2.03 contra o topo de 9 meses (219,14). Janela de intervenção expira ~03/09; BoJ em setembro é o próximo foco institucional. Indicadores calculados da série diária BCE/Frankfurter (511 pregões, 01/09/2024 a 01/09/2026).",
-                              "trend": "Acima das SMA50 (215,98) e SMA200 (212,75) — alinhamento de alta pleno; fechamento sob a máxima de 10/20 pregões (217,07), com a máxima de 9 meses (219,14) acima.",
-                              "support": "215.98 (SMA50) / 215.66 (mínima de 10 pregões), com a Fib 61,8% (214,14) e a de 38,2% (211,33) abaixo.",
-                              "resistance": "217.07 (máximas de 10/20 pregões), com a máxima de 9 meses (219,14) acima.",
-                              "priceAction": "Setup de compra na retração: aguardar fechamento diário dentro da zona 215.66-215.98 (mínima D10 / SMA50) seguido de fechamento de alta — entrada de referência 215.75, stop 214.10 (sob a Fib 61,8%), alvo 219.10 (região da máxima de 9 meses). A perda por fechamento da Fib 61,8% (214,14) invalida o setup.",
-                              "recommendation": "COMPRA (LONG) NA RETRAÇÃO",
-                              "trigger": "Fechamento diário dentro da zona 215.66-215.98 (mínima D10 / SMA50) seguido de fechamento acima do fechamento anterior — entrada de referência 215.75. Reavaliar se o disparo ocorrer após ~03/09 com a janela de intervenção expirada (o piso afrouxa para 1,5σ20).",
-                              "stop": "214.10 (sob a Fib 61,8% 214.14; 165 pips ≥ 2,5σ20 de 115 pips) · risco sugerido ≤ 1% por operação.",
-                              "target": "219.10 (região da máxima de 9 meses 219.14).",
-                              "rr": "1:2.03",
-                              "rrValue": 51,
-                              "justification": "O ticket legado expirou a 1,2% do alvo e a estrutura não mudou — o que mudou é a aritmética: com a σ20 comprimida a 46 pips, o piso de intervenção caiu de ~265 para ~115 pips e a zona D10/SMA50 finalmente comporta um stop estrutural aprovado com R/R de 1:2.03. Comprar a retração à zona, não o topo de 217."
-                    },
-                    "en": {
-                              "fundamental": "GBP/JPY trades at 216.71 on the 01/09/2026 daily close (ECB reference), up +0.21%. Ledger: the Aug 14 ticket (entry 215.90, stop 213.90, target 219.00) expired on time Monday (Aug 31, 10th session) with a 216.24 close — realized R +0.17, the harvest stopping ~1.2% shy of target. The structure stays fully bullish (50-day 215.98 > 200-day 212.75) and the 2.5-sigma20 intervention floor is now ~=115 pips (sigma20 compressed to 46) — the arithmetic that blocked adds has loosened: a pullback to the 215.66-215.98 zone (D10 low / 50-day SMA) with a stop under the 61.8% Fib (214.14) passes the gate and pays 1:2.03 against the 9-month top (219.14). Intervention window expires ~Sep 3; the BoJ's September meeting is the next institutional focus. Indicators computed from the ECB/Frankfurter daily series (511 sessions, 01/09/2024 to 01/09/2026).",
-                              "trend": "Above the 50-day (215.98) and 200-day (212.75) SMAs — full bull alignment; close under the 10/20-day high (217.07), with the 9-month high (219.14) above.",
-                              "support": "215.98 (50-day SMA) / 215.66 (10-day low), with the 61.8% Fib (214.14) and the 38.2% (211.33) beneath.",
-                              "resistance": "217.07 (10/20-day highs), with the 9-month high (219.14) above.",
-                              "priceAction": "Buy-the-pullback setup: wait for a daily close inside the 215.66-215.98 zone (D10 low / 50-day SMA) followed by a higher close — entry reference 215.75, stop 214.10 (under the 61.8% Fib), target 219.10 (9-month-high region). A close below the 61.8% Fib (214.14) invalidates the setup.",
-                              "recommendation": "BUY (LONG) ON PULLBACK",
-                              "trigger": "Daily close inside the 215.66-215.98 zone (D10 low / 50-day SMA) followed by a close above the previous close — entry reference 215.75. Reassess if the fire comes after ~Sep 3 with the intervention window expired (the floor loosens to 1.5-sigma20).",
-                              "stop": "214.10 (under the 61.8% Fib 214.14; 165 pips >= the 115-pip 2.5-sigma20 floor) · suggested risk ≤ 1% per trade.",
-                              "target": "219.10 (9-month-high region, 219.14).",
-                              "rr": "1:2.03",
-                              "rrValue": 51,
-                              "justification": "The legacy ticket expired 1.2% from target and the structure didn't change — what changed is the arithmetic: with sigma20 compressed to 46 pips, the intervention floor fell from ~265 to ~115 pips and the D10/50-day zone finally fits an approved structural stop at 1:2.03 R/R. Buy the pullback into the zone, not the 217 top."
-                    }
-          }
+        "EUR/USD": {
+                "quote": "1.1593",
+                "bias": "BAIXA",
+                "biasType": "bear",
+                "pt": {
+                        "fundamental": "O EUR/USD fechou em 1,1593 na sessão de 01/09/2026 (fechamento D1 do MetaTrader 5; mid ao vivo 1,1593), caindo -0,21% e cravando o segundo fechamento sob a SMA200 (1,1631) — o regime de baixa segue (SMA50 1,1494 < SMA200), mas com a migração da base de dados para o terminal MT5 os âncoras foram reprecificados: a Fib 50% da perna de 9 meses (1,1358-1,2038) subiu para 1,1698 (era 1,1657 na série BCE) e a Fib 61,8% para 1,1618. Consequência disciplinada: o ticket de venda do relatório anterior (entrada 1,1620, stop 1,1665, alvo 1,1515) foi REVOGADO — o stop deixou de ficar acima da Fib 50% e o R/R com proteção estrutural cai para ~1:1,4. Macro: ~55% de probabilidade de alta do Fed em setembro, DXY ~99,5; NFP sexta (04/09) arbitra; o BCE reúne-se em 09-10/09. Indicadores (SMA 50/200, σ20, Donchian e Fibonacci) calculados da série D1 do MetaTrader 5 (541 pregões, 01/08/2024 a 01/09/2026).",
+                        "trend": "Fechamento sob a SMA200 (1,1631) com a SMA50 (1,1494) também abaixo — alinhamento de baixa; a Fib 61,8% (1,1618) e a SMA200 formam a zona de resistência imediata, com a Fib 50% (1,1698) acima e a mínima de 20 pregões (1,1524) abaixo.",
+                        "support": "1.1583 (mínima de 10 pregões devolvida), com a mínima de 20 pregões (1,1524) e a confluência Fib 78,6% / redondo (1,1504-1,1500) abaixo.",
+                        "resistance": "1.1618 (Fib 61,8%) / 1.1631 (SMA200), com a Fib 50% (1,1698) e a de 38,2% (1,1779) acima.",
+                        "priceAction": "Sem entrada — o gate reprova a venda na retração: da zona 1,1618-1,1631, um stop acima da Fib 50% (1,1705+) paga só ~1:1,4 rumo a 1,1524, e um stop de 51 pips (piso 1,5σ20, σ20 = 34 pips) assentaria sob a máxima de 20 pregões (1,1678) sem proteção estrutural. Rearmar: (a) retração estendida à Fib 50% 1,1690-1,1700 com fechamento de rejeição devolvendo 1,1618 — a geometria volta a pagar ≥1:2; (b) fechamento sob 1,1583 abrindo 1,1524/1,1504. NFP sexta (04/09) arbitra o diferencial.",
+                        "recommendation": "AGUARDAR OUTRO GATILHO",
+                        "trigger": "Nenhum — R/R reprovado na reprecificação MT5 (Fib 50% a 1,1698). Rearmar em rejeição na Fib 50% (1,1690-1,1700) com fechamento sob 1,1618, ou em fechamento sob a mínima de 10 pregões (1,1583).",
+                        "stop": "N/A (sem operação).",
+                        "target": "N/A (sem operação).",
+                        "rr": "N/A",
+                        "rrValue": 0,
+                        "justification": "Trocar a série de referência não é detalhe: a Fib 50% migrando de 1,1657 para 1,1698 destruiu a proteção do stop do ticket de 01/09 — e o manda-livro diz revogar, não relaxar o gate. O regime de baixa segue de pé (dois fechamentos sob a SMA200, SMA50 sob a SMA200), mas entre a zona 1,1618-1,1631 e o alvo 1,1524 a matemática agora paga ~1:1,4 com stop estrutural. Disciplina: sem 1:2 protegido, sem operação — e o NFP de sexta ainda pode redefinir o campo."
+                },
+                "en": {
+                        "fundamental": "EUR/USD closed at 1.1593 in the 01/09/2026 session (MetaTrader 5 D1 close; live mid 1.1593), down -0.21% and printing a second close under the 200-day SMA (1.1631) — the bear regime holds (50-day 1.1494 < 200-day) — but with the data basis migrated to the MT5 terminal the anchors were repriced: the 50% Fib of the 9-month leg (1.1358-1.2038) moved up to 1.1698 (from 1.1657 on the ECB series) and the 61.8% Fib to 1.1618. Disciplined consequence: the previous report's short ticket (entry 1.1620, stop 1.1665, target 1.1515) was REVOKED — the stop no longer sits above the 50% Fib and the structurally-protected R/R drops to ~1:1.4. Macro: ~55% odds of a Fed September hike, DXY ~99.5; Friday's NFP (Sep 4) arbitrates; the ECB Governing Council meets Sep 9-10. Indicators (SMA 50/200, sigma20, Donchian, Fibonacci) computed from the MetaTrader 5 D1 series (541 sessions, 01/08/2024 to 01/09/2026).",
+                        "trend": "Close under the 200-day SMA (1.1631) with the 50-day (1.1494) also below — bearish alignment; the 61.8% Fib (1.1618) and the 200-day SMA form the immediate resistance zone, with the 50% Fib (1.1698) above and the 20-day low (1.1524) beneath.",
+                        "support": "1.1583 (10-day low handed back), with the 20-day low (1.1524) and the 78.6% Fib / round confluence (1.1504-1.1500) beneath.",
+                        "resistance": "1.1618 (61.8% Fib) / 1.1631 (200-day SMA), with the 50% Fib (1.1698) and the 38.2% (1.1779) above.",
+                        "priceAction": "No entry — the gate rejects the short-on-pullback: from the 1.1618-1.1631 zone, a stop above the 50% Fib (1.1705+) pays only ~1:1.4 toward 1.1524, and a 51-pip stop (the 1.5-sigma20 floor; sigma20 = 34 pips) would sit under the 20-day high (1.1678) without structural protection. Re-arm: (a) an extended pullback to the 50% Fib 1.1690-1.1700 with a rejection close handing back 1.1618 — geometry pays >=1:2 again; (b) a close under 1.1583 opening 1.1524/1.1504. Friday's NFP (Sep 4) arbitrates the differential.",
+                        "recommendation": "WAIT FOR ANOTHER TRIGGER",
+                        "trigger": "None — R/R rejected on the MT5 re-pricing (50% Fib at 1.1698). Re-arm on a rejection at the 50% Fib (1.1690-1.1700) with a close under 1.1618, or on a close under the 10-day low (1.1583).",
+                        "stop": "N/A (no trade).",
+                        "target": "N/A (no trade).",
+                        "rr": "N/A",
+                        "rrValue": 0,
+                        "justification": "Switching the reference series is not a detail: the 50% Fib migrating from 1.1657 to 1.1698 destroyed the Sep 1 ticket's stop protection — and the book says revoke, not relax the gate. The bear regime still stands (two closes under the 200-day SMA, 50-day under the 200-day), but between the 1.1618-1.1631 zone and the 1.1524 target the math now pays ~1:1.4 with a structural stop. Discipline: no protected 1:2, no trade — and Friday's NFP can still redefine the field."
+                }
+        },
+        "USD/JPY": {
+                "quote": "160.18",
+                "bias": "ALTA",
+                "biasType": "bull",
+                "pt": {
+                        "fundamental": "O USD/JPY fechou em 160,18 na sessão de 01/09/2026 (fechamento D1 do MetaTrader 5; mid ao vivo 160,22), subindo +0,28% e confirmando o rompimento Donchian-10: o fechamento superou a máxima anterior de 10 pregões (160,06) — segunda sessão de força, com os yields dos JGBs de 30 anos em máximas e o dólar firme (~55% de chance de alta do Fed em setembro, DXY ~99,5). O alinhamento segue de alta (SMA50 160,79 > SMA200 158,44) e a Fib 38,2% (159,39) segue reconquistada. A aritmética melhorou na base MT5: uma retração à zona 159,39-159,73 (Fib 38,2% / máxima D10 devolvida) com stop sob a Fib 50%/SMA200 (157,90; 170 pips ≥ piso de intervenção 2,5σ20 = 150 pips) pagaria ~1:2,5 rumo à máxima de 9 meses (163,85) — mas o cluster SMA50/Fib 23,6% (160,79-161,09) paira sobre o preço e o NFP de sexta (04/09) fecha a janela de entrada. Com o yen de volta acima de 160, o MoF reassume o jawboning — o piso de 2,5σ20 segue ativo. Indicadores calculados da série D1 do MetaTrader 5 (541 pregões, 01/08/2024 a 01/09/2026).",
+                        "trend": "Acima da SMA200 (158,44) e sob a SMA50 (160,79) — alinhamento de alta; rompimento D10 confirmado (160,18 > 160,06), com a confluência SMA50 / Fib 23,6% (160,79-161,09) como teto imediato e a máxima de 9 meses (163,85) acima.",
+                        "support": "159.39 (Fib 38,2%), com a SMA200 (158,44) e a Fib 50% (158,01) abaixo.",
+                        "resistance": "160.79 (SMA50) / 161.09 (Fib 23,6%), com o redondo 162,00 e a máxima de 9 meses (163,85) acima.",
+                        "priceAction": "Sem entrada — o rompimento D10 está impresso e a retração à zona 159,39-159,73 pagaria ~1:2,5 com stop aprovado (157,90), mas o disparo só vale após o NFP de sexta (04/09): fechamentos de quinta (03/09) caem dentro da janela de 24h do evento. Até lá, deixar o rompimento correr sem nós.",
+                        "recommendation": "AGUARDAR OUTRO GATILHO",
+                        "trigger": "Nenhum — a zona de retração 159,39-159,73 (Fib 38,2% / D10 devolvida) com stop 157,90 paga ~1:2,5 rumo a 163,85, mas arma somente para fechamentos após o NFP (04/09).",
+                        "stop": "N/A (sem operação).",
+                        "target": "N/A (sem operação).",
+                        "rr": "N/A",
+                        "rrValue": 0,
+                        "justification": "O desenho de alta avançou (rompimento D10, Fib 38,2% reconquistada) e a base MT5 pela primeira vez fecha a aritmética do lado de quem espera a retração — mas dois filtros mandam aguardar: o cluster 160,79-161,09 diretamente acima e o NFP em 48h. Com o yen acima de 160 e o MoF de prontidão, o piso de 2,5σ20 (150 pips) segue ativo. Disciplina: o setup arma depois do evento."
+                },
+                "en": {
+                        "fundamental": "USD/JPY closed at 160.18 in the 01/09/2026 session (MetaTrader 5 D1 close; live mid 160.22), up +0.28% and confirming the Donchian-10 breakout: the close took out the prior 10-day high (160.06) — a second session of strength, with 30-year JGB yields at highs and the dollar firm (~55% odds of a Fed September hike, DXY ~99.5). The alignment stays bullish (50-day 160.79 > 200-day 158.44) and the 38.2% Fib (159.39) stays reclaimed. The arithmetic improved on the MT5 basis: a pullback to the 159.39-159.73 zone (38.2% Fib / handed-back D10 high) with a stop under the 50% Fib/SMA200 (157.90; 170 pips >= the 2.5-sigma20 intervention floor = 150 pips) would pay ~1:2.5 toward the 9-month high (163.85) — but the 50-day/23.6% Fib cluster (160.79-161.09) hangs over price and Friday's NFP (Sep 4) closes the entry window. With the yen back above 160, the MoF resumes jawboning — the 2.5-sigma20 floor stays active. Indicators computed from the MetaTrader 5 D1 series (541 sessions, 01/08/2024 to 01/09/2026).",
+                        "trend": "Above the 200-day SMA (158.44) and under the 50-day (160.79) — bull alignment; D10 breakout confirmed (160.18 > 160.06), with the 50-day / 23.6% Fib confluence (160.79-161.09) as the immediate cap and the 9-month high (163.85) above.",
+                        "support": "159.39 (38.2% Fib), with the 200-day SMA (158.44) and the 50% Fib (158.01) beneath.",
+                        "resistance": "160.79 (50-day SMA) / 161.09 (23.6% Fib), with the 162.00 round and the 9-month high (163.85) above.",
+                        "priceAction": "No entry — the D10 breakout is printed and a pullback to the 159.39-159.73 zone would pay ~1:2.5 with an approved stop (157.90), but the trigger is only valid after Friday's NFP (Sep 4): Thursday (Sep 3) closes fall inside the event's 24h window. Until then, let the breakout run without us.",
+                        "recommendation": "WAIT FOR ANOTHER TRIGGER",
+                        "trigger": "None — the pullback zone 159.39-159.73 (38.2% Fib / handed-back D10) with a 157.90 stop pays ~1:2.5 toward 163.85, but arms only for closes after the NFP (Sep 4).",
+                        "stop": "N/A (no trade).",
+                        "target": "N/A (no trade).",
+                        "rr": "N/A",
+                        "rrValue": 0,
+                        "justification": "The bull blueprint advanced (D10 breakout, 38.2% Fib reclaimed) and the MT5 basis closes the arithmetic for the patient for the first time — but two filters say wait: the 160.79-161.09 cluster directly overhead and the NFP inside 48h. With the yen above 160 and the MoF on alert, the 2.5-sigma20 floor (150 pips) stays active. Discipline: the setup arms after the event."
+                }
+        },
+        "AUD/USD": {
+                "quote": "0.7145",
+                "bias": "ALTA",
+                "biasType": "bull",
+                "pt": {
+                        "fundamental": "O AUD/USD fechou em 0,7145 na sessão de 01/09/2026 (fechamento D1 do MetaTrader 5; mid ao vivo 0,7147), caindo -0,30% — terceiro dia da retração do topo 0,7194 (máxima de 10/20 pregões), devolvendo o redondo 0,7200 e mirando a zona de compra 0.7000-0.7020 (redondo / SMA50 0,7020), ainda intocada. O alinhamento segue de alta (SMA50 0,7020 > SMA200 0,6973) e o par assenta 125 pips acima da zona. RBA a 4,35% (próxima reunião 29/09; ANZ/CBA veem alta para 4,60% em novembro), CPI australiano a 3,5%; WTI ~US$ 83 e o dólar firme (~55% de chance de alta do Fed) pesam no curto prazo — a retração é o preço de entrada, não a invalidação. NFP sexta (04/09): disparo dentro da janela de 24h, reavaliar após o evento. Indicadores calculados da série D1 do MetaTrader 5 (541 pregões, 01/08/2024 a 01/09/2026).",
+                        "trend": "Acima das SMA50 (0,7020) e SMA200 (0,6973) — alinhamento de alta; a retração devolveu o redondo 0,7200 e a máxima de 10/20 pregões (0,7194) à condição de resistência, com a máxima de 9 meses (0,7257) acima.",
+                        "support": "0.7113 (mínima de 10 pregões), com a Fib 23,6% (0,7089) e a zona de compra 0.7000-0.7020 (redondo / SMA50) abaixo.",
+                        "resistance": "0.7194 (máximas de 10/20 pregões), com o redondo 0,7200 no caminho e a máxima de 9 meses (0,7257) acima.",
+                        "priceAction": "Setup de compra na retração: aguardar fechamento diário dentro da zona 0.7000-0.7020 (redondo / SMA50) seguido de fechamento de alta acima do midpoint (0,7010) — entrada de referência 0.7010, stop sob a SMA200/redondo (0.6950), alvo 0.7195 (máxima de 20 pregões), com 0.7257 como extensão. A mínima de 10 dias (0,7113) e a Fib 23,6% (0,7089) são os degraus intermediários.",
+                        "recommendation": "COMPRA (LONG) NA RETRAÇÃO",
+                        "trigger": "Fechamento diário dentro da zona 0.7000-0.7020 (redondo / SMA50) seguido de fechamento acima do fechamento anterior e do midpoint 0.7010 — entrada de referência 0.7010. Dentro da janela de 24h do NFP (quinta), reavaliar após o evento.",
+                        "stop": "0.6950 (sob a SMA200 0.6973 e o redondo 0.6950; 60 pips ≥ 1,5σ20 de 35 pips) · risco sugerido ≤ 1% por operação.",
+                        "target": "0.7195 (máxima de 20 pregões; extensão 0.7257, máxima de 9 meses).",
+                        "rr": "1:3.08",
+                        "rrValue": 77,
+                        "justification": "A zona intocada segue sendo o gatilho que este relatório espera desde 21/08 — três dias de retração encaminham o preço para ela com o alinhamento de alta intacto e o diferencial da RBA (4,35% e subindo nas projeções dos bancos) atrás do AUD. Comprar o redondo/SMA50 paga 1:3.08 até a máxima de 20 pregões com stop estrutural sob a SMA200; perseguir o topo pagaria ~1:1,4. A vantagem é de quem espera."
+                },
+                "en": {
+                        "fundamental": "AUD/USD closed at 0.7145 in the 01/09/2026 session (MetaTrader 5 D1 close; live mid 0.7147), down -0.30% — the third day of the pullback from the 0.7194 top (10/20-day high), handing back the 0.7200 round and aiming at the 0.7000-0.7020 buying zone (round / 50-day SMA at 0.7020), still untouched. The alignment stays bullish (50-day 0.7020 > 200-day 0.6973) and the pair sits 125 pips above the zone. RBA at 4.35% (next meeting Sep 29; ANZ/CBA see a hike to 4.60% in November), Australian CPI at 3.5%; WTI ~$83 and the firm dollar (~55% Fed hike odds) weigh short-term — the pullback is the entry price, not the invalidation. NFP Friday (Sep 4): a trigger inside the 24h window gets reassessed after the event. Indicators computed from the MetaTrader 5 D1 series (541 sessions, 01/08/2024 to 01/09/2026).",
+                        "trend": "Above the 50-day (0.7020) and 200-day (0.6973) SMAs — bull alignment; the pullback returned the 0.7200 round and the 10/20-day high (0.7194) to resistance, with the 9-month high (0.7257) above.",
+                        "support": "0.7113 (10-day low), with the 23.6% Fib (0.7089) and the 0.7000-0.7020 buying zone (round / 50-day SMA) beneath.",
+                        "resistance": "0.7194 (10/20-day highs), with the 0.7200 round in the path and the 9-month high (0.7257) above.",
+                        "priceAction": "Buy-the-pullback setup: wait for a daily close inside the 0.7000-0.7020 zone (round / 50-day SMA) followed by a higher close above the midpoint (0.7010) — entry reference 0.7010, stop under the SMA200/round (0.6950), target 0.7195 (20-day high), with 0.7257 as extension. The 10-day low (0.7113) and the 23.6% Fib (0.7089) are the intermediate steps.",
+                        "recommendation": "BUY (LONG) ON PULLBACK",
+                        "trigger": "Daily close inside the 0.7000-0.7020 zone (round / 50-day SMA) followed by a close above the previous close and the 0.7010 midpoint — entry reference 0.7010. Inside the NFP 24h window (Thursday), reassess after the event.",
+                        "stop": "0.6950 (under the 200-day SMA 0.6973 and the 0.6950 round; 60 pips >= the 35-pip 1.5-sigma20 floor) · suggested risk ≤ 1% per trade.",
+                        "target": "0.7195 (20-day high; extension 0.7257, the 9-month high).",
+                        "rr": "1:3.08",
+                        "rrValue": 77,
+                        "justification": "The untouched zone remains the trigger this report has awaited since Aug 21 — three pullback days steer price toward it with the bull alignment intact and the RBA differential (4.35% and rising in bank projections) behind the AUD. Buying the round/50-day pays 1:3.08 to the 20-day high with a structural stop under the 200-day SMA; chasing the top would pay ~1:1.4. The edge sits with whoever waits."
+                }
+        },
+        "GBP/USD": {
+                "quote": "1.3515",
+                "bias": "NEUTRO",
+                "biasType": "neutral",
+                "pt": {
+                        "fundamental": "O GBP/USD fechou em 1,3515 na sessão de 01/09/2026 (fechamento D1 do MetaTrader 5; mid ao vivo 1,3515), caindo -0,25% e imprimindo nova mínima de 10 pregões (1,3515 < 1,3534), colado sobre a Fib 50% (1,3507) da perna de 9 meses. O alinhamento segue NEUTRO: preço acima das duas médias, mas com a SMA50 (1,3435) escorregada sob a SMA200 (1,3438) — o rompimento D10 para baixo não resolve o mix (a leitura de baixa exige fechamento sob a SMA200). BoE a 3,75% (6-3; próxima reunião 17/09), CPI do Reino Unido a 2,9%; o dólar firme (~55% de chance de alta do Fed) pressiona; NFP sexta (04/09). Indicadores calculados da série D1 do MetaTrader 5 (541 pregões, 01/08/2024 a 01/09/2026).",
+                        "trend": "Preço acima das SMA50 (1,3435) e SMA200 (1,3438), mas com SMA50 sob a SMA200 — alinhamento neutro; mínima de 10 pregões impressa sobre a Fib 50% (1,3507), com a Fib 38,2% (1,3587) acima e a mínima de 20 pregões (1,3454) abaixo.",
+                        "support": "1.3454 (mínima de 20 pregões), com a confluência SMA50/SMA200 (1,3435-1,3438) e a Fib 61,8% (1,3426) abaixo.",
+                        "resistance": "1.3587 (Fib 38,2%), com a máxima de 20 pregões (1,3647), a Fib 23,6% (1,3686) e a de 9 meses (1,3846) acima.",
+                        "priceAction": "Sem gatilho — o mix exige critério de rompimento: (a) fechamento sob a confluência 1,3435-1,3438 / Fib 61,8% (1,3426) abre as extensões 1,3346-1,3260 e reorienta o viés para baixa; (b) reconquista por fechamento acima de 1,3587/1,3647 devolve a leitura de alta. A perda da Fib 50% (1,3507) por fechamento antecipa o caminho (a). Até lá, sem entrada.",
+                        "recommendation": "AGUARDAR OUTRO GATILHO",
+                        "trigger": "Nenhum — alinhamento neutro. Assistir à perda da confluência 1,3435-1,3438 (ou da Fib 50% 1,3507, como antecipação) ou à reconquista de 1,3587/1,3647 para definir o próximo setup.",
+                        "stop": "N/A (sem operação).",
+                        "target": "N/A (sem operação).",
+                        "rr": "N/A",
+                        "rrValue": 0,
+                        "justification": "O cruzamento de médias segue invertido (SMA50 sob a SMA200) e a mínima de 10 pregões sobre a Fib 50% é um aviso — mas regra é regra: sem fechamento sob a SMA200 não há leitura de baixa, e sem alinhamento qualquer entrada é aposta, não setup. O campo decide entre a confluência 1,3435-1,3438 e a reconquista de 1,3587; NFP sexta (04/09) e BoE 17/09 são os árbitros macro."
+                },
+                "en": {
+                        "fundamental": "GBP/USD closed at 1.3515 in the 01/09/2026 session (MetaTrader 5 D1 close; live mid 1.3515), down -0.25% and printing a new 10-day low (1.3515 < 1.3534), glued onto the 50% Fib (1.3507) of the 9-month leg. The alignment stays NEUTRAL: price above both averages but with the 50-day (1.3435) slipped under the 200-day (1.3438) — the downside D10 print doesn't resolve the mix (a bearish read requires a close under the 200-day SMA). BoE at 3.75% (6-3; next meeting Sep 17), UK CPI at 2.9%; the firm dollar (~55% Fed hike odds) presses; NFP Friday (Sep 4). Indicators computed from the MetaTrader 5 D1 series (541 sessions, 01/08/2024 to 01/09/2026).",
+                        "trend": "Price above the 50-day (1.3435) and 200-day (1.3438) SMAs, but with the 50-day under the 200-day — neutral alignment; a 10-day low printed on the 50% Fib (1.3507), with the 38.2% Fib (1.3587) above and the 20-day low (1.3454) beneath.",
+                        "support": "1.3454 (20-day low), with the 50/200-day SMA confluence (1.3435-1.3438) and the 61.8% Fib (1.3426) beneath.",
+                        "resistance": "1.3587 (38.2% Fib), with the 20-day high (1.3647), the 23.6% Fib (1.3686) and the 9-month high (1.3846) above.",
+                        "priceAction": "No trigger — the mix demands a breakout criterion: (a) a close under the 1.3435-1.3438 confluence / 61.8% Fib (1.3426) opens the 1.3346-1.3260 extensions and reorients the bias bearish; (b) a reclaim close above 1.3587/1.3647 restores the bullish read. Losing the 50% Fib (1.3507) by close would pre-empt path (a). Until then, no entry.",
+                        "recommendation": "WAIT FOR ANOTHER TRIGGER",
+                        "trigger": "None — neutral alignment. Watch the loss of the 1.3435-1.3438 confluence (or of the 50% Fib 1.3507, as an early tell) or the reclaim of 1.3587/1.3647 to define the next setup.",
+                        "stop": "N/A (no trade).",
+                        "target": "N/A (no trade).",
+                        "rr": "N/A",
+                        "rrValue": 0,
+                        "justification": "The moving-average cross stays inverted (50-day under the 200-day) and the 10-day low onto the 50% Fib is a warning — but a rule is a rule: without a close under the 200-day SMA there is no bearish read, and without alignment any entry is a bet, not a setup. The field is decided between the 1.3435-1.3438 confluence and the 1.3587 reclaim; Friday's NFP and the Sep 17 BoE are the macro arbiters."
+                }
+        },
+        "EUR/JPY": {
+                "quote": "185.67",
+                "bias": "ALTA",
+                "biasType": "bull",
+                "pt": {
+                        "fundamental": "O EUR/JPY fechou em 185,67 na sessão de 01/09/2026 (fechamento D1 do MetaTrader 5; mid ao vivo 185,74), estável (+0,06%) e colado sob a máxima de 10/20 pregões (185,84). O alinhamento segue pleno de alta (SMA50 184,81 > SMA200 184,26), mas o piso de intervenção voltou a pesar na base MT5: com σ20 a 45 pips, o piso 2,5σ20 é ≈111 pips (o yen de volta acima de 160 mantém o MoF de prontidão) — uma retração à zona 184,67-184,81 (mínima D10 / SMA50) exige stop sob a SMA200/Fib 50% (183,90-184,01, ~75-85 pips) e falha o piso; e o rompimento acima de 185,84 contra o teto de 9 meses (187,54) entrega ~1:1,4 com stop aprovado. O keynote hawkish de Warsh sustenta o diferencial BCE-BoJ (BCE em 09-10/09; BoJ em 17-18/09). Indicadores calculados da série D1 do MetaTrader 5 (541 pregões, 01/08/2024 a 01/09/2026).",
+                        "trend": "Acima das SMA50 (184,81) e SMA200 (184,26) — alinhamento de alta pleno; fechamento sob a máxima de 10/20 pregões (185,84), com a Fib 23,6% (185,87) e a máxima de 9 meses (187,54) acima.",
+                        "support": "184.81 (SMA50) / 184.67 (mínima de 10 pregões), com a SMA200 (184,26) e a Fib 50% (184,01) abaixo.",
+                        "resistance": "185.84 (máximas de 10/20 pregões) / 185.87 (Fib 23,6%), com a máxima de 9 meses (187,54) acima.",
+                        "priceAction": "Sem entrada — o piso de intervenção (2,5σ20 ≈ 111 pips) reprova o stop estrutural da retração (~75-85 pips) e o rompimento entrega ~1:1,4. Rearmar: retração profunda à zona 183,18-184,01 (Fib 61,8-50%) reprecifica o stop, ou compressão da σ20 que afrouxe o piso. NFP sexta (04/09) e BoJ 17-18/09 no radar.",
+                        "recommendation": "AGUARDAR OUTRO GATILHO",
+                        "trigger": "Nenhum — o piso de intervenção reprova o setup de retração e o rompimento entrega ~1:1,4. Reavaliar em retração à zona 183,18-184,01 (Fib 61,8-50%) ou com σ20 comprimida.",
+                        "stop": "N/A (sem operação).",
+                        "target": "N/A (sem operação).",
+                        "rr": "N/A",
+                        "rrValue": 0,
+                        "justification": "A estrutura de alta segue inteira e o preço dança sob o gatilho — mas o gate é o gate: com o yen acima de 160 e o MoF de prontidão, o piso de 2,5σ20 (111 pips) reprova qualquer stop estrutural disponível na zona de retração, e o teto de 187,54 não paga o rompimento. Sem 1:2 protegido, sem operação."
+                },
+                "en": {
+                        "fundamental": "EUR/JPY closed at 185.67 in the 01/09/2026 session (MetaTrader 5 D1 close; live mid 185.74), flat (+0.06%) and glued under the 10/20-day high (185.84). The alignment stays fully bullish (50-day 184.81 > 200-day 184.26), but the intervention floor weighs again on the MT5 basis: with sigma20 at 45 pips the 2.5-sigma20 floor is ~=111 pips (the yen back above 160 keeps the MoF on alert) — a pullback to the 184.67-184.81 zone (D10 low / 50-day SMA) requires a stop under the 200-day/50% Fib (183.90-184.01, ~75-85 pips) and fails the floor; and the breakout above 185.84 against the 9-month cap (187.54) yields ~1:1.4 with an approved stop. Warsh's hawkish keynote sustains the ECB-BoJ differential (ECB Sep 9-10; BoJ Sep 17-18). Indicators computed from the MetaTrader 5 D1 series (541 sessions, 01/08/2024 to 01/09/2026).",
+                        "trend": "Above the 50-day (184.81) and 200-day (184.26) SMAs — full bull alignment; close under the 10/20-day high (185.84), with the 23.6% Fib (185.87) and the 9-month high (187.54) above.",
+                        "support": "184.81 (50-day SMA) / 184.67 (10-day low), with the 200-day SMA (184.26) and the 50% Fib (184.01) beneath.",
+                        "resistance": "185.84 (10/20-day highs) / 185.87 (23.6% Fib), with the 9-month high (187.54) above.",
+                        "priceAction": "No entry — the intervention floor (2.5-sigma20 ~= 111 pips) rejects the pullback's structural stop (~75-85 pips) and the breakout yields ~1:1.4. Re-arm: a deep pullback to the 183.18-184.01 zone (61.8-50% Fib) re-prices the stop, or a sigma20 compression loosens the floor. NFP Friday (Sep 4) and the BoJ Sep 17-18 on the radar.",
+                        "recommendation": "WAIT FOR ANOTHER TRIGGER",
+                        "trigger": "None — the intervention floor rejects the pullback setup and the breakout yields ~1:1.4. Reassess on a pullback to the 183.18-184.01 zone (61.8-50% Fib) or with compressed sigma20.",
+                        "stop": "N/A (no trade).",
+                        "target": "N/A (no trade).",
+                        "rr": "N/A",
+                        "rrValue": 0,
+                        "justification": "The bull structure stands whole and price dances under the trigger — but the gate is the gate: with the yen above 160 and the MoF on alert, the 2.5-sigma20 floor (111 pips) rejects every structural stop available in the pullback zone, and the 187.54 cap doesn't pay for the breakout. No protected 1:2, no trade."
+                }
+        },
+        "GBP/JPY": {
+                "quote": "216.47",
+                "bias": "ALTA",
+                "biasType": "bull",
+                "pt": {
+                        "fundamental": "O GBP/JPY fechou em 216,47 na sessão de 01/09/2026 (fechamento D1 do MetaTrader 5; mid ao vivo 216,54), estável (+0,03%) e segurando a Fib 23,6% (216,21). O alinhamento segue pleno de alta (SMA50 216,00 > SMA200 212,89). Reprecificação na base MT5: a σ20 lê 70 pips e o piso de intervenção 2,5σ20 sobe para ≈175 pips (yen acima de 160, MoF de prontidão) — o ticket de compra foi reajustado: entrada 215,60, stop 213,75 (sob a Fib 38,2% 214,15; 185 pips ≥ piso), alvo 219,50 (região da máxima de 9 meses 219,56), R/R 1:2.11. BoE 17/09 e BoJ 17-18/09 são os próximos focos institucionais; NFP sexta (04/09) — disparo dentro da janela de 24h, reavaliar após o evento. Indicadores calculados da série D1 do MetaTrader 5 (541 pregões, 01/08/2024 a 01/09/2026).",
+                        "trend": "Acima das SMA50 (216,00) e SMA200 (212,89) — alinhamento de alta pleno; fechamento acima da Fib 23,6% (216,21) e sob a máxima de 10/20 pregões (217,26), com a máxima de 9 meses (219,56) acima.",
+                        "support": "216.00 (SMA50), com a mínima de 10 pregões (215,15) e a Fib 38,2% (214,15) abaixo.",
+                        "resistance": "217.26 (máximas de 10/20 pregões), com o redondo 218,00 e a máxima de 9 meses (219,56) acima.",
+                        "priceAction": "Setup de compra na retração: aguardar fechamento diário dentro da zona 215.15-216.00 (mínima D10 / SMA50) seguido de fechamento de alta — entrada de referência 215,60, stop 213,75 (sob a Fib 38,2%), alvo 219,50 (região da máxima de 9 meses). A perda por fechamento da Fib 38,2% (214,15) invalida o setup.",
+                        "recommendation": "COMPRA (LONG) NA RETRAÇÃO",
+                        "trigger": "Fechamento diário dentro da zona 215.15-216.00 (mínima D10 / SMA50) seguido de fechamento acima do fechamento anterior — entrada de referência 215,60. Dentro da janela de 24h do NFP (quinta), reavaliar após o evento.",
+                        "stop": "213.75 (sob a Fib 38,2% 214.15 e acima do redondo 213.50; 185 pips ≥ 2,5σ20 de 175 pips) · risco sugerido ≤ 1% por operação.",
+                        "target": "219.50 (região da máxima de 9 meses 219.56).",
+                        "rr": "1:2.11",
+                        "rrValue": 53,
+                        "justification": "A estrutura não mudou — o que mudou é a régua: na base MT5 a σ20 lê 70 pips e o piso de intervenção sobe para ~175 pips, empurrando o stop para 213,75 (sob a Fib 38,2%) e a entrada para 215,60; mesmo assim a zona D10/SMA50 comporta o setup com R/R de 1:2.11 rumo ao topo de 9 meses. Comprar a retração à zona, não o topo de 217."
+                },
+                "en": {
+                        "fundamental": "GBP/JPY closed at 216.47 in the 01/09/2026 session (MetaTrader 5 D1 close; live mid 216.54), flat (+0.03%) and holding the 23.6% Fib (216.21). The alignment stays fully bullish (50-day 216.00 > 200-day 212.89). Re-priced on the MT5 basis: sigma20 reads 70 pips and the 2.5-sigma20 intervention floor rises to ~=175 pips (yen above 160, MoF on alert) — the buy ticket was adjusted: entry 215.60, stop 213.75 (under the 38.2% Fib 214.15; 185 pips >= floor), target 219.50 (9-month-high region 219.56), R/R 1:2.11. BoE Sep 17 and BoJ Sep 17-18 are the next institutional focuses; NFP Friday (Sep 4) — a trigger inside the 24h window gets reassessed after the event. Indicators computed from the MetaTrader 5 D1 series (541 sessions, 01/08/2024 to 01/09/2026).",
+                        "trend": "Above the 50-day (216.00) and 200-day (212.89) SMAs — full bull alignment; close above the 23.6% Fib (216.21) and under the 10/20-day high (217.26), with the 9-month high (219.56) above.",
+                        "support": "216.00 (50-day SMA), with the 10-day low (215.15) and the 38.2% Fib (214.15) beneath.",
+                        "resistance": "217.26 (10/20-day highs), with the 218.00 round and the 9-month high (219.56) above.",
+                        "priceAction": "Buy-the-pullback setup: wait for a daily close inside the 215.15-216.00 zone (D10 low / 50-day SMA) followed by a higher close — entry reference 215.60, stop 213.75 (under the 38.2% Fib), target 219.50 (9-month-high region). A close below the 38.2% Fib (214.15) invalidates the setup.",
+                        "recommendation": "BUY (LONG) ON PULLBACK",
+                        "trigger": "Daily close inside the 215.15-216.00 zone (D10 low / 50-day SMA) followed by a close above the previous close — entry reference 215.60. Inside the NFP 24h window (Thursday), reassess after the event.",
+                        "stop": "213.75 (under the 38.2% Fib 214.15 and above the 213.50 round; 185 pips >= the 175-pip 2.5-sigma20 floor) · suggested risk ≤ 1% per trade.",
+                        "target": "219.50 (9-month-high region, 219.56).",
+                        "rr": "1:2.11",
+                        "rrValue": 53,
+                        "justification": "The structure didn't change — what changed is the yardstick: on the MT5 basis sigma20 reads 70 pips and the intervention floor rises to ~175 pips, pushing the stop to 213.75 (under the 38.2% Fib) and the entry to 215.60; even so, the D10/50-day zone fits the setup at 1:2.11 R/R toward the 9-month top. Buy the pullback into the zone, not the 217 top."
+                }
+        }
 };
 
         /* ==========================================
@@ -755,38 +755,38 @@
            (build_forexdata.py) never overwrites them. Author-maintained.
            ========================================== */
         const dailyChanges = {
-            "EUR/USD": "-0.05%",
-            "USD/JPY": "+0.27%",
-            "AUD/USD": "-0.29%",
-            "GBP/USD": "-0.06%",
-            "EUR/JPY": "+0.22%",
-            "GBP/JPY": "+0.21%"
+            "EUR/USD": "-0.21%",
+            "USD/JPY": "+0.28%",
+            "AUD/USD": "-0.30%",
+            "GBP/USD": "-0.25%",
+            "EUR/JPY": "+0.06%",
+            "GBP/JPY": "+0.03%"
         };
 
         const macroDrivers = {
             "EUR/USD": {
-                en: ["Fed hold 3.50-3.75%", "CPI 3.4%", "ECB 2.25%"],
-                pt: ["Fed 3,50-3,75%", "CPI 3,4%", "BCE 2,25%"]
+                en: ["Fed hike odds ~55%", "DXY ~99.5", "ECB Sep 9-10"],
+                pt: ["Alta Fed ~55%", "DXY ~99,5", "BCE 09-10/09"]
             },
             "USD/JPY": {
-                en: ["BoJ 1.00% hawkish", "Intervention fade", "Fed–BoJ gap"],
-                pt: ["BoJ 1,0% hawkish", "Intervenção esvaindo", "Diferencial Fed–BoJ"]
+                en: ["BoJ 1.00% hawkish", "¥160 MoF watch", "NFP Sep 4"],
+                pt: ["BoJ 1,0% hawkish", "MoF vigia ¥160", "NFP 04/09"]
             },
             "AUD/USD": {
-                en: ["RBA 4.35%", "WTI $82", "Fed dovish"],
-                pt: ["RBA 4,35%", "WTI $82", "Fed dovish"]
+                en: ["RBA 4.35%", "WTI $83", "Fed hike ~55%"],
+                pt: ["RBA 4,35%", "WTI $83", "Alta Fed ~55%"]
             },
             "GBP/USD": {
-                en: ["BoE 3.75% 6-3", "CPI 2.6%", "Fed dovish"],
-                pt: ["BoE 3,75% 6-3", "IPC 2,6%", "Fed dovish"]
+                en: ["BoE 3.75% 6-3", "CPI 2.9%", "Fed hike ~55%"],
+                pt: ["BoE 3,75% 6-3", "IPC 2,9%", "Alta Fed ~55%"]
             },
             "EUR/JPY": {
-                en: ["BoJ 1.00% hawkish", "Intervention fade", "ECB–BoJ gap"],
-                pt: ["BoJ 1,0% hawkish", "Intervenção esvaindo", "Diferencial BCE–BoJ"]
+                en: ["BoJ 1.00% hawkish", "¥160 MoF watch", "ECB Sep 9-10"],
+                pt: ["BoJ 1,0% hawkish", "MoF vigia ¥160", "BCE 09-10/09"]
             },
             "GBP/JPY": {
-                en: ["BoJ 1.00% hawkish", "Intervention fade", "BoE–BoJ gap"],
-                pt: ["BoJ 1,0% hawkish", "Intervenção esvaindo", "Diferencial BoE–BoJ"]
+                en: ["BoJ 1.00% hawkish", "¥160 MoF watch", "BoE Sep 17"],
+                pt: ["BoJ 1,0% hawkish", "MoF vigia ¥160", "BoE 17/09"]
             }
         };
 
