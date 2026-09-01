@@ -1,35 +1,77 @@
 import urllib.request, json, sys, statistics
-from datetime import date
+from datetime import date, datetime
 
-# Fetch daily series from 2024-08-01 through today (dynamic end date)
-START = '2024-08-01'
-END = date.today().isoformat()
-req = urllib.request.Request(
-    f'https://api.frankfurter.app/{START}..{END}?from=USD&to=EUR,JPY,GBP,AUD',
-    headers={'User-Agent': 'Mozilla/5.0 (forex-report)'}
-)
-resp = urllib.request.urlopen(req, timeout=60)
-data = json.load(resp)
+# Fetch daily series from 2024-08-01 through the last completed D1 bar.
+# Primary source: MetaTrader 5 terminal (D1 closes). Fallback: Frankfurter/ECB API.
+START = date(2024, 8, 1)
 
-dates = sorted(data['rates'].keys())
+MT5_SYMBOLS = {
+    'EUR/USD': 'EURUSD',
+    'USD/JPY': 'USDJPY',
+    'AUD/USD': 'AUDUSD',
+    'GBP/USD': 'GBPUSD',
+    'EUR/JPY': 'EURJPY',
+    'GBP/JPY': 'GBPJPY',
+}
+
+def fetch_from_mt5():
+    import MetaTrader5 as mt5
+    if not mt5.initialize():
+        raise RuntimeError(f'MT5 initialize failed: {mt5.last_error()}')
+    try:
+        today = datetime.now().date()
+        series, dates, quotes = {}, [], {}
+        for pair, sym in MT5_SYMBOLS.items():
+            rates = mt5.copy_rates_range(sym, mt5.TIMEFRAME_D1, datetime.combine(START, datetime.min.time()),
+                                         datetime.combine(today, datetime.min.time()))
+            if rates is None or len(rates) == 0:
+                raise RuntimeError(f'MT5 copy_rates_range failed for {sym}: {mt5.last_error()}')
+            # Drop the still-forming D1 candle: indicators are close-based on completed sessions
+            bars = [r for r in rates if datetime.fromtimestamp(r['time']).date() < today]
+            if pair == 'EUR/USD':
+                dates = [datetime.fromtimestamp(r['time']).date().isoformat() for r in bars]
+            series[pair] = [float(r['close']) for r in bars]
+            tick = mt5.symbol_info_tick(sym)
+            quotes[pair] = (tick.bid + tick.ask) / 2 if tick else None
+    finally:
+        mt5.shutdown()
+    return dates, series, quotes
+
+def fetch_from_frankfurter():
+    req = urllib.request.Request(
+        f"https://frankfurter.app/{START.isoformat()}..{date.today().isoformat()}?from=USD&to=EUR,JPY,GBP,AUD",
+        headers={'User-Agent': 'Mozilla/5.0 (forex-report)'}
+    )
+    resp = urllib.request.urlopen(req, timeout=60)
+    data = json.load(resp)
+    dates = sorted(data['rates'].keys())
+    pairs_def = {
+        'EUR/USD': lambda r: 1.0 / r['EUR'],
+        'USD/JPY': lambda r: r['JPY'],
+        'AUD/USD': lambda r: 1.0 / r['AUD'],
+        'GBP/USD': lambda r: 1.0 / r['GBP'],
+        'EUR/JPY': lambda r: r['JPY'] / r['EUR'],
+        'GBP/JPY': lambda r: r['JPY'] / r['GBP'],
+    }
+    series = {pair: [fn(data['rates'][d]) for d in dates] for pair, fn in pairs_def.items()}
+    return dates, series, {}
+
+try:
+    dates, series, live_quotes = fetch_from_mt5()
+    source = 'MetaTrader 5 terminal (D1 closes)'
+except Exception as e:
+    print(f'MT5 fetch failed ({e}); falling back to Frankfurter/ECB API', file=sys.stderr)
+    dates, series, live_quotes = fetch_from_frankfurter()
+    source = 'Frankfurter/ECB daily reference rates'
+
+print(f'Data source: {source}')
 print(f'Total trading days: {len(dates)}')
 print(f'First date: {dates[0]}')
 print(f'Last date: {dates[-1]}')
-
-# Build per-pair close series
-pairs_def = {
-    'EUR/USD': lambda r: 1.0 / r['EUR'],
-    'USD/JPY': lambda r: r['JPY'],
-    'AUD/USD': lambda r: 1.0 / r['AUD'],
-    'GBP/USD': lambda r: 1.0 / r['GBP'],
-    'EUR/JPY': lambda r: r['JPY'] / r['EUR'],
-    'GBP/JPY': lambda r: r['JPY'] / r['GBP'],
-}
-
-series = {}
-for pair, fn in pairs_def.items():
-    closes = [fn(data['rates'][d]) for d in dates]
-    series[pair] = closes
+if live_quotes:
+    print('Live MT5 mid quotes:')
+    for pair, q in live_quotes.items():
+        print(f'  {pair}: {q:.5f}' if q is not None else f'  {pair}: n/a')
 
 def sma(closes, n):
     if len(closes) < n:
@@ -127,5 +169,5 @@ for pair, closes in series.items():
 # Emit machine-readable JSON for downstream
 print('\n' + '='*70)
 print('RESULTS_JSON_START')
-print(json.dumps({'dates': dates, 'n_sessions': len(dates), 'results': results}, default=str))
+print(json.dumps({'source': source, 'dates': dates, 'n_sessions': len(dates), 'live_quotes': live_quotes, 'results': results}, default=str))
 print('RESULTS_JSON_END')
