@@ -8,11 +8,11 @@ PAGE = {
     "EUR/USD": "eur-usd.html", "USD/JPY": "usd-jpy.html", "AUD/USD": "aud-usd.html",
     "GBP/USD": "gbp-usd.html", "EUR/JPY": "eur-jpy.html", "GBP/JPY": "gbp-jpy.html",
 }
-TODAY_TS = "28/08/2026 22:05 UTC"
-TODAY_DATE = "28/08/2026"
-STALE_DATES = ["24/08/2026", "20/08/2026", "19/08/2026", "18/08/2026", "17/08/2026", "14/08/2026", "13/08/2026", "11/08/2026", "03/08/2026", "02/08/2026"]
-TICKER = [("EUR/USD","-0.02%"),("USD/JPY","+0.18%"),("AUD/USD","+0.07%"),
-          ("GBP/USD","+0.01%"),("EUR/JPY","+0.16%"),("GBP/JPY","+0.19%")]
+TODAY_TS = "01/09/2026 18:04 UTC"
+TODAY_DATE = "01/09/2026"
+STALE_DATES = ["28/08/2026", "24/08/2026", "20/08/2026", "19/08/2026", "18/08/2026", "17/08/2026", "14/08/2026", "13/08/2026", "11/08/2026", "03/08/2026", "02/08/2026"]
+TICKER = [("EUR/USD","-0.05%"),("USD/JPY","+0.27%"),("AUD/USD","-0.29%"),
+          ("GBP/USD","-0.06%"),("EUR/JPY","+0.22%"),("GBP/JPY","+0.21%")]
 errors = []
 
 with open(INDEX, encoding="utf-8") as f:
