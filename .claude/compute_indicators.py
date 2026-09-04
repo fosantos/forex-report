@@ -39,7 +39,7 @@ def fetch_from_mt5():
 
 def fetch_from_frankfurter():
     req = urllib.request.Request(
-        f"https://frankfurter.app/{START.isoformat()}..{date.today().isoformat()}?from=USD&to=EUR,JPY,GBP,AUD",
+        f"https://api.frankfurter.app/{START.isoformat()}..{date.today().isoformat()}?from=USD&to=EUR,JPY,GBP,AUD",
         headers={'User-Agent': 'Mozilla/5.0 (forex-report)'}
     )
     resp = urllib.request.urlopen(req, timeout=60)

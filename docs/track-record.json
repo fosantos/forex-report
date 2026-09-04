@@ -2,7 +2,7 @@
   "meta": {
     "version": 1,
     "created": "17/08/2026",
-    "lastUpdated": "02/09/2026",
+    "lastUpdated": "04/09/2026",
     "pairs": [
       "EUR/USD",
       "USD/JPY",
@@ -12,7 +12,7 @@
       "GBP/JPY"
     ],
     "conventions": {
-      "data": "MetaTrader 5 D1 closes (fallback: ECB/Frankfurter daily reference rates). All triggers and resolutions are CLOSE-based.",
+      "data": "ECB/Frankfurter daily reference rates (MetaTrader 5 D1 closes when the terminal offers FX symbols — it currently does not). All triggers and resolutions are CLOSE-based.",
       "watching": "A directional setup published in a report whose trigger has not yet fired. Watches only closes strictly after the report session.",
       "open": "Trigger fired: entry = the first qualifying daily close, entryDate = that session. Open tickets are never modified by later reports.",
       "resolution": {
@@ -29,27 +29,39 @@
   "watching": [
     {
       "pair": "AUD/USD",
-      "reportDate": "02/09/2026",
+      "reportDate": "04/09/2026",
       "direction": "long",
       "setup": "pullback",
-      "entry": 0.701,
-      "stop": 0.695,
-      "target": 0.7195,
-      "plannedR": 3.08,
-      "triggerRule": "daily close inside 0.7000-0.7020 (round + 50-day SMA) followed by a close above the previous close and the 0.7010 midpoint; skip if inside the NFP 24h window (reassess after 04/09)",
-      "note": "zone awaited since 21/08; third pullback day from the 0.7194 top engages it"
+      "entry": 0.7155,
+      "stop": 0.711,
+      "target": 0.7257,
+      "plannedR": 2.27,
+      "triggerRule": "daily close inside 0.7141-0.7162 (10-day low + 0.7150 round) followed by a close above the previous close and the 0.7152 midpoint; skip if inside the China-data 24h window (CPI ~09/09)",
+      "note": "the 04/09 close (0.7204) broke the prior 10/20-day high 0.7195 — the stale 0.7000-0.7020 ticket is replaced by the post-breakout retest; stop 45 pips >= the 40-pip 1.5-sigma20 floor"
     },
     {
-      "pair": "GBP/JPY",
-      "reportDate": "02/09/2026",
+      "pair": "EUR/USD",
+      "reportDate": "04/09/2026",
+      "direction": "short",
+      "setup": "pullback",
+      "entry": 1.164,
+      "stop": 1.1685,
+      "target": 1.1534,
+      "plannedR": 2.36,
+      "triggerRule": "daily close inside 1.1629-1.1657 (SMA200 + 50% Fib) followed by a close below the previous close and the 1.1643 midpoint; valid through the 08/09 close — inside the ECB (09-10/09) or US CPI 24h windows, reassess after the event",
+      "note": "re-armed on the ECB/Frankfurter basis (Fib50 back to 1.1657; the logged-in MT5 terminal has no FX symbols); stop 1.1685 over the Fib50 and the 10-day high, 45 pips >= the 42-pip 1.5-sigma20 floor"
+    },
+    {
+      "pair": "GBP/USD",
+      "reportDate": "04/09/2026",
       "direction": "long",
       "setup": "pullback",
-      "entry": 215.6,
-      "stop": 213.75,
-      "target": 219.5,
-      "plannedR": 2.11,
-      "triggerRule": "daily close inside 215.15-216.00 (D10 low + 50-day SMA) followed by a close above the previous close; skip if inside the NFP 24h window",
-      "note": "re-priced on the MT5 basis (sigma20 70): stop 213.75 under the 38.2% Fib 214.15; 185 pips >= the 175-pip 2.5-sigma20 intervention floor"
+      "entry": 1.3445,
+      "stop": 1.339,
+      "target": 1.3565,
+      "plannedR": 2.18,
+      "triggerRule": "daily close inside 1.3438-1.3448 (SMA200/SMA50 confluence) followed by a close above the previous close and the 1.3443 midpoint; skip if inside the US CPI 24h window",
+      "note": "bull alignment restored (SMA50 1.3448 > SMA200 1.3438); stop 1.3390 under the 61.8% Fib 1.3411 and the 1.3400 round, 55 pips >= the 52-pip 1.5-sigma20 floor"
     }
   ],
   "open": [],
@@ -111,6 +123,20 @@
       "exitDate": "02/09/2026",
       "entryDate": null,
       "realizedR": null
+    },
+    {
+      "pair": "GBP/JPY",
+      "reportDate": "02/09/2026",
+      "direction": "long",
+      "setup": "pullback",
+      "entry": 215.6,
+      "stop": 213.75,
+      "target": 219.5,
+      "plannedR": 2.11,
+      "triggerRule": "daily close inside 215.15-216.00 (D10 low + 50-day SMA) followed by a close above the previous close; skip if inside the NFP 24h window",
+      "note": "revoked in the 04/09 edition: the 03/09 yen surge (BoJ hike bets + intervention talk) closed 210.57 straight through the 215.15-216.00 zone; on the ECB basis sigma20 = 121 pips puts the 2.5-sigma20 intervention floor at 302 pips — no structural geometry pays 1:2",
+      "outcome": "revoked",
+      "exitDate": "04/09/2026"
     }
   ]
 }
