@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Forex Report" />
+    <script>if(/^https?:$/.test(location.protocol)){var l=document.createElement('link');l.rel='manifest';l.href='site.webmanifest';document.head.appendChild(l);}</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forex News &amp; Macro Flow - Forex Report</title>
+    <meta name="description" content="Investment news digest with direct influence on Forex: central banks, macro data and market flow for EUR/USD, USD/JPY, AUD/USD, GBP/USD, EUR/JPY and GBP/JPY.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content container">
+            <a href="index.html" class="brand-logo">
+                FOREX<span>REPORT</span>
+            </a>
+
+            <nav class="header-nav">
+                <a href="index.html" class="nav-link">Dashboard</a>
+                <a href="news.html" class="nav-link active">News</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <div class="lang-selector-wrapper">
+                    <select class="lang-select" id="langSelect" aria-label="Language Selector">
+                        <option value="en">EN</option>
+                        <option value="pt">PT</option>
+                    </select>
+                    <svg class="lang-select-arrow" viewBox="0 0 20 20">
+                        <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container-wide">
+        <!-- 1. Breadcrumb navigation -->
+        <div style="margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--text-muted);">
+            <a href="index.html" style="color: var(--text-muted);"><span class="lang-en">Home</span><span class="lang-pt" style="display:none;">Início</span></a> &gt; <span><span class="lang-en">News &amp; Macro Flow</span><span class="lang-pt" style="display:none;">Notícias &amp; Fluxo Macro</span></span>
+        </div>
+
+        <!-- 2. Wire hero -->
+        <section class="wire-hero">
+            <span class="cd-kicker"><span class="lang-en">Market Wire · Weekend Edition</span><span class="lang-pt" style="display:none;">Telégrafo da Mesa · Edição de Fim de Semana</span></span>
+            <h1 class="cd-title"><span class="lang-en">News &amp; Macro Flow</span><span class="lang-pt" style="display:none;">Notícias &amp; Fluxo Macro</span></h1>
+            <div class="cd-dateline">
+                <p class="cd-date"><span class="lang-en">Wire updated: 06/09/2026 14:00 UTC</span><span class="lang-pt" style="display:none;">Telégrafo atualizado em: 06/09/2026 14:00 UTC</span></p>
+                <span class="cd-sep" aria-hidden="true">·</span>
+                <span><span class="lang-en">6 pairs · 4 central banks in 8 days</span><span class="lang-pt" style="display:none;">6 pares · 4 bancos centrais em 8 dias</span></span>
+            </div>
+            <p class="wh-sub">
+                <span class="lang-en">Investment news with direct influence on Forex, filtered through the desk's methodology: impact stamp, affected currencies, event windows and the open tickets of the daily report. Every item links to the analysis of the pair it moves.</span>
+                <span class="lang-pt" style="display:none;">Notícias de investimento com influência direta sobre o Forex, filtradas pela metodologia da mesa: selo de impacto, moedas afetadas, janelas de eventos e os tickets vigentes do relatório diário. Cada item liga à análise do par que ele move.</span>
+            </p>
+        </section>
+
+        <!-- 3. Week-ahead calendar strip -->
+        <section class="calendar-strip">
+            <div class="cal-head"><span class="lang-en">Week ahead — the calendar that commands the event filter</span><span class="lang-pt" style="display:none;">Semana pela frente — o calendário que comanda o filtro de eventos</span></div>
+            <div class="cal-grid">
+                <div class="cal-cell">
+                    <span class="cal-date">&asymp;09/09</span>
+                    <span class="cal-event"><span class="lang-en">China CPI</span><span class="lang-pt" style="display:none;">CPI da China</span></span>
+                    <div class="cal-meta"><span class="cal-impact high" aria-hidden="true"></span><span class="cal-cur">CNY</span><span class="cal-cur">AUD</span></div>
+                </div>
+                <div class="cal-cell">
+                    <span class="cal-date">09-10/09</span>
+                    <span class="cal-event"><span class="lang-en">ECB decision</span><span class="lang-pt" style="display:none;">Decisão do BCE</span></span>
+                    <div class="cal-meta"><span class="cal-impact high" aria-hidden="true"></span><span class="cal-cur">EUR</span></div>
+                </div>
+                <div class="cal-cell">
+                    <span class="cal-date">&asymp;10/09</span>
+                    <span class="cal-event"><span class="lang-en">US CPI</span><span class="lang-pt" style="display:none;">CPI dos EUA</span></span>
+                    <div class="cal-meta"><span class="cal-impact high" aria-hidden="true"></span><span class="cal-cur">USD</span></div>
+                </div>
+                <div class="cal-cell">
+                    <span class="cal-date">15-16/09</span>
+                    <span class="cal-event">FOMC</span>
+                    <div class="cal-meta"><span class="cal-impact high" aria-hidden="true"></span><span class="cal-cur">USD</span></div>
+                </div>
+                <div class="cal-cell">
+                    <span class="cal-date">17/09</span>
+                    <span class="cal-event"><span class="lang-en">BoE decision</span><span class="lang-pt" style="display:none;">Decisão do BoE</span></span>
+                    <div class="cal-meta"><span class="cal-impact high" aria-hidden="true"></span><span class="cal-cur">GBP</span></div>
+                </div>
+                <div class="cal-cell">
+                    <span class="cal-date">17-18/09</span>
+                    <span class="cal-event"><span class="lang-en">BoJ decision</span><span class="lang-pt" style="display:none;">Decisão do BoJ</span></span>
+                    <div class="cal-meta"><span class="cal-impact high" aria-hidden="true"></span><span class="cal-cur">JPY</span></div>
+                </div>
+                <div class="cal-cell">
+                    <span class="cal-date">29/09</span>
+                    <span class="cal-event"><span class="lang-en">RBA decision</span><span class="lang-pt" style="display:none;">Decisão da RBA</span></span>
+                    <div class="cal-meta"><span class="cal-impact med" aria-hidden="true"></span><span class="cal-cur">AUD</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Desk wire feed -->
+        <section class="news-section">
+            <div class="news-head">
+                <div class="news-eyebrow"><span class="lang-en">Desk wire — what moves our six pairs</span><span class="lang-pt" style="display:none;">Telégrafo da mesa — o que move os nossos seis pares</span></div>
+            </div>
+
+            <div class="news-grid">
+
+                <!-- News 1: US NFP / Fed repricing -->
+                <article class="news-card">
+                    <div class="news-card-top">
+                        <span class="news-cat"><span class="lang-en">Macro Data</span><span class="lang-pt" style="display:none;">Dados Macro</span></span>
+                        <span class="impact-badge high"><span class="lang-en">High Impact</span><span class="lang-pt" style="display:none;">Impacto Alto</span></span>
+                        <span class="news-date">04/09/2026 12:30 UTC</span>
+                    </div>
+                    <h2 class="news-title">
+                        <span class="lang-en">August NFP steamrolls forecasts: +162k jobs and the dollar reprices the Fed</span>
+                        <span class="lang-pt" style="display:none;">NFP de agosto atropela expectativas: +162 mil empregos e o dólar reprecifica o Fed</span>
+                    </h2>
+                    <p class="news-summary">
+                        <span class="lang-en">US job creation came in at +162k in August, almost three times the +56k forecast, with unemployment at 4.1% and wages up +0.3% m/m. The Dollar Index (DXY) jumped to the 99.5 area and the market moved to pricing ~60% odds of a Fed hike at the September 15-16 FOMC.</span>
+                        <span class="lang-pt" style="display:none;">A criação de empregos nos EUA veio em +162 mil em agosto, quase o triplo das +56 mil projetadas, com desemprego a 4,1% e salários +0,3% m/m. O índice do dólar (DXY) saltou para a região de 99,5 e o mercado passou a precificar ~60% de chance de alta de juros do Fed no FOMC de 15-16/09.</span>
+                    </p>
+                    <div class="news-take">
+                        <span class="take-tag"><span class="lang-en">Desk take</span><span class="lang-pt" style="display:none;">Leitura da mesa</span></span>
+                        <span class="lang-en">The number is already in our analyses: it keeps the headwind on EUR/USD (four closes under the 200-day SMA) and tested the cable — which still held the 1.3500 round. Event filter: no new directional entries within 24h of the FOMC or US CPI.</span>
+                        <span class="lang-pt" style="display:none;">O dado já está nas nossas análises: mantém o vento contrário ao EUR/USD (quatro fechamentos sob a SMA200) e testou o cable — que, ainda assim, segurou o redondo 1,3500. Filtro de eventos: sem novas entradas direcionais nas 24h antes do FOMC ou do CPI dos EUA.</span>
+                    </div>
+                    <div class="news-pairs">
+                        <span class="np-label"><span class="lang-en">Watch</span><span class="lang-pt" style="display:none;">Acompanhar</span></span>
+                        <a href="eur-usd.html" class="pair-link-chip">EUR/USD</a>
+                        <a href="usd-jpy.html" class="pair-link-chip">USD/JPY</a>
+                        <a href="aud-usd.html" class="pair-link-chip">AUD/USD</a>
+                        <a href="gbp-usd.html" class="pair-link-chip">GBP/USD</a>
+                    </div>
+                </article>
+
+                <!-- News 2: Yen surge / BoJ intervention risk -->
+                <article class="news-card">
+                    <div class="news-card-top">
+                        <span class="news-cat"><span class="lang-en">Central Banks</span><span class="lang-pt" style="display:none;">Bancos Centrais</span></span>
+                        <span class="impact-badge high"><span class="lang-en">High Impact</span><span class="lang-pt" style="display:none;">Impacto Alto</span></span>
+                        <span class="news-date">03/09/2026</span>
+                    </div>
+                    <h2 class="news-title">
+                        <span class="lang-en">Yen surge knocks USD/JPY down 2.25% in a day and reactivates intervention talk</span>
+                        <span class="lang-pt" style="display:none;">Surto do iene derruba USD/JPY 2,25% num dia e reativa o talk de intervenção</span>
+                    </h2>
+                    <p class="news-summary">
+                        <span class="lang-en">Bets on more aggressive BoJ steps (above 25 bp at the September 17-18 meeting) triggered a yen buying stampede: USD/JPY fell from 159.60 to close at 156.01 (-2.25%, the worst day since the July intervention), the yen touched 155.28 intraday and the Ministry of Finance is back to verbal intervention. The sigma20 of the yen crosses spiked to 87-121 pips.</span>
+                        <span class="lang-pt" style="display:none;">Apostas em passos mais agressivos do BoJ (acima de 25 pb na reunião de 17-18/09) detonaram uma corrida de compra de iene: o USD/JPY caiu de 159,60 para fechar em 156,01 (-2,25%, o pior dia desde a intervenção de julho), o yen tocou 155,28 no intraday e o Ministério das Finanças voltou ao discurso verbal de intervenção. A σ20 dos cruzamentos com iene saltou para 87-121 pips.</span>
+                    </p>
+                    <div class="news-take">
+                        <span class="take-tag"><span class="lang-en">Desk take</span><span class="lang-pt" style="display:none;">Leitura da mesa</span></span>
+                        <span class="lang-en">The intervention floor of our methodology (2.5&sigma;20) now runs from 217 to 302 pips across the yen pairs — no structural anchor pays 1:2 today. USD/JPY, EUR/JPY and GBP/JPY stay on WAIT until volatility compresses or a close resolves the mixed alignment. Do not front-run the BoJ/MoF.</span>
+                        <span class="lang-pt" style="display:none;">O piso de intervenção da nossa metodologia (2,5&sigma;20) agora vai de 217 a 302 pips nos pares com iene — nenhuma âncora estrutural paga 1:2 hoje. USD/JPY, EUR/JPY e GBP/JPY ficam em AGUARDAR até a volatilidade comprimir ou um fechamento resolver o alinhamento misto. Não correr na frente do BoJ/MoF.</span>
+                    </div>
+                    <div class="news-pairs">
+                        <span class="np-label"><span class="lang-en">Watch</span><span class="lang-pt" style="display:none;">Acompanhar</span></span>
+                        <a href="usd-jpy.html" class="pair-link-chip">USD/JPY</a>
+                        <a href="eur-jpy.html" class="pair-link-chip">EUR/JPY</a>
+                        <a href="gbp-jpy.html" class="pair-link-chip">GBP/JPY</a>
+                    </div>
+                </article>
+
+                <!-- News 3: ECB meeting -->
+                <article class="news-card">
+                    <div class="news-card-top">
+                        <span class="news-cat"><span class="lang-en">Central Banks</span><span class="lang-pt" style="display:none;">Bancos Centrais</span></span>
+                        <span class="impact-badge high"><span class="lang-en">High Impact</span><span class="lang-pt" style="display:none;">Impacto Alto</span></span>
+                        <span class="news-date">06/09/2026</span>
+                    </div>
+                    <h2 class="news-title">
+                        <span class="lang-en">Decision week: the ECB meets Tue-Wed (Sep 9-10) with the euro under pressure</span>
+                        <span class="lang-pt" style="display:none;">Semana decisiva: o BCE decide terça e quarta (09-10/09) com o euro sob pressão</span>
+                    </h2>
+                    <p class="news-summary">
+                        <span class="lang-en">The ECB Governing Council meets with the deposit rate at 2.25% and the euro area still torn between growth concerns and sticky inflation. EUR/USD arrives at the meeting with four consecutive closes under the 200-day SMA (1.1630) — the bear regime intact regardless of how firm the council's tone turns out to be.</span>
+                        <span class="lang-pt" style="display:none;">O Conselho do BCE reúne-se com a taxa de depósito em 2,25% e a zona do euro ainda dividida entre preocupações de crescimento e inflação teimosa. O EUR/USD chega à reunião com quatro fechamentos seguidos sob a SMA200 (1,1630) — o regime de baixa intacto independentemente de quão firme for o tom do conselho.</span>
+                    </p>
+                    <div class="news-take">
+                        <span class="take-tag"><span class="lang-en">Desk take</span><span class="lang-pt" style="display:none;">Leitura da mesa</span></span>
+                        <span class="lang-en">The EUR/USD short ticket (1.1629-1.1657 zone, stop 1.1685, target 1.1534) is valid only through the 08/09 close; inside the ECB 24h window the rule mandates reassessing after the event — no exceptions. In EUR/JPY, two hawkish central banks pull the pair in opposite directions.</span>
+                        <span class="lang-pt" style="display:none;">O ticket de venda do EUR/USD (zona 1.1629-1.1657, stop 1.1685, alvo 1.1534) vale só até o fechamento de 08/09; dentro da janela de 24h do BCE, a regra manda reavaliar após o evento — sem exceções. No EUR/JPY, dois bancos centrais hawkish puxam o par em direções opostas.</span>
+                    </div>
+                    <div class="news-pairs">
+                        <span class="np-label"><span class="lang-en">Watch</span><span class="lang-pt" style="display:none;">Acompanhar</span></span>
+                        <a href="eur-usd.html" class="pair-link-chip">EUR/USD</a>
+                        <a href="eur-jpy.html" class="pair-link-chip">EUR/JPY</a>
+                    </div>
+                </article>
+
+                <!-- News 4: BoE / cable resilience -->
+                <article class="news-card">
+                    <div class="news-card-top">
+                        <span class="news-cat"><span class="lang-en">Central Banks</span><span class="lang-pt" style="display:none;">Bancos Centrais</span></span>
+                        <span class="impact-badge med"><span class="lang-en">Medium Impact</span><span class="lang-pt" style="display:none;">Impacto Médio</span></span>
+                        <span class="news-date">04/09/2026</span>
+                    </div>
+                    <h2 class="news-title">
+                        <span class="lang-en">Cable shrugs off the strong NFP, reclaims 1.3500 and restores full bull alignment</span>
+                        <span class="lang-pt" style="display:none;">Cable ignora o NFP forte, recupera 1,3500 e devolve o alinhamento de alta plena</span>
+                    </h2>
+                    <p class="news-summary">
+                        <span class="lang-en">Sterling closed the week at 1.3530 (+0.24%), buying back the 1.3500 round and pushing the 50-day SMA (1.3448) back above the 200-day (1.3438) — the full bullish reading is restored. The BoE holds at 3.75% on a split 6-3 vote and decides on Sep 17, with UK CPI at 2.9%.</span>
+                        <span class="lang-pt" style="display:none;">A libra fechou a semana em 1,3530 (+0,24%), recomprando o redondo 1,3500 e fazendo a SMA50 (1,3448) recapturar a SMA200 (1,3438) — a leitura de alta plena está restaurada. O BoE segue a 3,75% com voto dividido 6-3 e decide em 17/09, com o CPI britânico a 2,9%.</span>
+                    </p>
+                    <div class="news-take">
+                        <span class="take-tag"><span class="lang-en">Desk take</span><span class="lang-pt" style="display:none;">Leitura da mesa</span></span>
+                        <span class="lang-en">The cable bought the recovery rumor and did not sell the number — relative resilience versus the euro that the report already captures in the long-on-pullback ticket at 1.3438-1.3448 (stop 1.3390, target 1.3565). No entries inside the US CPI or BoE 24h windows.</span>
+                        <span class="lang-pt" style="display:none;">O cable comprou o rumor da recuperação e não vendeu o dado — resiliência relativa ao euro que o relatório já captura no ticket de compra na retração para 1.3438-1.3448 (stop 1.3390, alvo 1.3565). Sem entradas dentro das janelas de 24h do CPI dos EUA ou do BoE.</span>
+                    </div>
+                    <div class="news-pairs">
+                        <span class="np-label"><span class="lang-en">Watch</span><span class="lang-pt" style="display:none;">Acompanhar</span></span>
+                        <a href="gbp-usd.html" class="pair-link-chip">GBP/USD</a>
+                        <a href="gbp-jpy.html" class="pair-link-chip">GBP/JPY</a>
+                    </div>
+                </article>
+
+                <!-- News 5: RBA / AUD breakout -->
+                <article class="news-card">
+                    <div class="news-card-top">
+                        <span class="news-cat"><span class="lang-en">Market Flow</span><span class="lang-pt" style="display:none;">Fluxo &amp; Mercado</span></span>
+                        <span class="impact-badge med"><span class="lang-en">Medium Impact</span><span class="lang-pt" style="display:none;">Impacto Médio</span></span>
+                        <span class="news-date">04/09/2026</span>
+                    </div>
+                    <h2 class="news-title">
+                        <span class="lang-en">AUD/USD breaks the 10/20-day high with a hawkish RBA at its back</span>
+                        <span class="lang-pt" style="display:none;">AUD/USD rompe a máxima de 10/20 pregões com a RBA hawkish nas costas</span>
+                    </h2>
+                    <p class="news-summary">
+                        <span class="lang-en">AUD/USD printed 0.7204, clearing the prior 10/20-day high (0.7195) — a mechanical breakout under the report's rules. The fundamental engine remains the rate differential: RBA at 4.35% with Australian CPI at 3.5%, banks projecting 4.60% by November (next meeting Sep 29), and WTI near $83 supporting the commodity bloc.</span>
+                        <span class="lang-pt" style="display:none;">O AUD/USD cravou 0,7204, superando a máxima prévia de 10/20 pregões (0,7195) — rompimento mecânico pelas regras do relatório. O motor fundamental segue o diferencial de juros: RBA a 4,35% com o CPI australiano a 3,5%, bancos projetando 4,60% em novembro (próxima reunião 29/09) e WTI na região de US$ 83 sustentando o bloco de commodities.</span>
+                    </p>
+                    <div class="news-take">
+                        <span class="take-tag"><span class="lang-en">Desk take</span><span class="lang-pt" style="display:none;">Leitura da mesa</span></span>
+                        <span class="lang-en">The old 0.7000-0.7020 ticket was replaced by the post-breakout retest: long at 0.7155 (stop 0.7110, target 0.7257). Watch China's CPI (~Sep 9) — inside the 24h window the trigger stays suspended.</span>
+                        <span class="lang-pt" style="display:none;">O ticket antigo da zona 0.7000-0.7020 foi substituído pelo reteste pós-rompimento: compra em 0,7155 (stop 0,7110, alvo 0,7257). Atenção ao CPI da China (~09/09) — dentro da janela de 24h, o gatilho fica suspenso.</span>
+                    </div>
+                    <div class="news-pairs">
+                        <span class="np-label"><span class="lang-en">Watch</span><span class="lang-pt" style="display:none;">Acompanhar</span></span>
+                        <a href="aud-usd.html" class="pair-link-chip">AUD/USD</a>
+                    </div>
+                </article>
+
+                <!-- News 6: Central bank week ahead -->
+                <article class="news-card">
+                    <div class="news-card-top">
+                        <span class="news-cat"><span class="lang-en">Market Flow</span><span class="lang-pt" style="display:none;">Fluxo &amp; Mercado</span></span>
+                        <span class="impact-badge high"><span class="lang-en">High Impact</span><span class="lang-pt" style="display:none;">Impacto Alto</span></span>
+                        <span class="news-date">06/09/2026</span>
+                    </div>
+                    <h2 class="news-title">
+                        <span class="lang-en">Central bank week sets the tone: ECB, FOMC, BoE and BoJ in eight days</span>
+                        <span class="lang-pt" style="display:none;">Semana de bancos centrais define o tom: BCE, FOMC, BoE e BoJ em oito dias</span>
+                    </h2>
+                    <p class="news-summary">
+                        <span class="lang-en">Four monetary policy decisions in the next eight days — ECB (Sep 9-10), FOMC (Sep 15-16), BoE (Sep 17) and BoJ (Sep 17-18) — plus US and China CPI along the way. It is the densest sequence of the quarter for our six pairs, and the axis of the dollar's tug-of-war: a hawkish Fed versus increasingly hawkish ECB, BoE and BoJ.</span>
+                        <span class="lang-pt" style="display:none;">Quatro decisões de política monetária nos próximos oito dias — BCE (09-10/09), FOMC (15-16/09), BoE (17/09) e BoJ (17-18/09) — mais o CPI dos EUA e da China no caminho. É a sequência mais densa do trimestre para os nossos seis pares e o eixo do cabo de guerra do dólar: Fed hawkish contra BCE, BoE e BoJ cada vez mais hawkish.</span>
+                    </p>
+                    <div class="news-take">
+                        <span class="take-tag"><span class="lang-en">Desk take</span><span class="lang-pt" style="display:none;">Leitura da mesa</span></span>
+                        <span class="lang-en">The methodology's event filter is in charge: no new directional entries within 24h of each top-tier event; live tickets are conditioned to the 08/09 close or to post-event reassessment. The full week-ahead calendar is in the strip above.</span>
+                        <span class="lang-pt" style="display:none;">O filtro de eventos da metodologia manda: sem novas entradas direcionais nas 24h antes de cada evento de primeiro nível; tickets vigentes ficam condicionados ao fechamento de 08/09 ou à reavaliação pós-evento. O calendário completo da semana está na faixa acima.</span>
+                    </div>
+                    <div class="news-pairs">
+                        <span class="np-label"><span class="lang-en">Watch</span><span class="lang-pt" style="display:none;">Acompanhar</span></span>
+                        <a href="eur-usd.html" class="pair-link-chip">EUR/USD</a>
+                        <a href="usd-jpy.html" class="pair-link-chip">USD/JPY</a>
+                        <a href="aud-usd.html" class="pair-link-chip">AUD/USD</a>
+                        <a href="gbp-usd.html" class="pair-link-chip">GBP/USD</a>
+                        <a href="eur-jpy.html" class="pair-link-chip">EUR/JPY</a>
+                        <a href="gbp-jpy.html" class="pair-link-chip">GBP/JPY</a>
+                    </div>
+                </article>
+
+            </div>
+
+            <p class="news-note">
+                <span class="lang-en">This wire is written by the desk from the same macro drivers behind the daily analyses — numbers and dates reflect the report's data basis of 04/09/2026 (ECB/Frankfurter reference rates). Educational content only; it is not financial advice. See the <a href="disclaimer.html" style="color: var(--color-primary); text-decoration: underline;">Legal Disclaimer</a>.</span>
+                <span class="lang-pt" style="display:none;">Este telégrafo é escrito pela mesa a partir dos mesmos drivers macro que sustentam as análises diárias — números e datas refletem a base de dados do relatório de 04/09/2026 (taxas de referência BCE/Frankfurter). Conteúdo meramente educativo; não constitui aconselhamento financeiro. Consulte o <a href="disclaimer.html" style="color: var(--color-primary); text-decoration: underline;">Aviso Legal</a>.</span>
+            </p>
+        </section>
+
+        <!-- AD SLOT: End of wire (Medium Rectangle) -->
+        <div class="ad-container medium-rect" style="margin: 2rem 0 2rem 0;">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4617266720439769"
+                 data-ad-slot="9876543210"
+                 data-ad-format="rectangle"
+                 data-full-width-responsive="true"></ins>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-disclaimer">Disclaimer: Forex trading involves significant risk. Leverage can work against you. Past results do not guarantee future performance. Content is purely educational and does not constitute financial advice.</p>
+            <div class="footer-contact" style="margin-bottom: 1.25rem; font-size: 0.85rem;">
+                <span style="color: var(--text-muted); font-weight: 500;">Have questions? Contact us:</span>
+                <a href="mailto:hello@newsforextrading.com" style="font-weight: 700; color: var(--color-primary); margin-left: 0.25rem;">hello@newsforextrading.com</a>
+            </div>
+            <div class="footer-links">
+                <a href="about.html" class="footer-link">About Us</a>
+                <a href="contact.html" class="footer-link">Contact</a>
+                <a href="disclaimer.html" class="footer-link">Legal Disclaimer</a>
+                <a href="privacy.html" class="footer-link">Privacy Policy</a>
+                <a href="terms.html" class="footer-link">Terms of Service</a>
+            </div>
+            <p class="footer-copyright">
+                &copy; 2026 Forex Report. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        let currentLang = 'en';
+
+        function initLanguage() {
+            const languages = navigator.languages || [navigator.language || ''];
+
+            for (const lang of languages) {
+                const cleanLang = lang.toLowerCase();
+                if (cleanLang === 'pt-br' || cleanLang === 'pt-pt') {
+                    currentLang = 'pt';
+                    break;
+                }
+            }
+
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('lang')) {
+                const langParam = urlParams.get('lang').toLowerCase();
+                if (langParam === 'pt' || langParam === 'en') {
+                    currentLang = langParam;
+                }
+            }
+
+            document.getElementById('langSelect').value = currentLang;
+            updateLangDisplay();
+        }
+
+        function updateLangDisplay() {
+            if (currentLang === 'pt') {
+                document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
+                document.querySelectorAll('.lang-pt').forEach(el => el.style.display = 'block');
+                document.title = "Notícias Forex & Fluxo Macro - Forex Report";
+            } else {
+                document.querySelectorAll('.lang-pt').forEach(el => el.style.display = 'none');
+                document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'block');
+                document.title = "Forex News & Macro Flow - Forex Report";
+            }
+
+            // Adjust all links to carry the current language
+            document.querySelectorAll('a').forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && href.endsWith('.html') && !href.includes('?')) {
+                    link.setAttribute('href', href + '?lang=' + currentLang);
+                } else if (href && href.includes('.html?') && href.includes('lang=')) {
+                    const cleanHref = href.split('?')[0];
+                    link.setAttribute('href', cleanHref + '?lang=' + currentLang);
+                }
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            initLanguage();
+            document.getElementById('langSelect').addEventListener('change', (e) => {
+                currentLang = e.target.value;
+                updateLangDisplay();
+            });
+        });
+    </script>
+</body>
+</html>

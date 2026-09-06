@@ -25,6 +25,7 @@
             
             <nav class="header-nav">
                 <a href="index.html" class="nav-link" id="navHome">Dashboard</a>
+                <a href="news.html" class="nav-link" id="navNews">News</a>
                 <a href="about.html" class="nav-link " id="navAbout">About Us</a>
                 <a href="contact.html" class="nav-link active" id="navContact">Contact</a>
             </nav>
@@ -133,7 +134,7 @@ hello@newsforextrading.com</p>
         
         const uiStrings = {
             en: {
-                navHome: "Dashboard", navAbout: "About Us", navContact: "Contact",
+                navHome: "Dashboard", navNews: "News", navAbout: "About Us", navContact: "Contact",
                 footerDisclaimer: "Disclaimer: Forex trading involves significant risk. Leverage can work against you. Past results do not guarantee future performance. Content is purely educational and does not constitute financial advice.",
                 footerContact: "Have questions? Contact us:",
                 footerLinkAbout: "About Us", footerLinkContact: "Contact",
@@ -141,7 +142,7 @@ hello@newsforextrading.com</p>
                 footerRights: "All rights reserved."
             },
             pt: {
-                navHome: "Painel", navAbout: "Quem Somos", navContact: "Contato",
+                navHome: "Painel", navNews: "Notícias", navAbout: "Quem Somos", navContact: "Contato",
                 footerDisclaimer: "Aviso: O mercado de câmbio (Forex) envolve riscos significativos. A alavancagem pode funcionar contra si. Resultados passados não garantem lucros futuros. O conteúdo é meramente educativo e não constitui aconselhamento financeiro.",
                 footerContact: "Dúvidas ou sugestões? Contacte-nos:",
                 footerLinkAbout: "Quem Somos", footerLinkContact: "Contato",
@@ -163,6 +164,7 @@ hello@newsforextrading.com</p>
 
             const t = uiStrings[currentLang];
             document.getElementById('navHome').textContent = t.navHome;
+            document.getElementById('navNews').textContent = t.navNews;
             document.getElementById('navAbout').textContent = t.navAbout;
             document.getElementById('navContact').textContent = t.navContact;
             document.getElementById('footerDisclaimerText').textContent = t.footerDisclaimer;

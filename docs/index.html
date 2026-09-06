@@ -44,6 +44,7 @@
             
             <nav class="header-nav">
                 <a href="index.html" class="nav-link active" id="navHome">Dashboard</a>
+                <a href="news.html" class="nav-link" id="navNews">News</a>
                 <a href="about.html" class="nav-link" id="navAbout">About Us</a>
                 <a href="contact.html" class="nav-link" id="navContact">Contact</a>
             </nav>
@@ -238,6 +239,18 @@
         </article>
         </div>
 
+        <!-- NEWS & MACRO FLOW — desk wire digest (full wire lives on news.html) -->
+        <section class="news-section" id="newsSection">
+            <div class="news-head">
+                <div class="news-eyebrow" id="newsEyebrow">News &amp; macro flow — desk wire</div>
+                <a href="news.html" class="news-more" id="newsViewAll">View all news &rarr;</a>
+            </div>
+            <div class="news-grid" id="newsGrid">
+                <!-- Populated by renderNewsDigest() -->
+            </div>
+            <p class="news-note" id="newsNote">News summaries written by the desk from the macro drivers behind the daily analyses — educational content only, not financial advice.</p>
+        </section>
+
         <!-- AD SLOT 2: Mid-Content (Medium Rectangle) -->
         <div class="ad-container medium-rect" style="margin: 2rem 0 2rem 0;">
             <ins class="adsbygoogle"
@@ -388,6 +401,20 @@
                 nextEvent: "ECB Sep 9-10 · FOMC Sep 15-16",
                 dataBasis: "Data basis: ECB/Frankfurter reference rates · SMA50/200, sigma20 & Donchian computed · 535 daily sessions (01/08/2024–04/09/2026).",
 
+                // News & macro flow digest
+                newsEyebrow: "News & macro flow — desk wire",
+                newsViewAll: "View all news",
+                newsTake: "Desk take",
+                newsWatch: "Watch",
+                newsUpdated: "Wire updated:",
+                newsImpactHigh: "High Impact",
+                newsImpactMed: "Medium Impact",
+                newsImpactLow: "Low Impact",
+                newsCatCB: "Central Banks",
+                newsCatMacro: "Macro Data",
+                newsCatFlow: "Market Flow",
+                newsNote: "News summaries written by the desk from the macro drivers behind the daily analyses — educational content only, not financial advice. Full wire on the News page.",
+
                 // Details Labels
                 biasLabel: "Market Bias",
                 fundamentalTab: "1. Fundamental & Macro Flow",
@@ -488,6 +515,20 @@
                 nextTag: "Próximo foco",
                 nextEvent: "BCE 09-10/09 · FOMC 15-16/09",
                 dataBasis: "Base de dados: taxas de referência BCE/Frankfurter · SMA50/200, σ20 e Donchian calculados · 535 pregões (01/08/2024 a 04/09/2026).",
+
+                // Digest de notícias & fluxo macro
+                newsEyebrow: "Notícias & fluxo macro — telégrafo da mesa",
+                newsViewAll: "Ver todas as notícias",
+                newsTake: "Leitura da mesa",
+                newsWatch: "Acompanhar",
+                newsUpdated: "Telégrafo atualizado em:",
+                newsImpactHigh: "Impacto Alto",
+                newsImpactMed: "Impacto Médio",
+                newsImpactLow: "Impacto Baixo",
+                newsCatCB: "Bancos Centrais",
+                newsCatMacro: "Dados Macro",
+                newsCatFlow: "Fluxo & Mercado",
+                newsNote: "Resumos escritos pela mesa a partir dos drivers macro que sustentam as análises diárias — conteúdo meramente educativo, não constitui aconselhamento financeiro. Telégrafo completo na página Notícias.",
 
                 // Details Labels
                 biasLabel: "Viés de Mercado",
@@ -791,6 +832,117 @@
         };
 
         /* ==========================================
+           B2. News & macro flow — desk wire.
+           Same dual representation as the pair data: the full wire lives on
+           news.html (static, both languages); this object feeds the homepage
+           digest (first 4 items) via renderNewsDigest().
+           Categories: cb (central banks) | macro (macro data) | flow (market flow).
+           Impacts: high | med | low. Grounded in the report's own macro
+           narrative — keep numbers/dates consistent with forexData.
+           ========================================== */
+        const newsData = {
+            updated: "06/09/2026 14:00 UTC",
+            items: [
+                {
+                    date: "04/09/2026 12:30 UTC",
+                    category: "macro",
+                    impact: "high",
+                    pairs: ["EUR/USD", "USD/JPY", "AUD/USD", "GBP/USD"],
+                    pt: {
+                        headline: "NFP de agosto atropela expectativas: +162 mil empregos e o dólar reprecifica o Fed",
+                        summary: "A criação de empregos nos EUA veio em +162 mil em agosto, quase o triplo das +56 mil projetadas, com desemprego a 4,1% e salários +0,3% m/m. O índice do dólar (DXY) saltou para a região de 99,5 e o mercado passou a precificar ~60% de chance de alta de juros do Fed no FOMC de 15-16/09.",
+                        take: "O dado já está nas nossas análises: mantém o vento contrário ao EUR/USD (quatro fechamentos sob a SMA200) e testou o cable — que, ainda assim, segurou o redondo 1,3500. Filtro de eventos: sem novas entradas direcionais nas 24h antes do FOMC ou do CPI dos EUA."
+                    },
+                    en: {
+                        headline: "August NFP steamrolls forecasts: +162k jobs and the dollar reprices the Fed",
+                        summary: "US job creation came in at +162k in August, almost three times the +56k forecast, with unemployment at 4.1% and wages up +0.3% m/m. The Dollar Index (DXY) jumped to the 99.5 area and the market moved to pricing ~60% odds of a Fed hike at the September 15-16 FOMC.",
+                        take: "The number is already in our analyses: it keeps the headwind on EUR/USD (four closes under the 200-day SMA) and tested the cable — which still held the 1.3500 round. Event filter: no new directional entries within 24h of the FOMC or US CPI."
+                    }
+                },
+                {
+                    date: "03/09/2026",
+                    category: "cb",
+                    impact: "high",
+                    pairs: ["USD/JPY", "EUR/JPY", "GBP/JPY"],
+                    pt: {
+                        headline: "Surto do iene derruba USD/JPY 2,25% num dia e reativa o talk de intervenção",
+                        summary: "Apostas em passos mais agressivos do BoJ (acima de 25 pb na reunião de 17-18/09) detonaram uma corrida de compra de iene: o USD/JPY caiu de 159,60 para fechar em 156,01 (-2,25%, o pior dia desde a intervenção de julho), o yen tocou 155,28 no intraday e o Ministério das Finanças voltou ao discurso verbal de intervenção. A σ20 dos cruzamentos com iene saltou para 87-121 pips.",
+                        take: "O piso de intervenção da nossa metodologia (2,5σ20) agora vai de 217 a 302 pips nos pares com iene — nenhuma âncora estrutural paga 1:2 hoje. USD/JPY, EUR/JPY e GBP/JPY ficam em AGUARDAR até a volatilidade comprimir ou um fechamento resolver o alinhamento misto. Não correr na frente do BoJ/MoF."
+                    },
+                    en: {
+                        headline: "Yen surge knocks USD/JPY down 2.25% in a day and reactivates intervention talk",
+                        summary: "Bets on more aggressive BoJ steps (above 25 bp at the September 17-18 meeting) triggered a yen buying stampede: USD/JPY fell from 159.60 to close at 156.01 (-2.25%, the worst day since the July intervention), the yen touched 155.28 intraday and the Ministry of Finance is back to verbal intervention. The sigma20 of the yen crosses spiked to 87-121 pips.",
+                        take: "The intervention floor of our methodology (2.5σ20) now runs from 217 to 302 pips across the yen pairs — no structural anchor pays 1:2 today. USD/JPY, EUR/JPY and GBP/JPY stay on WAIT until volatility compresses or a close resolves the mixed alignment. Do not front-run the BoJ/MoF."
+                    }
+                },
+                {
+                    date: "06/09/2026",
+                    category: "cb",
+                    impact: "high",
+                    pairs: ["EUR/USD", "EUR/JPY"],
+                    pt: {
+                        headline: "Semana decisiva: o BCE decide terça e quarta (09-10/09) com o euro sob pressão",
+                        summary: "O Conselho do BCE reúne-se com a taxa de depósito em 2,25% e a zona do euro ainda dividida entre preocupações de crescimento e inflação teimosa. O EUR/USD chega à reunião com quatro fechamentos seguidos sob a SMA200 (1,1630) — o regime de baixa intacto independentemente de quão firme for o tom do conselho.",
+                        take: "O ticket de venda do EUR/USD (zona 1.1629-1.1657, stop 1.1685, alvo 1.1534) vale só até o fechamento de 08/09; dentro da janela de 24h do BCE, a regra manda reavaliar após o evento — sem exceções. No EUR/JPY, dois bancos centrais hawkish puxam o par em direções opostas."
+                    },
+                    en: {
+                        headline: "Decision week: the ECB meets Tue-Wed (Sep 9-10) with the euro under pressure",
+                        summary: "The ECB Governing Council meets with the deposit rate at 2.25% and the euro area still torn between growth concerns and sticky inflation. EUR/USD arrives at the meeting with four consecutive closes under the 200-day SMA (1.1630) — the bear regime intact regardless of how firm the council's tone turns out to be.",
+                        take: "The EUR/USD short ticket (1.1629-1.1657 zone, stop 1.1685, target 1.1534) is valid only through the 08/09 close; inside the ECB 24h window the rule mandates reassessing after the event — no exceptions. In EUR/JPY, two hawkish central banks pull the pair in opposite directions."
+                    }
+                },
+                {
+                    date: "04/09/2026",
+                    category: "cb",
+                    impact: "med",
+                    pairs: ["GBP/USD", "GBP/JPY"],
+                    pt: {
+                        headline: "Cable ignora o NFP forte, recupera 1,3500 e devolve o alinhamento de alta plena",
+                        summary: "A libra fechou a semana em 1,3530 (+0,24%), recomprando o redondo 1,3500 e fazendo a SMA50 (1,3448) recapturar a SMA200 (1,3438) — a leitura de alta plena está restaurada. O BoE segue a 3,75% com voto dividido 6-3 e decide em 17/09, com o CPI britânico a 2,9%.",
+                        take: "O cable comprou o rumor da recuperação e não vendeu o dado — resiliência relativa ao euro que o relatório já captura no ticket de compra na retração para 1.3438-1.3448 (stop 1.3390, alvo 1.3565). Sem entradas dentro das janelas de 24h do CPI dos EUA ou do BoE."
+                    },
+                    en: {
+                        headline: "Cable shrugs off the strong NFP, reclaims 1.3500 and restores full bull alignment",
+                        summary: "Sterling closed the week at 1.3530 (+0.24%), buying back the 1.3500 round and pushing the 50-day SMA (1.3448) back above the 200-day (1.3438) — the full bullish reading is restored. The BoE holds at 3.75% on a split 6-3 vote and decides on Sep 17, with UK CPI at 2.9%.",
+                        take: "The cable bought the recovery rumor and did not sell the number — relative resilience versus the euro that the report already captures in the long-on-pullback ticket at 1.3438-1.3448 (stop 1.3390, target 1.3565). No entries inside the US CPI or BoE 24h windows."
+                    }
+                },
+                {
+                    date: "04/09/2026",
+                    category: "flow",
+                    impact: "med",
+                    pairs: ["AUD/USD"],
+                    pt: {
+                        headline: "AUD/USD rompe a máxima de 10/20 pregões com a RBA hawkish nas costas",
+                        summary: "O AUD/USD cravou 0,7204, superando a máxima prévia de 10/20 pregões (0,7195) — rompimento mecânico pelas regras do relatório. O motor fundamental segue o diferencial de juros: RBA a 4,35% com o CPI australiano a 3,5%, bancos projetando 4,60% em novembro (próxima reunião 29/09) e WTI na região de US$ 83 sustentando o bloco de commodities.",
+                        take: "O ticket antigo da zona 0.7000-0.7020 foi substituído pelo reteste pós-rompimento: compra em 0,7155 (stop 0,7110, alvo 0,7257). Atenção ao CPI da China (~09/09) — dentro da janela de 24h, o gatilho fica suspenso."
+                    },
+                    en: {
+                        headline: "AUD/USD breaks the 10/20-day high with a hawkish RBA at its back",
+                        summary: "AUD/USD printed 0.7204, clearing the prior 10/20-day high (0.7195) — a mechanical breakout under the report's rules. The fundamental engine remains the rate differential: RBA at 4.35% with Australian CPI at 3.5%, banks projecting 4.60% by November (next meeting Sep 29), and WTI near $83 supporting the commodity bloc.",
+                        take: "The old 0.7000-0.7020 ticket was replaced by the post-breakout retest: long at 0.7155 (stop 0.7110, target 0.7257). Watch China's CPI (~Sep 9) — inside the 24h window the trigger stays suspended."
+                    }
+                },
+                {
+                    date: "06/09/2026",
+                    category: "flow",
+                    impact: "high",
+                    pairs: ["EUR/USD", "USD/JPY", "AUD/USD", "GBP/USD", "EUR/JPY", "GBP/JPY"],
+                    pt: {
+                        headline: "Semana de bancos centrais define o tom: BCE, FOMC, BoE e BoJ em oito dias",
+                        summary: "Quatro decisões de política monetária nos próximos oito dias — BCE (09-10/09), FOMC (15-16/09), BoE (17/09) e BoJ (17-18/09) — mais o CPI dos EUA e da China no caminho. É a sequência mais densa do trimestre para os nossos seis pares e o eixo do cabo de guerra do dólar: Fed hawkish contra BCE, BoE e BoJ cada vez mais hawkish.",
+                        take: "O filtro de eventos da metodologia manda: sem novas entradas direcionais nas 24h antes de cada evento de primeiro nível; tickets vigentes ficam condicionados ao fechamento de 08/09 ou à reavaliação pós-evento. O calendário completo da semana está na página de Notícias."
+                    },
+                    en: {
+                        headline: "Central bank week sets the tone: ECB, FOMC, BoE and BoJ in eight days",
+                        summary: "Four monetary policy decisions in the next eight days — ECB (Sep 9-10), FOMC (Sep 15-16), BoE (Sep 17) and BoJ (Sep 17-18) — plus US and China CPI along the way. It is the densest sequence of the quarter for our six pairs, and the axis of the dollar's tug-of-war: a hawkish Fed versus increasingly hawkish ECB, BoE and BoJ.",
+                        take: "The methodology's event filter is in charge: no new directional entries within 24h of each top-tier event; live tickets are conditioned to the 08/09 close or to post-event reassessment. The full week-ahead calendar is on the News page."
+                    }
+                }
+            ]
+        };
+
+        /* ==========================================
            C. Core Engine & State Management
            ========================================== */
         let currentLang = 'en'; // Default Language
@@ -896,6 +1048,9 @@
             document.getElementById('generationTime').textContent = dictionary.generatedAt;
             document.getElementById('selectorLabelText').textContent = dictionary.selectPair;
             document.getElementById('mmEyebrow').textContent = dictionary.mmEyebrow;
+            document.getElementById('newsEyebrow').textContent = dictionary.newsEyebrow;
+            document.getElementById('newsViewAll').textContent = dictionary.newsViewAll;
+            document.getElementById('newsNote').textContent = dictionary.newsNote;
             
             // Dynamic Table / Card Labels inside report
             document.getElementById('secTitleFundamental').textContent = dictionary.fundamentalTab;
@@ -1210,6 +1365,42 @@
         }
 
         /* ==========================================
+           C3. News & macro flow digest — top 4 items from newsData.
+           The full wire (all items + week-ahead calendar) lives on news.html.
+           ========================================== */
+        function pairPageUrl(pair, lang) {
+            return pair.replace('/', '-').toLowerCase() + '.html' + (lang === 'pt' ? '?lang=pt' : '');
+        }
+
+        function renderNewsDigest() {
+            const grid = document.getElementById('newsGrid');
+            if (!grid || typeof newsData === 'undefined') return;
+            const dict = i18n[currentLang];
+            const catLabel = { cb: dict.newsCatCB, macro: dict.newsCatMacro, flow: dict.newsCatFlow };
+            const impactLabel = { high: dict.newsImpactHigh, med: dict.newsImpactMed, low: dict.newsImpactLow };
+
+            grid.innerHTML = newsData.items.slice(0, 4).map(item => {
+                const loc = item[currentLang];
+                const chips = item.pairs.map(p => `<a class="pair-link-chip" href="${pairPageUrl(p, currentLang)}">${p}</a>`).join('');
+                return `
+                    <article class="news-card">
+                        <div class="news-card-top">
+                            <span class="news-cat">${catLabel[item.category]}</span>
+                            <span class="impact-badge ${item.impact}">${impactLabel[item.impact]}</span>
+                            <span class="news-date">${item.date}</span>
+                        </div>
+                        <h3 class="news-title">${loc.headline}</h3>
+                        <p class="news-summary">${loc.summary}</p>
+                        <div class="news-take"><span class="take-tag">${dict.newsTake}</span>${loc.take}</div>
+                        <div class="news-pairs"><span class="np-label">${dict.newsWatch}</span>${chips}</div>
+                    </article>`;
+            }).join('');
+
+            const more = document.getElementById('newsViewAll');
+            if (more) more.setAttribute('href', 'news.html' + (currentLang === 'pt' ? '?lang=pt' : ''));
+        }
+
+        /* ==========================================
            D. Interactive Event Listeners & Modals
            ========================================== */
         // Smooth scroll to donations for high CRO
@@ -1316,6 +1507,7 @@
             renderForexReport();
             renderMarketMap();
             renderCommandDeck();
+            renderNewsDigest();
 
             // Pair Change event — re-render report + refresh map highlight
             document.getElementById('pairSelect').addEventListener('change', () => {
@@ -1331,6 +1523,7 @@
                 renderForexReport();
                 renderMarketMap();
                 renderCommandDeck();
+                renderNewsDigest();
             });
         });
     </script>

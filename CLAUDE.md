@@ -65,6 +65,17 @@ Wherever pairs are iterated, listed, or updated (ticker tape, `forexData` keys, 
 
 `docs/about.html`, `docs/contact.html`, `docs/privacy.html`, `docs/terms.html`, `docs/disclaimer.html` are institutional/compliance pages, independent of the pair-analysis data flow. `docs/guides/` holds six evergreen educational pages (forex-basics, fundamental-analysis, our-methodology, risk-management, technical-analysis, trading-glossary), also independent of the data flow.
 
+### News & Macro Flow section ("desk wire")
+
+`docs/news.html` is the full news digest (investment news with direct Forex influence); `docs/index.html` shows a 4-item digest of the same wire between the pair report and the mid-content ad slot. Like the pair data, the wire has a **dual representation kept in sync by hand**:
+
+1. **`docs/index.html`** — the `newsData` JS object (right after `macroDrivers`). `renderNewsDigest()` renders the first 4 items; labels come from the `news*` keys of the `i18n` dictionary.
+2. **`docs/news.html`** — the static full wire: week-ahead calendar strip (`central bank week`) + all items duplicated inline as `lang-en` / `lang-pt` pairs, plus the same news-note disclaimers.
+
+Item schema: `date` (`DD/MM/YYYY [HH:MM] UTC` display string), `category` (`cb` central banks · `macro` macro data · `flow` market flow), `impact` (`high` rust · `med` ochre · `low` stone), `pairs` (always in the required pair order; chips link to the pair pages), and parallel `pt`/`en` blocks with `headline`, `summary` and `take` (the "desk take" — how the news maps to the current biases/tickets/event windows).
+
+**Content rule:** news items are written by the desk from the same macro drivers and numbers already used in the current `forexData` analyses (NFP/CPI prints, central-bank dates, σ20/intervention levels) — never introduce facts, figures or event dates that the daily analyses don't already state; approximate dates are marked `≈`. The wire is the report's event filter made visible. Update `newsData.updated` and the wire hero dateline together when refreshing items, in both languages.
+
 ## Analysis Methodology (when generating/updating a forex analysis)
 
 This repo doubles as a quant-analyst prompt target — the **`forex-report` agent** (`.claude/agents/forex-report.md`) runs the full daily pipeline (fetch data → compute indicators → set biases → update all files) and embodies the analyst persona/process. The rules below are the premises it — and any manual edit — must preserve:
