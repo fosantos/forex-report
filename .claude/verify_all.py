@@ -8,11 +8,11 @@ PAGE = {
     "EUR/USD": "eur-usd.html", "USD/JPY": "usd-jpy.html", "AUD/USD": "aud-usd.html",
     "GBP/USD": "gbp-usd.html", "EUR/JPY": "eur-jpy.html", "GBP/JPY": "gbp-jpy.html",
 }
-TODAY_TS = "04/09/2026 19:03 UTC"
-TODAY_DATE = "04/09/2026"  # basis session date (report edition: 04/09/2026)
+TODAY_TS = "07/09/2026 20:42 UTC"
+TODAY_DATE = "07/09/2026"  # basis session date (report edition: 07/09/2026)
 STALE_DATES = ["02/09/2026", "01/09/2026", "28/08/2026", "24/08/2026", "20/08/2026", "19/08/2026", "18/08/2026", "17/08/2026", "14/08/2026", "13/08/2026", "11/08/2026", "03/08/2026", "02/08/2026"]
-TICKER = [("EUR/USD","+0.06%"),("USD/JPY","+0.15%"),("AUD/USD","+0.14%"),
-          ("GBP/USD","+0.24%"),("EUR/JPY","+0.21%"),("GBP/JPY","+0.40%")]
+TICKER = [("EUR/USD","+0.00%"),("USD/JPY","-0.96%"),("AUD/USD","+0.15%"),
+          ("GBP/USD","+0.01%"),("EUR/JPY","-0.96%"),("GBP/JPY","-0.95%")]
 errors = []
 
 with open(INDEX, encoding="utf-8") as f:
@@ -32,8 +32,9 @@ def verdict_class(rec):
     return "buy"
 
 # ---- 1. index.html checks ----
-if idx.count(TODAY_TS) != 3:
-    errors.append(f"index.html: expected 3 timestamps '{TODAY_TS}', found {idx.count(TODAY_TS)}")
+# 3 report stamps (badge + EN/PT generatedAt) + 1 newsData.updated carrying the same stamp
+if idx.count(TODAY_TS) != 4:
+    errors.append(f"index.html: expected 4 timestamps '{TODAY_TS}', found {idx.count(TODAY_TS)}")
 for stale in STALE_DATES:
     # stale dates may legitimately appear inside macro narrative (e.g. "July 29") only as DD/MM;
     # only flag a stale date if it appears with the year-suffix that marks a report session date
@@ -100,7 +101,7 @@ for pair, fname in PAGE.items():
         errors.append(f"{fname}: educational section missing")
     if TODAY_DATE not in html:
         errors.append(f"{fname}: today date {TODAY_DATE} missing")
-    for stale in ["02/09/2026", "01/09/2026", "19/08/2026", "18/08/2026", "17/08/2026", "14/08/2026", "13/08/2026"]:
+    for stale in ["02/09/2026", "01/09/2026", "19/08/2026", "18/08/2026", "17/08/2026", "14/08/2026", "13/08/2026", "04/09/2026"]:
         if stale in html:
             errors.append(f"{fname}: stale session date {stale}")
     if f"<strong>{d['quote']}</strong>" not in html:
