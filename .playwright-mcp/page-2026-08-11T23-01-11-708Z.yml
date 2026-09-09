@@ -1,0 +1,172 @@
+- generic [active] [ref=f5e1]:
+  - banner [ref=f5e2]:
+    - generic [ref=f5e3]:
+      - link "FOREX REPORT" [ref=f5e4] [cursor=pointer]:
+        - /url: index.html?lang=pt
+        - text: FOREX
+        - generic [ref=f5e5]: REPORT
+      - navigation [ref=f5e6]:
+        - link "Dashboard" [ref=f5e7] [cursor=pointer]:
+          - /url: index.html?lang=pt
+        - link "About Us" [ref=f5e8] [cursor=pointer]:
+          - /url: about.html?lang=pt
+        - link "Contact" [ref=f5e9] [cursor=pointer]:
+          - /url: contact.html?lang=pt
+      - combobox "Language Selector" [ref=f5e12] [cursor=pointer]:
+        - option "EN"
+        - option "PT" [selected]
+  - main [ref=f5e13]:
+    - generic [ref=f5e14]:
+      - link "Home" [ref=f5e15] [cursor=pointer]:
+        - /url: index.html?lang=pt
+      - text: "> EUR/USD Analysis"
+    - generic [ref=f5e16]:
+      - generic [ref=f5e18]:
+        - generic [ref=f5e19]: Select Pair Analysis
+        - generic [ref=f5e20]:
+          - link "EUR/USD" [ref=f5e21] [cursor=pointer]:
+            - /url: eur-usd.html?lang=pt
+          - link "USD/JPY" [ref=f5e22] [cursor=pointer]:
+            - /url: usd-jpy.html?lang=pt
+          - link "AUD/USD" [ref=f5e23] [cursor=pointer]:
+            - /url: aud-usd.html?lang=pt
+          - link "GBP/USD" [ref=f5e24] [cursor=pointer]:
+            - /url: gbp-usd.html?lang=pt
+          - link "EUR/JPY" [ref=f5e25] [cursor=pointer]:
+            - /url: eur-jpy.html?lang=pt
+          - link "GBP/JPY" [ref=f5e26] [cursor=pointer]:
+            - /url: gbp-jpy.html?lang=pt
+      - generic [ref=f5e27]:
+        - article [ref=f5e28]:
+          - generic [ref=f5e29]:
+            - generic [ref=f5e34]:
+              - heading "EUR/USD" [level=2] [ref=f5e35]
+              - generic [ref=f5e36]:
+                - generic [ref=f5e37]: "Cotação Atual:"
+                - strong [ref=f5e38]: "1.1535"
+            - generic [ref=f5e39]: EUR/USD - BAIXA
+          - generic [ref=f5e41]:
+            - generic [ref=f5e42]:
+              - generic [ref=f5e43]:
+                - generic [ref=f5e44]: Resumo da operação
+                - generic [ref=f5e46]: VENDA na retração até 1.1657 · stop 1.1740 · alvo 1.1450 · R/R 1:2.49
+              - generic [ref=f5e47]:
+                - generic [ref=f5e49]:
+                  - generic [ref=f5e50]: Convicção do setup (R/R)
+                  - generic [ref=f5e52]:
+                    - text: 7/10 ·
+                    - generic [ref=f5e53]: Boa
+                - generic [ref=f5e65]:
+                  - generic [ref=f5e66]: Drivers macro
+                  - generic [ref=f5e68]:
+                    - generic [ref=f5e69]: Fed 3,50-3,75%
+                    - generic [ref=f5e70]: USD mais fraco
+                    - generic [ref=f5e71]: BCE 2,25%
+                  - generic [ref=f5e72]:
+                    - generic [ref=f5e73]: Próximo foco
+                    - generic [ref=f5e75]: CPI dos EUA & discursos do Fed
+              - generic [ref=f5e76]:
+                - generic [ref=f5e77]:
+                  - generic [ref=f5e78]: Base
+                  - text: ":"
+                - generic [ref=f5e79]: taxas de referência BCE/Frankfurter · SMA50/200 e Fibonacci calculados · 511 pregões (01/08/2024 a 03/08/2026).
+            - generic [ref=f5e80]:
+              - heading "1. Panorama Fundamentalista & Fluxo Macro" [level=3] [ref=f5e81]
+              - generic [ref=f5e83]: O EUR/USD opera em 1,1535 no fechamento diário de 03/08/2026 (referência BCE, ~14:15 CET), com a estrutura técnica prevalecendo sobre um cenário macro de dólar mais fraco. A manutenção dividida do Fed em 9-3 a 3,50-3,75% em 29/07 (chairman Warsh) e a fraqueza do dólar por contágio do iene alimentaram uma correção de +1,5% desde a mínima de 1,1340, mas o par segue abaixo da SMA200 (1,1628) dentro do downtrend de 9 meses (1,1974 a 1,1340). Os indicadores (SMA 50/200 e Fibonacci) são calculados a partir da série diária BCE/Frankfurter (511 pregões, 01/08/2024 a 03/08/2026). A recuperação estaca na confluência Fib 50% (1,1657) / SMA200 (1,1628) — zona de retomada de baixa.
+            - generic [ref=f5e84]:
+              - heading "2. Arquitetura Técnica (Gráfico Diário/Semanal)" [level=3] [ref=f5e85]
+              - generic [ref=f5e87]:
+                - generic [ref=f5e88]:
+                  - generic [ref=f5e89]:
+                    - generic [ref=f5e90]: ↓
+                    - generic [ref=f5e91]: Tendência Principal
+                  - generic [ref=f5e92]: Abaixo da SMA200 (1,1628) e acima da SMA50 (1,1481); o downtrend de médio prazo (1,1974 a 1,1340) segue intacto, com o movimento atual sendo uma correção de baixa rumo à confluência Fib 50% / SMA200.
+                - generic [ref=f5e93]:
+                  - generic [ref=f5e94]: Zonas de Liquidez Críticas
+                  - generic [ref=f5e96]:
+                    - generic [ref=f5e97]:
+                      - generic [ref=f5e98]: "Suporte Macro mais próximo:"
+                      - strong [ref=f5e100]: 1,1476 (Fib 78,6%), com a mínima de 1,1340 abaixo.
+                    - generic [ref=f5e101]:
+                      - generic [ref=f5e102]: "Resistência Macro mais próxima:"
+                      - strong [ref=f5e104]: 1,1657 (Fib 50%) em confluência com a SMA200 de 1,1628; 1,1732 (Fib 38,2%) acima.
+                  - generic [ref=f5e105]:
+                    - generic [ref=f5e106]: "1.1535"
+                    - generic [ref=f5e110]:
+                      - generic [ref=f5e111]: "1.1476"
+                      - generic [ref=f5e112]: "1.1657"
+              - generic [ref=f5e113]:
+                - generic [ref=f5e114]: Comportamento do Preço (Price Action)
+                - generic [ref=f5e116]: Uma rejeição de baixa (pin bar / engolfo de baixa) na confluência 1,1628-1,1657 (SMA200 / Fib 50%), com fechamento diário retomando abaixo de 1,1582 (Fib 61,8%), retomaria a queda rumo a 1,1476-1,1450.
+              - generic [ref=f5e117]:
+                - generic [ref=f5e118]: Mapa de níveis da operação
+                - img "Mapa de níveis da operação" [ref=f5e121]:
+                  - generic [ref=f5e122]: Alvo
+                  - generic [ref=f5e123]: "1.1450"
+                  - generic [ref=f5e124]: Suporte
+                  - generic [ref=f5e125]: "1.1476"
+                  - generic [ref=f5e126]: Entrada
+                  - generic [ref=f5e127]: "1.1657"
+                  - generic [ref=f5e128]: Resist.
+                  - generic [ref=f5e129]: "1.1657"
+                  - generic [ref=f5e130]: Stop
+                  - generic [ref=f5e131]: "1.1740"
+                  - generic [ref=f5e133]: Preço 1.1535
+                - generic [ref=f5e134]:
+                  - generic [ref=f5e135]: Entrada
+                  - generic [ref=f5e138]: Stop
+                  - generic [ref=f5e141]: Alvo
+                  - generic [ref=f5e144]: Preço
+            - generic [ref=f5e147]:
+              - heading "3. Veredito Estratégico & Sugestão de Operação" [level=3] [ref=f5e148]
+              - generic [ref=f5e150]:
+                - generic [ref=f5e151]:
+                  - generic [ref=f5e152]:
+                    - generic [ref=f5e153]: TICKET · EUR/USD · 03·08·26
+                    - generic [ref=f5e154]: VENDA (SHORT) NA RETRAÇÃO
+                  - generic [ref=f5e156]:
+                    - generic [ref=f5e157]: "R : R"
+                    - generic [ref=f5e158]: 1:2.49
+                - generic [ref=f5e159]:
+                  - generic [ref=f5e160]: Gatilho de Entrada
+                  - generic [ref=f5e162]: Rejeição de baixa (pin bar / engolfo de baixa) em 1,1657 (confluência Fib 50% / SMA200), com fechamento diário sustentando abaixo de 1,1582.
+                - generic [ref=f5e163]:
+                  - generic [ref=f5e164]:
+                    - generic [ref=f5e165]: Invalidação Técnica (Stop Loss)
+                    - generic [ref=f5e167]: 1,1740 (Acima da Fib 38,2% em 1,1732).
+                  - generic [ref=f5e168]:
+                    - generic [ref=f5e169]: Alvo de Saída (Take Profit)
+                    - generic [ref=f5e171]: 1,1450 (Logo abaixo da Fib 78,6% em 1,1476).
+                - generic [ref=f5e172]:
+                  - generic [ref=f5e173]: Justificativa Final
+                  - generic [ref=f5e175]: A estrutura técnica — abaixo da SMA200 e falhando na Fib 50% — supera o macro de dólar mais fraco, mantendo o viés de baixa. Uma rejeição na confluência 1,1657/1,1628 (Fib 50% / SMA200) oferece entrada vendida com stop protegido acima da Fib 38,2% e R/R de 1:2.49 rumo a 1,1450.
+        - generic [ref=f5e177]:
+          - heading "Entendendo o EUR/USD" [level=2] [ref=f5e178]
+          - paragraph [ref=f5e179]: Conhecido no mercado como "Fiber", o EUR/USD é o par de moedas mais negociado do mundo, respondendo por cerca de um quarto do volume diário global de Forex. Sua profundidade e spreads reduzidos o tornam a referência tanto para fluxo institucional quanto de varejo.
+          - heading "Principais Drivers" [level=3] [ref=f5e180]
+          - paragraph [ref=f5e181]: O par funciona principalmente como um proxy para a divergência de política monetária entre o Banco Central Europeu e o Federal Reserve. Diferenciais de juros, dados de inflação da Zona Euro vs. EUA e o momentum relativo de crescimento (PMIs, PIB) conduzem a tendência de médio prazo. O EUR/USD também se move de forma inversa ao Índice Dólar (DXY), do qual o euro é o maior componente.
+          - heading "Horários de Negociação & Liquidez" [level=3] [ref=f5e182]
+          - paragraph [ref=f5e183]: A liquidez é mais profunda durante a sobreposição entre as sessões de Londres e Nova York (aproximadamente 13h-17h UTC), quando os spreads ficam mais apertados e o volume institucional atinge o pico. A sessão asiática tende a apresentar uma ação de preço comparativamente mais lateralizada.
+          - heading "Correlações & Perfil de Volatilidade" [level=3] [ref=f5e184]
+          - paragraph [ref=f5e185]: O EUR/USD normalmente apresenta volatilidade diária média menor do que pares ligados a commodities, refletindo seu status de mercado profundo e amplamente arbitrado. Ele se correlaciona inversamente com o USD/CHF e acompanha o spread entre os yields dos Bunds alemães e dos Treasuries americanos em horizontes mais longos.
+        - link "Abrir Painel Interativo" [ref=f5e187] [cursor=pointer]:
+          - /url: index.html?pair=EUR/USD&lang=pt
+  - contentinfo [ref=f5e189]:
+    - generic [ref=f5e190]:
+      - paragraph [ref=f5e191]: "Disclaimer: Forex trading involves significant risk. Leverage can work against you. Past results do not guarantee future performance. Content is purely educational and does not constitute financial advice."
+      - generic [ref=f5e192]:
+        - text: "Have questions? Contact us:"
+        - link "hello@newsforextrading.com" [ref=f5e193] [cursor=pointer]:
+          - /url: mailto:hello@newsforextrading.com
+      - generic [ref=f5e194]:
+        - link "About Us" [ref=f5e195] [cursor=pointer]:
+          - /url: about.html?lang=pt
+        - link "Contact" [ref=f5e196] [cursor=pointer]:
+          - /url: contact.html?lang=pt
+        - link "Legal Disclaimer" [ref=f5e197] [cursor=pointer]:
+          - /url: disclaimer.html?lang=pt
+        - link "Privacy Policy" [ref=f5e198] [cursor=pointer]:
+          - /url: privacy.html?lang=pt
+        - link "Terms of Service" [ref=f5e199] [cursor=pointer]:
+          - /url: terms.html?lang=pt
+      - paragraph [ref=f5e200]: © 2026 Forex Report. All rights reserved.

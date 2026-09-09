@@ -2,7 +2,7 @@
   "meta": {
     "version": 1,
     "created": "17/08/2026",
-    "lastUpdated": "07/09/2026",
+    "lastUpdated": "09/09/2026",
     "pairs": [
       "EUR/USD",
       "USD/JPY",
@@ -29,39 +29,15 @@
   "watching": [
     {
       "pair": "AUD/USD",
-      "reportDate": "07/09/2026",
+      "reportDate": "09/09/2026",
       "direction": "long",
       "setup": "pullback",
       "entry": 0.7155,
       "stop": 0.711,
       "target": 0.7257,
       "plannedR": 2.27,
-      "triggerRule": "daily close inside 0.7141-0.7162 (10-day low + 0.7150 round) followed by a close above the previous close and the 0.7152 midpoint; skip if inside the China-data 24h window (CPI ~09/09)",
-      "note": "second confirming close (0.7214) over the broken 0.7195 D10/D20 highs — breakout confirmed, ticket carried; stop 45 pips >= the 40-pip 1.5-sigma20 floor"
-    },
-    {
-      "pair": "EUR/USD",
-      "reportDate": "07/09/2026",
-      "direction": "short",
-      "setup": "pullback",
-      "entry": 1.164,
-      "stop": 1.1685,
-      "target": 1.1534,
-      "plannedR": 2.36,
-      "triggerRule": "daily close inside 1.1629-1.1657 (SMA200 + 50% Fib) followed by a close below the previous close and the 1.1643 midpoint; valid through the 08/09 close — inside the ECB (09-10/09) or US CPI (~10/09) 24h windows, reassess after the event",
-      "note": "carried into ECB week unchanged: the 07/09 close (1.1622, fifth under the SMA200) never reached the zone; stop 1.1685 over the Fib50 and the 10-day high, 45 pips >= the 42-pip 1.5-sigma20 floor"
-    },
-    {
-      "pair": "GBP/USD",
-      "reportDate": "07/09/2026",
-      "direction": "long",
-      "setup": "pullback",
-      "entry": 1.3447,
-      "stop": 1.339,
-      "target": 1.3566,
-      "plannedR": 2.09,
-      "triggerRule": "daily close inside 1.3440-1.3454 (SMA200/SMA50 confluence) followed by a close above the previous close and the 1.3447 midpoint; skip if inside the US CPI (~10/09) 24h window",
-      "note": "zone re-priced with the drifted averages (SMA200 1.3440 / SMA50 1.3454); stop 1.3390 under the 61.8% Fib 1.3411 and the 1.3400 round, 57 pips >= the 49-pip 1.5-sigma20 floor"
+      "triggerRule": "daily close inside 0.7141-0.7162 (10-day low + 0.7150 round) followed by a close above the previous close and the 0.7152 midpoint; skip if inside the US CPI (~10/09) 24h window",
+      "note": "third confirming close (0.7225 — also a fresh 20-day high) over the broken 0.7195 D10/D20 highs; ticket carried, the China-CPI clause swapped for the US-CPI window; stop 45 pips >= the 40-pip 1.5-sigma20 floor"
     }
   ],
   "open": [],
@@ -137,6 +113,38 @@
       "note": "revoked in the 04/09 edition: the 03/09 yen surge (BoJ hike bets + intervention talk) closed 210.57 straight through the 215.15-216.00 zone; on the ECB basis sigma20 = 121 pips puts the 2.5-sigma20 intervention floor at 302 pips — no structural geometry pays 1:2",
       "outcome": "revoked",
       "exitDate": "04/09/2026"
+    },
+    {
+      "pair": "EUR/USD",
+      "reportDate": "07/09/2026",
+      "direction": "short",
+      "setup": "pullback",
+      "entry": 1.164,
+      "stop": 1.1685,
+      "target": 1.1534,
+      "plannedR": 2.36,
+      "triggerRule": "daily close inside 1.1629-1.1657 (SMA200 + 50% Fib) followed by a close below the previous close and the 1.1643 midpoint; valid through the 08/09 close — inside the ECB (09-10/09) or US CPI (~10/09) 24h windows, reassess after the event",
+      "note": "revoked in the 09/09 edition: validity expired at the 08/09 close with the zone never printing (08/09 close 1.1614); the 09/09 close (1.1652, +0.33%) then reclaimed the SMA200 — the six-session bear regime ended and the read flips neutral inside the ECB (10/09) / US CPI (~10/09) windows",
+      "outcome": "revoked",
+      "exitDate": "09/09/2026",
+      "entryDate": null,
+      "realizedR": null
+    },
+    {
+      "pair": "GBP/USD",
+      "reportDate": "07/09/2026",
+      "direction": "long",
+      "setup": "pullback",
+      "entry": 1.3447,
+      "stop": 1.339,
+      "target": 1.3566,
+      "plannedR": 2.09,
+      "triggerRule": "daily close inside 1.3440-1.3454 (SMA200/SMA50 confluence) followed by a close above the previous close and the 1.3447 midpoint; skip if inside the US CPI (~10/09) 24h window",
+      "note": "revoked in the 09/09 edition: with the averages drifted up (SMA200 1.3444 / SMA50 1.3467), the re-priced zone's midpoint (1.3455) leaves the nearest structural targets at 1:1.71 (Fib 38.2% 1.3566) and 1:1.97 (10-day high 1.3583) — under the 1:2 gate; reassess after US CPI (~10/09) and BoE (17/09)",
+      "outcome": "revoked",
+      "exitDate": "09/09/2026",
+      "entryDate": null,
+      "realizedR": null
     }
   ]
 }

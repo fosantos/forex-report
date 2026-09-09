@@ -1,0 +1,259 @@
+- generic [active] [ref=f45e1]:
+  - generic [ref=f45e3]:
+    - paragraph [ref=f45e4]:
+      - text: Utilizamos cookies para personalizar conteúdos e anúncios, e para analisar o nosso tráfego. Também partilhamos informações sobre a sua utilização do site com os nossos parceiros de publicidade e análise (como o Google AdSense). Ao clicar em "Aceitar Todos", concorda com a utilização de cookies. Leia a nossa
+      - link "Política de Privacidade" [ref=f45e5] [cursor=pointer]:
+        - /url: privacy.html
+      - text: para mais detalhes.
+    - generic [ref=f45e6]:
+      - button "Recusar" [ref=f45e7] [cursor=pointer]
+      - button "Aceitar Todos" [ref=f45e8] [cursor=pointer]
+  - banner [ref=f45e9]:
+    - generic [ref=f45e10]:
+      - link "FOREX REPORT" [ref=f45e11] [cursor=pointer]:
+        - /url: index.html
+        - text: FOREX
+        - generic [ref=f45e12]: REPORT
+      - generic [ref=f45e13]:
+        - combobox "Language Selector" [ref=f45e15] [cursor=pointer]:
+          - option "EN"
+          - option "PT" [selected]
+        - button "Apoie o Projeto" [ref=f45e16] [cursor=pointer]
+  - generic [ref=f45e18]:
+    - generic [ref=f45e19] [cursor=pointer]:
+      - generic [ref=f45e20]: EUR/USD
+      - generic [ref=f45e21]: "1.1535"
+      - generic [ref=f45e22]: ▲ +0.44%
+    - generic [ref=f45e23] [cursor=pointer]:
+      - generic [ref=f45e24]: USD/JPY
+      - generic [ref=f45e25]: "156.68"
+      - generic [ref=f45e26]: ▼ -2.22%
+    - generic [ref=f45e27] [cursor=pointer]:
+      - generic [ref=f45e28]: AUD/USD
+      - generic [ref=f45e29]: "0.7007"
+      - generic [ref=f45e30]: ▼ -0.16%
+    - generic [ref=f45e31] [cursor=pointer]:
+      - generic [ref=f45e32]: GBP/USD
+      - generic [ref=f45e33]: "1.3470"
+      - generic [ref=f45e34]: ▲ +0.36%
+    - generic [ref=f45e35] [cursor=pointer]:
+      - generic [ref=f45e36]: EUR/JPY
+      - generic [ref=f45e37]: "180.73"
+      - generic [ref=f45e38]: ▼ -1.80%
+    - generic [ref=f45e39] [cursor=pointer]:
+      - generic [ref=f45e40]: GBP/JPY
+      - generic [ref=f45e41]: "211.05"
+      - generic [ref=f45e42]: ▼ -1.87%
+    - generic [ref=f45e43] [cursor=pointer]:
+      - generic [ref=f45e44]: EUR/USD
+      - generic [ref=f45e45]: "1.1535"
+      - generic [ref=f45e46]: ▲ +0.44%
+    - generic [ref=f45e47] [cursor=pointer]:
+      - generic [ref=f45e48]: USD/JPY
+      - generic [ref=f45e49]: "156.68"
+      - generic [ref=f45e50]: ▼ -2.22%
+    - generic [ref=f45e51] [cursor=pointer]:
+      - generic [ref=f45e52]: AUD/USD
+      - generic [ref=f45e53]: "0.7007"
+      - generic [ref=f45e54]: ▼ -0.16%
+    - generic [ref=f45e55] [cursor=pointer]:
+      - generic [ref=f45e56]: GBP/USD
+      - generic [ref=f45e57]: "1.3470"
+      - generic [ref=f45e58]: ▲ +0.36%
+    - generic [ref=f45e59] [cursor=pointer]:
+      - generic [ref=f45e60]: EUR/JPY
+      - generic [ref=f45e61]: "180.73"
+      - generic [ref=f45e62]: ▼ -1.80%
+    - generic [ref=f45e63] [cursor=pointer]:
+      - generic [ref=f45e64]: GBP/JPY
+      - generic [ref=f45e65]: "211.05"
+      - generic [ref=f45e66]: ▼ -1.87%
+  - main [ref=f45e67]:
+    - generic [ref=f45e68]:
+      - generic [ref=f45e69]:
+        - generic [ref=f45e70]: Relatório Forex · Nota da Mesa
+        - heading "Relatório Forex" [level=1] [ref=f45e71]
+        - generic [ref=f45e72]:
+          - paragraph [ref=f45e73]: "Relatórios gerados em: 03/08/2026 13:30 UTC"
+          - generic [ref=f45e74]: ·
+          - generic [ref=f45e75]: Relatório dos melhores pares para operar
+          - generic [ref=f45e76]: ·
+          - generic [ref=f45e77]: LDN · NY
+      - generic [ref=f45e78]:
+        - generic [ref=f45e79]:
+          - generic [ref=f45e80]: "6"
+          - generic [ref=f45e81]: Operações acionáveis
+        - generic [ref=f45e82]:
+          - generic [ref=f45e83]: "0"
+          - generic [ref=f45e84]: Em espera
+    - generic [ref=f45e86]:
+      - generic [ref=f45e87]: Mapa de mercado — selecione um par
+      - tablist "Currency pairs" [ref=f45e88]:
+        - tab "EUR/USD 1.1535 VENDA · 1:2.49 ▲ +0.44%" [selected] [ref=f45e89] [cursor=pointer]:
+          - generic [ref=f45e90]:
+            - generic [ref=f45e91]: EUR/USD
+            - generic [ref=f45e92]: "1.1535"
+          - generic [ref=f45e93]: VENDA · 1:2.49
+          - generic [ref=f45e94]: ▲ +0.44%
+        - tab "USD/JPY 156.68 VENDA · 1:2.33 ▼ -2.22%" [ref=f45e102] [cursor=pointer]:
+          - generic [ref=f45e103]:
+            - generic [ref=f45e104]: USD/JPY
+            - generic [ref=f45e105]: "156.68"
+          - generic [ref=f45e106]: VENDA · 1:2.33
+          - generic [ref=f45e107]: ▼ -2.22%
+        - tab "AUD/USD 0.7007 COMPRA · 1:2.71 ▼ -0.16%" [ref=f45e115] [cursor=pointer]:
+          - generic [ref=f45e116]:
+            - generic [ref=f45e117]: AUD/USD
+            - generic [ref=f45e118]: "0.7007"
+          - generic [ref=f45e119]: COMPRA · 1:2.71
+          - generic [ref=f45e120]: ▼ -0.16%
+        - tab "GBP/USD 1.3470 COMPRA · 1:2.63 ▲ +0.36%" [ref=f45e128] [cursor=pointer]:
+          - generic [ref=f45e129]:
+            - generic [ref=f45e130]: GBP/USD
+            - generic [ref=f45e131]: "1.3470"
+          - generic [ref=f45e132]: COMPRA · 1:2.63
+          - generic [ref=f45e133]: ▲ +0.36%
+        - tab "EUR/JPY 180.73 VENDA · 1:2.25 ▼ -1.80%" [ref=f45e141] [cursor=pointer]:
+          - generic [ref=f45e142]:
+            - generic [ref=f45e143]: EUR/JPY
+            - generic [ref=f45e144]: "180.73"
+          - generic [ref=f45e145]: VENDA · 1:2.25
+          - generic [ref=f45e146]: ▼ -1.80%
+        - tab "GBP/JPY 211.05 VENDA · 1:2.12 ▼ -1.87%" [ref=f45e154] [cursor=pointer]:
+          - generic [ref=f45e155]:
+            - generic [ref=f45e156]: GBP/JPY
+            - generic [ref=f45e157]: "211.05"
+          - generic [ref=f45e158]: VENDA · 1:2.12
+          - generic [ref=f45e159]: ▼ -1.87%
+    - generic [ref=f45e167]:
+      - generic [ref=f45e168]: Selecione o Par de Moedas para Analisar
+      - combobox [ref=f45e170] [cursor=pointer]:
+        - option "EUR/USD" [selected]
+        - option "USD/JPY"
+        - option "AUD/USD"
+        - option "GBP/USD"
+        - option "EUR/JPY"
+        - option "GBP/JPY"
+    - article [ref=f45e172]:
+      - generic [ref=f45e173]:
+        - generic [ref=f45e178]:
+          - heading "EUR/USD" [level=2] [ref=f45e179]
+          - generic [ref=f45e180]: "Cotação Atual: 1.1535"
+        - generic [ref=f45e181]: BAIXA
+      - generic [ref=f45e182]:
+        - generic [ref=f45e183]:
+          - generic [ref=f45e184]:
+            - generic [ref=f45e185]: Resumo da operação
+            - text: VENDA na retração até 1.1657 · stop 1.1740 · alvo 1.1450 · R/R 1:2.49
+          - generic [ref=f45e186]:
+            - generic [ref=f45e188]:
+              - generic [ref=f45e189]: Convicção do setup (R/R)
+              - generic [ref=f45e190]: 7/10 · Boa
+            - generic [ref=f45e202]:
+              - generic [ref=f45e203]: Drivers macro
+              - generic [ref=f45e204]:
+                - generic [ref=f45e205]: Fed 3,50-3,75%
+                - generic [ref=f45e206]: USD mais fraco
+                - generic [ref=f45e207]: BCE 2,25%
+              - generic [ref=f45e208]:
+                - generic [ref=f45e209]: Próximo foco
+                - text: CPI dos EUA & discursos do Fed
+          - generic [ref=f45e210]: "Base: Base de dados: taxas de referência BCE/Frankfurter · SMA50/200 e Fibonacci calculados · 511 pregões (01/08/2024 a 03/08/2026)."
+        - generic [ref=f45e211]:
+          - heading "1. Panorama Fundamentalista & Fluxo Macro" [level=3] [ref=f45e212]
+          - generic [ref=f45e213]: O EUR/USD opera em 1,1535 no fechamento diário de 03/08/2026 (referência BCE, ~14:15 CET), com a estrutura técnica prevalecendo sobre um cenário macro de dólar mais fraco. A manutenção dividida do Fed em 9-3 a 3,50-3,75% em 29/07 (chairman Warsh) e a fraqueza do dólar por contágio do iene alimentaram uma correção de +1,5% desde a mínima de 1,1340, mas o par segue abaixo da SMA200 (1,1628) dentro do downtrend de 9 meses (1,1974 a 1,1340). Os indicadores (SMA 50/200 e Fibonacci) são calculados a partir da série diária BCE/Frankfurter (511 pregões, 01/08/2024 a 03/08/2026). A recuperação estaca na confluência Fib 50% (1,1657) / SMA200 (1,1628) — zona de retomada de baixa.
+        - generic [ref=f45e214]:
+          - heading "2. Arquitetura Técnica (Gráfico Diário/Semanal)" [level=3] [ref=f45e215]
+          - generic [ref=f45e216]:
+            - generic [ref=f45e217]:
+              - generic [ref=f45e218]: Tendência Principal
+              - generic [ref=f45e219]: Abaixo da SMA200 (1,1628) e acima da SMA50 (1,1481); o downtrend de médio prazo (1,1974 a 1,1340) segue intacto, com o movimento atual sendo uma correção de baixa rumo à confluência Fib 50% / SMA200.
+            - generic [ref=f45e220]:
+              - generic [ref=f45e221]: Zonas de Liquidez Críticas
+              - generic [ref=f45e222]:
+                - generic [ref=f45e223]:
+                  - text: "Suporte Macro mais próximo:"
+                  - strong [ref=f45e224]: 1,1476 (Fib 78,6%), com a mínima de 1,1340 abaixo.
+                - generic [ref=f45e225]:
+                  - text: "Resistência Macro mais próxima:"
+                  - strong [ref=f45e226]: 1,1657 (Fib 50%) em confluência com a SMA200 de 1,1628; 1,1732 (Fib 38,2%) acima.
+                - generic [ref=f45e227]:
+                  - generic [ref=f45e228]: "1.1535"
+                  - generic [ref=f45e232]:
+                    - generic [ref=f45e233]: 1,1476
+                    - generic [ref=f45e234]: 1,1657
+          - generic [ref=f45e235]:
+            - generic [ref=f45e236]: Comportamento do Preço (Price Action)
+            - generic [ref=f45e237]: Uma rejeição de baixa (pin bar / engolfo de baixa) na confluência 1,1628-1,1657 (SMA200 / Fib 50%), com fechamento diário retomando abaixo de 1,1582 (Fib 61,8%), retomaria a queda rumo a 1,1476-1,1450.
+          - generic [ref=f45e238]:
+            - generic [ref=f45e239]: Mapa de níveis da operação
+            - img "Mapa de níveis da operação" [ref=f45e240]:
+              - generic [ref=f45e241]: Alvo
+              - generic [ref=f45e242]: "1.1450"
+              - generic [ref=f45e243]: Suporte
+              - generic [ref=f45e244]: "1.1476"
+              - generic [ref=f45e245]: Entrada
+              - generic [ref=f45e246]: "1.1657"
+              - generic [ref=f45e247]: Resist.
+              - generic [ref=f45e248]: "1.1657"
+              - generic [ref=f45e249]: Stop
+              - generic [ref=f45e250]: "1.1740"
+              - generic [ref=f45e252]: Preço 1.1535
+            - generic [ref=f45e253]:
+              - generic [ref=f45e254]: Entrada
+              - generic [ref=f45e256]: Stop
+              - generic [ref=f45e258]: Alvo
+              - generic [ref=f45e260]: Preço
+        - generic [ref=f45e262]:
+          - heading "3. Veredito Estratégico & Sugestão de Operação" [level=3] [ref=f45e263]
+          - generic [ref=f45e264]:
+            - generic [ref=f45e265]:
+              - generic [ref=f45e266]:
+                - generic [ref=f45e267]: TICKET · EUR/USD · 03·08·26
+                - generic [ref=f45e268]: VENDA (SHORT) NA RETRAÇÃO
+              - generic [ref=f45e269]:
+                - generic [ref=f45e270]: "R : R"
+                - generic [ref=f45e271]: 1:2.49
+            - generic [ref=f45e272]:
+              - generic [ref=f45e273]: Gatilho de Entrada
+              - generic [ref=f45e274]: Rejeição de baixa (pin bar / engolfo de baixa) em 1,1657 (confluência Fib 50% / SMA200), com fechamento diário sustentando abaixo de 1,1582.
+            - generic [ref=f45e275]:
+              - generic [ref=f45e276]:
+                - generic [ref=f45e277]: Invalidação Técnica (Stop Loss)
+                - generic [ref=f45e278]: 1,1740 (Acima da Fib 38,2% em 1,1732).
+              - generic [ref=f45e279]:
+                - generic [ref=f45e280]: Alvo de Saída (Take Profit)
+                - generic [ref=f45e281]: 1,1450 (Logo abaixo da Fib 78,6% em 1,1476).
+            - generic [ref=f45e282]:
+              - generic [ref=f45e283]: Justificativa Final
+              - generic [ref=f45e284]: A estrutura técnica — abaixo da SMA200 e falhando na Fib 50% — supera o macro de dólar mais fraco, mantendo o viés de baixa. Uma rejeição na confluência 1,1657/1,1628 (Fib 50% / SMA200) oferece entrada vendida com stop protegido acima da Fib 38,2% e R/R de 1:2.49 rumo a 1,1450.
+    - generic [ref=f45e286]:
+      - generic [ref=f45e287]:
+        - heading "Apoie o Nosso Projeto ☕" [level=3] [ref=f45e288]
+        - paragraph [ref=f45e290]: Os nossos relatórios são atualizados diariamente e são totalmente gratuitos. Se as nossas análises o ajudam a tomar melhores decisões, considere apoiar-nos para manter o site ativo e livre de assinaturas pagas!
+        - link "Apoie-nos com um Café" [ref=f45e291] [cursor=pointer]:
+          - /url: https://buymeacoffee.com/f.sant
+      - generic [ref=f45e295]:
+        - heading "Dúvidas ou Sugestões? ✉️" [level=3] [ref=f45e296]
+        - paragraph [ref=f45e300]: Tem alguma sugestão, feedback ou proposta de parceria? Entre em contacto direto com a nossa equipa através do e-mail hello@newsforextrading.com.
+        - link "Enviar E-mail" [ref=f45e301] [cursor=pointer]:
+          - /url: mailto:hello@newsforextrading.com
+  - contentinfo [ref=f45e303]:
+    - generic [ref=f45e304]:
+      - paragraph [ref=f45e305]: "Aviso: O mercado de câmbio (Forex) envolve riscos significativos. A alavancagem pode funcionar contra si. Resultados passados não garantem lucros futuros. O conteúdo é meramente educativo e não constitui aconselhamento financeiro."
+      - generic [ref=f45e306]:
+        - text: "Dúvidas ou sugestões? Contacte-nos:"
+        - link "hello@newsforextrading.com" [ref=f45e307] [cursor=pointer]:
+          - /url: mailto:hello@newsforextrading.com
+      - generic [ref=f45e308]:
+        - link "About Us" [ref=f45e309] [cursor=pointer]:
+          - /url: about.html
+        - link "Contact" [ref=f45e310] [cursor=pointer]:
+          - /url: contact.html
+        - link "Aviso Legal" [ref=f45e311] [cursor=pointer]:
+          - /url: disclaimer.html
+        - link "Política de Privacidade" [ref=f45e312] [cursor=pointer]:
+          - /url: privacy.html
+        - link "Terms of Service" [ref=f45e313] [cursor=pointer]:
+          - /url: terms.html
+      - paragraph [ref=f45e314]: © 2026 Forex Report. Todos os direitos reservados.
