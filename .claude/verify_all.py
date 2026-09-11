@@ -8,11 +8,11 @@ PAGE = {
     "EUR/USD": "eur-usd.html", "USD/JPY": "usd-jpy.html", "AUD/USD": "aud-usd.html",
     "GBP/USD": "gbp-usd.html", "EUR/JPY": "eur-jpy.html", "GBP/JPY": "gbp-jpy.html",
 }
-TODAY_TS = "09/09/2026 20:54 UTC"
-TODAY_DATE = "09/09/2026"  # basis session date (report edition: 09/09/2026)
+TODAY_TS = "11/09/2026 17:15 UTC"
+TODAY_DATE = "11/09/2026"  # basis session date (report edition: 11/09/2026)
 STALE_DATES = ["02/09/2026", "01/09/2026", "28/08/2026", "24/08/2026", "20/08/2026", "19/08/2026", "18/08/2026", "17/08/2026", "14/08/2026", "13/08/2026", "11/08/2026", "03/08/2026", "02/08/2026"]
-TICKER = [("EUR/USD","+0.33%"),("USD/JPY","-0.67%"),("AUD/USD","+0.14%"),
-          ("GBP/USD","+0.14%"),("EUR/JPY","-0.34%"),("GBP/JPY","-0.53%")]
+TICKER = [("EUR/USD","-0.21%"),("USD/JPY","-0.09%"),("AUD/USD","-0.17%"),
+          ("GBP/USD","-0.09%"),("EUR/JPY","-0.30%"),("GBP/JPY","-0.18%")]
 errors = []
 
 with open(INDEX, encoding="utf-8") as f:
@@ -101,7 +101,7 @@ for pair, fname in PAGE.items():
         errors.append(f"{fname}: educational section missing")
     if TODAY_DATE not in html:
         errors.append(f"{fname}: today date {TODAY_DATE} missing")
-    for stale in ["02/09/2026", "01/09/2026", "19/08/2026", "18/08/2026", "17/08/2026", "14/08/2026", "13/08/2026", "04/09/2026", "07/09/2026"]:
+    for stale in ["02/09/2026", "01/09/2026", "19/08/2026", "18/08/2026", "17/08/2026", "14/08/2026", "13/08/2026", "04/09/2026", "07/09/2026", "09/09/2026"]:
         if stale in html:
             errors.append(f"{fname}: stale session date {stale}")
     if f"<strong>{d['quote']}</strong>" not in html:
