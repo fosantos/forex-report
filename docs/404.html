@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - Forex Report</title>
+    <meta name="description" content="The page you are looking for does not exist. Head back to the Forex Report dashboard for daily analysis of the six major pairs.">
+    <meta name="robots" content="noindex">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content container">
+            <a href="index.html" class="brand-logo">
+                FOREX<span>REPORT</span>
+            </a>
+            <nav class="header-nav">
+                <a href="index.html" class="nav-link">Dashboard</a>
+                <a href="news.html" class="nav-link">News</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="compliance-container" style="text-align: center; padding: 4rem 1.5rem;">
+            <p style="font-family: 'IBM Plex Mono', monospace; font-size: 3.5rem; font-weight: 700; color: var(--color-primary); margin: 0;">404</p>
+            <h1 style="margin: 0.5rem 0 1rem 0;">
+                <span class="lang-en">Page Not Found</span>
+                <span class="lang-pt" style="display:none;">P&aacute;gina N&atilde;o Encontrada</span>
+            </h1>
+            <p style="color: var(--text-secondary); max-width: 480px; margin: 0 auto 2rem auto;">
+                <span class="lang-en">The page you are looking for doesn't exist or has moved. Head back to the dashboard for today's analysis of the six major pairs.</span>
+                <span class="lang-pt" style="display:none;">A p&aacute;gina que procura n&atilde;o existe ou foi movida. Volte ao painel para a an&aacute;lise di&aacute;ria dos seis principais pares.</span>
+            </p>
+            <a href="index.html" class="btn-header-support" style="display: inline-block; padding: 0.8rem 2rem; font-size: 1rem; border-radius: 30px; text-decoration: none;">
+                <span class="lang-en">Back to Dashboard</span>
+                <span class="lang-pt" style="display:none;">Voltar ao Painel</span>
+            </a>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-disclaimer">Disclaimer: Forex trading involves significant risk. Leverage can work against you. Past results do not guarantee future performance. Content is purely educational and does not constitute financial advice.</p>
+            <div class="footer-links">
+                <a href="about.html" class="footer-link">About Us</a>
+                <a href="contact.html" class="footer-link">Contact</a>
+                <a href="disclaimer.html" class="footer-link">Legal Disclaimer</a>
+                <a href="privacy.html" class="footer-link">Privacy Policy</a>
+                <a href="terms.html" class="footer-link">Terms of Service</a>
+            </div>
+            <p class="footer-copyright">&copy; 2026 Forex Report. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            var lang = 'en';
+            var m = location.search.match(/[?&]lang=(pt|en)/i);
+            var langs = navigator.languages || [navigator.language || ''];
+            if (m) { lang = m[1].toLowerCase(); }
+            else {
+                for (var i = 0; i < langs.length; i++) {
+                    var l = String(langs[i]).toLowerCase();
+                    if (l === 'pt' || l === 'pt-br' || l === 'pt-pt') { lang = 'pt'; break; }
+                }
+            }
+            document.querySelectorAll('.lang-en').forEach(function (el) { el.style.display = lang === 'pt' ? 'none' : 'block'; });
+            document.querySelectorAll('.lang-pt').forEach(function (el) { el.style.display = lang === 'pt' ? 'block' : 'none'; });
+        })();
+    </script>
+</body>
+</html>

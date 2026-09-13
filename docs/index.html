@@ -10,10 +10,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forex Report - Professional Trading Insights</title>
     <meta name="description" content="Daily expert fundamental and technical analysis for major Forex pairs. Stay ahead of market movements.">
+
+    <!-- SEO: canonical + social sharing -->
+    <link rel="canonical" href="https://newsforextrading.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Forex Report">
+    <meta property="og:title" content="Forex Report - Professional Trading Insights">
+    <meta property="og:description" content="Daily expert fundamental and technical analysis for major Forex pairs. Stay ahead of market movements.">
+    <meta property="og:url" content="https://newsforextrading.com/">
+    <meta property="og:image" content="https://newsforextrading.com/web-app-manifest-512.png">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="pt_BR">
+    <meta name="twitter:card" content="summary">
     
-    <!-- Google AdSense -->
+    <!-- Google AdSense — personalization gated by cookie consent (consent.js) -->
+    <script>
+        try { if (localStorage.getItem('forexCookieConsent') === 'declined') (window.adsbygoogle = window.adsbygoogle || []).requestNonPersonalizedAds = 1; } catch (e) {}
+    </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4617266720439769"
      crossorigin="anonymous"></script>
+    <script src="consent.js" defer></script>
     
     <!-- Google Fonts: Inter for sleek modern typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,18 +37,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"Forex Report","url":"https://newsforextrading.com/","inLanguage":["en","pt"]},{"@type":"Organization","name":"Forex Report","url":"https://newsforextrading.com/","logo":"https://newsforextrading.com/web-app-manifest-512.png","email":"hello@newsforextrading.com"}]}
+    </script>
 </head>
 <body>
-    <!-- Cookie Consent Banner -->
-    <div class="cookie-banner" id="cookieBanner">
-        <div class="cookie-content container">
-            <p>We use cookies to personalize content and ads, and to analyze our traffic. We also share information about your use of our site with our advertising and analytics partners (such as Google AdSense). By clicking "Accept All", you consent to our use of cookies. Read our <a href="privacy.html" style="color: var(--color-primary); text-decoration: underline;">Privacy Policy</a> for more details.</p>
-            <div class="cookie-buttons">
-                <button class="btn-cookie btn-cookie-secondary">Decline</button>
-                <button class="btn-cookie btn-cookie-primary">Accept All</button>
-            </div>
-        </div>
-    </div>
+    <!-- Cookie consent banner is injected at runtime by consent.js (see <head>) -->
 
     <!-- 3. HEADER -->
     <header class="site-header">
@@ -101,9 +111,10 @@
             <ins class="adsbygoogle"
                  style="display:block"
                  data-ad-client="ca-pub-4617266720439769"
-                 data-ad-slot="1234567890"
+                 data-ad-slot="8549246934"
                  data-ad-format="horizontal"
                  data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
         <!-- MARKET MAP — 6-up comparative grid that doubles as pair navigation -->
@@ -256,9 +267,10 @@
             <ins class="adsbygoogle"
                  style="display:block"
                  data-ad-client="ca-pub-4617266720439769"
-                 data-ad-slot="9876543210"
+                 data-ad-slot="8549246934"
                  data-ad-format="rectangle"
                  data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
         <!-- 9. DUAL ACTION & CONTACT SECTION -->
@@ -1552,56 +1564,11 @@
             }
         }
 
-                // Initialize Cookie Consent Banner
-        function initCookieBanner() {
-            const consent = localStorage.getItem('cookieConsent');
-            const banner = document.getElementById('cookieBanner');
-            if (!consent && banner) {
-                banner.style.display = 'block';
-            }
-            
-            // Set event listeners
-            const declBtn = document.querySelector('#cookieBanner .btn-cookie-secondary');
-            const accBtn = document.querySelector('#cookieBanner .btn-cookie-primary');
-            
-            if (declBtn) {
-                declBtn.addEventListener('click', () => {
-                    localStorage.setItem('cookieConsent', 'declined');
-                    banner.style.display = 'none';
-                });
-            }
-            if (accBtn) {
-                accBtn.addEventListener('click', () => {
-                    localStorage.setItem('cookieConsent', 'accepted');
-                    banner.style.display = 'none';
-                });
-            }
-        }
-        
-        // Translate Cookie Consent Banner
-        function translateCookieBanner() {
-            const bannerText = document.querySelector('#cookieBanner p');
-            const declBtn = document.querySelector('#cookieBanner .btn-cookie-secondary');
-            const accBtn = document.querySelector('#cookieBanner .btn-cookie-primary');
-            
-            if (!bannerText || !declBtn || !accBtn) return;
-            
-            if (currentLang === 'pt') {
-                bannerText.innerHTML = 'Utilizamos cookies para personalizar conteúdos e anúncios, e para analisar o nosso tráfego. Também partilhamos informações sobre a sua utilização do site com os nossos parceiros de publicidade e análise (como o Google AdSense). Ao clicar em "Aceitar Todos", concorda com a utilização de cookies. Leia a nossa <a href="privacy.html" style="color: var(--color-primary); text-decoration: underline;">Política de Privacidade</a> para mais detalhes.';
-                declBtn.textContent = 'Recusar';
-                accBtn.textContent = 'Aceitar Todos';
-            } else {
-                bannerText.innerHTML = 'We use cookies to personalize content and ads, and to analyze our traffic. We also share information about your use of our site with our advertising and analytics partners (such as Google AdSense). By clicking "Accept All", you consent to our use of cookies. Read our <a href="privacy.html" style="color: var(--color-primary); text-decoration: underline;">Privacy Policy</a> for more details.';
-                declBtn.textContent = 'Decline';
-                accBtn.textContent = 'Accept All';
-            }
-        }
+        // Cookie consent is handled globally by docs/consent.js (banner + NPA flag).
 
         // Initialize Core System Actions
         window.addEventListener('DOMContentLoaded', () => {
             initLanguageDetection();
-            initCookieBanner();
-            translateCookieBanner();
             populateTicker();
             setupTickerPause();
             translateUI();
@@ -1631,7 +1598,6 @@
             document.getElementById('langSelect').addEventListener('change', (e) => {
                 currentLang = e.target.value;
                 translateUI();
-                translateCookieBanner();
                 renderForexReport();
                 renderMarketMap();
                 renderCommandDeck();

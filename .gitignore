@@ -10,3 +10,8 @@ prompt.txt
 
 # Dependency lockfile — project is intentionally dependency-free
 package-lock.json
+
+# Browser automation runtime artifacts (never publish)
+.claude/__pycache__/
+.chrome-profile/
+.playwright-mcp/
