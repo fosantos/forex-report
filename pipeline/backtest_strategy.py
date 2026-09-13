@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Permanent re-validation backtest of the Research Desk swing rules on ECB/Frankfurter
 daily closes, close-only, 2000 -> present, 6 pairs. Re-run before adopting any rule change
-and compare against the baseline in .claude/backtest_results_2026-08-17.txt.
+and compare against the baseline in pipeline/backtest_results_2026-08-17.txt.
 
 Canonical (PRIMARY) config since 17/08/2026 rule standardization:
 Donchian 10 breakout / 10-session expiry / 1.5-sigma20 stop floor / R/R >= 1:2.

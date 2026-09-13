@@ -12,6 +12,6 @@ prompt.txt
 package-lock.json
 
 # Browser automation runtime artifacts (never publish)
-.claude/__pycache__/
+pipeline/__pycache__/
 .chrome-profile/
 .playwright-mcp/

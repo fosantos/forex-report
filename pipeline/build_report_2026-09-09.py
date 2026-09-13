@@ -652,7 +652,7 @@ print("OK: news.html (dateline, 3 new cards, basis note)")
 # =====================================================================
 # 5. patch verify_all.py to the new edition
 # =====================================================================
-VP = r"C:/Projetos/forex-report/.claude/verify_all.py"
+VP = r"C:/Projetos/forex-report/pipeline/verify_all.py"
 v = open(VP, encoding="utf-8").read()
 v = rep(v, 'TODAY_TS = "07/09/2026 20:42 UTC"', 'TODAY_TS = "' + TS + '"', "verify TODAY_TS")
 v = rep(v, 'TODAY_DATE = "07/09/2026"  # basis session date (report edition: 07/09/2026)', 'TODAY_DATE = "09/09/2026"  # basis session date (report edition: 09/09/2026)', "verify TODAY_DATE")

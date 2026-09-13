@@ -200,7 +200,7 @@ def rep(text, old, new, where, n=1):
     return text.replace(old, new)
 
 # ---------------- index.html ----------------
-SNAP = r"C:/Projetos/forex-report/.claude/index_old_snapshot.html"
+SNAP = r"C:/Projetos/forex-report/pipeline/index_old_snapshot.html"
 with open(IDX, encoding="utf-8") as f:
     idx = f.read()
 src = SNAP if os.path.exists(SNAP) else IDX

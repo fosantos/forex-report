@@ -209,7 +209,7 @@ def reps(h, old, new, where, n=1):
     return rep(h, old, new, where, n)
 
 # ---------------- index.html ----------------
-SNAP = r"C:/Projetos/forex-report/.claude/index_old_snapshot.html"
+SNAP = r"C:/Projetos/forex-report/pipeline/index_old_snapshot.html"
 import os
 with open(IDX, encoding="utf-8") as f:
     idx = f.read()
