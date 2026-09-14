@@ -2,7 +2,7 @@
   "meta": {
     "version": 1,
     "created": "17/08/2026",
-    "lastUpdated": "11/09/2026",
+    "lastUpdated": "14/09/2026",
     "pairs": [
       "EUR/USD",
       "USD/JPY",
@@ -29,27 +29,15 @@
   "watching": [
     {
       "pair": "EUR/USD",
-      "reportDate": "11/09/2026",
+      "reportDate": "14/09/2026",
       "direction": "short",
-      "setup": "pullback",
-      "entry": 1.164,
-      "stop": 1.1685,
-      "target": 1.1527,
-      "plannedR": 2.51,
-      "triggerRule": "daily close inside 1.1631-1.1657 (SMA200 + 50% Fib) followed by a close below the previous close and the 1.1644 midpoint; valid through the 14/09 close — inside the FOMC (15-16/09) 24h window, reassess after the event",
-      "note": "failed SMA200 reclaim: one close over (09/09, 1.1652) then two back under (10-11/09) despite the ECB hiking to 2.50% — bear alignment restored (close 1.1592 < SMA200 1.1631, SMA50 1.1527 below); stop 45 pips >= the 45-pip 1.5-sigma20 floor; target the 50-day SMA (1.1527)"
-    },
-    {
-      "pair": "AUD/USD",
-      "reportDate": "11/09/2026",
-      "direction": "long",
-      "setup": "pullback",
-      "entry": 0.7155,
-      "stop": 0.711,
-      "target": 0.7257,
-      "plannedR": 2.27,
-      "triggerRule": "daily close inside 0.7141-0.7162 (10-day low + 0.7150 round) followed by a close above the previous close and the 0.7152 midpoint; valid through the 14/09 close — inside the FOMC (15-16/09) 24h window, reassess after the event",
-      "note": "retest underway: two down sessions (-0.72% from 0.7225) already handed back the broken 0.7195 level; ticket carried unchanged (stop 45 pips >= the 42-pip 1.5-sigma20 floor), the US-CPI clause swapped for the FOMC window; a close under 0.7141 kills the setup"
+      "setup": "breakout",
+      "entry": 1.155,
+      "stop": 1.16,
+      "target": 1.144,
+      "plannedR": 2.2,
+      "triggerRule": "daily close under the 10-day Donchian low 1.1551 (entry reference 1.1550); valid through the 15/09 close — inside the FOMC (15-16/09) 24h window, reassess after the event",
+      "note": "confirmed 10-day breakdown: the 14/09 close (1.1551, -0.35%) took out the 10/20-day lows (1.1578/1.1576) and the 61.8% Fib (1.1582) in one go; stop 50 pips over the broken cluster + the 1.1600 round (>= the 46-pip 1.5-sigma20 floor); target 1.1440 under the 78.6% Fib (1.1476) / 1.1450 round, above the 9-month low (1.1340)"
     }
   ],
   "open": [],
@@ -155,6 +143,38 @@
       "note": "revoked in the 09/09 edition: with the averages drifted up (SMA200 1.3444 / SMA50 1.3467), the re-priced zone's midpoint (1.3455) leaves the nearest structural targets at 1:1.71 (Fib 38.2% 1.3566) and 1:1.97 (10-day high 1.3583) — under the 1:2 gate; reassess after US CPI (~10/09) and BoE (17/09)",
       "outcome": "revoked",
       "exitDate": "09/09/2026",
+      "entryDate": null,
+      "realizedR": null
+    },
+    {
+      "pair": "EUR/USD",
+      "reportDate": "11/09/2026",
+      "direction": "short",
+      "setup": "pullback",
+      "entry": 1.164,
+      "stop": 1.1685,
+      "target": 1.1527,
+      "plannedR": 2.51,
+      "triggerRule": "daily close inside 1.1631-1.1657 (SMA200 + 50% Fib) followed by a close below the previous close and the 1.1644 midpoint; valid through the 14/09 close — inside the FOMC (15-16/09) 24h window, reassess after the event",
+      "note": "revoked in the 14/09 edition: validity expired at the 14/09 close with the zone never printing — the close (1.1551, -0.35%) broke straight through the 10-day low (1.1578) instead; re-mapped one shelf lower as a breakout short (<1.1551)",
+      "outcome": "revoked",
+      "exitDate": "14/09/2026",
+      "entryDate": null,
+      "realizedR": null
+    },
+    {
+      "pair": "AUD/USD",
+      "reportDate": "11/09/2026",
+      "direction": "long",
+      "setup": "pullback",
+      "entry": 0.7155,
+      "stop": 0.711,
+      "target": 0.7257,
+      "plannedR": 2.27,
+      "triggerRule": "daily close inside 0.7141-0.7162 (10-day low + 0.7150 round) followed by a close above the previous close and the 0.7152 midpoint; valid through the 14/09 close — inside the FOMC (15-16/09) 24h window, reassess after the event",
+      "note": "revoked in the 14/09 edition: the kill condition printed — the 14/09 close (0.7130, -0.60%) broke the 0.7141 zone floor; three down sessions (-1.31% from 0.7225) turned the retest into a local breakdown and the re-priced shelf (0.7076-0.7102) pays under 1:2 with the broken zone overhead — reassess after the FOMC (15-16/09)",
+      "outcome": "revoked",
+      "exitDate": "14/09/2026",
       "entryDate": null,
       "realizedR": null
     }
