@@ -1,0 +1,96 @@
+Series: 1999-12-30 .. 2026-09-14  (6834 sessions)
+Window: entries 2024-09-14 .. 2026-09-14  (last 2 years)
+
+============================================================================================================
+CONFIG: PRIMARY  Donchian10 / expiry 10 (canonical)   |   floor 1.5 x sigma20, R/R >= 2.0, cost 1.5 pips RT   |   WINDOW: last 2 years (entries 2024-09-14..2026-09-14)
+============================================================================================================
+pair      trades   win%    avgR  totR(net) totR(gross)     PF  maxDD(R)  losestrk
+---------------------------------------------------------------------------------
+EUR/USD        3    0.0  -1.016       -3.0        -3.0   0.00       3.0         3
+          (skips in window: R/R-gate 1458, no-target 744; buy&hold 2y +3.8%)
+USD/JPY       10   50.0   0.121        1.2         1.3   1.32       1.8         3
+          (skips in window: R/R-gate 1419, no-target 698; buy&hold 2y +10.5%)
+AUD/USD       10   40.0  -0.291       -2.9        -2.7   0.46       5.4         3
+          (skips in window: R/R-gate 1394, no-target 834; buy&hold 2y +5.7%)
+GBP/USD        8   75.0   0.402        3.2         3.3   3.24       1.0         1
+          (skips in window: R/R-gate 1366, no-target 651; buy&hold 2y +2.2%)
+EUR/JPY        7   57.1   0.371        2.6         2.7   1.99       2.6         3
+          (skips in window: R/R-gate 1534, no-target 832; buy&hold 2y +14.7%)
+GBP/JPY       12   50.0   0.232        2.8         2.9   1.69       3.0         4
+          (skips in window: R/R-gate 1445, no-target 793; buy&hold 2y +12.9%)
+---------------------------------------------------------------------------------
+PORTFOLIO      50   50.0   0.077        3.9               1.19       6.9
+   significance: t-stat vs 0 = +0.53  (mean +0.077R, sd 1.02R, n 50)
+   target   n=  2  avgR=+2.232  total=+4.5
+   stop     n= 17  avgR=-1.014  total=-17.2
+   expired  n= 31  avgR=+0.536  total=+16.6
+   pullback  n= 12  win= 41.7%  avgR=+0.074  total=+0.9
+   breakout  n= 38  win= 52.6%  avgR=+0.078  total=+3.0
+
+   quarterly (by exit):
+     2024-Q3: n= 1  total=  -1.0R  avg=-1.008  #
+     2024-Q4: n=13  total=  +2.8R  avg=+0.214  ###
+     2025-Q1: n= 7  total=  +1.5R  avg=+0.219  ##
+     2025-Q2: n= 8  total=  -4.9R  avg=-0.612  #
+     2025-Q3: n= 4  total=  -1.4R  avg=-0.358  #
+     2025-Q4: n= 7  total=  +1.9R  avg=+0.267  ##
+     2026-Q1: n= 2  total=  +3.2R  avg=+1.610  ###
+     2026-Q2: n= 4  total=  +0.2R  avg=+0.040  #
+     2026-Q3: n= 4  total=  +1.6R  avg=+0.406  ##
+
+   trade log (entry -> exit, close-based):
+   pair      dir    setup     entry date  exit date   outcome   planR    Rnet
+   GBP/JPY   short  pullback  2024-09-23 2024-09-25  stop       3.36   -1.01
+   AUD/USD   long   pullback  2024-10-11 2024-10-16  stop       4.35   -1.03
+   GBP/JPY   long   breakout  2024-10-04 2024-10-18  expired    7.41   +1.28
+   GBP/JPY   long   breakout  2024-10-22 2024-11-05  expired    8.71   +1.32
+   EUR/USD   long   breakout  2024-10-31 2024-11-06  stop       2.73   -1.01
+   EUR/JPY   long   breakout  2024-10-23 2024-11-06  expired    4.97   +0.17
+   USD/JPY   long   breakout  2024-10-23 2024-11-06  expired    2.27   +0.35
+   AUD/USD   long   breakout  2024-11-07 2024-11-12  stop       2.70   -1.02
+   EUR/JPY   short  breakout  2024-11-08 2024-11-22  expired    4.01   +1.56
+   GBP/USD   short  breakout  2024-11-12 2024-11-26  expired    2.85   +1.20
+   USD/JPY   long   breakout  2024-11-13 2024-11-27  stop       2.17   -1.00
+   GBP/JPY   short  breakout  2024-11-22 2024-12-06  expired    2.42   +0.22
+   EUR/JPY   short  pullback  2024-12-17 2024-12-23  stop       2.69   -1.01
+   USD/JPY   long   breakout  2024-12-11 2024-12-27  expired    3.13   +1.74
+   GBP/JPY   long   breakout  2024-12-16 2025-01-02  expired    2.27   -0.01
+   GBP/JPY   short  breakout  2025-01-03 2025-01-17  expired    3.82   +1.49
+   USD/JPY   short  breakout  2025-02-06 2025-02-20  expired    3.10   +0.61
+   EUR/USD   short  breakout  2025-02-28 2025-03-04  stop       2.48   -1.02
+   USD/JPY   short  breakout  2025-02-24 2025-03-10  expired    2.50   +0.72
+   GBP/JPY   short  pullback  2025-03-04 2025-03-12  stop       2.64   -1.01
+   GBP/USD   long   breakout  2025-03-05 2025-03-19  expired    2.91   +0.74
+   EUR/JPY   long   breakout  2025-03-18 2025-04-01  expired    2.80   -0.61
+   GBP/JPY   long   breakout  2025-03-25 2025-04-04  stop       5.52   -1.01
+   EUR/JPY   short  breakout  2025-04-04 2025-04-14  stop       2.36   -1.01
+   AUD/USD   long   breakout  2025-05-05 2025-05-19  expired    3.49   -0.32
+   GBP/JPY   long   breakout  2025-05-08 2025-05-22  expired    2.12   -0.12
+   GBP/JPY   short  breakout  2025-05-23 2025-06-06  expired    2.11   -0.88
+   AUD/USD   long   breakout  2025-05-26 2025-06-09  expired    4.14   +0.05
+   AUD/USD   long   breakout  2025-06-10 2025-06-23  stop       4.28   -1.02
+   GBP/JPY   long   breakout  2025-06-20 2025-07-04  expired    2.07   +0.39
+   USD/JPY   short  breakout  2025-07-23 2025-07-31  stop       2.37   -1.01
+   USD/JPY   short  breakout  2025-08-13 2025-08-27  expired    2.16   -0.25
+   USD/JPY   short  pullback  2025-09-09 2025-09-23  expired    3.43   -0.56
+   EUR/JPY   long   pullback  2025-10-03 2025-10-06  target     2.38   +2.37
+   USD/JPY   long   breakout  2025-09-25 2025-10-09  expired    3.95   +1.63
+   AUD/USD   long   pullback  2025-09-29 2025-10-13  stop       2.49   -1.03
+   GBP/USD   short  breakout  2025-10-29 2025-11-12  expired    3.85   +0.41
+   GBP/USD   short  breakout  2025-11-20 2025-11-26  stop       3.99   -1.01
+   AUD/USD   short  breakout  2025-11-21 2025-12-01  stop       3.97   -1.01
+   GBP/USD   long   breakout  2025-12-11 2025-12-29  expired    2.01   +0.53
+   GBP/JPY   long   pullback  2026-01-27 2026-02-04  target     2.11   +2.10
+   EUR/JPY   long   pullback  2026-01-27 2026-02-10  expired    2.10   +1.12
+   GBP/USD   long   pullback  2026-04-27 2026-05-12  expired    2.14   -0.42
+   EUR/USD   long   breakout  2026-05-07 2026-05-15  stop       2.27   -1.02
+   AUD/USD   long   pullback  2026-05-20 2026-06-03  expired    2.41   +0.58
+   GBP/USD   short  breakout  2026-06-08 2026-06-22  expired    2.90   +1.02
+   AUD/USD   long   breakout  2026-07-07 2026-07-21  expired    5.09   +1.08
+   AUD/USD   long   pullback  2026-07-31 2026-08-14  expired    3.06   +0.80
+   GBP/USD   long   breakout  2026-08-12 2026-08-26  expired    2.13   +0.75
+   USD/JPY   long   breakout  2026-08-31 2026-09-03  stop       4.06   -1.01
+
+BASELINE COMPARISON (canonical 2000-2026, pipeline/backtest_results_2026-08-17.txt):
+   821 trades, +100.8R net, PF 1.31, t +3.24, avg +0.123R/trade, maxDD 14.4R, win 50.2%
+   (2y window: JPY 2.5-sigma intervention floor and 24h event filter still NOT modeled)
