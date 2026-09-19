@@ -2,7 +2,7 @@
   "meta": {
     "version": 1,
     "created": "17/08/2026",
-    "lastUpdated": "14/09/2026",
+    "lastUpdated": "19/09/2026",
     "pairs": [
       "EUR/USD",
       "USD/JPY",
@@ -29,18 +29,32 @@
   "watching": [
     {
       "pair": "EUR/USD",
+      "reportDate": "19/09/2026",
+      "direction": "short",
+      "setup": "breakout",
+      "entry": 1.1459,
+      "stop": 1.15,
+      "target": 1.135,
+      "plannedR": 2.66,
+      "triggerRule": "daily close under the 10-day Donchian low 1.1460 (entry reference 1.1459); valid through the 23/09 close",
+      "note": "continuation breakdown: the 18/09 close (1.1460, -0.18%) is a fresh 10/20-day low under the handed-back 78.6% Fib (1.1476); stop 41 pips over the 1.1500 round + the handed-back Fib (>= the ~37-pip 1.5-sigma20 floor); target 1.1350 just above the 9-month low (1.1340), path crossing only the 1.1400 round; additive to the open runner from the 14/09 ticket (entered at the 15/09 close 1.1539, stop 1.1600, target 1.1440)"
+    }
+  ],
+  "open": [
+    {
+      "pair": "EUR/USD",
       "reportDate": "14/09/2026",
       "direction": "short",
       "setup": "breakout",
-      "entry": 1.155,
+      "entry": 1.15389,
       "stop": 1.16,
       "target": 1.144,
       "plannedR": 2.2,
       "triggerRule": "daily close under the 10-day Donchian low 1.1551 (entry reference 1.1550); valid through the 15/09 close — inside the FOMC (15-16/09) 24h window, reassess after the event",
-      "note": "confirmed 10-day breakdown: the 14/09 close (1.1551, -0.35%) took out the 10/20-day lows (1.1578/1.1576) and the 61.8% Fib (1.1582) in one go; stop 50 pips over the broken cluster + the 1.1600 round (>= the 46-pip 1.5-sigma20 floor); target 1.1440 under the 78.6% Fib (1.1476) / 1.1450 round, above the 9-month low (1.1340)"
+      "note": "triggered at the 15/09 close (1.15389, under the 10-day low 1.1551) inside the FOMC window per the ticket's own clause; the post-event reassessment confirmed it — the Fed hiked to 3.75-4.00% (16/09) and the 16/09 close (1.15370) held under the entry; running +1.29R at the 18/09 close (1.14600) toward 1.1440, the 1.1600 stop never threatened (10-session expiry: 29/09)",
+      "entryDate": "15/09/2026"
     }
   ],
-  "open": [],
   "closed": [
     {
       "pair": "GBP/JPY",
