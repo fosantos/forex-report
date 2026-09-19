@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Regenerate the <article> block in each static pair page from the validated forexData in index.html.
+"""Regenerate the <article> block in each static pair page from the validated forexData in index.html,
+and refresh the no-JS static fallback report (EUR/USD) inside index.html itself.
 Guarantees the static pages match the dashboard representation. Aborts on any structural anomaly."""
 import json, re, sys
 
@@ -33,15 +34,34 @@ def verdict_class(rec_en):
     if "SELL" in rec_en: return "sell"
     return "buy"
 
-# ---- Macro driver chips (author-maintained, mirrors docs/index.html macroDrivers) ----
-DRIVERS = {
-    "EUR/USD": (["Fed hold 3.50-3.75%", "CPI 3.4%", "ECB 2.25%"], ["Fed 3,50-3,75%", "CPI 3,4%", "BCE 2,25%"]),
-    "USD/JPY": (["BoJ 1.00% hawkish", "Intervention fade", "Fed–BoJ gap"], ["BoJ 1,0% hawkish", "Intervenção esvaindo", "Diferencial Fed–BoJ"]),
-    "AUD/USD": (["RBA 4.35%", "WTI $82", "Fed dovish"], ["RBA 4,35%", "WTI $82", "Fed dovish"]),
-    "GBP/USD": (["BoE 3.75% 6-3", "CPI 2.6%", "Fed dovish"], ["BoE 3,75% 6-3", "IPC 2,6%", "Fed dovish"]),
-    "EUR/JPY": (["BoJ 1.00% hawkish", "Intervention fade", "ECB–BoJ gap"], ["BoJ 1,0% hawkish", "Intervenção esvaindo", "Diferencial BCE–BoJ"]),
-    "GBP/JPY": (["BoJ 1.00% hawkish", "Intervention fade", "BoE–BoJ gap"], ["BoJ 1,0% hawkish", "Intervenção esvaindo", "Diferencial BoE–BoJ"]),
-}
+# ---- Macro driver chips — derived from the macroDrivers object in docs/index.html (single source) ----
+_mb = re.search(r"const macroDrivers\s*=\s*\{", idx)
+assert _mb, "index.html: macroDrivers object not found"
+_me = re.search(r"\n\s*\};", idx[_mb.end():])
+assert _me, "index.html: macroDrivers closing brace not found"
+_mjs = idx[_mb.end() - 1: _mb.end() + _me.end() - 1]
+_mjs = re.sub(r"(\w+)\s*:", r'"\1":', _mjs)  # quote bare JS keys for JSON parsing
+_macro = json.loads(_mjs)
+DRIVERS = {p: (v["en"], v["pt"]) for p, v in _macro.items()}
+assert set(DRIVERS) == set(PAGE), "macroDrivers pairs do not match the 6 canonical pairs"
+
+def data_basis(d, lang):
+    """Build the data-basis line from the fundamental text itself, so it can never go stale."""
+    if lang == "en":
+        m = re.search(r"(\d+)\s+sessions,\s*(\d{2}/\d{2}/\d{4})\s+to\s+(\d{2}/\d{2}/\d{4})", d["en"]["fundamental"])
+        src = "MetaTrader 5 D1 closes" if "MetaTrader" in d["en"]["fundamental"] else "ECB/Frankfurter reference rates"
+        if m:
+            return "%s &middot; SMA50/200 &amp; Fibonacci computed &middot; %s daily sessions (%s–%s)." % (src, m.group(1), m.group(2), m.group(3))
+        dates = re.findall(r"\d{2}/\d{2}/\d{4}", d["en"]["fundamental"])
+        assert dates, "index.html: no session date found in EN fundamental"
+        return "%s &middot; SMA50/200 &amp; Fibonacci computed &middot; daily series through %s." % (src, dates[-1])
+    m = re.search(r"(\d+)\s+pregões,\s*(\d{2}/\d{2}/\d{4})\s+a\s+(\d{2}/\d{2}/\d{4})", d["pt"]["fundamental"])
+    src = "closes D1 do MetaTrader 5" if "MetaTrader" in d["pt"]["fundamental"] else "taxas de referência BCE/Frankfurter"
+    if m:
+        return "%s &middot; SMA50/200 e Fibonacci calculados &middot; %s pregões (%s a %s)." % (src, m.group(1), m.group(2), m.group(3))
+    dates = re.findall(r"\d{2}/\d{2}/\d{4}", d["pt"]["fundamental"])
+    assert dates, "index.html: no session date found in PT fundamental"
+    return "%s &middot; SMA50/200 e Fibonacci calculados &middot; série diária até %s." % (src, dates[-1])
 
 # ---- Intelligence helpers (conviction, BLUF, level-map SVG) ----
 def fmt(v):
@@ -172,7 +192,7 @@ ARTICLE_TPL = '''                        <article class="report-container bias-{
                             <div class="next-event"><span class="ne-tag"><span class="lang-en">Next focus</span><span class="lang-pt" style="display:none;">Próximo foco</span></span> <span class="lang-en">US CPI &amp; Fed speakers</span><span class="lang-pt" style="display:none;">CPI dos EUA &amp; discursos do Fed</span></div>
                         </div>
                     </div>
-                    <div class="data-basis"><span class="db-tag"><span class="lang-en">Basis</span><span class="lang-pt" style="display:none;">Base</span>:</span> <span class="lang-en">ECB/Frankfurter reference rates · SMA50/200 &amp; Fibonacci computed · 520 daily sessions (01/08/2024–14/08/2026).</span><span class="lang-pt" style="display:none;">taxas de referência BCE/Frankfurter · SMA50/200 e Fibonacci calculados · 520 pregões (01/08/2024 a 14/08/2026).</span></div>
+                    <div class="data-basis"><span class="db-tag"><span class="lang-en">Basis</span><span class="lang-pt" style="display:none;">Base</span>:</span> <span class="lang-en">{{BASIS_EN}}</span><span class="lang-pt" style="display:none;">{{BASIS_PT}}</span></div>
                 </div>
 
                 <!-- Section 1: Fundamental -->
@@ -365,6 +385,8 @@ for pair, fname in PAGE.items():
         "CONV_TIERCLS": tiercls,
         "CONV_SEGS": conv_segs_html(score),
         "CHIPS": chips_html(pair),
+        "BASIS_EN": data_basis(d, "en"),
+        "BASIS_PT": data_basis(d, "pt"),
         "LM_SVG_EN": level_map_svg(d, LM_LABELS["en"]),
         "LM_SVG_PT": level_map_svg(d, LM_LABELS["pt"]),
         "GAUGE_SUP": fmt(sup),
@@ -419,10 +441,69 @@ for pair, fname in PAGE.items():
     assert "03/08/2026" not in new_article, f"{fname}: old timestamp 03/08/2026 in new article"
     assert "02/08/2026" not in new_article, f"{fname}: old timestamp 02/08/2026 in new article"
     assert "fechamento diário de 31/07" not in new_article and "31/07 daily close" not in new_article, f"{fname}: stale closing-date phrase"
-    assert "14/08/2026" in new_article, f"{fname}: today's date 14/08/2026 missing from new article"
+    assert serial_date, f"{fname}: could not extract the session date from the EN fundamental text"
 
     with open(path, "w", encoding="utf-8") as f:
         f.write(html_new)
     print(f"OK {fname}: bias={bias_class} verdict={verdict} gauge={gauge}% rrBar={d['en']['rrValue']}% rr={d['en']['rr']}")
 
-print("\nAll 6 static pages regenerated from forexData.")
+# ---- Refresh the no-JS static fallback report (default pair EUR/USD) inside index.html ----
+# The dashboard re-renders #reportContainer via JS on load; this static block is what crawlers
+# and no-JS visitors see, so it must carry the CURRENT default-pair data after every daily run.
+FALLBACK_PAIR = "EUR/USD"
+fd = data[FALLBACK_PAIR]
+f_det = fd["en"]
+f_bias = fd["biasType"]
+f_bias_txt = BIAS_TXT[f_bias][0]
+f_verdict = verdict_class(f_det["recommendation"])
+f_q = parse_level(fd["quote"]); f_sup = parse_level(f_det["support"]); f_res = parse_level(f_det["resistance"])
+f_gauge = str(round(max(0, min(100, (f_q - f_sup) / (f_res - f_sup) * 100)))) if f_res != f_sup else "50"
+_dm = re.search(r"(\d{2})/(\d{2})/(\d{4})", f_det["fundamental"])
+f_serial = "TICKET · %s · %s·%s·%s" % (FALLBACK_PAIR, _dm.group(1), _dm.group(2), _dm.group(3)[2:]) if _dm else ""
+
+def _sub1(pattern, repl, name, html, flags=re.DOTALL):
+    new, n = re.subn(pattern, repl, html, flags=flags)
+    assert n == 1, "index.html fallback: '%s' matched %d times (expected 1)" % (name, n)
+    return new
+
+with open(INDEX, encoding="utf-8") as f:
+    idx_html = f.read()
+m = re.search(r'<article class="report-container[^>]*id="reportContainer".*?</article>', idx_html, re.DOTALL)
+assert m, "index.html: static fallback article (#reportContainer) not found"
+fb = m.group(0)
+fb = _sub1(r'(<article class="report-container bias-)\w+(")', r"\g<1>%s\g<2>" % f_bias, "article bias class", fb)
+fb = _sub1(r'id="currentQuoteVal">[^<]*<', lambda _: 'id="currentQuoteVal">%s<' % fd["quote"], "quote", fb)
+fb = _sub1(r'<div class="bias-badge bias-\w+">\s*[A-Z]+\s*</div>',
+           lambda _: '<div class="bias-badge bias-%s">%s</div>' % (f_bias, f_bias_txt), "header bias badge", fb)
+fb = _sub1(r'id="reportFundamental">.*?</div>', lambda _: 'id="reportFundamental">%s</div>' % f_det["fundamental"], "fundamental", fb)
+fb = _sub1(r'id="reportTrend">.*?</div>', lambda _: 'id="reportTrend">%s</div>' % f_det["trend"], "trend", fb)
+fb = _sub1(r'id="reportSupport">.*?</strong>', lambda _: 'id="reportSupport">%s</strong>' % f_det["support"], "support", fb)
+fb = _sub1(r'id="reportResistance">.*?</strong>', lambda _: 'id="reportResistance">%s</strong>' % f_det["resistance"], "resistance", fb)
+fb = _sub1(r'id="reportGaugeNow" style="left:\s*\d+(\.\d+)?%;">[^<]*<',
+           lambda _: 'id="reportGaugeNow" style="left: %s%%;">%s<' % (f_gauge, fd["quote"]), "gauge now", fb)
+fb = _sub1(r'id="reportRangeMarker" style="left:\s*\d+(\.\d+)?%;"',
+           lambda _: 'id="reportRangeMarker" style="left: %s%%;"' % f_gauge, "gauge marker", fb)
+fb = _sub1(r'id="reportGaugeSup">[^<]*<', lambda _: 'id="reportGaugeSup">%s<' % fmt(f_sup), "gauge sup", fb)
+fb = _sub1(r'id="reportGaugeRes">[^<]*<', lambda _: 'id="reportGaugeRes">%s<' % fmt(f_res), "gauge res", fb)
+fb = _sub1(r'id="reportPriceAction"[^>]*>.*?</div>', lambda _: 'id="reportPriceAction" style="font-size: 0.9rem;">%s</div>' % f_det["priceAction"], "price action", fb)
+fb = _sub1(r'id="ticketSerial">[^<]*<', lambda _: 'id="ticketSerial">%s<' % f_serial, "ticket serial", fb)
+fb = _sub1(r'<span class="verdict-badge \w+" id="reportVerdictBadge">.*?</span>',
+           lambda _: '<span class="verdict-badge %s" id="reportVerdictBadge">%s</span>' % (f_verdict, f_det["recommendation"]), "verdict badge", fb)
+fb = _sub1(r'id="reportRR">[^<]*<', lambda _: 'id="reportRR">%s<' % f_det["rr"], "rr seal", fb)
+fb = _sub1(r'id="reportTrigger">.*?</div>', lambda _: 'id="reportTrigger">%s</div>' % f_det["trigger"], "trigger", fb)
+fb = _sub1(r'id="reportStop">.*?</div>', lambda _: 'id="reportStop">%s</div>' % f_det["stop"], "stop", fb)
+fb = _sub1(r'id="reportTarget">.*?</div>', lambda _: 'id="reportTarget">%s</div>' % f_det["target"], "target", fb)
+fb = _sub1(r'id="reportJustification"[^>]*>.*?</div>',
+           lambda _: 'id="reportJustification" style="font-size: 0.9rem; font-style: italic;">%s</div>' % f_det["justification"], "justification", fb)
+fb = _sub1(r'trade-ticket verdict-\w+" id="verdictCardElement"',
+           lambda _: 'trade-ticket verdict-%s" id="verdictCardElement"' % f_verdict, "ticket verdict class", fb)
+# post-refresh sanity: the fallback must now carry the current data
+for probe, what in [(fd["quote"], "quote"), (f_det["recommendation"], "EN recommendation"), (f_det["rr"], "rr")]:
+    assert probe in fb, "index.html fallback: %s missing after refresh" % what
+
+idx_html = idx_html[:m.start()] + fb + idx_html[m.end():]
+with open(INDEX, "w", encoding="utf-8") as f:
+    f.write(idx_html)
+print("OK index.html: no-JS static fallback refreshed for %s (bias=%s verdict=%s gauge=%s%%)" % (FALLBACK_PAIR, f_bias, f_verdict, f_gauge))
+
+print("\nAll 6 static pages + index fallback regenerated from forexData.")

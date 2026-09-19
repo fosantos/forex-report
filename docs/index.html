@@ -55,6 +55,7 @@
             <nav class="header-nav">
                 <a href="index.html" class="nav-link active" id="navHome">Dashboard</a>
                 <a href="news.html" class="nav-link" id="navNews">News</a>
+                <a href="guides/index.html" class="nav-link" id="navGuides">Education</a>
                 <a href="about.html" class="nav-link" id="navAbout">About Us</a>
                 <a href="contact.html" class="nav-link" id="navContact">Contact</a>
             </nav>
@@ -125,6 +126,26 @@
             </div>
         </section>
 
+        <!-- No-JS / crawler navigation: the static analysis pages hold the full bilingual report -->
+        <noscript>
+            <div style="max-width: 900px; margin: 1.5rem auto; padding: 1.25rem 1.5rem; background: #f7f8fa; border: 1px solid #d8dde2; border-radius: 8px; font-size: 0.95rem; line-height: 1.7;">
+                <p style="margin: 0 0 0.75rem 0; font-weight: 600;">JavaScript is disabled — the interactive dashboard needs JavaScript, but every analysis is also available as a static page:</p>
+                <p style="margin: 0 0 0.5rem 0;">
+                    <a href="eur-usd.html">EUR/USD</a> &middot;
+                    <a href="usd-jpy.html">USD/JPY</a> &middot;
+                    <a href="aud-usd.html">AUD/USD</a> &middot;
+                    <a href="gbp-usd.html">GBP/USD</a> &middot;
+                    <a href="eur-jpy.html">EUR/JPY</a> &middot;
+                    <a href="gbp-jpy.html">GBP/JPY</a>
+                </p>
+                <p style="margin: 0;">
+                    <a href="news.html">News &amp; Macro Flow</a> &middot;
+                    <a href="track-record.html">Performance Track Record</a> &middot;
+                    <a href="guides/index.html">Education Guides</a>
+                </p>
+            </div>
+        </noscript>
+
         <!-- 6. COMPACT PAIR SWITCHER (the market blotter above is the primary selector) -->
         <div class="pair-switcher">
             <span class="ps-label" id="selectorLabelText">Select Currency Pair to Analyze</span>
@@ -156,12 +177,10 @@
                     </div>
                     <div>
                         <h2 class="pair-name">EUR/USD</h2>
-                        <div class="pair-quote">Current Quote: <span id="currentQuoteVal">1.1595</span></div>
+                        <div class="pair-quote">Current Quote: <span id="currentQuoteVal">1.1460</span></div>
                     </div>
                 </div>
-                <div class="bias-badge bias-bear">
-                    BEARISH
-                </div>
+                <div class="bias-badge bias-bear">BEARISH</div>
             </div>
             
             <div class="report-body">
@@ -171,7 +190,7 @@
                 <!-- Section 1: Fundamental -->
                 <section class="report-section">
                     <h3 class="section-title" id="secTitleFundamental">1. Fundamental & Macro Flow</h3>
-                    <div class="section-content" id="reportFundamental">The Euro remains under heavy selling pressure as of June 12, 2026. A blowout US Non-Farm Payrolls (NFP) report on June 5 showing 172,000 jobs created has reignited expectations for a hawkish Fed policy path. Combined with geopolitical uncertainty in the Middle East supporting safe-haven USD flows, the US Dollar Index (DXY) has surged. Meanwhile, growth concerns in the Eurozone continue to leave the fundamental advantage firmly in favor of the greenback, despite expected ECB rate hike of 25 bps to 2.25% on June 11.</div>
+                    <div class="section-content" id="reportFundamental">EUR/USD closed at 1.1460 in the Friday 18/09/2026 session (ECB/Frankfurter reference rate; Saturday 19/09 desk edition — the logged-in MT5 terminal still returns no FX data), down -0.18% — a fourth straight down close and a -0.79% week. The week delivered the hawkish script in full: the FOMC raised 25 bp to 3.75-4.00% on Sep 16 (unanimous, the first hike in about three years, with Warsh saying inflation is too high and signaling one more hike still this year; Dow -600 points) against an ECB frozen at 2.50% since Sep 10 — the differential only opens in the dollar's favor. The book is already positioned: the Sep-14 edition's breakout short triggered at the Sep-15 close (1.1539 under the 1.1551 low, inside its own post-FOMC reassessment clause) and runs at +1.29R toward the 1.1440 target, stop 1.1600. Friday's close also swept the 78.6% Fib (1.1476) and printed a fresh 10/20-day low — the map re-arms the continuation one shelf lower. Fully bearish alignment (close under the SMA200 1.1628, 50-day 1.1536 below it), price 76 pips under the 50-day. Indicators (SMA 50/200, sigma20, Donchian and Fibonacci) computed from the ECB/Frankfurter daily series (545 sessions, 01/08/2024 to 18/09/2026).</div>
                 </section>
 
                 <!-- Section 2: Technical -->
@@ -181,20 +200,20 @@
                     <div class="technical-grid">
                         <div class="tech-box">
                             <div class="tech-box-label" id="labelTrend">Main Trend<span class="trend-arrow" aria-hidden="true"></span></div>
-                            <div class="tech-box-value" id="reportTrend">A clean bearish breakdown below the key daily support floor at 1.1520, confirming the acceleration of the D1/W1 downtrend. Price is trading below its major 50 EMA and 200 SMA.</div>
+                            <div class="tech-box-value" id="reportTrend">Close under the 200-day SMA (1.1628) with the 50-day (1.1536) below it — full bear alignment and the breakdown deepening: a fourth straight down close, a fresh 10/20-day low (1.1460) and the 78.6% Fib (1.1476) swept on Friday; the 50-day SMA (1.1536) is now the distant structural ceiling.</div>
                         </div>
                         <div class="tech-box">
                             <div class="tech-box-label" id="labelLiquidity">Critical Liquidity Zones</div>
                             <div class="tech-box-value" style="display: flex; flex-direction: column; gap: 0.4rem;">
-                                <div style="font-size: 0.85rem;"><span id="subLabelSupport" style="font-weight: 500; color: var(--text-secondary);">Nearest Macro Support:</span> <strong id="reportSupport">1.1350 (Weekly horizontal support and institutional buyer liquidity pocket).</strong></div>
-                                <div style="font-size: 0.85rem;"><span id="subLabelResistance" style="font-weight: 500; color: var(--text-secondary);">Nearest Macro Resistance:</span> <strong id="reportResistance">1.1610 (Former daily support floor now acting as major overhead resistance).</strong></div>
+                                <div style="font-size: 0.85rem;"><span id="subLabelSupport" style="font-weight: 500; color: var(--text-secondary);">Nearest Macro Support:</span> <strong id="reportSupport">1.1460 is the close itself — the 10/20-day low —, with the 1.1400 round beneath and the 9-month low (1.1340) as the lower floor.</strong></div>
+                                <div style="font-size: 0.85rem;"><span id="subLabelResistance" style="font-weight: 500; color: var(--text-secondary);">Nearest Macro Resistance:</span> <strong id="reportResistance">1.1500 (the round over the handed-back 78.6% Fib, 1.1476), with the broken Sep-17 close (1.1481) and the 61.8% Fib (1.1582) above.</strong></div>
                                 <div class="range-gauge" aria-hidden="true">
                                     <div class="range-gauge-track">
                                         <div class="range-gauge-mid"></div>
-                                        <div class="range-gauge-now" id="reportGaugeNow" style="left:94%;">—</div>
-                                        <div class="range-gauge-marker" id="reportRangeMarker" style="left: 94%;"></div>
+                                        <div class="range-gauge-now" id="reportGaugeNow" style="left: 0%;">1.1460</div>
+                                        <div class="range-gauge-marker" id="reportRangeMarker" style="left: 0%;"></div>
                                     </div>
-                                    <div class="range-gauge-values"><span class="rgv-l" id="reportGaugeSup">—</span><span class="rgv-r" id="reportGaugeRes">—</span></div>
+                                    <div class="range-gauge-values"><span class="rgv-l" id="reportGaugeSup">1.1460</span><span class="rgv-r" id="reportGaugeRes">1.1500</span></div>
                                 </div>
                             </div>
                         </div>
@@ -202,7 +221,7 @@
                     
                     <div class="tech-box">
                         <div class="tech-box-label" id="labelPriceAction">Price Action Behavior</div>
-                        <div class="section-content" id="reportPriceAction" style="font-size: 0.9rem;">The pair displays a minor intraday pullback. Daily RSI stands near 36, validating the strong seller momentum while allowing room for a short-term correction before the downtrend resumes.</div>
+                        <div class="section-content" id="reportPriceAction" style="font-size: 0.9rem;">Continuation setup (the book re-arms one shelf lower, with the runner delivered): the trigger is the next daily close under 1.1460 (entry reference 1.1459), stop 1.1500 (41 pips over the round and the handed-back 78.6% Fib; >= the ~37-pip 1.5-sigma20 floor), target 1.1350 (109 pips, just above the 9-month low 1.1340), crossing only the 1.1400 round. A close back over 1.1500 cancels the map. The desk's runner (entered at the Sep-15 close 1.1539, stop 1.1600, target 1.1440) keeps working — now at +1.29R.</div>
                     </div>
 
                     <!-- Section 3: Strategic Verdict & Setup -->
@@ -213,34 +232,34 @@
                     <div class="trade-ticket verdict-sell" id="verdictCardElement">
                         <div class="ticket-head">
                             <div class="ticket-id">
-                                <span class="ticket-serial" id="ticketSerial">TICKET · EUR/USD · 03·08·26</span>
-                                <span class="verdict-badge wait" id="reportVerdictBadge">WAIT FOR ANOTHER TRIGGER</span>
+                                <span class="ticket-serial" id="ticketSerial">TICKET · EUR/USD · 18·09·26</span>
+                                <span class="verdict-badge sell" id="reportVerdictBadge">SELL (SHORT) ON BREAKOUT</span>
                             </div>
                             <div class="ticket-rr">
                                 <span class="rr-label" id="labelRR">R : R</span>
-                                <span class="rr-seal" id="reportRR">1:2.5</span>
+                                <span class="rr-seal" id="reportRR">1:2.66</span>
                             </div>
                         </div>
 
                         <div class="setup-trigger-card">
                             <div class="setup-card-label" id="labelTrigger">Entry Trigger</div>
-                            <div class="setup-card-value" id="reportTrigger">Limit sell order on a technical pullback to 1.1590-1.1610 (retesting the broken support zone).</div>
+                            <div class="setup-card-value" id="reportTrigger">Daily close under the 10-day low 1.1460 — entry reference 1.1459. Valid through the Sep 23 close; no top-tier event inside the window (next US CPI ≈Oct 13).</div>
                         </div>
 
                         <div class="setup-risk-grid">
                             <div class="risk-card stop-card">
                                 <div class="setup-card-label" id="labelStop">Stop Loss (Invalidation)</div>
-                                <div class="setup-card-value" id="reportStop">1.1690 (Technically placed above the daily resistance floor and short-term EMAs).</div>
+                                <div class="setup-card-value" id="reportStop">1.1500 (over the 1.1500 round and the handed-back 78.6% Fib 1.1476; 41 pips >= the ~37-pip 1.5-sigma20 floor) · suggested risk ≤ 1% per trade.</div>
                             </div>
                             <div class="risk-card target-card">
                                 <div class="setup-card-label" id="labelTarget">Take Profit (Target)</div>
-                                <div class="setup-card-value" id="reportTarget">1.1360 (Major target on the weekly support floor and institutional buyer liquidity pocket).</div>
+                                <div class="setup-card-value" id="reportTarget">1.1350 (109 pips, just above the 9-month low 1.1340), with only the 1.1400 round on the way.</div>
                             </div>
                         </div>
 
                         <div style="margin-top: 1rem;">
                             <div class="tech-box-label" id="labelJustification">Final Justification</div>
-                            <div class="section-content" id="reportJustification" style="font-size: 0.9rem; font-style: italic;">Trade in the direction of the major support breakdown, aligned with the post-NFP dollar strength and macroeconomic momentum.</div>
+                            <div class="section-content" id="reportJustification" style="font-size: 0.9rem; font-style: italic;">The week delivered the committee and the price in the same direction: a unanimous Fed hike with one more signaled, the ECB frozen — and the runner opened at the Sep-15 close already pays +1.29R with the 1.1600 stop untouched. The rule does not settle for less: the continuation demands its own confirming close under 1.1460, pays 1:2.66 (109 pips against 41) with a structural stop over the round and the handed-back Fib, and aims at the 9-month low over a clean path — only the 1.1400 round. It is an additive position, not a substitute for the runner — and it only fires if price delivers the close.</div>
                         </div>
                     </div>
                 </section>
@@ -324,6 +343,8 @@
                 <a href="disclaimer.html" class="footer-link" id="disclaimerLinkText">Legal Disclaimer</a>
                 <a href="privacy.html" class="footer-link" id="privacyLinkText">Privacy Policy</a>
                 <a href="terms.html" class="footer-link" id="termsLinkText">Terms of Service</a>
+                <a href="track-record.html" class="footer-link" id="footerLinkTrack">Track Record</a>
+                <a href="guides/index.html" class="footer-link" id="footerLinkEducation">Education</a>
             </div>
             
             <p class="footer-copyright">
@@ -1506,6 +1527,8 @@
         }
 
         // Render the 6-up market map (comparative grid + pair navigation) — #1 / #7
+        // Cards are real <a href> links to the static pair pages (crawlable, middle/ctrl-click
+        // open in a new tab); a plain left click keeps the in-page tab-switch behavior.
         function renderMarketMap() {
             const map = document.getElementById('marketMap');
             if (!map) return;
@@ -1528,15 +1551,18 @@
                 let pips = '';
                 for (let i = 1; i <= 5; i++) pips += `<i class="${i <= filled ? 'on' : ''}"></i>`;
                 html += `
-                    <button type="button" class="market-card bias-${d.biasType} ${pair === active ? 'active' : ''}" data-pair="${pair}" role="tab" aria-selected="${pair === active}">
+                    <a href="${pairPageUrl(pair, currentLang)}" class="market-card bias-${d.biasType} ${pair === active ? 'active' : ''}" data-pair="${pair}" role="tab" aria-selected="${pair === active}">
                         <div class="mc-top"><span class="mc-pair">${pair}</span><span class="mc-quote">${d.quote}</span></div>
                         <div class="mc-verdict ${dir}">${vLabel} &middot; ${d.en.rr}</div>
                         <div class="mc-foot"><span class="mc-change ${up ? 'up' : 'down'}">${up ? '&#9650;' : '&#9660;'} ${chg}</span><span class="mc-conv" aria-hidden="true">${pips}</span></div>
-                    </button>`;
+                    </a>`;
             });
             map.innerHTML = html;
             map.querySelectorAll('.market-card').forEach(card => {
-                card.addEventListener('click', () => {
+                card.addEventListener('click', (e) => {
+                    // let modified/middle clicks open the static page in a new tab
+                    if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+                    e.preventDefault();
                     const p = card.getAttribute('data-pair');
                     const sel = document.getElementById('pairSelect');
                     if (sel) sel.value = p;

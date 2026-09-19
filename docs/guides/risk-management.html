@@ -69,6 +69,7 @@
             <nav class="header-nav">
                 <a href="../index.html" class="nav-link">Dashboard</a>
                 <a href="../news.html" class="nav-link">News</a>
+                <a href="index.html" class="nav-link">Education</a>
                 <a href="../about.html" class="nav-link">About Us</a>
                 <a href="../contact.html" class="nav-link">Contact</a>
             </nav>
@@ -88,6 +89,7 @@
 
     <main class="container-wide">
         <div class="guide-container">
+            <div class="lang-en">
             <div class="breadcrumb">
                 <a href="../index.html">Home</a> &gt; <a href="index.html">Guides</a> &gt; <span>Risk Management</span>
             </div>
@@ -427,6 +429,349 @@ After 36 months: $17,280 - $41,000+
                 <a href="../index.html" class="back-link">← Back to Dashboard</a>
                 <p style="margin-top: 1rem; color: var(--text-muted); font-size: 0.9rem;">Related: <a href="our-methodology.html" style="color: var(--color-primary);">Our Methodology</a> | <a href="technical-analysis.html" style="color: var(--color-primary);">Technical Analysis</a> | <a href="trading-glossary.html" style="color: var(--color-primary);">Trading Glossary</a></p>
             </div>
+            </div>
+
+            <div class="lang-pt" style="display:none;">
+            <div class="breadcrumb">
+                <a href="../index.html">Início</a> &gt; <a href="index.html">Guias</a> &gt; <span>Gestão de Risco</span>
+            </div>
+
+            <h1 style="margin-bottom: 1rem;">Gestão de Risco no Trading Forex: Protegendo Seu Capital</h1>
+            <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2rem;">A diferença entre traders profissionais e contas queimadas é a gestão de risco. Aprenda dimensionamento de posição, colocação de stop loss e a regra de 1-2% que mantém as contas vivas.</p>
+
+            <div class="toc">
+                <h3>📑 Índice</h3>
+                <ul>
+                    <li><a href="#foundation-pt">Fundamentos da Gestão de Risco</a></li>
+                    <li><a href="#position-sizing-pt">Dimensionamento de Posição e Alavancagem da Conta</a></li>
+                    <li><a href="#stop-loss-pt">Colocação e Gestão do Stop Loss</a></li>
+                    <li><a href="#profit-target-pt">Alvos de Lucro e Gestão de Saídas</a></li>
+                    <li><a href="#rr-ratio-pt">Relações Risco/Retorno</a></li>
+                    <li><a href="#bankroll-pt">Gestão do Capital ao Longo do Tempo</a></li>
+                    <li><a href="#psychology-pt">Psicologia da Gestão de Risco</a></li>
+                </ul>
+            </div>
+
+            <!-- FOUNDATION -->
+            <section class="guide-section" id="foundation-pt">
+                <h2>Fundamentos da Gestão de Risco</h2>
+                <p><strong>Gestão de risco não é opcional — é o que separa traders profissionais de apostadores.</strong> Não importa quão boa seja a sua análise: se você arrisca demais em uma única operação, uma perda pode zerar meses de lucros.</p>
+
+                <h3>A Regra de Ouro: Nunca Arrisque Mais do Que Você Pode Perder</h3>
+                <p>Isso parece óbvio, mas é violado constantemente. A realidade é esta:</p>
+                <ul>
+                    <li>Até traders profissionais com taxa de acerto acima de 60% perdem dinheiro se arriscarem 10% por operação</li>
+                    <li>Um trader com taxa de acerto de 50% sobrevive se arriscar 1-2% por operação</li>
+                    <li>Um trader com taxa de acerto de 80% morre se arriscar 5% por operação e entrar em drawdown</li>
+                </ul>
+
+                <h3>Por quê? A Matemática dos Drawdowns</h3>
+                <div class="calc-box">
+Se você arrisca 5% por operação e toma 3 perdas consecutivas:<br>
+US$ 10.000 → US$ 9.500 → US$ 9.025 → US$ 8.574<br>
+Você perdeu 14,26% da sua conta em 3 perdas.<br>
+<br>
+Para recuperar os US$ 10.000, você precisa de:<br>
+US$ 8.574 × 1,1665 = US$ 10.000<br>
+Um ganho de 16,65% é necessário para recuperar uma perda de 14,26%!<br>
+<br>
+Se você arrisca 1% por operação:<br>
+US$ 10.000 → US$ 9.900 → US$ 9.801 → US$ 9.703<br>
+Você perdeu 2,97% em 3 perdas.<br>
+Recuperação necessária: ganho de 3,06% (muito mais fácil)
+                </div>
+
+                <p><strong>É por isso que o risco de 1-2% por operação é o padrão entre os profissionais.</strong> A alavancagem amplia esse problema — use-a com sabedoria.</p>
+
+                <h3>Os Três Pilares da Gestão de Risco</h3>
+                <ul>
+                    <li><strong>Dimensionamento de posição:</strong> quantas unidades/lotes operar com base no tamanho da conta</li>
+                    <li><strong>Colocação do stop loss:</strong> onde colocar sua saída se estiver errado</li>
+                    <li><strong>Definição do alvo de lucro:</strong> onde sair se estiver certo, respeitando o mínimo de 1:2 de R/R</li>
+                </ul>
+            </section>
+
+            <!-- POSITION SIZING -->
+            <section class="guide-section" id="position-sizing-pt">
+                <h2>Dimensionamento de Posição e Alavancagem da Conta</h2>
+                <p><strong>Tamanho de posição</strong> = quantas unidades de moeda você opera. É calculado com base em:</p>
+                <ul>
+                    <li>O tamanho da sua conta</li>
+                    <li>Sua tolerância a risco (1-2% por operação)</li>
+                    <li>A distância até o seu stop loss (em pips)</li>
+                </ul>
+
+                <h3>A Fórmula (Para Forex)</h3>
+                <div class="calc-box">
+Tamanho da Posição = (Tamanho da Conta × Risco %) ÷ (Distância do Stop × Valor do Pip)<br>
+<br>
+Onde:<br>
+• Tamanho da Conta = saldo total da conta de trading<br>
+• Risco % = tipicamente 1-2% (0,01 a 0,02)<br>
+• Distância do Stop = pips da entrada até o stop<br>
+• Valor do Pip = valor em dólares por pip (depende do par e do tamanho do lote)
+                </div>
+
+                <h3>Exemplo do Mundo Real</h3>
+                <div class="example-box">
+                    <strong>Setup:</strong><br>
+                    • Conta: US$ 10.000<br>
+                    • Risco por operação: 1% = US$ 100<br>
+                    • Entrada: EUR/USD a 1,1400<br>
+                    • Stop Loss: 1,1350 (a 50 pips)<br>
+                    • Cada pip de EUR/USD (lote padrão): US$ 10<br>
+                    <br>
+                    <strong>Cálculo:</strong><br>
+                    Tamanho da Posição = US$ 100 ÷ (50 pips × US$ 10/pip)<br>
+                    Tamanho da Posição = US$ 100 ÷ US$ 500 = 0,2 lote = 20.000 unidades<br>
+                    <br>
+                    <strong>Resultado:</strong> opere 20.000 unidades (0,2 lote padrão). Se o stop for atingido, você perde exatamente US$ 100 (1% da conta).
+                </div>
+
+                <h3>Considerações sobre Alavancagem</h3>
+                <p><strong>Alavancagem</strong> permite controlar posições grandes com pouco capital. Mas é uma espada de dois gumes:</p>
+                <ul>
+                    <li><strong>Alavancagem 100:1:</strong> com US$ 10.000, você controla US$ 1.000.000. Um movimento de 1% = 100% de lucro ou perda</li>
+                    <li><strong>Alavancagem 50:1:</strong> com US$ 10.000, você controla US$ 500.000. Um movimento de 1% = 50% de lucro ou perda</li>
+                    <li><strong>Alavancagem 10:1:</strong> com US$ 10.000, você controla US$ 100.000. Um movimento de 1% = 10% de lucro ou perda (mais seguro)</li>
+                </ul>
+
+                <p><strong>Melhor prática:</strong> use a menor alavancagem necessária. Muitos profissionais usam 10:1 ou 20:1 mesmo quando a corretora permite 100:1. Isso impõe disciplina.</p>
+
+                <h3>Tamanho da Conta e Frequência de Operações</h3>
+                <p>Com risco de 1-2% por operação, o tamanho da sua conta determina com que frequência você pode operar:</p>
+                <ul>
+                    <li><strong>Conta de US$ 1.000:</strong> US$ 10-20 por operação (volatilidade alta, use micro lotes)</li>
+                    <li><strong>Conta de US$ 10.000:</strong> US$ 100-200 por operação (confortável, tamanhos de lote padrão)</li>
+                    <li><strong>Conta de US$ 100.000+:</strong> US$ 1.000-2.000+ por operação (nível profissional, várias operações/dia possíveis)</li>
+                </ul>
+            </section>
+
+            <!-- STOP LOSS -->
+            <section class="guide-section" id="stop-loss-pt">
+                <h2>Colocação e Gestão do Stop Loss</h2>
+                <p>Um <strong>stop loss</strong> é o seu ponto de saída se a operação for contra você. Não é opcional — é um seguro.</p>
+
+                <div class="warning-box">
+                    <strong>⚠️ REGRA CRÍTICA:</strong> defina o seu stop loss ANTES de entrar na operação. Nunca abra uma posição sem saber onde vai sair se estiver errado.
+                </div>
+
+                <h3>Onde Colocar o Seu Stop Loss</h3>
+                <p>O stop loss deve ser colocado em um <strong>nível técnico</strong>, não em um número arbitrário. Isso protege a sua posição se o preço se mover temporariamente contra você, mas a tendência permanecer intacta.</p>
+
+                <ul>
+                    <li><strong>Abaixo de um suporte (para compras):</strong> se você compra em uma zona de suporte, coloque o stop logo abaixo desse suporte</li>
+                    <li><strong>Acima de uma resistência (para vendas):</strong> se você vende em uma resistência, coloque o stop logo acima dessa resistência</li>
+                    <li><strong>Abaixo da SMA 200 (para compras):</strong> em uma tendência de alta, fechamento abaixo da SMA 200 = tendência quebrada</li>
+                    <li><strong>Abaixo do último fundo relevante (para compras):</strong> uma quebra de estrutura sinaliza reversão</li>
+                </ul>
+
+                <div class="example-box">
+                    <strong>Boa colocação de stop:</strong><br>
+                    • Você compra EUR/USD a 1,1400 (no fundo anterior, SMA 50, Fibonacci 61,8%)<br>
+                    • O fundo anterior (estrutura) está em 1,1380<br>
+                    • Coloque o stop em 1,1375 (logo abaixo da estrutura)<br>
+                    • Se o preço fechar abaixo de 1,1375, a estrutura foi quebrada = tese da operação invalidada<br>
+                    <br>
+                    <strong>Má colocação de stop:</strong><br>
+                    • Você compra EUR/USD a 1,1400<br>
+                    • Você coloca o stop em 1,1395 (arbitrário, sem razão técnica)<br>
+                    • O preço recua para 1,1398 e aciona o seu stop<br>
+                    • O preço então sobe para 1,1500 (você estaria certo, mas saiu da operação cedo demais)
+                </div>
+
+                <h3>Ajustes de Stop Loss (Trailing Stops)</h3>
+                <p>À medida que o preço se move a seu favor, você pode mover o stop loss para "travar" lucro. Isso se chama <strong>trailing stop</strong>.</p>
+
+                <ul>
+                    <li><strong>Quando o preço estiver em +1:1 do seu risco:</strong> mova o stop para o ponto de equilíbrio (preço de entrada)</li>
+                    <li><strong>Quando o preço estiver em +1,5:1 do seu risco:</strong> mova o stop para +0,5:1 do risco (trava 50% do potencial)</li>
+                    <li><strong>Quando o preço estiver perto do alvo:</strong> deixe correr até o alvo, ou saia de metade da posição e faça trailing na outra metade</li>
+                </ul>
+
+                <p><strong>Regra-chave:</strong> nunca mova um stop loss CONTRA você (mais largo). Só aperte-o conforme o preço se move favoravelmente.</p>
+
+                <h3>Psicologia dos Stop Losses</h3>
+                <p>Muitos traders lutam com os stops porque:</p>
+                <ul>
+                    <li>Esperam que a operação se recupere (nem sempre vai)</li>
+                    <li>Ego — admitir que estavam errados</li>
+                    <li>Medo de "perder" uma reversão</li>
+                </ul>
+
+                <p><strong>Mudança de mentalidade:</strong> o seu stop loss não é um fracasso. É a prova de que você tem um plano e disciplina. Traders profissionais levam stop o tempo todo — faz parte do negócio.</p>
+            </section>
+
+            <!-- PROFIT TARGET -->
+            <section class="guide-section" id="profit-target-pt">
+                <h2>Alvos de Lucro e Gestão de Saídas</h2>
+                <p>O seu <strong>alvo de lucro</strong> é onde você sai se a operação der CERTO. Ele deve ser definido ANTES de entrar.</p>
+
+                <h3>Definindo Alvos de Lucro</h3>
+                <p>Os alvos de lucro são colocados em níveis técnicos de resistência/suporte à frente:</p>
+                <ul>
+                    <li>Próximo topo/fundo relevante</li>
+                    <li>Extensão de nível de Fibonacci</li>
+                    <li>Número redondo (1,1500, 1,2000)</li>
+                    <li>Zona anterior de resistência/suporte</li>
+                </ul>
+
+                <div class="example-box">
+                    <strong>Exemplo:</strong><br>
+                    • Compra de EUR/USD a 1,1400 (suporte)<br>
+                    • Stop em 1,1375 (risco de 25 pips)<br>
+                    • Próxima resistência: 1,1500 (a 100 pips)<br>
+                    • R/R = 100 ÷ 25 = 1:4 (excelente!)<br>
+                    • Defina o alvo em 1,1500
+                </div>
+
+                <h3>Realização Parcial de Lucro</h3>
+                <p>Traders profissionais raramente seguram até um único alvo. Em vez disso, eles saem em etapas:</p>
+                <ul>
+                    <li><strong>Saia de 50% no primeiro alvo</strong> (trava o lucro)</li>
+                    <li><strong>Mova o stop para o ponto de equilíbrio nos 50% restantes</strong> (sem risco)</li>
+                    <li><strong>Saia dos 50% restantes no alvo estendido</strong> (captura o upside adicional)</li>
+                </ul>
+
+                <div class="example-box">
+                    <strong>Exemplo de saída em etapas:</strong><br>
+                    • Operação de 0,2 lote de EUR/USD comprado a 1,1400<br>
+                    • O preço chega a 1,1450 (primeiro micro-alvo)<br>
+                    • Saia de 0,1 lote (50%), travando US$ 500 de lucro<br>
+                    • Mova o stop dos 0,1 lote restantes para 1,1400 (ponto de equilíbrio)<br>
+                    • Deixe a posição restante correr até 1,1500 (US$ 500 adicionais)<br>
+                    <br>
+                    Resultado: US$ 1.000 de lucro com risco zero na segunda metade.
+                </div>
+            </section>
+
+            <!-- RR RATIO -->
+            <section class="guide-section" id="rr-ratio-pt">
+                <h2>Relações Risco/Retorno</h2>
+                <p>A sua <strong>relação risco/retorno</strong> (R/R) é a métrica mais importante do trading. Ela determina se você ganha dinheiro no longo prazo, mesmo com uma taxa de acerto de 50%.</p>
+
+                <h3>A Fórmula</h3>
+                <div class="calc-box">
+Relação Risco/Retorno = Lucro Potencial ÷ Perda Máxima<br>
+<br>
+Exemplo:<br>
+• Entrada: 1,1400<br>
+• Stop: 1,1350 (50 pips = perda máxima)<br>
+• Alvo: 1,1500 (100 pips = lucro potencial)<br>
+• R/R = 100 ÷ 50 = relação de 1:2
+                </div>
+
+                <h3>R/R Mínimo: 1:2</h3>
+                <p>Só operamos setups com R/R mínimo de 1:2 porque:</p>
+                <ul>
+                    <li><strong>Com R/R de 1:2 e taxa de acerto de 50%:</strong> você fica no ponto de equilíbrio</li>
+                    <li><strong>Com R/R de 1:2 e taxa de acerto de 55%:</strong> você lucra</li>
+                    <li><strong>Com R/R de 1:2 e taxa de acerto de 60%:</strong> você lucra significativamente</li>
+                </ul>
+
+                <h3>Faça a Matemática: Por que 1:2 Importa</h3>
+                <div class="calc-box">
+Cenário: 10 operações, US$ 100 de risco cada, taxa de acerto de 50%<br>
+<br>
+SEM R/R de 1:2 (relação 1:1):<br>
+• 5 vitórias × US$ 100 = US$ 500<br>
+• 5 perdas × US$ 100 = -US$ 500<br>
+• Resultado: US$ 0 (ponto de equilíbrio, conta corroída pelas taxas)<br>
+<br>
+COM R/R de 1:2:<br>
+• 5 vitórias × US$ 200 = US$ 1.000<br>
+• 5 perdas × US$ 100 = -US$ 500<br>
+• Resultado: US$ 500 de lucro (ganho de 5% em uma conta de US$ 10.000)
+                </div>
+
+                <p><strong>Moral da história:</strong> sem R/R de 1:2, até um trader com 50% de taxa de acerto perde dinheiro com o tempo.</p>
+
+                <h3>Relações R/R Maiores</h3>
+                <p>Se você conseguir encontrar setups com R/R de 1:3 ou 1:4, melhor ainda. Mas não force — só se o setup técnico oferecer isso naturalmente.</p>
+            </section>
+
+            <!-- BANKROLL -->
+            <section class="guide-section" id="bankroll-pt">
+                <h2>Gestão do Capital ao Longo do Tempo</h2>
+                <p>Gestão de risco não é apenas sobre operações individuais — é sobre administrar a sua conta por meio de sequências de ganhos e perdas.</p>
+
+                <h3>O Efeito dos Juros Compostos</h3>
+                <p>Com risco consistente de 1-2% e uma relação R/R positiva, a sua conta cresce exponencialmente:</p>
+                <div class="calc-box">
+Início: US$ 10.000<br>
+Risco por operação: 1%<br>
+Taxa de acerto: 55% (realista)<br>
+R/R: 1:2<br>
+<br>
+Retorno esperado por mês: 2-5% (conservador)<br>
+<br>
+Após 12 meses: US$ 12.000 - US$ 16.000<br>
+Após 24 meses: US$ 14.400 - US$ 25.600<br>
+Após 36 meses: US$ 17.280 - US$ 41.000+
+                </div>
+
+                <p>Isso não é um esquema de enriquecimento rápido, mas é uma construção de patrimônio sustentável.</p>
+
+                <h3>Administrando Sequências de Perdas</h3>
+                <p>Até bons traders sofrem 3-5 perdas consecutivas. Veja como lidar com elas:</p>
+                <ul>
+                    <li><strong>Não aumente o risco:</strong> "revenge trading" é mortal</li>
+                    <li><strong>Revise a sua análise:</strong> os seus setups ainda são válidos? O regime do mercado mudou?</li>
+                    <li><strong>Faça uma pausa:</strong> afaste-se por um ou dois dias. Uma perspectiva renovada ajuda</li>
+                    <li><strong>Confie no processo:</strong> se o seu R/R e a sua taxa de acerto são sólidos, a variância se equilibra</li>
+                </ul>
+
+                <h3>Saiba Quando Parar</h3>
+                <p>Defina um limite de perda diário ou semanal. Se você o atingir, pare de operar naquele dia:</p>
+                <ul>
+                    <li>Limite diário: -3% da conta (ex.: -US$ 300 em uma conta de US$ 10.000)</li>
+                    <li>Limite semanal: -5% da conta (ex.: -US$ 500 em uma conta de US$ 10.000)</li>
+                </ul>
+
+                <p>Emocional, você toma decisões ruins. Um limite rígido impõe disciplina.</p>
+            </section>
+
+            <!-- PSYCHOLOGY -->
+            <section class="guide-section" id="psychology-pt">
+                <h2>Psicologia da Gestão de Risco</h2>
+                <p>O lado técnico da gestão de risco é fácil. O lado psicológico é difícil.</p>
+
+                <h3>Erros Comuns</h3>
+                <ul>
+                    <li><strong>Excesso de confiança após vitórias:</strong> "eu acertei aquela análise, vou arriscar 3% desta vez" → Drawdown</li>
+                    <li><strong>Revenge trading após perdas:</strong> "perdi US$ 100, vou arriscar US$ 500 para recuperar" → Conta zerada</li>
+                    <li><strong>Mover stops:</strong> "eu não posso estar errado, deixa eu alargar o stop" → Perdas maiores</li>
+                    <li><strong>Pular operações com R/R alto:</strong> "o setup é ótimo, mas o stop está a 100 pips, vou pular" → Lucros perdidos</li>
+                    <li><strong>Caçar as perdas:</strong> entrar em operações extras para recuperar perdas → Buraco mais fundo</li>
+                </ul>
+
+                <h3>Checklist de Disciplina Mental</h3>
+                <p>Antes de cada operação, responda:</p>
+                <ul>
+                    <li>☑️ Eu sei o meu preço de entrada?</li>
+                    <li>☑️ Eu sei o meu preço de stop loss?</li>
+                    <li>☑️ Eu sei o meu alvo de lucro?</li>
+                    <li>☑️ Eu calculei o meu tamanho de posição (risco de 1-2%)?</li>
+                    <li>☑️ O meu R/R está pelo menos em 1:2?</li>
+                    <li>☑️ Eu estou emocional ou calmo?</li>
+                </ul>
+
+                <p>Se você responder "não" a qualquer uma dessas perguntas, não opere.</p>
+
+                <h3>A Mentalidade do Trader Vencedor</h3>
+                <ul>
+                    <li><strong>Perdas fazem parte do negócio.</strong> Aceite-as. Aprenda com elas. Siga em frente.</li>
+                    <li><strong>Gestão de risco é a prioridade nº 1.</strong> Os lucros vêm naturalmente se o risco for controlado.</li>
+                    <li><strong>Consistência vence perfeição.</strong> Uma taxa de acerto de 55% que você repete por 20 anos vence uma taxa de 80% que você não consegue sustentar.</li>
+                    <li><strong>O objetivo é continuar no jogo.</strong> Queimar a sua conta uma vez = fim do jogo. Preservação de capital é a prioridade.</li>
+                </ul>
+            </section>
+
+            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+                <a href="../index.html" class="back-link">← Voltar ao Painel</a>
+                <p style="margin-top: 1rem; color: var(--text-muted); font-size: 0.9rem;">Relacionados: <a href="our-methodology.html" style="color: var(--color-primary);">Nossa Metodologia</a> | <a href="technical-analysis.html" style="color: var(--color-primary);">Análise Técnica</a> | <a href="trading-glossary.html" style="color: var(--color-primary);">Glossário de Trading</a></p>
+            </div>
+            </div>
         </div>
 
         <!-- Ad Space -->
@@ -441,13 +786,62 @@ After 36 months: $17,280 - $41,000+
                 <a href="../contact.html" class="footer-link">Contact</a>
                 <a href="../disclaimer.html" class="footer-link">Legal Disclaimer</a>
                 <a href="../privacy.html" class="footer-link">Privacy Policy</a>
-            </div>
+            
+                <a href="../track-record.html" class="footer-link">Track Record</a>
+                <a href="index.html" class="footer-link">Education</a></div>
             <p class="footer-copyright">&copy; 2026 Forex Report. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <script>
+        let currentLang = 'en';
+
+        function initLanguage() {
+            const languages = navigator.languages || [navigator.language || ''];
+            for (const lang of languages) {
+                const cleanLang = lang.toLowerCase();
+                if (cleanLang === 'pt-br' || cleanLang === 'pt-pt') { currentLang = 'pt'; break; }
+            }
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('lang')) {
+                const langParam = urlParams.get('lang').toLowerCase();
+                if (langParam === 'pt' || langParam === 'en') currentLang = langParam;
+            }
+            document.getElementById('langSelect').value = currentLang;
+            updateLangDisplay();
+        }
+
+        function updateLangDisplay() {
+            if (currentLang === 'pt') {
+                document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
+                document.querySelectorAll('.lang-pt').forEach(el => el.style.display = 'block');
+                document.title = "Gestão de Risco no Trading Forex - Guia Completo - Forex Report";
+            } else {
+                document.querySelectorAll('.lang-pt').forEach(el => el.style.display = 'none');
+                document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'block');
+                document.title = "Risk Management in Forex Trading - Complete Guide - Forex Report";
+            }
+            document.querySelectorAll('a').forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && href.endsWith('.html') && !href.includes('?')) {
+                    link.setAttribute('href', href + '?lang=' + currentLang);
+                } else if (href && href.includes('.html?') && href.includes('lang=')) {
+                    const cleanHref = href.split('?')[0];
+                    link.setAttribute('href', cleanHref + '?lang=' + currentLang);
+                }
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            initLanguage();
+            document.getElementById('langSelect').addEventListener('change', (e) => {
+                currentLang = e.target.value;
+                updateLangDisplay();
+            });
+        });
     </script>
 </body>
 </html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Forex Report" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Record - Forex Ticket Performance - Forex Report</title>
+    <meta name="description" content="The public performance ledger of Forex Report: every directional ticket published in the daily analysis, resolved mechanically on daily closes. Wins, losses and revoked setups — nothing filtered.">
+
+    <link rel="canonical" href="https://newsforextrading.com/track-record.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Forex Report">
+    <meta property="og:title" content="Track Record - Forex Ticket Performance - Forex Report">
+    <meta property="og:description" content="Every directional ticket published in the daily analysis, resolved mechanically on daily closes. Nothing filtered.">
+    <meta property="og:url" content="https://newsforextrading.com/track-record.html">
+    <meta property="og:image" content="https://newsforextrading.com/web-app-manifest-512.png">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="pt_BR">
+    <meta name="twitter:card" content="summary">
+
+    <!-- Google AdSense — personalization gated by cookie consent (consent.js) -->
+    <script>
+        try { if (localStorage.getItem('forexCookieConsent') === 'declined') (window.adsbygoogle = window.adsbygoogle || []).requestNonPersonalizedAds = 1; } catch (e) {}
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4617266720439769"
+     crossorigin="anonymous"></script>
+    <script src="consent.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .ledger-container { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem 2rem 1.5rem; }
+        .ledger-container table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.88rem; }
+        .ledger-container th, .ledger-container td { border: 1px solid var(--border-color); padding: 0.55rem 0.6rem; text-align: left; vertical-align: top; }
+        .ledger-container th { background-color: var(--bg-light); color: var(--color-primary); font-weight: 600; white-space: nowrap; }
+        .ledger-container td { font-family: var(--font-mono); white-space: nowrap; }
+        .ledger-container td:nth-child(2), .ledger-container td:nth-child(8), .ledger-container td:nth-child(9) { font-family: var(--font-body); }
+        .ledger-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.8rem; margin: 1.5rem 0; }
+        .stat-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 10px; padding: 0.9rem 1rem; }
+        .stat-num { font-family: var(--font-mono); font-size: 1.45rem; font-weight: 600; color: var(--text-primary); }
+        .stat-lab { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted); }
+        .tr-notes h3 { font-size: 1rem; color: var(--color-primary); margin: 1.2rem 0 0.4rem 0; }
+        .tr-notes ul { margin-left: 1.2rem; }
+        .tr-notes li { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem; line-height: 1.55; }
+        .ledger-method { background: var(--bg-light); border-left: 4px solid var(--color-primary); border-radius: 4px; padding: 1rem 1.2rem; margin: 1.25rem 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.65; }
+        @media (max-width: 720px) { .ledger-container { overflow-x: auto; } }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="index.html" class="brand-logo">FOREX<span>REPORT</span></a>
+            <nav class="header-nav">
+                <a href="index.html" class="nav-link">Dashboard</a>
+                <a href="news.html" class="nav-link">News</a>
+                <a href="guides/index.html" class="nav-link">Education</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <div class="lang-selector-wrapper">
+                    <select class="lang-select" id="langSelect" aria-label="Language Selector">
+                        <option value="en">EN</option>
+                        <option value="pt">PT</option>
+                    </select>
+                    <svg class="lang-select-arrow" viewBox="0 0 20 20">
+                        <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container-wide">
+        <div class="ledger-container">
+            <div style="margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--text-muted);">
+                <a href="index.html" style="color: var(--text-muted);">Home</a> &gt; <span class="lang-en">Track Record</span><span class="lang-pt" style="display:none;">Registro de Desempenho</span>
+            </div>
+
+            <h1 style="margin-bottom: 0.5rem;">
+                <span class="lang-en">Performance Track Record</span>
+                <span class="lang-pt" style="display:none;">Registro de Desempenho</span>
+            </h1>
+            <p style="font-size: 1.05rem; color: var(--text-secondary); max-width: 760px;">
+                <span class="lang-en">Every directional ticket published in the daily report since 17/08/2026, tracked after the fact and resolved mechanically on daily closes. Wins, losses, expiries and revoked setups all stay on the page — this ledger exists so you can judge the methodology on evidence, not on claims. Last update: 19/09/2026.</span>
+                <span class="lang-pt" style="display:none;">Todo ticket direcional publicado no relatório diário desde 17/08/2026, acompanhado depois dos fatos e resolvido mecanicamente por fechamentos diários. Acertos, perdas, expirações e setups revogados permanecem na página — este registro existe para que você julgue a metodologia pela evidência, e não por promessas. Última atualização: 19/09/2026.</span>
+            </p>
+
+            <div class="ledger-method">
+                <div class="lang-en"><b>Resolution rules.</b> Triggers and resolutions are close-based (ECB/Frankfurter reference rates). A daily close at/beyond the target closes the ticket at that level; a close at/beyond the stop closes it at −1R; ten sessions after entry with neither level crossed expire the ticket at the 10th-session close (realized R = (exit − entry)/(entry − stop) for longs, mirrored for shorts). A setup withdrawn by a later report before its trigger fired is marked <i>revoked</i> and counts as no trade. One watching ticket per pair at a time.</div>
+                <div class="lang-pt" style="display:none;"><b>Regras de resolução.</b> Gatilhos e resoluções são por fechamento (taxas de referência BCE/Frankfurter). Um fechamento diário no alvo ou além fecha o ticket naquele nível; um fechamento no stop ou além fecha em −1R; dez pregões após a entrada sem cruzar nenhum nível expiram o ticket no fechamento do 10º pregão (R realizado = (saída − entrada)/(entrada − stop) para compras, espelhado para vendas). Um setup retirado por relatório posterior antes do gatilho é marcado como <i>revogado</i> e não conta como operação. Apenas um ticket em observação por par por vez.</div>
+            </div>
+
+            <div class="ledger-stats">
+                <div class="stat-card"><div class="stat-num">1</div><div class="stat-lab"><span class="lang-en">Watching</span><span class="lang-pt" style="display:none;">Em observação</span></div></div>
+                <div class="stat-card"><div class="stat-num">1</div><div class="stat-lab"><span class="lang-en">Open</span><span class="lang-pt" style="display:none;">Abertos</span></div></div>
+                <div class="stat-card"><div class="stat-num">2</div><div class="stat-lab"><span class="lang-en">Resolved</span><span class="lang-pt" style="display:none;">Resolvidos</span></div></div>
+                <div class="stat-card"><div class="stat-num">6</div><div class="stat-lab"><span class="lang-en">Revoked</span><span class="lang-pt" style="display:none;">Revogados</span></div></div>
+                <div class="stat-card"><div class="stat-num">-0.12</div><div class="stat-lab"><span class="lang-en">Net realized (R)</span><span class="lang-pt" style="display:none;">R líquido (R)</span></div></div>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">
+                <span class="lang-en">Resolved detail: 0 target &middot; 0 stop &middot; 2 expired &middot; average -0.06R per resolved ticket. Small sample so far — the ledger grows one report at a time. Past performance does not guarantee future results.</span>
+                <span class="lang-pt" style="display:none;">Detalhe dos resolvidos: 0 alvo &middot; 0 stop &middot; 2 expirados &middot; média de -0.06R por ticket resolvido. Amostra pequena até agora — o registro cresce um relatório por vez. Desempenho passado não garante resultados futuros.</span>
+            </p>
+
+            <section class="report-section" style="margin-top: 2rem;">
+                <h2 class="section-title"><span class="lang-en">Watching — awaiting trigger</span><span class="lang-pt" style="display:none;">Em observação — aguardando gatilho</span></h2>
+<table>
+           <thead><tr><th>Pair</th><th>Published</th><th>Direction / setup</th><th>Entry</th><th>Stop</th><th>Target</th><th>Planned R/R</th><th>Status</th><th>Result</th></tr></thead>
+           <thead class='tr-pt' style='display:none;'><tr><th>Par</th><th>Publicado</th><th>Direção / setup</th><th>Entrada</th><th>Stop</th><th>Alvo</th><th>R/R planejado</th><th>Status</th><th>Resultado</th></tr></thead>
+<tbody>
+              <tr><td>EUR/USD</td><td>19/09/2026</td><td>▼ short / breakout</td><td>1.1459</td><td>1.15</td><td>1.135</td><td>1:2.66</td><td>Watching for trigger</td><td>—</td></tr>
+<tr class='tr-pt' style='display:none;'><td>EUR/USD</td><td>19/09/2026</td><td>▼ short / breakout</td><td>1.1459</td><td>1.15</td><td>1.135</td><td>1:2.66</td><td>Aguardando gatilho</td><td>—</td></tr>
+</tbody>
+</table>
+<div class="tr-notes"><div class="lang-en"><h3>Desk notes</h3><ul><li><b>EUR/USD</b> (19/09/2026): continuation breakdown: the 18/09 close (1.1460, -0.18%) is a fresh 10/20-day low under the handed-back 78.6% Fib (1.1476); stop 41 pips over the 1.1500 round + the handed-back Fib (>= the ~37-pip 1.5-sigma20 floor); target 1.1350 just above the 9-month low (1.1340), path crossing only the 1.1400 round; additive to the open runner from the 14/09 ticket (entered at the 15/09 close 1.1539, stop 1.1600, target 1.1440)</li></ul></div><div class="lang-pt" style="display:none;"><h3>Notas da mesa (original)</h3><ul><li><b>EUR/USD</b> (19/09/2026): continuation breakdown: the 18/09 close (1.1460, -0.18%) is a fresh 10/20-day low under the handed-back 78.6% Fib (1.1476); stop 41 pips over the 1.1500 round + the handed-back Fib (>= the ~37-pip 1.5-sigma20 floor); target 1.1350 just above the 9-month low (1.1340), path crossing only the 1.1400 round; additive to the open runner from the 14/09 ticket (entered at the 15/09 close 1.1539, stop 1.1600, target 1.1440)</li></ul></div></div>
+            </section>
+
+            <section class="report-section" style="margin-top: 2rem;">
+                <h2 class="section-title"><span class="lang-en">Open — triggered, still running</span><span class="lang-pt" style="display:none;">Abertos — gatilho disparado, em andamento</span></h2>
+<table>
+           <thead><tr><th>Pair</th><th>Published</th><th>Direction / setup</th><th>Entry</th><th>Stop</th><th>Target</th><th>Planned R/R</th><th>Status</th><th>Result</th></tr></thead>
+           <thead class='tr-pt' style='display:none;'><tr><th>Par</th><th>Publicado</th><th>Direção / setup</th><th>Entrada</th><th>Stop</th><th>Alvo</th><th>R/R planejado</th><th>Status</th><th>Resultado</th></tr></thead>
+<tbody>
+              <tr><td>EUR/USD</td><td>14/09/2026</td><td>▼ short / breakout</td><td>1.15389</td><td>1.16</td><td>1.144</td><td>1:2.2</td><td>Open (triggered 15/09/2026)</td><td>—</td></tr>
+<tr class='tr-pt' style='display:none;'><td>EUR/USD</td><td>14/09/2026</td><td>▼ short / breakout</td><td>1.15389</td><td>1.16</td><td>1.144</td><td>1:2.2</td><td>Aberto (gatilho em 15/09/2026)</td><td>—</td></tr>
+</tbody>
+</table>
+<div class="tr-notes"><div class="lang-en"><h3>Desk notes</h3><ul><li><b>EUR/USD</b> (14/09/2026): triggered at the 15/09 close (1.15389, under the 10-day low 1.1551) inside the FOMC window per the ticket's own clause; the post-event reassessment confirmed it — the Fed hiked to 3.75-4.00% (16/09) and the 16/09 close (1.15370) held under the entry; running +1.29R at the 18/09 close (1.14600) toward 1.1440, the 1.1600 stop never threatened (10-session expiry: 29/09)</li></ul></div><div class="lang-pt" style="display:none;"><h3>Notas da mesa (original)</h3><ul><li><b>EUR/USD</b> (14/09/2026): triggered at the 15/09 close (1.15389, under the 10-day low 1.1551) inside the FOMC window per the ticket's own clause; the post-event reassessment confirmed it — the Fed hiked to 3.75-4.00% (16/09) and the 16/09 close (1.15370) held under the entry; running +1.29R at the 18/09 close (1.14600) toward 1.1440, the 1.1600 stop never threatened (10-session expiry: 29/09)</li></ul></div></div>
+            </section>
+
+            <section class="report-section" style="margin-top: 2rem;">
+                <h2 class="section-title"><span class="lang-en">Closed — resolved or revoked</span><span class="lang-pt" style="display:none;">Fechados — resolvidos ou revogados</span></h2>
+<table>
+           <thead><tr><th>Pair</th><th>Published</th><th>Direction / setup</th><th>Entry</th><th>Stop</th><th>Target</th><th>Planned R/R</th><th>Status</th><th>Result</th></tr></thead>
+           <thead class='tr-pt' style='display:none;'><tr><th>Par</th><th>Publicado</th><th>Direção / setup</th><th>Entrada</th><th>Stop</th><th>Alvo</th><th>R/R planejado</th><th>Status</th><th>Resultado</th></tr></thead>
+<tbody>
+              <tr><td>GBP/JPY</td><td>14/08/2026</td><td>▲ long / breakout</td><td>215.9</td><td>213.9</td><td>219</td><td>1:2.19</td><td>Expired (10 sessions) (31/08/2026)</td><td>+0.17R</td></tr>
+<tr class='tr-pt' style='display:none;'><td>GBP/JPY</td><td>14/08/2026</td><td>▲ long / breakout</td><td>215.9</td><td>213.9</td><td>219</td><td>1:2.19</td><td>Expirou (10 pregões) (31/08/2026)</td><td>+0.17R</td></tr>
+              <tr><td>GBP/USD</td><td>17/08/2026</td><td>▲ long / breakout</td><td>1.3559</td><td>1.349</td><td>1.38</td><td>1:3.49</td><td>Expired (10 sessions) (31/08/2026)</td><td>-0.29R</td></tr>
+<tr class='tr-pt' style='display:none;'><td>GBP/USD</td><td>17/08/2026</td><td>▲ long / breakout</td><td>1.3559</td><td>1.349</td><td>1.38</td><td>1:3.49</td><td>Expirou (10 pregões) (31/08/2026)</td><td>-0.29R</td></tr>
+              <tr><td>EUR/USD</td><td>01/09/2026</td><td>▼ short / pullback</td><td>1.162</td><td>1.1665</td><td>1.1515</td><td>1:2.33</td><td>Revoked before trigger (02/09/2026)</td><td>—</td></tr>
+<tr class='tr-pt' style='display:none;'><td>EUR/USD</td><td>01/09/2026</td><td>▼ short / pullback</td><td>1.162</td><td>1.1665</td><td>1.1515</td><td>1:2.33</td><td>Revogado antes do gatilho (02/09/2026)</td><td>—</td></tr>
+              <tr><td>GBP/JPY</td><td>02/09/2026</td><td>▲ long / pullback</td><td>215.6</td><td>213.75</td><td>219.5</td><td>1:2.11</td><td>Revoked before trigger (04/09/2026)</td><td>—</td></tr>
+<tr class='tr-pt' style='display:none;'><td>GBP/JPY</td><td>02/09/2026</td><td>▲ long / pullback</td><td>215.6</td><td>213.75</td><td>219.5</td><td>1:2.11</td><td>Revogado antes do gatilho (04/09/2026)</td><td>—</td></tr>
+              <tr><td>EUR/USD</td><td>07/09/2026</td><td>▼ short / pullback</td><td>1.164</td><td>1.1685</td><td>1.1534</td><td>1:2.36</td><td>Revoked before trigger (09/09/2026)</td><td>—</td></tr>
+<tr class='tr-pt' style='display:none;'><td>EUR/USD</td><td>07/09/2026</td><td>▼ short / pullback</td><td>1.164</td><td>1.1685</td><td>1.1534</td><td>1:2.36</td><td>Revogado antes do gatilho (09/09/2026)</td><td>—</td></tr>
+              <tr><td>GBP/USD</td><td>07/09/2026</td><td>▲ long / pullback</td><td>1.3447</td><td>1.339</td><td>1.3566</td><td>1:2.09</td><td>Revoked before trigger (09/09/2026)</td><td>—</td></tr>
+<tr class='tr-pt' style='display:none;'><td>GBP/USD</td><td>07/09/2026</td><td>▲ long / pullback</td><td>1.3447</td><td>1.339</td><td>1.3566</td><td>1:2.09</td><td>Revogado antes do gatilho (09/09/2026)</td><td>—</td></tr>
+              <tr><td>EUR/USD</td><td>11/09/2026</td><td>▼ short / pullback</td><td>1.164</td><td>1.1685</td><td>1.1527</td><td>1:2.51</td><td>Revoked before trigger (14/09/2026)</td><td>—</td></tr>
+<tr class='tr-pt' style='display:none;'><td>EUR/USD</td><td>11/09/2026</td><td>▼ short / pullback</td><td>1.164</td><td>1.1685</td><td>1.1527</td><td>1:2.51</td><td>Revogado antes do gatilho (14/09/2026)</td><td>—</td></tr>
+              <tr><td>AUD/USD</td><td>11/09/2026</td><td>▲ long / pullback</td><td>0.7155</td><td>0.711</td><td>0.7257</td><td>1:2.27</td><td>Revoked before trigger (14/09/2026)</td><td>—</td></tr>
+<tr class='tr-pt' style='display:none;'><td>AUD/USD</td><td>11/09/2026</td><td>▲ long / pullback</td><td>0.7155</td><td>0.711</td><td>0.7257</td><td>1:2.27</td><td>Revogado antes do gatilho (14/09/2026)</td><td>—</td></tr>
+</tbody>
+</table>
+<div class="tr-notes"><div class="lang-en"><h3>Desk notes</h3><ul><li><b>GBP/JPY</b> (14/08/2026): legacy 14/08 ticket: expired on time at the 10th session (31/08 close 216.24, +34 pips; neither 219.00 nor 213.90 close-crossed)</li><li><b>GBP/USD</b> (17/08/2026): 17/08 ticket (eToro virtual fill 1.35258): expired on time at the 10th session (31/08 close 1.3539; neither 1.3800 nor 1.3490 close-crossed)</li><li><b>EUR/USD</b> (01/09/2026): revoked in the 02/09 MT5-basis edition: the 50% Fib re-priced 1.1657 -> 1.1698, so stop 1.1665 lost its structural cover; protected R/R ~1:1.4 fails the 1:2 gate</li><li><b>GBP/JPY</b> (02/09/2026): revoked in the 04/09 edition: the 03/09 yen surge (BoJ hike bets + intervention talk) closed 210.57 straight through the 215.15-216.00 zone; on the ECB basis sigma20 = 121 pips puts the 2.5-sigma20 intervention floor at 302 pips — no structural geometry pays 1:2</li><li><b>EUR/USD</b> (07/09/2026): revoked in the 09/09 edition: validity expired at the 08/09 close with the zone never printing (08/09 close 1.1614); the 09/09 close (1.1652, +0.33%) then reclaimed the SMA200 — the six-session bear regime ended and the read flips neutral inside the ECB (10/09) / US CPI (~10/09) windows</li><li><b>GBP/USD</b> (07/09/2026): revoked in the 09/09 edition: with the averages drifted up (SMA200 1.3444 / SMA50 1.3467), the re-priced zone's midpoint (1.3455) leaves the nearest structural targets at 1:1.71 (Fib 38.2% 1.3566) and 1:1.97 (10-day high 1.3583) — under the 1:2 gate; reassess after US CPI (~10/09) and BoE (17/09)</li><li><b>EUR/USD</b> (11/09/2026): revoked in the 14/09 edition: validity expired at the 14/09 close with the zone never printing — the close (1.1551, -0.35%) broke straight through the 10-day low (1.1578) instead; re-mapped one shelf lower as a breakout short (<1.1551)</li><li><b>AUD/USD</b> (11/09/2026): revoked in the 14/09 edition: the kill condition printed — the 14/09 close (0.7130, -0.60%) broke the 0.7141 zone floor; three down sessions (-1.31% from 0.7225) turned the retest into a local breakdown and the re-priced shelf (0.7076-0.7102) pays under 1:2 with the broken zone overhead — reassess after the FOMC (15-16/09)</li></ul></div><div class="lang-pt" style="display:none;"><h3>Notas da mesa (original)</h3><ul><li><b>GBP/JPY</b> (14/08/2026): legacy 14/08 ticket: expired on time at the 10th session (31/08 close 216.24, +34 pips; neither 219.00 nor 213.90 close-crossed)</li><li><b>GBP/USD</b> (17/08/2026): 17/08 ticket (eToro virtual fill 1.35258): expired on time at the 10th session (31/08 close 1.3539; neither 1.3800 nor 1.3490 close-crossed)</li><li><b>EUR/USD</b> (01/09/2026): revoked in the 02/09 MT5-basis edition: the 50% Fib re-priced 1.1657 -> 1.1698, so stop 1.1665 lost its structural cover; protected R/R ~1:1.4 fails the 1:2 gate</li><li><b>GBP/JPY</b> (02/09/2026): revoked in the 04/09 edition: the 03/09 yen surge (BoJ hike bets + intervention talk) closed 210.57 straight through the 215.15-216.00 zone; on the ECB basis sigma20 = 121 pips puts the 2.5-sigma20 intervention floor at 302 pips — no structural geometry pays 1:2</li><li><b>EUR/USD</b> (07/09/2026): revoked in the 09/09 edition: validity expired at the 08/09 close with the zone never printing (08/09 close 1.1614); the 09/09 close (1.1652, +0.33%) then reclaimed the SMA200 — the six-session bear regime ended and the read flips neutral inside the ECB (10/09) / US CPI (~10/09) windows</li><li><b>GBP/USD</b> (07/09/2026): revoked in the 09/09 edition: with the averages drifted up (SMA200 1.3444 / SMA50 1.3467), the re-priced zone's midpoint (1.3455) leaves the nearest structural targets at 1:1.71 (Fib 38.2% 1.3566) and 1:1.97 (10-day high 1.3583) — under the 1:2 gate; reassess after US CPI (~10/09) and BoE (17/09)</li><li><b>EUR/USD</b> (11/09/2026): revoked in the 14/09 edition: validity expired at the 14/09 close with the zone never printing — the close (1.1551, -0.35%) broke straight through the 10-day low (1.1578) instead; re-mapped one shelf lower as a breakout short (<1.1551)</li><li><b>AUD/USD</b> (11/09/2026): revoked in the 14/09 edition: the kill condition printed — the 14/09 close (0.7130, -0.60%) broke the 0.7141 zone floor; three down sessions (-1.31% from 0.7225) turned the retest into a local breakdown and the re-priced shelf (0.7076-0.7102) pays under 1:2 with the broken zone overhead — reassess after the FOMC (15-16/09)</li></ul></div></div>
+            </section>
+
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 1.5rem;">
+                <span class="lang-en">Desk notes are reproduced in their original wording (English). The methodology behind every ticket is documented in <a href="guides/our-methodology.html">Our Methodology</a>; the risk rules in <a href="guides/risk-management.html">Risk Management</a>.</span>
+                <span class="lang-pt" style="display:none;">As notas da mesa são reproduzidas no original (inglês). A metodologia por trás de cada ticket está documentada em <a href="guides/our-methodology.html">Nossa Metodologia</a>; as regras de risco em <a href="guides/risk-management.html">Gestão de Risco</a>.</span>
+            </p>
+        </div>
+
+        <!-- Ad Space — after the ledger content -->
+        <ins class="adsbygoogle" style="display:block; text-align:center; margin: 2rem 0;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-4617266720439769" data-ad-slot="8549246934"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-disclaimer">Disclaimer: Forex trading involves significant risk. Leverage can work against you. Past results do not guarantee future performance. Content is purely educational and does not constitute financial advice.</p>
+            <div class="footer-links">
+                <a href="about.html" class="footer-link">About Us</a>
+                <a href="contact.html" class="footer-link">Contact</a>
+                <a href="disclaimer.html" class="footer-link">Legal Disclaimer</a>
+                <a href="privacy.html" class="footer-link">Privacy Policy</a>
+                <a href="terms.html" class="footer-link">Terms of Service</a>
+                <a href="track-record.html" class="footer-link">Track Record</a>
+                <a href="guides/index.html" class="footer-link">Education</a>
+            </div>
+            <p class="footer-copyright">&copy; 2026 Forex Report. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        let currentLang = 'en';
+
+        function initLanguage() {
+            const languages = navigator.languages || [navigator.language || ''];
+            for (const lang of languages) {
+                const cleanLang = lang.toLowerCase();
+                if (cleanLang === 'pt-br' || cleanLang === 'pt-pt') { currentLang = 'pt'; break; }
+            }
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('lang')) {
+                const langParam = urlParams.get('lang').toLowerCase();
+                if (langParam === 'pt' || langParam === 'en') currentLang = langParam;
+            }
+            document.getElementById('langSelect').value = currentLang;
+            updateLangDisplay();
+        }
+
+        function updateLangDisplay() {
+            document.querySelectorAll('.tr-pt').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('tr.tr-pt, thead.tr-pt').forEach(el => el.style.display = 'none');
+            if (currentLang === 'pt') {
+                document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
+                document.querySelectorAll('.lang-pt').forEach(el => el.style.display = 'block');
+                document.querySelectorAll('tr.tr-pt, thead.tr-pt').forEach(el => el.style.display = 'table-row');
+                document.querySelectorAll('thead.tr-pt').forEach(el => el.style.display = 'table-header-group');
+                document.title = "Registro de Desempenho - Forex Report";
+            } else {
+                document.querySelectorAll('.lang-pt').forEach(el => el.style.display = 'none');
+                document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'block');
+                document.title = "Track Record - Forex Ticket Performance - Forex Report";
+            }
+            document.querySelectorAll('a').forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && href.endsWith('.html') && !href.includes('?')) {
+                    link.setAttribute('href', href + '?lang=' + currentLang);
+                } else if (href && href.includes('.html?') && href.includes('lang=')) {
+                    const cleanHref = href.split('?')[0];
+                    link.setAttribute('href', cleanHref + '?lang=' + currentLang);
+                }
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            initLanguage();
+            document.getElementById('langSelect').addEventListener('change', (e) => {
+                currentLang = e.target.value;
+                updateLangDisplay();
+            });
+        });
+    </script>
+</body>
+</html>
