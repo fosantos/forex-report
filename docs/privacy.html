@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-title-pt="Política de Privacidade - Forex Report">
 <head>
     <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
     <link rel="shortcut icon" href="favicon.ico" />
@@ -18,7 +18,7 @@
     <meta property="og:title" content="Privacy Policy - Forex Report">
     <meta property="og:description" content="Forex Report's Privacy Policy: what data we collect, how Google AdSense cookies are used, and your opt-out and GDPR/CCPA rights.">
     <meta property="og:url" content="https://newsforextrading.com/privacy.html">
-    <meta property="og:image" content="https://newsforextrading.com/web-app-manifest-512.png">
+    <meta property="og:image" content="https://newsforextrading.com/web-app-manifest-512x512.png">
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="pt_BR">
     <meta name="twitter:card" content="summary">
@@ -27,6 +27,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="lang.js" defer></script>
 </head>
 <body>
     <header class="site-header">
@@ -147,64 +148,5 @@
         </div>
     </footer>
 
-    <script>
-        let currentLang = 'en';
-        
-        function initLanguage() {
-            const languages = navigator.languages || [navigator.language || ''];
-            let foundPT = false;
-            
-            for (const lang of languages) {
-                const cleanLang = lang.toLowerCase();
-                if (cleanLang === 'pt-br' || cleanLang === 'pt-pt') {
-                    currentLang = 'pt';
-                    foundPT = true;
-                    break;
-                }
-            }
-            
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.has('lang')) {
-                const langParam = urlParams.get('lang').toLowerCase();
-                if (langParam === 'pt' || langParam === 'en') {
-                    currentLang = langParam;
-                }
-            }
-            
-            document.getElementById('langSelect').value = currentLang;
-            updateLangDisplay();
-        }
-        
-        function updateLangDisplay() {
-            if (currentLang === 'pt') {
-                document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
-                document.querySelectorAll('.lang-pt').forEach(el => el.style.display = 'block');
-                document.title = "Política de Privacidade - Forex Report";
-            } else {
-                document.querySelectorAll('.lang-pt').forEach(el => el.style.display = 'none');
-                document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'block');
-                document.title = "Privacy Policy - Forex Report";
-            }
-            
-            // Adjust back button links to propagate language selector value
-            document.querySelectorAll('a').forEach(link => {
-                const href = link.getAttribute('href');
-                if (href && href.endsWith('.html') && !href.includes('?')) {
-                    link.setAttribute('href', href + '?lang=' + currentLang);
-                } else if (href && href.includes('.html?') && href.includes('lang=')) {
-                    const cleanHref = href.split('?')[0];
-                    link.setAttribute('href', cleanHref + '?lang=' + currentLang);
-                }
-            });
-        }
-        
-        window.addEventListener('DOMContentLoaded', () => {
-            initLanguage();
-            document.getElementById('langSelect').addEventListener('change', (e) => {
-                currentLang = e.target.value;
-                updateLangDisplay();
-            });
-        });
-    </script>
 </body>
 </html>

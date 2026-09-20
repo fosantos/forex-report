@@ -34,7 +34,7 @@ Each static pair page also carries an **evergreen "Understanding [PAIR]" section
 - `initLanguageDetection()` inspects `navigator.languages`/`navigator.language`; auto-selects Portuguese only for `pt-br`/`pt-pt`, otherwise defaults to English.
 - URL param `?lang=pt` or `?lang=en` overrides detection (used for CRO/marketing links) — internal links should propagate the active `?lang` param.
 - `translateUI()` pushes an `i18n` dictionary into DOM nodes by ID; `renderForexReport()` re-renders the selected pair's data from `forexData` into the report panel.
-- The static pair pages (`docs/[pair].html`), `track-record.html`, `guides/index.html` and the 6 education guides use a simpler mechanism: both languages are always in the DOM, and the inactive one is hidden via inline `style="display:none"` toggled by a language switch script. The guides wrap their **whole content** in one `lang-en` div plus one translated `lang-pt` div (PT section ids suffixed `-pt` so anchors still jump); keep that structure when editing them.
+- Every page **except `index.html` and `404.html`** (which have their own engines) uses the shared **`docs/lang.js`** (`<script src="lang.js" defer>` / `../lang.js`): both languages are always in the DOM, and the inactive one is hidden via inline `style="display:none"` toggled by that script. It also carries each page's PT `<title>` (read from `<html data-title-pt="…">`), the bilingual `tr.tr-pt` ledger rows on `track-record.html`, the single-copy nav/footer labels on about/contact, and `?lang=` propagation through internal links. **Do not reintroduce per-page inline language switchers** — new static pages just include `lang.js` and set `data-title-pt`. The guides wrap their **whole content** in one `lang-en` div plus one translated `lang-pt` div (PT section ids suffixed `-pt` so anchors still jump); keep that structure when editing them.
 
 ### Site navigation conventions (do not orphan content)
 
@@ -88,7 +88,7 @@ Rules for any edit or daily rebuild:
 - **Token NAMES are an immutable cross-page contract.** Every page (index, 6 pair pages, guides, compliance) references `var(--*)` inline, and the 6 guides carry their own embedded `<style>` blocks that are also fully token-driven. So re-themes happen by changing VALUES in `:root` of `docs/style.css` only — never rename a token, and never hardcode hex/rgba in page markup (the inline `rgba(14,89,99,…)` petrol borders in `contact.html` are the one deliberate exception).
 - Ad slots use `.ad-placeholder` / `ins.adsbygoogle` with CSS `:empty` selectors so they self-hide when no ad script loads (needed for AdSense approval without external requests).
 - Modals (Privacy Policy, Disclaimer) are lightweight and glassmorphic, with no external resource dependencies.
-- Shared stylesheet: `docs/style.css`.
+- Shared stylesheet: `docs/style.css` — **mobile-first**: base rules target the small viewport and every layout change is a `@media (min-width: …)` block (the only allowed `max-width` query is non-viewport ones like `prefers-reduced-motion`). Wide ledgers scroll inside `.table-wrap` wrappers; the header nav is a horizontally scrollable rail below 821px (never hidden).
 
 ### Other static pages
 

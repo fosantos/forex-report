@@ -71,11 +71,11 @@ def table(tickets, kind):
     if not tickets:
         return ('<p class="lang-en">No tickets in this state right now.</p><p class="lang-pt" style="display:none;">Nenhum ticket neste estado no momento.</p>')
     rows = "\n".join(ticket_row(t, kind) for t in tickets)
-    return "<table>\n%s\n%s\n<tbody>\n%s\n</tbody>\n</table>" % (HEAD_EN, HEAD_PT, rows)
+    return '<div class="table-wrap"><table>\n%s\n%s\n<tbody>\n%s\n</tbody>\n</table></div>' % (HEAD_EN, HEAD_PT, rows)
 
 # PT rows are rendered hidden by the page's language toggle
 PAGE = """<!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-title-pt="Registro de Desempenho - Forex Report">
 <head>
     <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
     <link rel="shortcut icon" href="favicon.ico" />
@@ -92,7 +92,7 @@ PAGE = """<!DOCTYPE html>
     <meta property="og:title" content="Track Record - Forex Ticket Performance - Forex Report">
     <meta property="og:description" content="Every directional ticket published in the daily analysis, resolved mechanically on daily closes. Nothing filtered.">
     <meta property="og:url" content="https://newsforextrading.com/track-record.html">
-    <meta property="og:image" content="https://newsforextrading.com/web-app-manifest-512.png">
+    <meta property="og:image" content="https://newsforextrading.com/web-app-manifest-512x512.png">
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="pt_BR">
     <meta name="twitter:card" content="summary">
@@ -104,6 +104,7 @@ PAGE = """<!DOCTYPE html>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4617266720439769"
      crossorigin="anonymous"></script>
     <script src="consent.js" defer></script>
+    <script src="lang.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -124,7 +125,7 @@ PAGE = """<!DOCTYPE html>
         .tr-notes ul { margin-left: 1.2rem; }
         .tr-notes li { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem; line-height: 1.55; }
         .ledger-method { background: var(--bg-light); border-left: 4px solid var(--color-primary); border-radius: 4px; padding: 1rem 1.2rem; margin: 1.25rem 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.65; }
-        @media (max-width: 720px) { .ledger-container { overflow-x: auto; } }
+        /* Wide ledgers scroll inside .table-wrap (style.css) on phones */
     </style>
 </head>
 <body>
@@ -229,57 +230,7 @@ __NOTES_CLOSED__
         </div>
     </footer>
 
-    <script>
-        let currentLang = 'en';
-
-        function initLanguage() {
-            const languages = navigator.languages || [navigator.language || ''];
-            for (const lang of languages) {
-                const cleanLang = lang.toLowerCase();
-                if (cleanLang === 'pt-br' || cleanLang === 'pt-pt') { currentLang = 'pt'; break; }
-            }
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.has('lang')) {
-                const langParam = urlParams.get('lang').toLowerCase();
-                if (langParam === 'pt' || langParam === 'en') currentLang = langParam;
-            }
-            document.getElementById('langSelect').value = currentLang;
-            updateLangDisplay();
-        }
-
-        function updateLangDisplay() {
-            document.querySelectorAll('.tr-pt').forEach(el => el.style.display = 'none');
-            document.querySelectorAll('tr.tr-pt, thead.tr-pt').forEach(el => el.style.display = 'none');
-            if (currentLang === 'pt') {
-                document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
-                document.querySelectorAll('.lang-pt').forEach(el => el.style.display = el.tagName === 'SPAN' ? 'inline' : 'block');
-                document.querySelectorAll('tr.tr-pt, thead.tr-pt').forEach(el => el.style.display = 'table-row');
-                document.querySelectorAll('thead.tr-pt').forEach(el => el.style.display = 'table-header-group');
-                document.title = "Registro de Desempenho - Forex Report";
-            } else {
-                document.querySelectorAll('.lang-pt').forEach(el => el.style.display = 'none');
-                document.querySelectorAll('.lang-en').forEach(el => el.style.display = el.tagName === 'SPAN' ? 'inline' : 'block');
-                document.title = "Track Record - Forex Ticket Performance - Forex Report";
-            }
-            document.querySelectorAll('a').forEach(link => {
-                const href = link.getAttribute('href');
-                if (href && href.endsWith('.html') && !href.includes('?')) {
-                    link.setAttribute('href', href + '?lang=' + currentLang);
-                } else if (href && href.includes('.html?') && href.includes('lang=')) {
-                    const cleanHref = href.split('?')[0];
-                    link.setAttribute('href', cleanHref + '?lang=' + currentLang);
-                }
-            });
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            initLanguage();
-            document.getElementById('langSelect').addEventListener('change', (e) => {
-                currentLang = e.target.value;
-                updateLangDisplay();
-            });
-        });
-    </script>
+    <!-- Language switcher + cookie consent are shared, deferred (see <head>) -->
 </body>
 </html>
 """
@@ -305,6 +256,8 @@ html = html.replace("__NOTES_CLOSED__", notes_block(closed, "Desk notes", "Notas
 assert "__" not in re.sub(r"__\w+__", "", html) or not re.search(r"__[A-Z_]+__", html), "unreplaced placeholder"
 assert html.count("<ins") == 1 and html.count("adsbygoogle || []).push({});") == 1, "ad pattern broken"
 assert "consent.js" in html and "requestNonPersonalizedAds" in html, "consent pattern broken"
+assert "lang.js" in html and "data-title-pt" in html, "lang.js pattern broken"
+assert html.count('<div class="table-wrap">') == html.count("<table"), "table wrap broken"
 
 with open(OUT, "w", encoding="utf-8") as f:
     f.write(html)

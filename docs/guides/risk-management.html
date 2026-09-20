@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-title-pt="Gestão de Risco no Trading Forex - Guia Completo - Forex Report">
 <head>
     <link rel="icon" type="image/png" href="../favicon-96x96.png" sizes="96x96" />
     <link rel="shortcut icon" href="../favicon.ico" />
@@ -17,7 +17,7 @@
     <meta property="og:title" content="Risk Management in Forex Trading - Complete Guide - Forex Report">
     <meta property="og:description" content="Master forex risk management. Learn position sizing, stop loss placement, risk/reward ratios, and how professional traders protect their capital.">
     <meta property="og:url" content="https://newsforextrading.com/guides/risk-management.html">
-    <meta property="og:image" content="https://newsforextrading.com/web-app-manifest-512.png">
+    <meta property="og:image" content="https://newsforextrading.com/web-app-manifest-512x512.png">
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="pt_BR">
     <meta name="twitter:card" content="summary">
@@ -29,6 +29,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4617266720439769"
      crossorigin="anonymous"></script>
     <script src="../consent.js" defer></script>
+    <script src="../lang.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,7 +60,7 @@
         .calc-box { background-color: var(--bg-light); padding: 1rem; margin: 1rem 0; border-radius: 4px; border: 1px solid var(--border-color); font-family: 'IBM Plex Mono'; font-size: 0.9rem; }
     </style>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Article","headline":"Risk Management in Forex Trading - Complete Guide - Forex Report","description":"Master forex risk management. Learn position sizing, stop loss placement, risk/reward ratios, and how professional traders protect their capital.","image":"https://newsforextrading.com/web-app-manifest-512.png","dateModified":"2026-07-12","inLanguage":"en","author":{"@type":"Organization","name":"Forex Report","url":"https://newsforextrading.com/"},"publisher":{"@type":"Organization","name":"Forex Report","logo":"https://newsforextrading.com/web-app-manifest-512.png"},"mainEntityOfPage":"https://newsforextrading.com/guides/risk-management.html"}
+    {"@context":"https://schema.org","@type":"Article","headline":"Risk Management in Forex Trading - Complete Guide - Forex Report","description":"Master forex risk management. Learn position sizing, stop loss placement, risk/reward ratios, and how professional traders protect their capital.","image":"https://newsforextrading.com/web-app-manifest-512x512.png","dateModified":"2026-07-12","inLanguage":"en","author":{"@type":"Organization","name":"Forex Report","url":"https://newsforextrading.com/"},"publisher":{"@type":"Organization","name":"Forex Report","logo":"https://newsforextrading.com/web-app-manifest-512x512.png"},"mainEntityOfPage":"https://newsforextrading.com/guides/risk-management.html"}
     </script>
 </head>
 <body>
@@ -795,53 +796,6 @@ Após 36 meses: US$ 17.280 - US$ 41.000+
 
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    <script>
-        let currentLang = 'en';
-
-        function initLanguage() {
-            const languages = navigator.languages || [navigator.language || ''];
-            for (const lang of languages) {
-                const cleanLang = lang.toLowerCase();
-                if (cleanLang === 'pt-br' || cleanLang === 'pt-pt') { currentLang = 'pt'; break; }
-            }
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.has('lang')) {
-                const langParam = urlParams.get('lang').toLowerCase();
-                if (langParam === 'pt' || langParam === 'en') currentLang = langParam;
-            }
-            document.getElementById('langSelect').value = currentLang;
-            updateLangDisplay();
-        }
-
-        function updateLangDisplay() {
-            if (currentLang === 'pt') {
-                document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
-                document.querySelectorAll('.lang-pt').forEach(el => el.style.display = 'block');
-                document.title = "Gestão de Risco no Trading Forex - Guia Completo - Forex Report";
-            } else {
-                document.querySelectorAll('.lang-pt').forEach(el => el.style.display = 'none');
-                document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'block');
-                document.title = "Risk Management in Forex Trading - Complete Guide - Forex Report";
-            }
-            document.querySelectorAll('a').forEach(link => {
-                const href = link.getAttribute('href');
-                if (href && href.endsWith('.html') && !href.includes('?')) {
-                    link.setAttribute('href', href + '?lang=' + currentLang);
-                } else if (href && href.includes('.html?') && href.includes('lang=')) {
-                    const cleanHref = href.split('?')[0];
-                    link.setAttribute('href', cleanHref + '?lang=' + currentLang);
-                }
-            });
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            initLanguage();
-            document.getElementById('langSelect').addEventListener('change', (e) => {
-                currentLang = e.target.value;
-                updateLangDisplay();
-            });
-        });
     </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-title-pt="Quem Somos - Forex Report">
 <head>
     <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
     <link rel="shortcut icon" href="favicon.ico" />
@@ -18,7 +18,7 @@
     <meta property="og:title" content="About Forex Report - Institution-Level FX Analysis">
     <meta property="og:description" content="Forex Report: Institution-level FX analysis for retail traders. Learn our 3-pillar methodology combining macroeconomic analysis, technical structure, and disciplined risk management. Transparent, research-driven trading education.">
     <meta property="og:url" content="https://newsforextrading.com/about.html">
-    <meta property="og:image" content="https://newsforextrading.com/web-app-manifest-512.png">
+    <meta property="og:image" content="https://newsforextrading.com/web-app-manifest-512x512.png">
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="pt_BR">
     <meta name="twitter:card" content="summary">
@@ -34,6 +34,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4617266720439769"
      crossorigin="anonymous"></script>
     <script src="consent.js" defer></script>
+    <script src="lang.js" defer></script>
 </head>
 <body>
     <header class="site-header">
@@ -292,97 +293,5 @@
         </div>
     </footer>
 
-    <script>
-        let currentLang = 'en';
-
-        function initLanguage() {
-            const languages = navigator.languages || [navigator.language || ''];
-            let foundPT = false;
-
-            for (const lang of languages) {
-                const cleanLang = lang.toLowerCase();
-                if (cleanLang === 'pt-br' || cleanLang === 'pt-pt') {
-                    currentLang = 'pt';
-                    foundPT = true;
-                    break;
-                }
-            }
-
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.has('lang')) {
-                const langParam = urlParams.get('lang').toLowerCase();
-                if (langParam === 'pt' || langParam === 'en') {
-                    currentLang = langParam;
-                }
-            }
-
-            document.getElementById('langSelect').value = currentLang;
-            updateLangDisplay();
-        }
-
-        const uiStrings = {
-            en: {
-                navHome: "Dashboard", navNews: "News", navAbout: "About Us", navContact: "Contact",
-                footerDisclaimer: "Disclaimer: Forex trading involves significant risk. Leverage can work against you. Past results do not guarantee future performance. Content is purely educational and does not constitute financial advice.",
-                footerContact: "Have questions? Contact us:",
-                footerLinkAbout: "About Us", footerLinkContact: "Contact",
-                footerLinkDisclaimer: "Legal Disclaimer", footerLinkPrivacy: "Privacy Policy", footerLinkTerms: "Terms of Service",
-                footerRights: "All rights reserved."
-            },
-            pt: {
-                navHome: "Painel", navNews: "Notícias", navAbout: "Quem Somos", navContact: "Contato",
-                footerDisclaimer: "Aviso: O mercado de câmbio (Forex) envolve riscos significativos. A alavancagem pode funcionar contra si. Resultados passados não garantem lucros futuros. O conteúdo é meramente educativo e não constitui aconselhamento financeiro.",
-                footerContact: "Dúvidas ou sugestões? Contacte-nos:",
-                footerLinkAbout: "Quem Somos", footerLinkContact: "Contato",
-                footerLinkDisclaimer: "Aviso Legal", footerLinkPrivacy: "Política de Privacidade", footerLinkTerms: "Termos de Serviço",
-                footerRights: "Todos os direitos reservados."
-            }
-        };
-
-        function updateLangDisplay() {
-            if (currentLang === 'pt') {
-                document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
-                document.querySelectorAll('.lang-pt').forEach(el => el.style.display = 'block');
-                document.title = "Quem Somos - Forex Report";
-            } else {
-                document.querySelectorAll('.lang-pt').forEach(el => el.style.display = 'none');
-                document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'block');
-                document.title = "About Us - Forex Report";
-            }
-
-            const t = uiStrings[currentLang];
-            document.getElementById('navHome').textContent = t.navHome;
-            document.getElementById('navNews').textContent = t.navNews;
-            document.getElementById('navAbout').textContent = t.navAbout;
-            document.getElementById('navContact').textContent = t.navContact;
-            document.getElementById('footerDisclaimerText').textContent = t.footerDisclaimer;
-            document.getElementById('footerContactText').textContent = t.footerContact;
-            document.getElementById('footerLinkAbout').textContent = t.footerLinkAbout;
-            document.getElementById('footerLinkContact').textContent = t.footerLinkContact;
-            document.getElementById('footerLinkDisclaimer').textContent = t.footerLinkDisclaimer;
-            document.getElementById('footerLinkPrivacy').textContent = t.footerLinkPrivacy;
-            document.getElementById('footerLinkTerms').textContent = t.footerLinkTerms;
-            document.getElementById('footerRightsText').textContent = t.footerRights;
-
-            // Adjust back button links to propagate language selector value
-            document.querySelectorAll('a').forEach(link => {
-                const href = link.getAttribute('href');
-                if (href && href.endsWith('.html') && !href.includes('?')) {
-                    link.setAttribute('href', href + '?lang=' + currentLang);
-                } else if (href && href.includes('.html?') && href.includes('lang=')) {
-                    const cleanHref = href.split('?')[0];
-                    link.setAttribute('href', cleanHref + '?lang=' + currentLang);
-                }
-            });
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            initLanguage();
-            document.getElementById('langSelect').addEventListener('change', (e) => {
-                currentLang = e.target.value;
-                updateLangDisplay();
-            });
-        });
-    </script>
 </body>
 </html>

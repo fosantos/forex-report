@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-title-pt="EUR/JPY Análise &amp; Previsão - Forex Report">
 <head>
     <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
     <link rel="shortcut icon" href="favicon.ico" />
@@ -18,7 +18,7 @@
     <meta property="og:title" content="EUR/JPY Analysis & Forecast - Forex Report">
     <meta property="og:description" content="Daily institutional fundamental and technical analysis for the EUR/JPY currency pair. View technical levels and trade setups.">
     <meta property="og:url" content="https://newsforextrading.com/eur-jpy.html">
-    <meta property="og:image" content="https://newsforextrading.com/web-app-manifest-512.png">
+    <meta property="og:image" content="https://newsforextrading.com/web-app-manifest-512x512.png">
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="pt_BR">
     <meta name="twitter:card" content="summary">
@@ -30,6 +30,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4617266720439769"
      crossorigin="anonymous"></script>
     <script src="consent.js" defer></script>
+    <script src="lang.js" defer></script>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -355,65 +356,5 @@
         </div>
     </footer>
 
-    <script>
-        let currentLang = 'en';
-        
-        function initLanguage() {
-            const languages = navigator.languages || [navigator.language || ''];
-            
-            for (const lang of languages) {
-                const cleanLang = lang.toLowerCase();
-                if (cleanLang === 'pt-br' || cleanLang === 'pt-pt') {
-                    currentLang = 'pt';
-                    break;
-                }
-            }
-            
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.has('lang')) {
-                const langParam = urlParams.get('lang').toLowerCase();
-                if (langParam === 'pt' || langParam === 'en') {
-                    currentLang = langParam;
-                }
-            }
-            
-            document.getElementById('langSelect').value = currentLang;
-            updateLangDisplay();
-        }
-        
-        function updateLangDisplay() {
-            if (currentLang === 'pt') {
-                document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
-                document.querySelectorAll('.lang-pt').forEach(el => el.style.display = 'block');
-                document.title = "EUR/JPY Análise & Previsão - Forex Report";
-            } else {
-                document.querySelectorAll('.lang-pt').forEach(el => el.style.display = 'none');
-                document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'block');
-                document.title = "EUR/JPY Analysis & Forecast - Forex Report";
-            }
-            
-            // Adjust all links to carry the current language
-            document.querySelectorAll('a').forEach(link => {
-                const href = link.getAttribute('href');
-                if (href && href.endsWith('.html') && !href.includes('?')) {
-                    link.setAttribute('href', href + '?lang=' + currentLang);
-                } else if (href && href.includes('.html?') && href.includes('lang=')) {
-                    const cleanHref = href.split('?')[0];
-                    link.setAttribute('href', cleanHref + '?lang=' + currentLang);
-                } else if (href && href.startsWith('index.html?pair=')) {
-                    const cleanHref = href.split('&')[0];
-                    link.setAttribute('href', cleanHref + '&lang=' + currentLang);
-                }
-            });
-        }
-        
-        window.addEventListener('DOMContentLoaded', () => {
-            initLanguage();
-            document.getElementById('langSelect').addEventListener('change', (e) => {
-                currentLang = e.target.value;
-                updateLangDisplay();
-            });
-        });
-    </script>
 </body>
 </html>

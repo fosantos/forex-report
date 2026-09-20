@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-title-pt="Glossário de Trading Forex - 50+ Termos Essenciais - Forex Report">
 <head>
     <link rel="icon" type="image/png" href="../favicon-96x96.png" sizes="96x96" />
     <link rel="shortcut icon" href="../favicon.ico" />
@@ -17,7 +17,7 @@
     <meta property="og:title" content="Forex Trading Glossary - 50+ Essential Terms - Forex Report">
     <meta property="og:description" content="Comprehensive glossary of forex trading terms. Learn 50+ essential definitions from pip to correlation to hedge. Perfect for beginners and intermediate traders.">
     <meta property="og:url" content="https://newsforextrading.com/guides/trading-glossary.html">
-    <meta property="og:image" content="https://newsforextrading.com/web-app-manifest-512.png">
+    <meta property="og:image" content="https://newsforextrading.com/web-app-manifest-512x512.png">
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="pt_BR">
     <meta name="twitter:card" content="summary">
@@ -29,6 +29,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4617266720439769"
      crossorigin="anonymous"></script>
     <script src="../consent.js" defer></script>
+    <script src="../lang.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,7 +49,7 @@
         h2 { font-size: 1.6rem; color: var(--color-primary); margin: 2rem 0 1rem 0; border-bottom: 2px solid var(--color-primary); padding-bottom: 0.5rem; }
     </style>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Article","headline":"Forex Trading Glossary - 50+ Essential Terms - Forex Report","description":"Comprehensive glossary of forex trading terms. Learn 50+ essential definitions from pip to correlation to hedge. Perfect for beginners and intermediate traders.","image":"https://newsforextrading.com/web-app-manifest-512.png","dateModified":"2026-07-12","inLanguage":"en","author":{"@type":"Organization","name":"Forex Report","url":"https://newsforextrading.com/"},"publisher":{"@type":"Organization","name":"Forex Report","logo":"https://newsforextrading.com/web-app-manifest-512.png"},"mainEntityOfPage":"https://newsforextrading.com/guides/trading-glossary.html"}
+    {"@context":"https://schema.org","@type":"Article","headline":"Forex Trading Glossary - 50+ Essential Terms - Forex Report","description":"Comprehensive glossary of forex trading terms. Learn 50+ essential definitions from pip to correlation to hedge. Perfect for beginners and intermediate traders.","image":"https://newsforextrading.com/web-app-manifest-512x512.png","dateModified":"2026-07-12","inLanguage":"en","author":{"@type":"Organization","name":"Forex Report","url":"https://newsforextrading.com/"},"publisher":{"@type":"Organization","name":"Forex Report","logo":"https://newsforextrading.com/web-app-manifest-512x512.png"},"mainEntityOfPage":"https://newsforextrading.com/guides/trading-glossary.html"}
     </script>
 </head>
 <body>
@@ -696,53 +697,6 @@
 
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    <script>
-        let currentLang = 'en';
-
-        function initLanguage() {
-            const languages = navigator.languages || [navigator.language || ''];
-            for (const lang of languages) {
-                const cleanLang = lang.toLowerCase();
-                if (cleanLang === 'pt-br' || cleanLang === 'pt-pt') { currentLang = 'pt'; break; }
-            }
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.has('lang')) {
-                const langParam = urlParams.get('lang').toLowerCase();
-                if (langParam === 'pt' || langParam === 'en') currentLang = langParam;
-            }
-            document.getElementById('langSelect').value = currentLang;
-            updateLangDisplay();
-        }
-
-        function updateLangDisplay() {
-            if (currentLang === 'pt') {
-                document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
-                document.querySelectorAll('.lang-pt').forEach(el => el.style.display = 'block');
-                document.title = "Glossário de Trading Forex - 50+ Termos Essenciais - Forex Report";
-            } else {
-                document.querySelectorAll('.lang-pt').forEach(el => el.style.display = 'none');
-                document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'block');
-                document.title = "Forex Trading Glossary - 50+ Essential Terms - Forex Report";
-            }
-            document.querySelectorAll('a').forEach(link => {
-                const href = link.getAttribute('href');
-                if (href && href.endsWith('.html') && !href.includes('?')) {
-                    link.setAttribute('href', href + '?lang=' + currentLang);
-                } else if (href && href.includes('.html?') && href.includes('lang=')) {
-                    const cleanHref = href.split('?')[0];
-                    link.setAttribute('href', cleanHref + '?lang=' + currentLang);
-                }
-            });
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            initLanguage();
-            document.getElementById('langSelect').addEventListener('change', (e) => {
-                currentLang = e.target.value;
-                updateLangDisplay();
-            });
-        });
     </script>
 </body>
 </html>
