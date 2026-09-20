@@ -172,11 +172,11 @@
         function updateLangDisplay() {
             if (currentLang === 'pt') {
                 document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
-                document.querySelectorAll('.lang-pt').forEach(el => el.style.display = 'block');
+                document.querySelectorAll('.lang-pt').forEach(el => el.style.display = el.tagName === 'SPAN' ? 'inline' : 'block');
                 document.title = "Guias de Educação em Forex - Forex Report";
             } else {
                 document.querySelectorAll('.lang-pt').forEach(el => el.style.display = 'none');
-                document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'block');
+                document.querySelectorAll('.lang-en').forEach(el => el.style.display = el.tagName === 'SPAN' ? 'inline' : 'block');
                 document.title = "Forex Education Guides - Forex Report";
             }
             document.querySelectorAll('a').forEach(link => {

@@ -211,13 +211,13 @@
             document.querySelectorAll('tr.tr-pt, thead.tr-pt').forEach(el => el.style.display = 'none');
             if (currentLang === 'pt') {
                 document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
-                document.querySelectorAll('.lang-pt').forEach(el => el.style.display = 'block');
+                document.querySelectorAll('.lang-pt').forEach(el => el.style.display = el.tagName === 'SPAN' ? 'inline' : 'block');
                 document.querySelectorAll('tr.tr-pt, thead.tr-pt').forEach(el => el.style.display = 'table-row');
                 document.querySelectorAll('thead.tr-pt').forEach(el => el.style.display = 'table-header-group');
                 document.title = "Registro de Desempenho - Forex Report";
             } else {
                 document.querySelectorAll('.lang-pt').forEach(el => el.style.display = 'none');
-                document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'block');
+                document.querySelectorAll('.lang-en').forEach(el => el.style.display = el.tagName === 'SPAN' ? 'inline' : 'block');
                 document.title = "Track Record - Forex Ticket Performance - Forex Report";
             }
             document.querySelectorAll('a').forEach(link => {
