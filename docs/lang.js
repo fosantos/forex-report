@@ -25,7 +25,7 @@
     // Single-copy chrome labels (about, contact) — id-driven, null-guarded
     var uiStrings = {
         en: {
-            navHome: "Dashboard", navNews: "News", navAbout: "About Us", navContact: "Contact",
+            navHome: "Dashboard", navNews: "News", navGuides: "Education", navAbout: "About Us", navContact: "Contact",
             footerDisclaimer: "Disclaimer: Forex trading involves significant risk. Leverage can work against you. Past results do not guarantee future performance. Content is purely educational and does not constitute financial advice.",
             footerContact: "Have questions? Contact us:",
             footerLinkAbout: "About Us", footerLinkContact: "Contact",
@@ -33,7 +33,7 @@
             footerRights: "All rights reserved."
         },
         pt: {
-            navHome: "Painel", navNews: "Notícias", navAbout: "Quem Somos", navContact: "Contato",
+            navHome: "Painel", navNews: "Notícias", navGuides: "Educação", navAbout: "Quem Somos", navContact: "Contato",
             footerDisclaimer: "Aviso: O mercado de câmbio (Forex) envolve riscos significativos. A alavancagem pode funcionar contra si. Resultados passados não garantem lucros futuros. O conteúdo é meramente educativo e não constitui aconselhamento financeiro.",
             footerContact: "Dúvidas ou sugestões? Contacte-nos:",
             footerLinkAbout: "Quem Somos", footerLinkContact: "Contato",
@@ -42,7 +42,7 @@
         }
     };
 
-    var chromeIds = ['navHome', 'navNews', 'navAbout', 'navContact',
+    var chromeIds = ['navHome', 'navNews', 'navGuides', 'navAbout', 'navContact',
                      'footerDisclaimerText', 'footerContactText',
                      'footerLinkAbout', 'footerLinkContact',
                      'footerLinkDisclaimer', 'footerLinkPrivacy',

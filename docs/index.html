@@ -401,6 +401,11 @@
                 pulseSetups: "Actionable setups",
                 pulseWait: "On hold",
                 supportBtn: "Support Project",
+                navHome: "Dashboard",
+                navNews: "News",
+                navGuides: "Education",
+                navAbout: "About Us",
+                navContact: "Contact",
                 selectPair: "Select Currency Pair to Analyze",
                 supportTitle: "Support Our Project ☕",
                 supportDesc: "Our reports are updated daily and are completely free. If our analysis helps you make better decisions, consider supporting us to keep the site active and free of premium subscriptions!",
@@ -516,6 +521,11 @@
                 pulseSetups: "Operações acionáveis",
                 pulseWait: "Em espera",
                 supportBtn: "Apoie o Projeto",
+                navHome: "Painel",
+                navNews: "Notícias",
+                navGuides: "Educação",
+                navAbout: "Quem Somos",
+                navContact: "Contato",
                 selectPair: "Selecione o Par de Moedas para Analisar",
                 supportTitle: "Apoie o Nosso Projeto ☕",
                 supportDesc: "Os nossos relatórios são atualizados diariamente e são totalmente gratuitos. Se as nossas análises o ajudam a tomar melhores decisões, considere apoiar-nos para manter o site ativo e livre de assinaturas pagas!",
@@ -1283,6 +1293,11 @@
             
             // DOM static translation injection
             document.getElementById('supportHeaderBtn').textContent = dictionary.supportBtn;
+            document.getElementById('navHome').textContent = dictionary.navHome;
+            document.getElementById('navNews').textContent = dictionary.navNews;
+            document.getElementById('navGuides').textContent = dictionary.navGuides;
+            document.getElementById('navAbout').textContent = dictionary.navAbout;
+            document.getElementById('navContact').textContent = dictionary.navContact;
             document.getElementById('heroTitle').textContent = dictionary.title;
             document.getElementById('cdKicker').textContent = dictionary.cdKicker;
             document.getElementById('cdSubtitle').textContent = dictionary.subtitle;
@@ -1335,6 +1350,22 @@
             document.getElementById('modalPrivacyTitle').textContent = dictionary.modalPrivacyTitle;
             document.getElementById('modalPrivacyBody').innerHTML = dictionary.modalPrivacyContent;
             document.getElementById('modalPrivacyCloseBtn').textContent = dictionary.modalPrivacyClose;
+
+            // Propagate the active language through every internal .html link —
+            // including the EN choice: without ?lang=en, the static pages fall
+            // back to browser-language auto-detection (pt-BR browsers would
+            // flip back to PT on the next click). Mirrors the rewrite in lang.js.
+            document.querySelectorAll('a').forEach(link => {
+                const href = link.getAttribute('href');
+                if (!href) return;
+                if (href.startsWith('index.html?pair=')) {
+                    link.setAttribute('href', href.split('&')[0] + '&lang=' + currentLang);
+                } else if (href.endsWith('.html') && !href.includes('?')) {
+                    link.setAttribute('href', href + '?lang=' + currentLang);
+                } else if (href.includes('.html?') && href.includes('lang=')) {
+                    link.setAttribute('href', href.split('?')[0] + '?lang=' + currentLang);
+                }
+            });
         }
 
         /* ==========================================
@@ -1615,7 +1646,9 @@
            The full wire (all items + week-ahead calendar) lives on news.html.
            ========================================== */
         function pairPageUrl(pair, lang) {
-            return pair.replace('/', '-').toLowerCase() + '.html' + (lang === 'pt' ? '?lang=pt' : '');
+            // Always carry the explicit lang — an EN selection must survive
+            // into pages whose browser-language auto-detect would pick PT.
+            return pair.replace('/', '-').toLowerCase() + '.html?lang=' + lang;
         }
 
         function renderNewsDigest() {
@@ -1643,7 +1676,7 @@
             }).join('');
 
             const more = document.getElementById('newsViewAll');
-            if (more) more.setAttribute('href', 'news.html' + (currentLang === 'pt' ? '?lang=pt' : ''));
+            if (more) more.setAttribute('href', 'news.html?lang=' + currentLang);
         }
 
         /* ==========================================
