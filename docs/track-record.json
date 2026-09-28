@@ -2,7 +2,7 @@
   "meta": {
     "version": 1,
     "created": "17/08/2026",
-    "lastUpdated": "19/09/2026",
+    "lastUpdated": "28/09/2026",
     "pairs": [
       "EUR/USD",
       "USD/JPY",
@@ -29,30 +29,42 @@
   "watching": [
     {
       "pair": "EUR/USD",
-      "reportDate": "19/09/2026",
+      "reportDate": "28/09/2026",
       "direction": "short",
-      "setup": "breakout",
-      "entry": 1.1459,
-      "stop": 1.15,
+      "setup": "pullback",
+      "entry": 1.1475,
+      "stop": 1.152,
       "target": 1.135,
-      "plannedR": 2.66,
-      "triggerRule": "daily close under the 10-day Donchian low 1.1460 (entry reference 1.1459); valid through the 23/09 close",
-      "note": "continuation breakdown: the 18/09 close (1.1460, -0.18%) is a fresh 10/20-day low under the handed-back 78.6% Fib (1.1476); stop 41 pips over the 1.1500 round + the handed-back Fib (>= the ~37-pip 1.5-sigma20 floor); target 1.1350 just above the 9-month low (1.1340), path crossing only the 1.1400 round; additive to the open runner from the 14/09 ticket (entered at the 15/09 close 1.1539, stop 1.1600, target 1.1440)"
+      "plannedR": 2.78,
+      "triggerRule": "daily close inside 1.1455-1.1500 (handed-back 78.6% Fib 1.1476 + the 1.1500 round + the delivered 10/20-day lows) followed by a close below the previous close and the 1.1478 midpoint (entry reference 1.1475); valid through the 02/10 close",
+      "note": "armed with the runner working: the 23/09 close banked the 14/09 breakout short at target (+2.09R) and triggered the 19/09 continuation at the same close; stop 45 pips over the zone top (>= the ~43-pip 1.5-sigma20 floor), target 1.1350 just above the 9-month low (1.1340) — only the 1.1400 round on the way; additive to the open runner (entered 1.1411 at the 23/09 close, stop 1.1500, target 1.1350)"
+    },
+    {
+      "pair": "GBP/USD",
+      "reportDate": "28/09/2026",
+      "direction": "short",
+      "setup": "pullback",
+      "entry": 1.331,
+      "stop": 1.337,
+      "target": 1.317,
+      "plannedR": 2.33,
+      "triggerRule": "daily close inside 1.3290-1.3330 (handed-back 78.6% Fib 1.3301 + the 1.3300 round) followed by a close below the previous close and the 1.3310 midpoint (entry reference 1.3310); valid through the 02/10 close",
+      "note": "armed after the 23/09 close (1.3276) swept the 1.3300/1.3301 cluster and 24/09 printed the fresh 10/20-day low (1.32196) — the re-arm the 19/09 edition had marked; stop 60 pips over the broken 22/09 close (>= the ~55-pip 1.5-sigma20 floor), target 1.3170 just above the 9-month low (1.3160), crossing only the 1.3250 round; UK CPI ~13/10 and BoE 05/11 outside the window"
     }
   ],
   "open": [
     {
       "pair": "EUR/USD",
-      "reportDate": "14/09/2026",
+      "reportDate": "19/09/2026",
       "direction": "short",
       "setup": "breakout",
-      "entry": 1.15389,
-      "stop": 1.16,
-      "target": 1.144,
-      "plannedR": 2.2,
-      "triggerRule": "daily close under the 10-day Donchian low 1.1551 (entry reference 1.1550); valid through the 15/09 close — inside the FOMC (15-16/09) 24h window, reassess after the event",
-      "note": "triggered at the 15/09 close (1.15389, under the 10-day low 1.1551) inside the FOMC window per the ticket's own clause; the post-event reassessment confirmed it — the Fed hiked to 3.75-4.00% (16/09) and the 16/09 close (1.15370) held under the entry; running +1.29R at the 18/09 close (1.14600) toward 1.1440, the 1.1600 stop never threatened (10-session expiry: 29/09)",
-      "entryDate": "15/09/2026"
+      "entry": 1.1411,
+      "stop": 1.15,
+      "target": 1.135,
+      "plannedR": 2.66,
+      "triggerRule": "daily close under the 10-day Donchian low 1.1460 (entry reference 1.1459); valid through the 23/09 close",
+      "note": "triggered at the 23/09 close (1.1411, under the 10-day Donchian low 1.1460) — the same session that closed the 14/09 runner at its 1.1440 target (+2.09R); running toward 1.1350 with the 1.1500 stop untouched, +0.37R at the 28/09 close (10-session expiry: 07/10)",
+      "entryDate": "23/09/2026"
     }
   ],
   "closed": [
@@ -191,6 +203,23 @@
       "exitDate": "14/09/2026",
       "entryDate": null,
       "realizedR": null
+    },
+    {
+      "pair": "EUR/USD",
+      "reportDate": "14/09/2026",
+      "direction": "short",
+      "setup": "breakout",
+      "entry": 1.15389,
+      "stop": 1.16,
+      "target": 1.144,
+      "plannedR": 2.2,
+      "triggerRule": "daily close under the 10-day Donchian low 1.1551 (entry reference 1.1550); valid through the 15/09 close — inside the FOMC (15-16/09) 24h window, reassess after the event",
+      "note": "triggered at the 15/09 close (1.15389, under the 10-day low 1.1551) inside the FOMC window per the ticket's own clause; the post-event reassessment confirmed it — the Fed hiked to 3.75-4.00% (16/09) and the 16/09 close (1.15370) held under the entry; running +1.29R at the 18/09 close (1.14600) toward 1.1440, the 1.1600 stop never threatened (10-session expiry: 29/09); closed at the 23/09 close (1.1411) at/beyond the 1.1440 target — realized +2.09R, the ledger's first target outcome",
+      "entryDate": "15/09/2026",
+      "outcome": "target",
+      "exitDate": "23/09/2026",
+      "exit": 1.1411,
+      "realizedR": 2.09
     }
   ]
 }
