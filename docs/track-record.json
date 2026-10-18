@@ -2,7 +2,7 @@
   "meta": {
     "version": 1,
     "created": "17/08/2026",
-    "lastUpdated": "10/10/2026",
+    "lastUpdated": "12/10/2026",
     "pairs": [
       "EUR/USD",
       "USD/JPY",
@@ -29,27 +29,27 @@
   "watching": [
     {
       "pair": "EUR/USD",
-      "reportDate": "10/10/2026",
+      "reportDate": "12/10/2026",
       "direction": "short",
-      "setup": "pullback",
-      "entry": 1.128,
-      "stop": 1.1342,
-      "target": 1.115,
-      "plannedR": 2.1,
-      "triggerRule": "daily close inside 1.1260-1.1300 (the failed Oct-6 bounce close 1.1269 + the 1.1300 round) followed by a close below the previous close and the 1.1280 midpoint (entry reference 1.1280); valid through the 15/10 close",
-      "note": "armed after the 06/10 shelf (1.1340-1.1370) expired unfired at the 09/10 close — the breakdown ran to a second fresh 9-month low (1.1177 at the 07/10 close) without returning the pullback; re-armed one shelf lower: stop 1.1342 (62 pips, pinned to the September shelf 1.1340, >= the ~58-pip 1.5-sigma20 floor), target 1.1150 — the round under the fresh low — crossing only the 1.1200 round; US CPI ~13/10 (shutdown delay risk) counts post-event closes only"
+      "setup": "breakout",
+      "entry": 1.1175,
+      "stop": 1.1235,
+      "target": 1.1055,
+      "plannedR": 2.0,
+      "triggerRule": "daily close below the 9-month low 1.1177 and a second confirming close (entry reference 1.1175); only closes after 13/10 count (US CPI); valid through the 23/10 close",
+      "note": "replaces the revoked 10/10 pullback — stop 1.1235 (60 pips over the Oct 2 close 1.1225 and the Oct 9 bounce 1.1206, >= the 57-pip 1.5-sigma20 floor), target 1.1055 crossing only the 1.1100 round"
     },
     {
       "pair": "GBP/USD",
-      "reportDate": "10/10/2026",
+      "reportDate": "12/10/2026",
       "direction": "short",
       "setup": "pullback",
       "entry": 1.331,
       "stop": 1.3375,
       "target": 1.317,
       "plannedR": 2.15,
-      "triggerRule": "daily close inside 1.3290-1.3330 (78.6% Fib 1.3301 + the 1.3300 round) followed by a close below the previous close and the 1.3310 midpoint (entry reference 1.3310); valid through the 15/10 close",
-      "note": "re-armed a third time on the unchanged zone after a second straight unfired expiry (closes 07-09/10 maxed at 1.3220 vs the 1.3290 floor); stop widened to 1.3375 (65 pips over the broken 22/09 close 1.3363, >= the expanded ~63-pip 1.5-sigma20 floor), target 1.3170 just above the 9-month low (1.3160), crossing only the 1.3250 round; UK CPI ~13/10 counts post-event closes only"
+      "triggerRule": "daily close inside 1.3290-1.3330 followed by a close below the previous close and the 1.3310 midpoint (entry reference 1.3310); only closes after 13/10 count (US and UK CPI); valid through the 23/10 close",
+      "note": "same band as 10/10, re-armed after an unfired 12/10 close (1.3235); stop 1.3375 (65 pips >= the 64-pip 1.5-sigma20 floor), target 1.3170 just above the 9-month low 1.3160"
     }
   ],
   "open": [],
@@ -285,6 +285,38 @@
       "note": "revoked in the 10/10 edition: second consecutive unfired expiry — the 07-09/10 closes maxed at 1.3220 vs the 1.3290 floor with the structure unchanged (cluster still flipped, pullbacks dying lower); re-armed a third time with the stop widened to 1.3375 for the expanded ~63-pip 1.5-sigma20 floor",
       "outcome": "revoked",
       "exitDate": "09/10/2026",
+      "entryDate": null,
+      "realizedR": null
+    },
+    {
+      "pair": "EUR/USD",
+      "reportDate": "10/10/2026",
+      "direction": "short",
+      "setup": "pullback",
+      "entry": 1.128,
+      "stop": 1.1342,
+      "target": 1.115,
+      "plannedR": 2.1,
+      "triggerRule": "daily close inside 1.1260-1.1300 (the failed Oct-6 bounce close 1.1269 + the 1.1300 round) followed by a close below the previous close and the 1.1280 midpoint (entry reference 1.1280); valid through the 15/10 close",
+      "note": "revoked in the 12/10 edition: the only post-report close (12/10 at 1.1181) never entered 1.1260-1.1300, and the 1.1150 target crosses the 9-month low 1.1177 — the path gate fails; the map moves to a break of that low",
+      "outcome": "revoked",
+      "exitDate": "12/10/2026",
+      "entryDate": null,
+      "realizedR": null
+    },
+    {
+      "pair": "GBP/USD",
+      "reportDate": "10/10/2026",
+      "direction": "short",
+      "setup": "pullback",
+      "entry": 1.331,
+      "stop": 1.3375,
+      "target": 1.317,
+      "plannedR": 2.15,
+      "triggerRule": "daily close inside 1.3290-1.3330 (78.6% Fib 1.3301 + the 1.3300 round) followed by a close below the previous close and the 1.3310 midpoint (entry reference 1.3310); valid through the 15/10 close",
+      "note": "revoked in the 12/10 edition and re-armed on the same 1.3290-1.3330 band: the 12/10 close (1.3235) never entered the zone; validity extended through the 23/10 close and only post-13/10 closes count (US and UK CPI)",
+      "outcome": "revoked",
+      "exitDate": "12/10/2026",
       "entryDate": null,
       "realizedR": null
     }
