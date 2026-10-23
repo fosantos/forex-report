@@ -2,7 +2,7 @@
   "meta": {
     "version": 1,
     "created": "17/08/2026",
-    "lastUpdated": "20/10/2026",
+    "lastUpdated": "22/10/2026",
     "pairs": [
       "EUR/USD",
       "USD/JPY",
@@ -29,30 +29,32 @@
   "watching": [
     {
       "pair": "EUR/USD",
-      "reportDate": "20/10/2026",
+      "reportDate": "22/10/2026",
       "direction": "short",
       "setup": "pullback",
       "entry": 1.128,
       "stop": 1.136,
       "target": 1.112,
       "plannedR": 2.0,
-      "triggerRule": "daily close inside 1.1260-1.1300 (the failed Oct-6 close 1.1269 + the 1.1300 round) followed by a close below the previous close and the 1.1280 midpoint (entry reference 1.1280); only closes after the 20/10 report count and the 28/10 close (FOMC) doesn't arm; valid through the 30/10 close",
-      "note": "re-armed unchanged from the 18/10 edition: the Oct 19-20 closes (1.1225/1.1215) faded away from the shelf without entering it — stop 1.1360 (80 pips over the 29-30/09 double close 1.1355 and the 78.6% Fib 1.1348, >= the 59-pip 1.5-sigma20 floor), target 1.1120 under the 9-month low crossing only the 1.1150 round"
-    },
+      "triggerRule": "daily close inside 1.1260-1.1300 (the failed Oct-6 close 1.1269 + the 1.1300 round) followed by a close below the previous close and the 1.1280 midpoint (entry reference 1.1280); only closes after the 22/10 report count and the 27-28/10 closes (FOMC window) don't arm; valid through the 30/10 close",
+      "note": "re-armed unchanged for a third straight edition (18->20->22/10): the Oct 21-22 closes (1.1234/1.1205) faded away from the shelf without entering it — stop 1.1360 (80 pips over the 29-30/09 double close 1.1355 and the 78.6% Fib 1.1348, >= the 58-pip 1.5-sigma20 floor), target 1.1120 under the 9-month low crossing only the 1.1150 round"
+    }
+  ],
+  "open": [
     {
       "pair": "GBP/USD",
       "reportDate": "20/10/2026",
       "direction": "short",
       "setup": "pullback",
-      "entry": 1.339,
+      "entry": 1.3376,
+      "entryDate": "22/10/2026",
       "stop": 1.346,
       "target": 1.325,
       "plannedR": 2.0,
       "triggerRule": "daily close inside 1.3360-1.3420 (the broken Sep-22 close 1.3363 + the SMA50 1.3416 / 61.8% Fib 1.3411 / 1.3400 round cluster) followed by a close below the previous close and the 1.3390 midpoint (entry reference 1.3390); only closes after the 20/10 report count — the 21/10 close is already post-CPI (07:00 London) and arms, the 28/10 close (FOMC) doesn't; valid through the 30/10 close",
-      "note": "re-priced one shelf up after the Oct-20 close 1.3347 overran the 1.3290-1.3330 band: stop 1.3460 (70 pips over the SMA200 1.3434 and the 1.3450 round, >= the 65-pip 1.5-sigma20 floor), target 1.3250 above the 10-day low 1.3205 crossing only the 1.3350/1.3300 rounds"
+      "note": "triggered at the 22/10 close: the 21/10 close 1.3402 (post-UK-CPI 3.5%, pinning the 10/20-day high) entered the 1.3360-1.3420 shelf and the 22/10 close 1.3376 confirmed below the previous close and the 1.3390 midpoint — close-based stop 1.3460 / target 1.3250, 10-session expiry at the 05/11 close (BoE day)"
     }
   ],
-  "open": [],
   "closed": [
     {
       "pair": "GBP/JPY",
@@ -381,6 +383,22 @@
       "note": "revoked in the 20/10 edition: the Oct-20 close 1.3347 overran the band top (first 10/20-day high close, third daily gain into the Oct-21 UK CPI) — re-armed one shelf higher at 1.3360-1.3420 (stop 1.3460, target 1.3250)",
       "outcome": "revoked",
       "exitDate": "20/10/2026",
+      "entryDate": null,
+      "realizedR": null
+    },
+    {
+      "pair": "EUR/USD",
+      "reportDate": "20/10/2026",
+      "direction": "short",
+      "setup": "pullback",
+      "entry": 1.128,
+      "stop": 1.136,
+      "target": 1.112,
+      "plannedR": 2.0,
+      "triggerRule": "daily close inside 1.1260-1.1300 (the failed Oct-6 close 1.1269 + the 1.1300 round) followed by a close below the previous close and the 1.1280 midpoint (entry reference 1.1280); only closes after the 20/10 report count and the 28/10 close (FOMC) doesn't arm; valid through the 30/10 close",
+      "note": "revoked in the 22/10 edition and re-armed unchanged on the same shelf: no 21-22/10 close entered 1.1260-1.1300 (max 1.1234 vs the 1.1260 floor); validity re-stamped through the 30/10 close with the 27-28/10 closes (FOMC window) not arming",
+      "outcome": "revoked",
+      "exitDate": "22/10/2026",
       "entryDate": null,
       "realizedR": null
     }
