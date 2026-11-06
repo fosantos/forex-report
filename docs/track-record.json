@@ -2,7 +2,7 @@
   "meta": {
     "version": 1,
     "created": "17/08/2026",
-    "lastUpdated": "28/10/2026",
+    "lastUpdated": "06/11/2026",
     "pairs": [
       "EUR/USD",
       "USD/JPY",
@@ -27,7 +27,8 @@
     }
   },
   "watching": [],
-  "open": [
+  "open": [],
+  "closed": [
     {
       "pair": "GBP/USD",
       "reportDate": "20/10/2026",
@@ -39,10 +40,12 @@
       "target": 1.325,
       "plannedR": 2.0,
       "triggerRule": "daily close inside 1.3360-1.3420 (the broken Sep-22 close 1.3363 + the SMA50 1.3416 / 61.8% Fib 1.3411 / 1.3400 round cluster) followed by a close below the previous close and the 1.3390 midpoint (entry reference 1.3390); only closes after the 20/10 report count — the 21/10 close is already post-CPI (07:00 London) and arms, the 28/10 close (FOMC) doesn't; valid through the 30/10 close",
-      "note": "triggered at the 22/10 close: the 21/10 close 1.3402 (post-UK-CPI 3.5%, pinning the 10/20-day high) entered the 1.3360-1.3420 shelf and the 22/10 close 1.3376 confirmed below the previous close and the 1.3390 midpoint — close-based stop 1.3460 / target 1.3250, 10-session expiry at the 05/11 close (BoE day)"
-    }
-  ],
-  "closed": [
+      "note": "triggered at the 22/10 close: the 21/10 close 1.3402 (post-UK-CPI 3.5%, pinning the 10/20-day high) entered the 1.3360-1.3420 shelf and the 22/10 close 1.3376 confirmed below the previous close and the 1.3390 midpoint — close-based stop 1.3460 / target 1.3250, 10-session expiry at the 05/11 close (BoE day) — resolved at the stop on the 04/11 close 1.3500 (10/20-day high); close-crossed 1.3460 two sessions before the 05/11 expiry; BoE hike to 4.00% printed the next day",
+      "outcome": "stop",
+      "exitDate": "04/11/2026",
+      "exit": 1.35,
+      "realizedR": -1.0
+    },
     {
       "pair": "GBP/JPY",
       "reportDate": "14/08/2026",
