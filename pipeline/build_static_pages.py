@@ -2,10 +2,10 @@
 """Regenerate the <article> block in each static pair page from the validated forexData in index.html,
 and refresh the no-JS static fallback report (EUR/USD) inside index.html itself.
 Guarantees the static pages match the dashboard representation. Aborts on any structural anomaly."""
-import json, re, sys
+import json, os, re, sys
 
-INDEX = r"C:/Projetos/forex-report/docs/index.html"
-DOCS = r"C:/Projetos/forex-report/docs"
+INDEX = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "docs", "index.html")
+DOCS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "docs")
 
 PAGE = {
     "EUR/USD": "eur-usd.html",
@@ -417,7 +417,7 @@ for pair, fname in PAGE.items():
     # sanity: no leftover placeholders
     assert "{{" not in new_article, f"{pair}: leftover placeholder"
 
-    path = DOCS + "\\" + fname
+    path = os.path.join(DOCS, fname)
     with open(path, encoding="utf-8") as f:
         html = f.read()
 

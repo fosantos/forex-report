@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 """Comprehensive verification of both representations against the rules."""
-import json, re, sys
+import json, os, re, sys
 
-INDEX = r"C:/Projetos/forex-report/docs/index.html"
-DOCS = r"C:/Projetos/forex-report/docs"
+INDEX = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "docs", "index.html")
+DOCS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "docs")
 PAGE = {
     "EUR/USD": "eur-usd.html", "USD/JPY": "usd-jpy.html", "AUD/USD": "aud-usd.html",
     "GBP/USD": "gbp-usd.html", "EUR/JPY": "eur-jpy.html", "GBP/JPY": "gbp-jpy.html",
 }
-TODAY_TS = "18/11/2026 20:09 UTC"
-TODAY_DATE = "18/11/2026"  # basis session date (report edition: 18/11/2026)
+TODAY_TS = "20/11/2026 20:52 UTC"
+TODAY_DATE = "20/11/2026"  # basis session date (report edition: 20/11/2026)
 STALE_DATES = ["18/09/2026", "02/09/2026", "01/09/2026", "28/08/2026", "24/08/2026", "20/08/2026", "19/08/2026", "18/08/2026", "17/08/2026", "14/08/2026", "13/08/2026", "11/08/2026", "03/08/2026", "02/08/2026"]
-TICKER = [("EUR/USD","-0.19%"),("USD/JPY","+0.08%"),("AUD/USD","-0.05%"),
-          ("GBP/USD","-0.17%"),("EUR/JPY","-0.12%"),("GBP/JPY","-0.10%")]
+TICKER = [("EUR/USD","-0.02%"),("USD/JPY","-0.83%"),("AUD/USD","-0.68%"),
+          ("GBP/USD","-0.20%"),("EUR/JPY","-0.85%"),("GBP/JPY","-1.03%")]
 errors = []
 
 with open(INDEX, encoding="utf-8") as f:
@@ -88,7 +88,7 @@ print("== index.html checks done ==")
 # ---- 2. static page checks ----
 for pair, fname in PAGE.items():
     d = data[pair]
-    path = DOCS + "\\" + fname
+    path = os.path.join(DOCS, fname)
     with open(path, encoding="utf-8") as f:
         html = f.read()
     if html.count("<article ") != 1:
@@ -149,7 +149,7 @@ for pair, fname in PAGE.items():
 print("\n== static page checks done ==")
 
 # ---- 3. track-record ledger checks ----
-LEDGER = DOCS + "\\track-record.json"
+LEDGER = os.path.join(DOCS, "track-record.json")
 try:
     with open(LEDGER, encoding="utf-8") as f:
         ledger = json.load(f)
