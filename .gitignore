@@ -15,3 +15,8 @@ package-lock.json
 pipeline/__pycache__/
 .chrome-profile/
 .playwright-mcp/
+
+# MCP MetaTrader: local venv + bridge secret (never commit the token)
+mcp-metatrader/.venv/
+mcp-metatrader/.bridge_token
+mcp-metatrader/__pycache__/

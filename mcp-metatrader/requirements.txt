@@ -1,0 +1,5 @@
+# MCP side (Linux/WSL venv): pip install -r requirements.txt
+mcp>=2.0
+
+# Bridge side (Windows): pip install MetaTrader5
+# (pinned separately — install manually on the terminal host)
