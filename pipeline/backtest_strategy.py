@@ -39,7 +39,7 @@ RR_MIN = 2.0
 WARM = 250
 
 req = urllib.request.Request(
-    f'https://api.frankfurter.app/{START}..{END}?from=USD&to=EUR,JPY,GBP,AUD',
+    f'https://api.frankfurter.dev/v1/{START}..{END}?from=USD&to=EUR,JPY,GBP,AUD',
     headers={'User-Agent': 'Mozilla/5.0 (forex-report)'})
 data = json.load(urllib.request.urlopen(req, timeout=180))
 dates = sorted(data['rates'].keys())

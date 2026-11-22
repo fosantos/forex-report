@@ -8,8 +8,8 @@ PAGE = {
     "EUR/USD": "eur-usd.html", "USD/JPY": "usd-jpy.html", "AUD/USD": "aud-usd.html",
     "GBP/USD": "gbp-usd.html", "EUR/JPY": "eur-jpy.html", "GBP/JPY": "gbp-jpy.html",
 }
-TODAY_TS = "20/11/2026 20:52 UTC"
-TODAY_DATE = "20/11/2026"  # basis session date (report edition: 20/11/2026)
+TODAY_TS = "22/11/2026 10:50 UTC"
+TODAY_DATE = "22/11/2026"  # report edition: 22/11/2026, on the 20/11/2026 basis session
 STALE_DATES = ["18/09/2026", "02/09/2026", "01/09/2026", "28/08/2026", "24/08/2026", "20/08/2026", "19/08/2026", "18/08/2026", "17/08/2026", "14/08/2026", "13/08/2026", "11/08/2026", "03/08/2026", "02/08/2026"]
 TICKER = [("EUR/USD","-0.02%"),("USD/JPY","-0.83%"),("AUD/USD","-0.68%"),
           ("GBP/USD","-0.20%"),("EUR/JPY","-0.85%"),("GBP/JPY","-1.03%")]
